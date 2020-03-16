@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :customertypes
   resources :customerstatuses
   resources :countries
   resources :customers
