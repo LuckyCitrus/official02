@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :pictures
   resources :orderstatuses
   resources :customertypes
