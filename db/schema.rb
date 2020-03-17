@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_032421) do
+ActiveRecord::Schema.define(version: 2020_03_17_034112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,8 @@ ActiveRecord::Schema.define(version: 2020_03_17_032421) do
     t.bigint "paymentmethod_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_payments_on_customer_id"
     t.index ["paymentmethod_id"], name: "index_payments_on_paymentmethod_id"
     t.index ["paymentstatus_id"], name: "index_payments_on_paymentstatus_id"
   end
@@ -128,6 +130,7 @@ ActiveRecord::Schema.define(version: 2020_03_17_032421) do
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "orderstatuses"
   add_foreign_key "orders", "pictures"
+  add_foreign_key "payments", "customers"
   add_foreign_key "payments", "paymentmethods"
   add_foreign_key "payments", "paymentstatuses"
 end
