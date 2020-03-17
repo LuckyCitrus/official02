@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Titlestatuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titlestatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @titlestatuses.each do |titlestatus| %>
+      <tr>
+        <td><%= titlestatus.titlestatus %></td>
+        <td><%= link_to 'Show', titlestatus %></td>
+        <td><%= link_to 'Edit', edit_titlestatus_path(titlestatus) %></td>
+        <td><%= link_to 'Destroy', titlestatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Titlestatus', new_titlestatus_path %>

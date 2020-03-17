@@ -1,0 +1,22 @@
+<%= form_with(model: keystatus, local: true) do |form| %>
+  <% if keystatus.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(keystatus.errors.count, "error") %> prohibited this keystatus from being saved:</h2>
+
+      <ul>
+        <% keystatus.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :keystatus %>
+    <%= form.text_field :keystatus %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

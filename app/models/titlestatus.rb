@@ -1,0 +1,2 @@
+class Titlestatus < ApplicationRecord
+end

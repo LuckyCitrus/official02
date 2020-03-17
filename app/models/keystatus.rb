@@ -1,0 +1,2 @@
+class Keystatus < ApplicationRecord
+end

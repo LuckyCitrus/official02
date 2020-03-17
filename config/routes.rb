@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :keystatuses
+  resources :titlestatuses
   resources :employees
   resources :employeestatuses
   resources :departments
