@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :employeestatuses
+  resources :departments
+  resources :companies
   resources :payments
   resources :paymentmethods
   resources :paymentstatuses
