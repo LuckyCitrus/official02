@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :paymentmethods
+  resources :paymentstatuses
   resources :auctions
   resources :locations
   resources :orders
