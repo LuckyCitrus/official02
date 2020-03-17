@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_17_051444) do
+ActiveRecord::Schema.define(version: 2020_03_17_053119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,24 @@ ActiveRecord::Schema.define(version: 2020_03_17_051444) do
     t.string "departmentname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "empfname"
+    t.string "emplname"
+    t.string "address"
+    t.string "email"
+    t.string "phone"
+    t.string "title"
+    t.date "hiredate"
+    t.bigint "company_id", null: false
+    t.bigint "department_id", null: false
+    t.bigint "employeestatus_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_employees_on_company_id"
+    t.index ["department_id"], name: "index_employees_on_department_id"
+    t.index ["employeestatus_id"], name: "index_employees_on_employeestatus_id"
   end
 
   create_table "employeestatuses", force: :cascade do |t|
@@ -145,6 +163,9 @@ ActiveRecord::Schema.define(version: 2020_03_17_051444) do
   add_foreign_key "customers", "countries"
   add_foreign_key "customers", "customerstatuses"
   add_foreign_key "customers", "customertypes"
+  add_foreign_key "employees", "companies"
+  add_foreign_key "employees", "departments"
+  add_foreign_key "employees", "employeestatuses"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "orderstatuses"
   add_foreign_key "orders", "pictures"
