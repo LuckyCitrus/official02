@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_18_051159) do
+ActiveRecord::Schema.define(version: 2020_03_18_051711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,20 @@ ActiveRecord::Schema.define(version: 2020_03_18_051159) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "shipments", force: :cascade do |t|
+    t.date "date"
+    t.integer "quantity"
+    t.string "container"
+    t.bigint "warehouse_id", null: false
+    t.bigint "shipmentmethod_id", null: false
+    t.bigint "shipmentstatus_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shipmentmethod_id"], name: "index_shipments_on_shipmentmethod_id"
+    t.index ["shipmentstatus_id"], name: "index_shipments_on_shipmentstatus_id"
+    t.index ["warehouse_id"], name: "index_shipments_on_warehouse_id"
+  end
+
   create_table "shipmentstatuses", force: :cascade do |t|
     t.string "shipmentstatus"
     t.datetime "created_at", precision: 6, null: false
@@ -225,5 +239,8 @@ ActiveRecord::Schema.define(version: 2020_03_18_051159) do
   add_foreign_key "payments", "customers"
   add_foreign_key "payments", "paymentmethods"
   add_foreign_key "payments", "paymentstatuses"
+  add_foreign_key "shipments", "shipmentmethods"
+  add_foreign_key "shipments", "shipmentstatuses"
+  add_foreign_key "shipments", "warehouses"
   add_foreign_key "warehouses", "locations"
 end
