@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_18_045320) do
+ActiveRecord::Schema.define(version: 2020_03_18_050415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,14 @@ ActiveRecord::Schema.define(version: 2020_03_18_045320) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "warehouses", force: :cascade do |t|
+    t.string "warehousename"
+    t.bigint "location_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_warehouses_on_location_id"
+  end
+
   add_foreign_key "auctions", "locations"
   add_foreign_key "cars", "keystatuses"
   add_foreign_key "cars", "titlestatuses"
@@ -205,4 +213,5 @@ ActiveRecord::Schema.define(version: 2020_03_18_045320) do
   add_foreign_key "payments", "customers"
   add_foreign_key "payments", "paymentmethods"
   add_foreign_key "payments", "paymentstatuses"
+  add_foreign_key "warehouses", "locations"
 end
