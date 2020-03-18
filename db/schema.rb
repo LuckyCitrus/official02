@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_18_051711) do
+ActiveRecord::Schema.define(version: 2020_03_18_052832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,27 @@ ActiveRecord::Schema.define(version: 2020_03_18_051711) do
     t.string "world"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.date "invoicedate"
+    t.date "duedate"
+    t.bigint "customer_id", null: false
+    t.bigint "employee_id", null: false
+    t.bigint "order_id", null: false
+    t.bigint "payment_id", null: false
+    t.bigint "car_id", null: false
+    t.bigint "shipment_id", null: false
+    t.bigint "auction_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["auction_id"], name: "index_invoices_on_auction_id"
+    t.index ["car_id"], name: "index_invoices_on_car_id"
+    t.index ["customer_id"], name: "index_invoices_on_customer_id"
+    t.index ["employee_id"], name: "index_invoices_on_employee_id"
+    t.index ["order_id"], name: "index_invoices_on_order_id"
+    t.index ["payment_id"], name: "index_invoices_on_payment_id"
+    t.index ["shipment_id"], name: "index_invoices_on_shipment_id"
   end
 
   create_table "invoicestatuses", force: :cascade do |t|
@@ -233,6 +254,13 @@ ActiveRecord::Schema.define(version: 2020_03_18_051711) do
   add_foreign_key "employees", "companies"
   add_foreign_key "employees", "departments"
   add_foreign_key "employees", "employeestatuses"
+  add_foreign_key "invoices", "auctions"
+  add_foreign_key "invoices", "cars"
+  add_foreign_key "invoices", "customers"
+  add_foreign_key "invoices", "employees"
+  add_foreign_key "invoices", "orders"
+  add_foreign_key "invoices", "payments"
+  add_foreign_key "invoices", "shipments"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "orderstatuses"
   add_foreign_key "orders", "pictures"

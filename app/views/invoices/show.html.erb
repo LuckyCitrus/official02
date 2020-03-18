@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Invoicedate:</strong>
+  <%= @invoice.invoicedate %>
+</p>
+
+<p>
+  <strong>Duedate:</strong>
+  <%= @invoice.duedate %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @invoice.customer_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @invoice.employee_id %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @invoice.order_id %>
+</p>
+
+<p>
+  <strong>Payment:</strong>
+  <%= @invoice.payment_id %>
+</p>
+
+<p>
+  <strong>Car:</strong>
+  <%= @invoice.car_id %>
+</p>
+
+<p>
+  <strong>Shipment:</strong>
+  <%= @invoice.shipment_id %>
+</p>
+
+<p>
+  <strong>Auction:</strong>
+  <%= @invoice.auction_id %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>
