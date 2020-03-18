@@ -1,0 +1,22 @@
+<%= form_with(model: shipmentmethod, local: true) do |form| %>
+  <% if shipmentmethod.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shipmentmethod.errors.count, "error") %> prohibited this shipmentmethod from being saved:</h2>
+
+      <ul>
+        <% shipmentmethod.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :shipmentmethod %>
+    <%= form.text_field :shipmentmethod %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

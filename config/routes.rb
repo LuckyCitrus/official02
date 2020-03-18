@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :shipmentstatuses
+  resources :shipmentmethods
   resources :warehouses
   resources :invoicestatuses
   resources :cars
