@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :invoicestatuses
   resources :cars
   resources :keystatuses
   resources :titlestatuses
