@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_050105) do
+ActiveRecord::Schema.define(version: 2020_03_19_053658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,9 @@ ActiveRecord::Schema.define(version: 2020_03_19_050105) do
     t.bigint "company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "shipment_id"
     t.index ["company_id"], name: "index_containers_on_company_id"
+    t.index ["shipment_id"], name: "index_containers_on_shipment_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -90,7 +92,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_050105) do
     t.string "departmentname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "company_id", null: false
+    t.bigint "company_id"
     t.index ["company_id"], name: "index_departments_on_company_id"
   end
 
@@ -287,6 +289,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_050105) do
   add_foreign_key "cars", "keystatuses"
   add_foreign_key "cars", "titlestatuses"
   add_foreign_key "containers", "companies"
+  add_foreign_key "containers", "shipments"
   add_foreign_key "customers", "countries"
   add_foreign_key "customers", "customerstatuses"
   add_foreign_key "customers", "customertypes"
