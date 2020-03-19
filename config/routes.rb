@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :dummyroles
   resources :invoices
   resources :shipments
   resources :shipmentstatuses
