@@ -4,4 +4,5 @@ class Order < ApplicationRecord
   belongs_to :customer
   belongs_to :auction
   has_many :cars
+  belongs_to :container
 end
