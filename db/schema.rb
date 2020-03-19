@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_034340) do
+ActiveRecord::Schema.define(version: 2020_03_19_034518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,15 @@ ActiveRecord::Schema.define(version: 2020_03_19_034340) do
     t.string "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "dummyusers", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.bigint "dummyrole_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dummyrole_id"], name: "index_dummyusers_on_dummyrole_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -266,6 +275,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_034340) do
   add_foreign_key "customers", "customerstatuses"
   add_foreign_key "customers", "customertypes"
   add_foreign_key "departments", "companies"
+  add_foreign_key "dummyusers", "dummyroles"
   add_foreign_key "employees", "companies"
   add_foreign_key "employees", "departments"
   add_foreign_key "employees", "employeestatuses"

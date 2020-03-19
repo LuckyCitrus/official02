@@ -1,0 +1,2 @@
+module DummyusersHelper
+end
