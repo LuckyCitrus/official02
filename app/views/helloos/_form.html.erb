@@ -1,0 +1,22 @@
+<%= form_with(model: helloo, local: true) do |form| %>
+  <% if helloo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(helloo.errors.count, "error") %> prohibited this helloo from being saved:</h2>
+
+      <ul>
+        <% helloo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :worldd %>
+    <%= form.text_field :worldd %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

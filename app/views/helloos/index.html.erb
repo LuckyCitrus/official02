@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Helloos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Worldd</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @helloos.each do |helloo| %>
+      <tr>
+        <td><%= helloo.worldd %></td>
+        <td><%= link_to 'Show', helloo %></td>
+        <td><%= link_to 'Edit', edit_helloo_path(helloo) %></td>
+        <td><%= link_to 'Destroy', helloo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Helloo', new_helloo_path %>

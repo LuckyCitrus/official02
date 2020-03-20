@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :helloos
   resources :containers
   resources :dummyusers
   resources :dummyroles
