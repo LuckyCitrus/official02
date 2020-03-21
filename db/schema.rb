@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_062212) do
+ActiveRecord::Schema.define(version: 2020_03_21_062822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -332,9 +332,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_062212) do
     t.bigint "location_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "shipment_id", null: false
     t.index ["location_id"], name: "index_warehouses_on_location_id"
-    t.index ["shipment_id"], name: "index_warehouses_on_shipment_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -376,5 +374,4 @@ ActiveRecord::Schema.define(version: 2020_03_21_062212) do
   add_foreign_key "shipments", "shipmentstatuses"
   add_foreign_key "shipments", "warehouses"
   add_foreign_key "warehouses", "locations"
-  add_foreign_key "warehouses", "shipments"
 end
