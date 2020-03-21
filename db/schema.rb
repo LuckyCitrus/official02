@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_051643) do
+ActiveRecord::Schema.define(version: 2020_03_21_052443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,7 +178,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_051643) do
     t.date "duedate"
     t.bigint "customer_id", null: false
     t.bigint "employee_id", null: false
-    t.bigint "order_id", null: false
     t.bigint "car_id", null: false
     t.bigint "auction_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -189,7 +188,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_051643) do
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["employee_id"], name: "index_invoices_on_employee_id"
     t.index ["invoicestatus_id"], name: "index_invoices_on_invoicestatus_id"
-    t.index ["order_id"], name: "index_invoices_on_order_id"
   end
 
   create_table "invoiceshipments", force: :cascade do |t|
@@ -226,6 +224,15 @@ ActiveRecord::Schema.define(version: 2020_03_21_051643) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["auction_id"], name: "index_order_auctions_on_auction_id"
     t.index ["order_id"], name: "index_order_auctions_on_order_id"
+  end
+
+  create_table "orderinvoices", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "invoice_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["invoice_id"], name: "index_orderinvoices_on_invoice_id"
+    t.index ["order_id"], name: "index_orderinvoices_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -348,11 +355,12 @@ ActiveRecord::Schema.define(version: 2020_03_21_051643) do
   add_foreign_key "invoices", "customers"
   add_foreign_key "invoices", "employees"
   add_foreign_key "invoices", "invoicestatuses"
-  add_foreign_key "invoices", "orders"
   add_foreign_key "invoiceshipments", "invoices"
   add_foreign_key "invoiceshipments", "shipments"
   add_foreign_key "order_auctions", "auctions"
   add_foreign_key "order_auctions", "orders"
+  add_foreign_key "orderinvoices", "invoices"
+  add_foreign_key "orderinvoices", "orders"
   add_foreign_key "orders", "containers"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "orderstatuses"

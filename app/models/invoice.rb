@@ -9,4 +9,6 @@ class Invoice < ApplicationRecord
   belongs_to :invoicestatus
   has_many :invoiceshipments
   has_many :shipments, through: :invoiceshipments
+  has_many :orderinvoices
+  has_many :orders, through: :orderinvoices
 end

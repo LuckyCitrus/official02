@@ -5,4 +5,6 @@ class Order < ApplicationRecord
   belongs_to :auction
   has_many :cars
   belongs_to :container
+  has_many :orderinvoices
+  has_many :invoices, through: :orderinvoices
 end
