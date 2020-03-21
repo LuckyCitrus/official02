@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Shipment:</strong>
+  <%= @invoiceshipment.shipment_id %>
+</p>
+
+<p>
+  <strong>Invoice:</strong>
+  <%= @invoiceshipment.invoice_id %>
+</p>
+
+<%= link_to 'Edit', edit_invoiceshipment_path(@invoiceshipment) %> |
+<%= link_to 'Back', invoiceshipments_path %>

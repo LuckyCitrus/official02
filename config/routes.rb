@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :invoiceshipments
   resources :helloos
   resources :containers
   resources :dummyusers

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_043616) do
+ActiveRecord::Schema.define(version: 2020_03_21_045753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -180,7 +180,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_043616) do
     t.bigint "employee_id", null: false
     t.bigint "order_id", null: false
     t.bigint "car_id", null: false
-    t.bigint "shipment_id", null: false
     t.bigint "auction_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -191,7 +190,15 @@ ActiveRecord::Schema.define(version: 2020_03_21_043616) do
     t.index ["employee_id"], name: "index_invoices_on_employee_id"
     t.index ["invoicestatus_id"], name: "index_invoices_on_invoicestatus_id"
     t.index ["order_id"], name: "index_invoices_on_order_id"
-    t.index ["shipment_id"], name: "index_invoices_on_shipment_id"
+  end
+
+  create_table "invoiceshipments", force: :cascade do |t|
+    t.bigint "shipment_id", null: false
+    t.bigint "invoice_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["invoice_id"], name: "index_invoiceshipments_on_invoice_id"
+    t.index ["shipment_id"], name: "index_invoiceshipments_on_shipment_id"
   end
 
   create_table "invoicestatuses", force: :cascade do |t|
@@ -335,7 +342,8 @@ ActiveRecord::Schema.define(version: 2020_03_21_043616) do
   add_foreign_key "invoices", "employees"
   add_foreign_key "invoices", "invoicestatuses"
   add_foreign_key "invoices", "orders"
-  add_foreign_key "invoices", "shipments"
+  add_foreign_key "invoiceshipments", "invoices"
+  add_foreign_key "invoiceshipments", "shipments"
   add_foreign_key "orders", "auctions"
   add_foreign_key "orders", "containers"
   add_foreign_key "orders", "customers"

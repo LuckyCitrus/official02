@@ -7,4 +7,6 @@ class Invoice < ApplicationRecord
   belongs_to :shipment
   belongs_to :auction
   belongs_to :invoicestatus
+  has_many :invoiceshipments
+  has_many :shipments, through: :invoiceshipments
 end
