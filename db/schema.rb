@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_045753) do
+ActiveRecord::Schema.define(version: 2020_03_21_051643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -219,6 +219,15 @@ ActiveRecord::Schema.define(version: 2020_03_21_045753) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "order_auctions", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "auction_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["auction_id"], name: "index_order_auctions_on_auction_id"
+    t.index ["order_id"], name: "index_order_auctions_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.date "date"
     t.integer "lotstock"
@@ -229,9 +238,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_045753) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
-    t.bigint "auction_id"
     t.bigint "container_id"
-    t.index ["auction_id"], name: "index_orders_on_auction_id"
     t.index ["container_id"], name: "index_orders_on_container_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["orderstatus_id"], name: "index_orders_on_orderstatus_id"
@@ -344,7 +351,8 @@ ActiveRecord::Schema.define(version: 2020_03_21_045753) do
   add_foreign_key "invoices", "orders"
   add_foreign_key "invoiceshipments", "invoices"
   add_foreign_key "invoiceshipments", "shipments"
-  add_foreign_key "orders", "auctions"
+  add_foreign_key "order_auctions", "auctions"
+  add_foreign_key "order_auctions", "orders"
   add_foreign_key "orders", "containers"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "orderstatuses"
