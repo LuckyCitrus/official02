@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :containerorders
   resources :orderinvoices
   resources :order_auctions
   resources :invoiceshipments

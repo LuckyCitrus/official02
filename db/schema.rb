@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_052443) do
+ActiveRecord::Schema.define(version: 2020_03_21_053413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 2020_03_21_052443) do
     t.string "companyname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "containerorders", force: :cascade do |t|
+    t.bigint "container_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["container_id"], name: "index_containerorders_on_container_id"
+    t.index ["order_id"], name: "index_containerorders_on_order_id"
   end
 
   create_table "containers", force: :cascade do |t|
@@ -245,8 +254,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_052443) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
-    t.bigint "container_id"
-    t.index ["container_id"], name: "index_orders_on_container_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["orderstatus_id"], name: "index_orders_on_orderstatus_id"
   end
@@ -338,6 +345,8 @@ ActiveRecord::Schema.define(version: 2020_03_21_052443) do
   add_foreign_key "cars", "keystatuses"
   add_foreign_key "cars", "orders"
   add_foreign_key "cars", "titlestatuses"
+  add_foreign_key "containerorders", "containers"
+  add_foreign_key "containerorders", "orders"
   add_foreign_key "containers", "companies"
   add_foreign_key "containers", "shipments"
   add_foreign_key "customers", "countries"
@@ -361,7 +370,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_052443) do
   add_foreign_key "order_auctions", "orders"
   add_foreign_key "orderinvoices", "invoices"
   add_foreign_key "orderinvoices", "orders"
-  add_foreign_key "orders", "containers"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "orderstatuses"
   add_foreign_key "payments", "customers"

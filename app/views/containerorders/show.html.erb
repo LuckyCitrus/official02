@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Container:</strong>
+  <%= @containerorder.container_id %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @containerorder.order_id %>
+</p>
+
+<%= link_to 'Edit', edit_containerorder_path(@containerorder) %> |
+<%= link_to 'Back', containerorders_path %>

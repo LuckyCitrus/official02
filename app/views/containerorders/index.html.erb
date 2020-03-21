@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Containerorders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Container</th>
+      <th>Order</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @containerorders.each do |containerorder| %>
+      <tr>
+        <td><%= containerorder.container_id %></td>
+        <td><%= containerorder.order_id %></td>
+        <td><%= link_to 'Show', containerorder %></td>
+        <td><%= link_to 'Edit', edit_containerorder_path(containerorder) %></td>
+        <td><%= link_to 'Destroy', containerorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Containerorder', new_containerorder_path %>
