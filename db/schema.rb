@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_20_061705) do
+ActiveRecord::Schema.define(version: 2020_03_21_041025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -219,7 +219,6 @@ ActiveRecord::Schema.define(version: 2020_03_20_061705) do
     t.decimal "price"
     t.decimal "total"
     t.bigint "orderstatus_id", null: false
-    t.bigint "picture_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
@@ -231,7 +230,6 @@ ActiveRecord::Schema.define(version: 2020_03_20_061705) do
     t.index ["container_id"], name: "index_orders_on_container_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["orderstatus_id"], name: "index_orders_on_orderstatus_id"
-    t.index ["picture_id"], name: "index_orders_on_picture_id"
   end
 
   create_table "orderstatuses", force: :cascade do |t|
@@ -269,6 +267,8 @@ ActiveRecord::Schema.define(version: 2020_03_20_061705) do
     t.binary "picture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_pictures_on_order_id"
   end
 
   create_table "shipmentmethods", force: :cascade do |t|
@@ -341,10 +341,10 @@ ActiveRecord::Schema.define(version: 2020_03_20_061705) do
   add_foreign_key "orders", "containers"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "orderstatuses"
-  add_foreign_key "orders", "pictures"
   add_foreign_key "payments", "customers"
   add_foreign_key "payments", "paymentmethods"
   add_foreign_key "payments", "paymentstatuses"
+  add_foreign_key "pictures", "orders"
   add_foreign_key "shipments", "shipmentmethods"
   add_foreign_key "shipments", "shipmentstatuses"
   add_foreign_key "shipments", "warehouses"
