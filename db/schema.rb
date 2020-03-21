@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_054936) do
+ActiveRecord::Schema.define(version: 2020_03_21_061244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -187,13 +187,9 @@ ActiveRecord::Schema.define(version: 2020_03_21_054936) do
     t.date "duedate"
     t.bigint "customer_id", null: false
     t.bigint "employee_id", null: false
-    t.bigint "car_id", null: false
-    t.bigint "auction_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "invoicestatus_id"
-    t.index ["auction_id"], name: "index_invoices_on_auction_id"
-    t.index ["car_id"], name: "index_invoices_on_car_id"
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["employee_id"], name: "index_invoices_on_employee_id"
     t.index ["invoicestatus_id"], name: "index_invoices_on_invoicestatus_id"
@@ -359,8 +355,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_054936) do
   add_foreign_key "employees", "departments"
   add_foreign_key "employees", "dummyusers"
   add_foreign_key "employees", "employeestatuses"
-  add_foreign_key "invoices", "auctions"
-  add_foreign_key "invoices", "cars"
   add_foreign_key "invoices", "customers"
   add_foreign_key "invoices", "employees"
   add_foreign_key "invoices", "invoicestatuses"
