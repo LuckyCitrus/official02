@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_043018) do
+ActiveRecord::Schema.define(version: 2020_03_21_043616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,7 +179,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_043018) do
     t.bigint "customer_id", null: false
     t.bigint "employee_id", null: false
     t.bigint "order_id", null: false
-    t.bigint "payment_id", null: false
     t.bigint "car_id", null: false
     t.bigint "shipment_id", null: false
     t.bigint "auction_id", null: false
@@ -192,7 +191,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_043018) do
     t.index ["employee_id"], name: "index_invoices_on_employee_id"
     t.index ["invoicestatus_id"], name: "index_invoices_on_invoicestatus_id"
     t.index ["order_id"], name: "index_invoices_on_order_id"
-    t.index ["payment_id"], name: "index_invoices_on_payment_id"
     t.index ["shipment_id"], name: "index_invoices_on_shipment_id"
   end
 
@@ -252,7 +250,9 @@ ActiveRecord::Schema.define(version: 2020_03_21_043018) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
+    t.bigint "invoice_id"
     t.index ["customer_id"], name: "index_payments_on_customer_id"
+    t.index ["invoice_id"], name: "index_payments_on_invoice_id"
     t.index ["paymentmethod_id"], name: "index_payments_on_paymentmethod_id"
     t.index ["paymentstatus_id"], name: "index_payments_on_paymentstatus_id"
   end
@@ -335,13 +335,13 @@ ActiveRecord::Schema.define(version: 2020_03_21_043018) do
   add_foreign_key "invoices", "employees"
   add_foreign_key "invoices", "invoicestatuses"
   add_foreign_key "invoices", "orders"
-  add_foreign_key "invoices", "payments"
   add_foreign_key "invoices", "shipments"
   add_foreign_key "orders", "auctions"
   add_foreign_key "orders", "containers"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "orderstatuses"
   add_foreign_key "payments", "customers"
+  add_foreign_key "payments", "invoices"
   add_foreign_key "payments", "paymentmethods"
   add_foreign_key "payments", "paymentstatuses"
   add_foreign_key "pictures", "orders"
