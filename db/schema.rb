@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_055807) do
     t.string "departmentname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "company_id"
+    t.bigint "company_id", null: false
     t.index ["company_id"], name: "index_departments_on_company_id"
   end
 

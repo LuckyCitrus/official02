@@ -10,3 +10,8 @@ Company.create!([
   {companyname: "Linear Shipping"}
 ])
 
+Location.create!([
+  {city: "Houston"},
+  {city: "Dallas"},
+  {city: "Conroe"}
+])
