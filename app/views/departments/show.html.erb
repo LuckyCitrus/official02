@@ -5,5 +5,10 @@
   <%= @department.departmentname %>
 </p>
 
+<p>
+  <strong>Companyid:</strong>
+  <%= @department.company_id %>
+</p>
+
 <%= link_to 'Edit', edit_department_path(@department) %> |
 <%= link_to 'Back', departments_path %>
