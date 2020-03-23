@@ -17,7 +17,7 @@
       <tr>
         <td><%= auction.auctionname %></td>
         <td><%= auction.address %></td>
-        <td><%= auction.location_id %></td>
+        <td><%= auction.location.city %></td>
         <td><%= link_to 'Show', auction %></td>
         <td><%= link_to 'Edit', edit_auction_path(auction) %></td>
         <td><%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
