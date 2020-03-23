@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Departmentname:</strong>
+  <strong>Department Name:</strong>
   <%= @department.departmentname %>
 </p>
 
 <p>
-  <strong>Companyid:</strong>
-  <%= @department.company_id %>
+  <strong>Company:</strong>
+  <%= @department.company.companyname %>
 </p>
 
 <%= link_to 'Edit', edit_department_path(@department) %> |
