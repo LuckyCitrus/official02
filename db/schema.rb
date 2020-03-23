@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_055807) do
     t.bigint "keystatus_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "order_id"
+    t.bigint "order_id", null: false
     t.index ["keystatus_id"], name: "index_cars_on_keystatus_id"
     t.index ["order_id"], name: "index_cars_on_order_id"
     t.index ["titlestatus_id"], name: "index_cars_on_titlestatus_id"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_055807) do
     t.bigint "company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "shipment_id"
+    t.bigint "shipment_id", null: false
     t.string "containernum"
     t.index ["company_id"], name: "index_containers_on_company_id"
     t.index ["shipment_id"], name: "index_containers_on_shipment_id"
@@ -99,10 +99,10 @@ ActiveRecord::Schema.define(version: 2020_03_22_055807) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "country_id"
-    t.bigint "customerstatus_id"
-    t.bigint "customertype_id"
-    t.bigint "dummyuser_id"
+    t.bigint "country_id", null: false
+    t.bigint "customerstatus_id", null: false
+    t.bigint "customertype_id", null: false
+    t.bigint "dummyuser_id", null: false
     t.index ["country_id"], name: "index_customers_on_country_id"
     t.index ["customerstatus_id"], name: "index_customers_on_customerstatus_id"
     t.index ["customertype_id"], name: "index_customers_on_customertype_id"
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_055807) do
     t.bigint "employeestatus_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "dummyuser_id"
+    t.bigint "dummyuser_id", null: false
     t.index ["department_id"], name: "index_employees_on_department_id"
     t.index ["dummyuser_id"], name: "index_employees_on_dummyuser_id"
     t.index ["employeestatus_id"], name: "index_employees_on_employeestatus_id"
@@ -187,7 +187,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_055807) do
     t.bigint "employee_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "invoicestatus_id"
+    t.bigint "invoicestatus_id", null: false
     t.decimal "amountdue"
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["employee_id"], name: "index_invoices_on_employee_id"
@@ -248,7 +248,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_055807) do
     t.bigint "orderstatus_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "customer_id"
+    t.bigint "customer_id", null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["orderstatus_id"], name: "index_orders_on_orderstatus_id"
   end
@@ -272,8 +272,8 @@ ActiveRecord::Schema.define(version: 2020_03_22_055807) do
     t.bigint "paymentmethod_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "customer_id"
-    t.bigint "invoice_id"
+    t.bigint "customer_id", null: false
+    t.bigint "invoice_id", null: false
     t.index ["customer_id"], name: "index_payments_on_customer_id"
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
     t.index ["paymentmethod_id"], name: "index_payments_on_paymentmethod_id"
@@ -290,7 +290,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_055807) do
     t.binary "picture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "order_id"
+    t.bigint "order_id", null: false
     t.index ["order_id"], name: "index_pictures_on_order_id"
   end
 
