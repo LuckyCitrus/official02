@@ -15,7 +15,7 @@
     <% @warehouses.each do |warehouse| %>
       <tr>
         <td><%= warehouse.warehousename %></td>
-        <td><%= warehouse.location_id %></td>
+        <td><%= warehouse.location.city %></td>
         <td><%= link_to 'Show', warehouse %></td>
         <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %></td>
         <td><%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
