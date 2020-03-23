@@ -51,3 +51,29 @@ Auction.create!([
   {auctionname: "Auction 2", address: "222 Two", location_id: 2},
   {auctionname: "Auction 3", address: "333 Three", location_id: 3}
 ])
+Shipmentmethod.create!([
+                           {shipmentmethod: "Cargo"},
+                           {shipmentmethod: "Airline"},
+                           {shipmentmethod: "Ground"}
+                       ])
+Warehouse.create!([
+                      {warehousename: "Houston Warehouse", location_id: 1},
+                      {warehousename: "Dallas Warehouse", location_id: 2},
+                      {warehousename: "Conroe Warehouse", location_id: 3}
+                  ])
+Shipment.create!([
+  {date: "2020-01-01", quantity: 1, warehouse_id: 1, shipmentmethod_id: 1, shipmentstatus_id: 1},
+  {date: "2020-02-02", quantity: 2, warehouse_id: 2, shipmentmethod_id: 2, shipmentstatus_id: 2},
+  {date: "2020-03-03", quantity: 3, warehouse_id: 3, shipmentmethod_id: 3, shipmentstatus_id: 3}
+])
+Orderstatus.create!([
+  {customertype: "Open"},
+  {customertype: "Pending"},
+  {customertype: "Closed"},
+  {customertype: "Waiting"}
+])
+Invoicestatus.create!([
+  {invoicestatus: "Pending"},
+  {invoicestatus: "Paid"},
+  {invoicestatus: "Late"}
+])

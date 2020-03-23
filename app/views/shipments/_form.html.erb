@@ -28,17 +28,17 @@
 
   <div class="field">
     <%= form.label :warehouse_id %>
-    <%= form.text_field :warehouse_id %>
+    <%= form.collection_select :warehouse_id, Warehouse.order(:warehousename), :id, :warehousename %>
   </div>
 
   <div class="field">
     <%= form.label :shipmentmethod_id %>
-    <%= form.text_field :shipmentmethod_id %>
+    <%= form.collection_select :shipmentmethod_id, Shipmentmethod.order(:shipmentmethod), :id, :shipmentmethod %>
   </div>
 
   <div class="field">
     <%= form.label :shipmentstatus_id %>
-    <%= form.text_field :shipmentstatus_id %>
+    <%= form.collection_select :shipmentstatus_id, Shipmentstatus.order(:shipmentstatus),:id, :shipmentstatus %>
   </div>
 
   <div class="actions">

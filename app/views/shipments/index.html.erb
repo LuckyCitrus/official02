@@ -21,9 +21,9 @@
         <td><%= shipment.date %></td>
         <td><%= shipment.quantity %></td>
 <!--        <td><%#= shipment.container %></td>-->
-        <td><%= shipment.warehouse_id %></td>
-        <td><%= shipment.shipmentmethod_id %></td>
-        <td><%= shipment.shipmentstatus_id %></td>
+        <td><%= shipment.warehouse.warehousename %></td>
+        <td><%= shipment.shipmentmethod.shipmentmethod %></td>
+        <td><%= shipment.shipmentstatus.shipmentstatus %></td>
         <td><%= link_to 'Show', shipment %></td>
         <td><%= link_to 'Edit', edit_shipment_path(shipment) %></td>
         <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
