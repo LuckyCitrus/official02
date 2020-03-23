@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Auctionname:</strong>
+  <strong>Auction Name:</strong>
   <%= @auction.auctionname %>  
 </p>
 
@@ -12,7 +12,7 @@
 
 <p>
   <strong>Location:</strong>
-  <%= @auction.location_id %>
+  <%= @auction.location.city %>
 </p>
 
 <%= link_to 'Edit', edit_auction_path(@auction) %> |
