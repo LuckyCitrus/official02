@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Invoicedate</th>
-      <th>Duedate</th>
+      <th>Invoice Date</th>
+      <th>Due Date</th>
       <th>Customer</th>
       <th>Employee</th>
       <th>Order</th>
@@ -23,11 +23,11 @@
       <tr>
         <td><%= invoice.invoicedate %></td>
         <td><%= invoice.duedate %></td>
-        <td><%= invoice.customer_id %></td>
+        <td><%= invoice.customer.full_name %></td>
         <td><%= invoice.employee_id %></td>
         <td><%= invoice.order_id %></td>
         <td><%= invoice.payment_id %></td>
-        <td><%= invoice.car_id %></td>
+        <td><%= invoice.car.car_name %></td>
         <td><%= invoice.shipment_id %></td>
         <td><%= invoice.auction_id %></td>
         <td><%= link_to 'Show', invoice %></td>
