@@ -132,7 +132,7 @@ Picture.create!([
   {picture: "Picture03", order_id: nil}
 ])
 Order.create!([
-  {date: "2020-01-01", lotstock: 1, quantity: 1, price: "1.0", total: "1.99", orderstatus_id: 1, customer_id: nil},
-  {date: "2020-02-02", lotstock: 2, quantity: 2, price: "2.0", total: "2.99", orderstatus_id: 2, customer_id: nil},
-  {date: "2020-03-03", lotstock: 3, quantity: 3, price: "3.0", total: "3.99", orderstatus_id: 3, customer_id: nil}
+  {date: "2020-01-01", lotstock: 1, quantity: 1, price: "1.11", total: "1.99", orderstatus_id: 1, customer_id: nil, ordernum: "Ordernum01"},
+  {date: "2020-02-02", lotstock: 2, quantity: 2, price: "2.0", total: "2.99", orderstatus_id: 2, customer_id: nil, ordernum: "Ordernum02"},
+  {date: "2020-03-03", lotstock: 3, quantity: 3, price: "3.0", total: "3.99", orderstatus_id: 3, customer_id: nil, ordernum: "Ordernum03"}
 ])

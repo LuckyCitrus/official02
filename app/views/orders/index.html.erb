@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Order Number</th>
       <th>Date</th>
       <th>Lotstock</th>
       <th>Quantity</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
+        <td><%= order.ordernum %></td>
         <td><%= order.date %></td>
         <td><%= order.lotstock %></td>
         <td><%= order.quantity %></td>
