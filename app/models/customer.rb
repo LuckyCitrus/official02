@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
   has_many :payments
   belongs_to :dummyuser
 
-  def full_name
+  def cus_fullname
     "#{first_name} #{last_name}"
   end
 

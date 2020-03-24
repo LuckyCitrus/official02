@@ -1,48 +1,48 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Invoicedate:</strong>
-  <%= @invoice.invoicedate %>
+    <strong>Invoice Date:</strong>
+    <%= @invoice.invoicedate %>
 </p>
 
 <p>
-  <strong>Duedate:</strong>
-  <%= @invoice.duedate %>
+    <strong>Due Date:</strong>
+    <%= @invoice.duedate %>
 </p>
 
 <p>
-  <strong>Customer:</strong>
-  <%= @invoice.customer_id %>
+    <strong>Customer:</strong>
+    <%= @invoice.customer.cus_fullname %>
 </p>
 
 <p>
-  <strong>Employee:</strong>
-  <%= @invoice.employee_id %>
+    <strong>Employee:</strong>
+    <%= @invoice.employee.emp_fullname %>
 </p>
 
 <p>
-  <strong>Order:</strong>
-  <%= @invoice.order_id %>
+    <strong>Order:</strong>
+    <%= @invoice.order_id %>
 </p>
 
 <p>
-  <strong>Payment:</strong>
-  <%= @invoice.payment_id %>
+    <strong>Payment:</strong>
+    <%= @invoice.payment_id %>
 </p>
 
 <p>
-  <strong>Car:</strong>
-  <%= @invoice.car_id %>
+    <strong>Car:</strong>
+    <%= @invoice.car.car_name %>
 </p>
 
 <p>
-  <strong>Shipment:</strong>
-  <%= @invoice.shipment_id %>
+    <strong>Shipment:</strong>
+    <%= @invoice.shipment_id %>
 </p>
 
 <p>
-  <strong>Auction:</strong>
-  <%= @invoice.auction_id %>
+    <strong>Auction:</strong>
+    <%= @invoice.auction.auctionname %>
 </p>
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
