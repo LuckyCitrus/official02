@@ -11,6 +11,7 @@
       <th>Model</th>
       <th>Titlestatus</th>
       <th>Keystatus</th>
+      <th>Order ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,6 +25,7 @@
         <td><%= car.model %></td>
         <td><%= car.titlestatus_id %></td>
         <td><%= car.keystatus_id %></td>
+        <td><%= car.order_id %></td>
         <td><%= link_to 'Show', car %></td>
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
