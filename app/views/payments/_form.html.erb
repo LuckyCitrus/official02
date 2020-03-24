@@ -23,12 +23,17 @@
 
   <div class="field">
     <%= form.label :paymentstatus_id %>
-    <%= form.text_field :paymentstatus_id %>
+    <%= form.collection_select :paymentstatus_id, Paymentstatus.order(:paymentstatus), :id, :paymentstatus %>
   </div>
 
   <div class="field">
     <%= form.label :paymentmethod_id %>
-    <%= form.text_field :paymentmethod_id %>
+    <%= form.collection_select :paymentmethod_id, Paymentmethod.order(:paymenttype), :id, :paymenttype %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.collection_select :customer_id, Customer.order(:last_name), :id, :last_name %>
   </div>
 
   <div class="actions">

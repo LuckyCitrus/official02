@@ -137,3 +137,8 @@ Order.create!([
   {date: "2020-03-03", lotstock: 3, quantity: 3, price: "3.0", total: "3.99", orderstatus_id: 3, customer_id: nil, ordernum: "Ordernum03"}
 ])
 
+Payment.create!([
+  {date: "2020-03-24", amount: 1, paymentstatus_id: 1, paymentmethod_id: 1, customer_id: 1, invoice_id: nil, paymentnum: nil},
+  {date: "2020-02-02", amount: 2, paymentstatus_id: 2, paymentmethod_id: 1, customer_id: 2, invoice_id: nil, paymentnum: nil},
+  {date: "2020-03-03", amount: 3, paymentstatus_id: 1, paymentmethod_id: 2, customer_id: 3, invoice_id: nil, paymentnum: nil}
+])

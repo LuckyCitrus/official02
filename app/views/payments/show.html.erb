@@ -20,5 +20,10 @@
   <%= @payment.paymentmethod_id %>
 </p>
 
+<p>
+  <strong>Customer ID:</strong>
+  <%= @payment.customer.id %>
+</p>
+
 <%= link_to 'Edit', edit_payment_path(@payment) %> |
 <%= link_to 'Back', payments_path %>
