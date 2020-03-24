@@ -26,13 +26,13 @@
 </p>
 
 <p>
-  <strong>Orderstatus:</strong>
-  <%= @order.orderstatus_id %>
+  <strong>Order Status:</strong>
+  <%= @order.orderstatus.orderstatus %>
 </p>
 
 <p>
   <strong>Picture:</strong>
-  <%= @order.picture_id %>
+  <%= @order.picture.picture %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

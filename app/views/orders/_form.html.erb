@@ -1,52 +1,53 @@
 <%= form_with(model: order, local: true) do |form| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<% if order.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
+    <ul>
         <% order.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
+<div class="field">
     <%= form.label :date %>
     <%= form.date_select :date %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :lotstock %>
     <%= form.number_field :lotstock %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :quantity %>
     <%= form.number_field :quantity %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :price %>
     <%= form.text_field :price %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :total %>
     <%= form.text_field :total %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :orderstatus_id %>
     <%= form.text_field :orderstatus_id %>
-  </div>
+    <%#= form.collection_select :orderstatus_id, Orderstatus.order(:orderstatus), :id, :orderstatus %>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :picture_id %>
-    <%= form.text_field :picture_id %>
-  </div>
+    <%= form.collection_select :picture_id, Picture.order(:picture), :id, :picture %>
+</div>
 
-  <div class="actions">
+<div class="actions">
     <%= form.submit %>
-  </div>
+</div>
 <% end %>
