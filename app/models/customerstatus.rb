@@ -1,3 +1,3 @@
 class Customerstatus < ApplicationRecord
-  has_many :customers
+  belongs_to :customers
 end
