@@ -46,6 +46,13 @@ Customerstatus.create!([
   {customerstatus: "Appointed"},
   {customerstatus: "Occurred "}
 ])
+
+Shipmentstatus.create!([
+                           {shipmentstatus: "In-transit"},
+                           {shipmentstatus: "Delivered"},
+                           {shipmentstatus: "Waiting"}
+                       ])
+
 Auction.create!([
   {auctionname: "Copart", address: "1655 RANKIN ROAD HOUSTON, TEXAS 77073 4903", location_id: 1},
   {auctionname: "INSURANCE AUTO AUCTIONS INC", address: "2535 W Mount, Houston, TX 77038", location_id: 1},
