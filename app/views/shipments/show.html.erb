@@ -17,17 +17,17 @@
 
 <p>
   <strong>Warehouse:</strong>
-  <%= @shipment.warehouse_id %>
+  <%= @shipment.warehouse.warehousename %>
 </p>
 
 <p>
-  <strong>Shipmentmethod:</strong>
-  <%= @shipment.shipmentmethod_id %>
+  <strong>Shipment Method:</strong>
+  <%= @shipment.shipmentmethod.shipmentmethod %>
 </p>
 
 <p>
-  <strong>Shipmentstatus:</strong>
-  <%= @shipment.shipmentstatus_id %>
+  <strong>Shipment Status:</strong>
+  <%= @shipment.shipmentstatus.shipmentstatus %>
 </p>
 
 <%= link_to 'Edit', edit_shipment_path(@shipment) %> |

@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Empfname:</strong>
+  <strong>First Name:</strong>
   <%= @employee.empfname %>
 </p>
 
 <p>
-  <strong>Emplname:</strong>
+  <strong>Last Name:</strong>
   <%= @employee.emplname %>
 </p>
 
@@ -35,19 +35,19 @@
   <%= @employee.hiredate %>
 </p>
 
-<p>
+<!--<p>
   <strong>Company:</strong>
   <%= @employee.company_id %>
-</p>
+</p>-->
 
 <p>
   <strong>Department:</strong>
-  <%= @employee.department_id %>
+  <%= @employee.department.departmentname %>
 </p>
 
 <p>
-  <strong>Employeestatus:</strong>
-  <%= @employee.employeestatus_id %>
+  <strong>Employee Status:</strong>
+  <%= @employee.employeestatus.employeestatus %>
 </p>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |

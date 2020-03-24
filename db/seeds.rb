@@ -77,3 +77,4 @@ Invoicestatus.create!([
   {invoicestatus: "Paid"},
   {invoicestatus: "Late"}
 ])
+

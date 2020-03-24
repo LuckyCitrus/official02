@@ -1,22 +1,21 @@
 <%= form_with(model: container, local: true) do |form| %>
-  <% if container.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(container.errors.count, "error") %> prohibited this container from being saved:</h2>
+<% if container.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(container.errors.count, "error") %> prohibited this container from being saved:</h2>
 
-      <ul>
+    <ul>
         <% container.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
-  </div>
+<div class="field">
+    <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname %>
+</div>
 
-  <div class="actions">
+<div class="actions">
     <%= form.submit %>
-  </div>
+</div>
 <% end %>

@@ -1,32 +1,32 @@
 <%= form_with(model: dummyuser, local: true) do |form| %>
-  <% if dummyuser.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(dummyuser.errors.count, "error") %> prohibited this dummyuser from being saved:</h2>
+<% if dummyuser.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(dummyuser.errors.count, "error") %> prohibited this dummyuser from being saved:</h2>
 
-      <ul>
+    <ul>
         <% dummyuser.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
+<div class="field">
     <%= form.label :username %>
     <%= form.text_field :username %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :password %>
     <%= form.text_field :password %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :dummyrole_id %>
-    <%= form.text_field :dummyrole_id %>
-  </div>
+    <%= form.collection_select :dummyrole_id, Dummyrole.order(:role), :id, :role %>
+</div>
 
-  <div class="actions">
+<div class="actions">
     <%= form.submit %>
-  </div>
+</div>
 <% end %>

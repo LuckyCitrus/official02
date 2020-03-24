@@ -17,7 +17,7 @@
       <tr>
         <td><%= dummyuser.username %></td>
         <td><%= dummyuser.password %></td>
-        <td><%= dummyuser.dummyrole_id %></td>
+        <td><%= dummyuser.dummyrole.role %></td>
         <td><%= link_to 'Show', dummyuser %></td>
         <td><%= link_to 'Edit', edit_dummyuser_path(dummyuser) %></td>
         <td><%= link_to 'Destroy', dummyuser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
