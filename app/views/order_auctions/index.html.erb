@@ -15,7 +15,7 @@
     <% @order_auctions.each do |order_auction| %>
       <tr>
         <td><%= order_auction.order_id %></td>
-        <td><%= order_auction.auction_id %></td>
+        <td><%= order_auction.auction.auctionname %></td>
         <td><%= link_to 'Show', order_auction %></td>
         <td><%= link_to 'Edit', edit_order_auction_path(order_auction) %></td>
         <td><%= link_to 'Destroy', order_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
