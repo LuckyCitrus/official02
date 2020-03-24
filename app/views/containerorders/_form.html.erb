@@ -1,27 +1,27 @@
 <%= form_with(model: containerorder, local: true) do |form| %>
-  <% if containerorder.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(containerorder.errors.count, "error") %> prohibited this containerorder from being saved:</h2>
+<% if containerorder.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(containerorder.errors.count, "error") %> prohibited this containerorder from being saved:</h2>
 
-      <ul>
+    <ul>
         <% containerorder.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
+<div class="field">
     <%= form.label :container_id %>
-    <%= form.text_field :container_id %>
-  </div>
+    <%= form.collection_select :container_id, Container.order(:containernum), :id, :containernum %>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :order_id %>
     <%= form.text_field :order_id %>
-  </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+    <%= form.submit action_name == 'new' ? 'Create Container Order' : 'Update Comtainer Order'%>
+</div>
 <% end %>
