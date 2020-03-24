@@ -15,7 +15,7 @@
     <% @containerorders.each do |containerorder| %>
       <tr>
         <td><%= containerorder.container.containernum %></td>
-        <td><%= containerorder.order.date %></td>
+        <td><%= containerorder.order.ordernum %></td>
         <td><%= link_to 'Show', containerorder %></td>
         <td><%= link_to 'Edit', edit_containerorder_path(containerorder) %></td>
         <td><%= link_to 'Destroy', containerorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>

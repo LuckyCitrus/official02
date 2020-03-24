@@ -147,3 +147,8 @@ OrderAuction.create!([
   {order_id: 4, auction_id: 1},
   {order_id: 3, auction_id: 2}
 ])
+Containerorder.create!([
+  {container_id: 1, order_id: 2},
+  {container_id: 3, order_id: 3},
+  {container_id: 2, order_id: 4}
+])
