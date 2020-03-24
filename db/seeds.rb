@@ -126,3 +126,8 @@ Keystatus.create!([
   {keystatus: "Delivered"},
   {keystatus: "Not Applicable"}
 ])
+Picture.create!([
+  {picture: "Picture01", order_id: nil},
+  {picture: "Picture02", order_id: nil},
+  {picture: "Picture03", order_id: nil}
+])
