@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_065213) do
+ActiveRecord::Schema.define(version: 2020_03_24_200920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_065213) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "invoicestatus_id"
     t.decimal "amountdue"
+    t.string "invoicenum"
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["employee_id"], name: "index_invoices_on_employee_id"
     t.index ["invoicestatus_id"], name: "index_invoices_on_invoicestatus_id"
@@ -249,6 +250,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_065213) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
+    t.string "ordernum"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["orderstatus_id"], name: "index_orders_on_orderstatus_id"
   end
@@ -274,6 +276,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_065213) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
     t.bigint "invoice_id"
+    t.string "paymentnum"
     t.index ["customer_id"], name: "index_payments_on_customer_id"
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
     t.index ["paymentmethod_id"], name: "index_payments_on_paymentmethod_id"
@@ -308,6 +311,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_065213) do
     t.bigint "shipmentstatus_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "shipmentnum"
     t.index ["shipmentmethod_id"], name: "index_shipments_on_shipmentmethod_id"
     t.index ["shipmentstatus_id"], name: "index_shipments_on_shipmentstatus_id"
     t.index ["warehouse_id"], name: "index_shipments_on_warehouse_id"
