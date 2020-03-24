@@ -142,3 +142,8 @@ Payment.create!([
   {date: "2020-02-02", amount: 2, paymentstatus_id: 2, paymentmethod_id: 1, customer_id: 2, invoice_id: nil, paymentnum: nil},
   {date: "2020-03-03", amount: 3, paymentstatus_id: 1, paymentmethod_id: 2, customer_id: 3, invoice_id: nil, paymentnum: nil}
 ])
+OrderAuction.create!([
+  {order_id: 2, auction_id: 3},
+  {order_id: 4, auction_id: 1},
+  {order_id: 3, auction_id: 2}
+])
