@@ -33,7 +33,8 @@ Dummyrole.create!([
 Country.create!([
   {country_name: "United States"},
   {country_name: "Dubai"},
-  {country_name: "Jordan"}
+  {country_name: "Jordan"},
+  {country_name: "Mexico"}
 ])
 Customertype.create!([
   {customertype: "Returned"},
@@ -92,3 +93,4 @@ Paymentmethod.create!([
   {paymenttype: "Direct Deposit"},
   {paymenttype: "Bank Wire"}
 ])
+
