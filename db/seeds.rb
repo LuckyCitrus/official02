@@ -82,3 +82,8 @@ Paymentstatus.create!([
   {paymentstatus: "Pay"},
   {paymentstatus: "Pending"}
 ])
+Container.create!([
+  {company_id: 1, shipment_id: 2, containernum: "Containernum02"},
+  {company_id: 2, shipment_id: 1, containernum: "Containernum01"},
+  {company_id: 1, shipment_id: 3, containernum: "Containernum03"}
+])

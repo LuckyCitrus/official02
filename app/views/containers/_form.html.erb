@@ -15,6 +15,15 @@
     <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname %>
 </div>
 
+<div class="field">
+  <%= form.collection_select :shipment_id, Shipment.order(:id), :id, :id %>
+</div>
+
+<div class="field">
+  <%= form.label :containernum %>
+  <%= form.text_field :containernum %>
+</div>
+
 <div class="actions">
     <%= form.submit %>
 </div>

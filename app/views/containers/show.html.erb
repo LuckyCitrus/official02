@@ -5,5 +5,15 @@
   <%= @container.company_id %>
 </p>
 
+<p>
+  <strong>Shipment ID:</strong>
+  <%= @container.shipment_id %>
+</p>
+
+<p>
+  <strong>Container:</strong>
+  <%= @container.containernum %>
+</p>
+
 <%= link_to 'Edit', edit_container_path(@container) %> |
 <%= link_to 'Back', containers_path %>
