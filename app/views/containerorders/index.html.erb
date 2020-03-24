@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Containerorders</h1>
+<h1>Container Orders</h1>
 
 <table>
   <thead>
@@ -14,7 +14,7 @@
   <tbody>
     <% @containerorders.each do |containerorder| %>
       <tr>
-        <td><%= containerorder.container_id %></td>
+        <td><%= containerorder.container.containernum %></td>
         <td><%= containerorder.order_id %></td>
         <td><%= link_to 'Show', containerorder %></td>
         <td><%= link_to 'Edit', edit_containerorder_path(containerorder) %></td>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Containerorder', new_containerorder_path %>
+<%= link_to 'New Container Order', new_containerorder_path %>
