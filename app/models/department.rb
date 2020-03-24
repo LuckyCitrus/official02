@@ -1,3 +1,3 @@
 class Department < ApplicationRecord
-  has_many :company
+  belongs_to :company
 end

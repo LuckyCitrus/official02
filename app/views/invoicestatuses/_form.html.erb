@@ -1,22 +1,22 @@
 <%= form_with(model: invoicestatus, local: true) do |form| %>
-  <% if invoicestatus.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(invoicestatus.errors.count, "error") %> prohibited this invoicestatus from being saved:</h2>
+<% if invoicestatus.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(invoicestatus.errors.count, "error") %> prohibited this invoicestatus from being saved:</h2>
 
-      <ul>
+    <ul>
         <% invoicestatus.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :invoicestatus %>
+<div class="field">
+    <%= form.label :invoicestatus, "Invoice Status" %>
     <%= form.text_field :invoicestatus %>
-  </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+    <%= form.submit action_name == 'new' ? 'Create Invoice Status' : 'Update Invoice Status'%>
+</div>
 <% end %>
