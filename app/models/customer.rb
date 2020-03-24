@@ -1,10 +1,11 @@
 class Customer < ApplicationRecord
-  belongs_to :country
-  belongs_to :customerstatus
-  belongs_to :customertype
+  has_many :country
+  has_many :customerstatus
+  has_many :customertype
+  has_many :dummyuser
+
   has_many :orders
   has_many :payments
-  belongs_to :dummyuser
 
   def cus_fullname
     "#{first_name} #{last_name}"
