@@ -1,5 +1,9 @@
 class Container < ApplicationRecord
   belongs_to :company
-  has_many :orders
   belongs_to :shipment
+
+  #Order Round
+  has_many :containerorders
+  has_many :orders, through: :containerorders
+
 end

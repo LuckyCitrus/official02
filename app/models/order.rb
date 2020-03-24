@@ -1,10 +1,15 @@
 class Order < ApplicationRecord
   belongs_to :orderstatus
-  belongs_to :picture
-  belongs_to :customer
-  belongs_to :auction
   has_many :cars
-  belongs_to :container
   has_many :orderinvoices
   has_many :invoices, through: :orderinvoices
+
+  #Order Round
+  belongs_to :picture
+  has_many :customer
+  has_many :order_auctions
+  has_many :auction, through: :order_auctions
+  has_many :containerorders
+  has_many :container, through: :containerorders
+
 end

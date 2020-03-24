@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   has_many :customertype
   has_many :dummyuser
 
-  has_many :orders
+  belongs_to :orders
   has_many :payments
 
   def cus_fullname
