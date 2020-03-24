@@ -70,10 +70,10 @@ Warehouse.create!([
                       {warehousename: "Conroe Warehouse", location_id: 3}
                   ])
 Shipment.create!([
-  {date: "2020-01-01", quantity: 1, warehouse_id: 1, shipmentmethod_id: 1, shipmentstatus_id: 1},
-  {date: "2020-02-02", quantity: 2, warehouse_id: 2, shipmentmethod_id: 2, shipmentstatus_id: 2},
-  {date: "2020-03-03", quantity: 3, warehouse_id: 3, shipmentmethod_id: 3, shipmentstatus_id: 3}
-])
+                     {date: "2020-01-01", quantity: 1, warehouse_id: 1, shipmentmethod_id: 1, shipmentstatus_id: 1, shipmentnum: "Shipmentnum01"},
+                     {date: "2020-02-02", quantity: 2, warehouse_id: 2, shipmentmethod_id: 2, shipmentstatus_id: 2, shipmentnum: "Shipmentnum02"},
+                     {date: "2020-03-03", quantity: 3, warehouse_id: 3, shipmentmethod_id: 3, shipmentstatus_id: 3, shipmentnum: "Shipmentnum03"}
+                 ])
 Orderstatus.create!([
   {customertype: "Open"},
   {customertype: "Pending"},
@@ -136,3 +136,4 @@ Order.create!([
   {date: "2020-02-02", lotstock: 2, quantity: 2, price: "2.0", total: "2.99", orderstatus_id: 2, customer_id: nil, ordernum: "Ordernum02"},
   {date: "2020-03-03", lotstock: 3, quantity: 3, price: "3.0", total: "3.99", orderstatus_id: 3, customer_id: nil, ordernum: "Ordernum03"}
 ])
+

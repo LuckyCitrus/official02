@@ -5,6 +5,7 @@
 <table>
     <thead>
         <tr>
+            <th>Shipment Number</th>
             <th>Date</th>
             <th>Quantity</th>
             <!--      <th>Container</th>-->
@@ -18,6 +19,7 @@
     <tbody>
         <% @shipments.each do |shipment| %>
         <tr>
+            <td><%= shipment.shipmentnum %></td>
             <td><%= shipment.date %></td>
             <td><%= shipment.quantity %></td>
             <!--        <td><%#= shipment.container %></td>-->
