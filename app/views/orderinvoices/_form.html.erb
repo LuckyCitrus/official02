@@ -1,27 +1,27 @@
 <%= form_with(model: orderinvoice, local: true) do |form| %>
-  <% if orderinvoice.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(orderinvoice.errors.count, "error") %> prohibited this orderinvoice from being saved:</h2>
+<% if orderinvoice.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(orderinvoice.errors.count, "error") %> prohibited this orderinvoice from being saved:</h2>
 
-      <ul>
+    <ul>
         <% orderinvoice.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
+<div class="field">
     <%= form.label :order_id %>
-    <%= form.text_field :order_id %>
-  </div>
+    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum %>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :invoice_id %>
-    <%= form.text_field :invoice_id %>
-  </div>
+    <%= form.collection_select :invoice_id, Invoice.order(:invoicenum), :id, :invoicenum %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+    <%= form.submit action_name == 'new' ? 'Create Order Invoice' : 'Update Order Invoice'%>
+</div>
 <% end %>

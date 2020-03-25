@@ -2,12 +2,12 @@
 
 <p>
   <strong>Order:</strong>
-  <%= @orderinvoice.order_id %>
+  <%= @orderinvoice.order.ordernum %>
 </p>
 
 <p>
   <strong>Invoice:</strong>
-  <%= @orderinvoice.invoice_id %>
+  <%= @orderinvoice.invoice.invoicenum %>
 </p>
 
 <%= link_to 'Edit', edit_orderinvoice_path(@orderinvoice) %> |

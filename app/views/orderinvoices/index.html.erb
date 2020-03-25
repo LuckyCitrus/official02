@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Orderinvoices</h1>
+<h1>Order Invoices</h1>
 
 <table>
   <thead>
@@ -14,8 +14,8 @@
   <tbody>
     <% @orderinvoices.each do |orderinvoice| %>
       <tr>
-        <td><%= orderinvoice.order_id %></td>
-        <td><%= orderinvoice.invoice_id %></td>
+        <td><%= orderinvoice.order.ordernum %></td>
+        <td><%= orderinvoice.invoice.invoicenum %></td>
         <td><%= link_to 'Show', orderinvoice %></td>
         <td><%= link_to 'Edit', edit_orderinvoice_path(orderinvoice) %></td>
         <td><%= link_to 'Destroy', orderinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Orderinvoice', new_orderinvoice_path %>
+<%= link_to 'New Order Invoice', new_orderinvoice_path %>
