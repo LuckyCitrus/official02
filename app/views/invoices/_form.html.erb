@@ -11,10 +11,10 @@
 </div>
 <% end %>
 
-  <div class="field">
-    <%= form.label :invoicenum %>
+<div class="field">
+    <%= form.label :invoicenum, "Invoice Number" %>
     <%= form.text_field :invoicenum %>
-  </div>
+</div>
 
 <div class="field">
     <%= form.label :invoicedate, "Invoice Date" %>
@@ -37,8 +37,8 @@
 </div>
 
 <div class="field">
-    <%= form.label :invoicestatus_id %>
-    <%= form.text_field :invoicestatus_id %>
+    <%= form.label :invoicestatus_id, "Invoice Status" %>
+    <%= form.collection_select :invoicestatus_id, Invoicestatus.order(:invoicestatus), :id, :invoicestatus %>
 </div>
 
 <div class="field">

@@ -24,7 +24,7 @@
         <td><%= invoice.duedate %></td>
         <td><%= invoice.customer.cus_fullname %></td>
         <td><%= invoice.employee.emp_fullname %></td>
-        <td><%= invoice.invoicestatus.id %></td>
+        <td><%= invoice.invoicestatus.invoicestatus %></td>
         <td><%= invoice.amountdue %></td>
         <td><%= link_to 'Show', invoice %></td>
         <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
