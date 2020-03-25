@@ -38,3 +38,28 @@ Employee.create!([
   {empfname: "EmpFirstName02", emplname: "EmpLastName02", address: "Address03", email: "Email03", phone: "(333)333-3333", title: "Title03", hiredate: "2020-03-03", department_id: 1, employeestatus_id: 4, dummyuser_id: 3},
   {empfname: "EmpFirstName02", emplname: "EmpLastName02", address: "Address02", email: "Email02", phone: "(222)222-2222", title: "Title02", hiredate: "2020-02-02", department_id: 3, employeestatus_id: 3, dummyuser_id: 2}
 ])
+Location.create!([
+  {city: "Houston"},
+  {city: "Dallas"},
+  {city: "Conroe"}
+])
+Shipmentstatus.create!([
+  {shipmentstatus: "In-transit"},
+  {shipmentstatus: "Delivered"},
+  {shipmentstatus: "Waiting"}
+])
+Shipmentmethod.create!([
+  {shipmentmethod: "Cargo"},
+  {shipmentmethod: "Airline"},
+  {shipmentmethod: "Ground"}
+])
+Warehouse.create!([
+  {warehousename: "Houston Warehouse", location_id: 1},
+  {warehousename: "Dallas Warehouse", location_id: 2},
+  {warehousename: "Conroe Warehouse", location_id: 3}
+])
+Shipment.create!([
+  {date: "2020-01-01", quantity: 1, warehouse_id: 1, shipmentmethod_id: 2, shipmentstatus_id: 2, shipmentnum: "Shipmentnum01"},
+  {date: "2020-02-02", quantity: 2, warehouse_id: 2, shipmentmethod_id: 1, shipmentstatus_id: 1, shipmentnum: "Shipmentnum02"},
+  {date: "2020-03-03", quantity: 3, warehouse_id: 3, shipmentmethod_id: 3, shipmentstatus_id: 3, shipmentnum: "Shipmentnum03"}
+])
