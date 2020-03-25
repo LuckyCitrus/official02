@@ -1,38 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Payment Number:</strong>
-  <%= @payment.paymentnum %>
+    <strong>Payment Number:</strong>
+    <%= @payment.paymentnum %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @payment.date %>
+    <strong>Date:</strong>
+    <%= @payment.date %>
 </p>
 
 <p>
-  <strong>Amount:</strong>
-  <%= @payment.amount %>
+    <strong>Amount:</strong>
+    <%= number_to_currency(@payment.amount) %>
 </p>
 
 <p>
-  <strong>Payment Status:</strong>
-  <%= @payment.paymentstatus.paymentstatus %>
+    <strong>Payment Status:</strong>
+    <%= @payment.paymentstatus.paymentstatus %>
 </p>
 
 <p>
-  <strong>Payment Method:</strong>
-  <%= @payment.paymentmethod.paymenttype %>
+    <strong>Payment Method:</strong>
+    <%= @payment.paymentmethod.paymenttype %>
 </p>
 
 <p>
-  <strong>Customer:</strong>
-  <%= @payment.customer.cus_fullname %>
+    <strong>Customer:</strong>
+    <%= @payment.customer.cus_fullname %>
 </p>
 
 <p>
-  <strong>Invoice:</strong>
-  <%= @payment.invoice.invoicenum %>
+    <strong>Invoice:</strong>
+    <%= @payment.invoice.invoicenum %>
 </p>
 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |

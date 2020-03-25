@@ -7,12 +7,12 @@
         <tr>
             <th>Order Number</th>
             <th>Date</th>
+            <th>Customer</th>
             <th>Lotstock</th>
             <th>Quantity</th>
             <th>Price</th>
             <th>Total</th>
             <th>Order Status</th>
-            <th>Customer</th>
             <th colspan="8"></th>
         </tr>
     </thead>
@@ -22,12 +22,12 @@
         <tr>
             <td><%= order.ordernum %></td>
             <td><%= order.date %></td>
+            <td><%= order.customer.try(:cus_fullname) %></td>
             <td><%= order.lotstock %></td>
             <td><%= order.quantity %></td>
-            <td><%= order.price %></td>
-            <td><%= order.total %></td>
+            <td><%= number_to_currency(order.price) %></td>
+            <td><%= number_to_currency(order.total) %></td>
             <td><%= order.orderstatus.orderstatus %></td>
-            <td><%= order.customer.try(:cus_fullname) %></td>
             <td><%= link_to 'Show', order %></td>
             <td><%= link_to 'Edit', edit_order_path(order) %></td>
             <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,27 +1,27 @@
 <%= form_with(model: department, local: true) do |form| %>
-  <% if department.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</h2>
+<% if department.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</h2>
 
-      <ul>
+    <ul>
         <% department.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
+<div class="field">
     <%= form.label :departmentname, "Department Name"%>
     <%= form.text_field :departmentname %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :company_id %>
-    <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname %>
-  </div>
+    <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname, {include_blank: ""}  %>
+</div>
 
-  <div class="actions">
+<div class="actions">
     <%= form.submit %>
-  </div>
+</div>
 <% end %>

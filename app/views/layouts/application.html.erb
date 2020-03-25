@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Official02</title>
+
+<head>
+    <title>MitsabWebApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
+<body>
+    <div id="header">
+        <h1>MitsabWebApp</h1>
+        <%= link_to "Employees", employees_path %> | <%= link_to "Customers", customers_path %> | <%= link_to "Cars", cars_path %> | <%= link_to "Orders", orders_path %> | <%= link_to "Invoices", invoices_path %> | <%= link_to "Payments", payments_path %> | <%= link_to "Shipments", shipments_path %>
+    </div>
     <%= yield %>
-  </body>
+</body>
+
 </html>
