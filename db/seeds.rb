@@ -135,3 +135,8 @@ Auction.create!([
   {auctionname: "INSURANCE AUTO AUCTIONS INC", address: "2535 W Mount, Houston, TX 77038", location_id: 2},
   {auctionname: "Auction03", address: "333 Three", location_id: 3}
 ])
+OrderAuction.create!([
+  {order_id: 1, auction_id: 2},
+  {order_id: 2, auction_id: 1},
+  {order_id: 3, auction_id: 3}
+])
