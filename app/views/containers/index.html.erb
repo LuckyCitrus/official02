@@ -6,8 +6,8 @@
     <thead>
         <tr>
             <th>Container Number</th>
+            <th>Shipment Number</th>
             <th>Company</th>
-            <th>Shipment</th>
             <th colspan="4"></th>
         </tr>
     </thead>
@@ -16,8 +16,8 @@
         <% @containers.each do |container| %>
         <tr>
             <td><%= container.containernum %></td>
-            <td><%= container.company.companyname %></td>
             <td><%= container.shipment.shipmentnum %></td>
+            <td><%= container.company.companyname %></td>
             <td><%= link_to 'Show', container %></td>
             <td><%= link_to 'Edit', edit_container_path(container) %></td>
             <td><%= link_to 'Destroy', container, method: :delete, data: { confirm: 'Are you sure?' } %></td>
