@@ -6,7 +6,7 @@ class Order < ApplicationRecord
 
   #Order Round
   # belongs_to :picture
-  has_many :customer
+  belongs_to :customer
   has_many :order_auctions
   has_many :auction, through: :order_auctions
   has_many :containerorders

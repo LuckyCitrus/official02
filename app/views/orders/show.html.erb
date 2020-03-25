@@ -37,7 +37,7 @@
 
 <p>
   <strong>Customer ID:</strong>
-  <%= @order.customer_id %>
+  <%= @order.customer.try(:cus_fullname) %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

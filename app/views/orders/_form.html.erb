@@ -12,7 +12,7 @@
 <% end %>
 
 <div class="field">
-    <%= form.label :ordernum %>
+    <%= form.label :ordernum, "Order Number" %>
     <%= form.text_field :ordernum %>
 </div>
 
@@ -42,7 +42,7 @@
 </div>
 
 <div class="field">
-    <%= form.label :orderstatus_id %>
+    <%= form.label :orderstatus_id, "Order Status" %>
     <%= form.collection_select :orderstatus_id, Orderstatus.order(:orderstatus), :id, :orderstatus %>
 </div>
 

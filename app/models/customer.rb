@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
   has_many :dummyuser
 
   # belongs_to :orders
+  has_many :orders
   has_many :payments
 
   def cus_fullname
