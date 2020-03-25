@@ -16,23 +16,23 @@
 </p>
 
 <p>
-  <strong>Paymentstatus:</strong>
-  <%= @payment.paymentstatus_id %>
+  <strong>Payment Status:</strong>
+  <%= @payment.paymentstatus.paymentstatus %>
 </p>
 
 <p>
-  <strong>Paymentmethod:</strong>
-  <%= @payment.paymentmethod_id %>
+  <strong>Payment Method:</strong>
+  <%= @payment.paymentmethod.paymenttype %>
 </p>
 
 <p>
-  <strong>Customer ID:</strong>
-  <%= @payment.customer.id %>
+  <strong>Customer:</strong>
+  <%= @payment.customer.cus_fullname %>
 </p>
 
 <p>
-  <strong>Invoice ID:</strong>
-  <%= @payment.invoice_id %>
+  <strong>Invoice:</strong>
+  <%= @payment.invoice.invoicenum %>
 </p>
 
 <%= link_to 'Edit', edit_payment_path(@payment) %> |
