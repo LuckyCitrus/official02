@@ -14,8 +14,8 @@
   <tbody>
     <% @invoiceshipments.each do |invoiceshipment| %>
       <tr>
-        <td><%= invoiceshipment.shipment_id %></td>
-        <td><%= invoiceshipment.invoice_id %></td>
+        <td><%= invoiceshipment.shipment.shipmentnum %></td>
+        <td><%= invoiceshipment.invoice.invoicenum %></td>
         <td><%= link_to 'Show', invoiceshipment %></td>
         <td><%= link_to 'Edit', edit_invoiceshipment_path(invoiceshipment) %></td>
         <td><%= link_to 'Destroy', invoiceshipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Invoiceshipment', new_invoiceshipment_path %>
+<%= link_to 'New Invoice Shipment', new_invoiceshipment_path %>

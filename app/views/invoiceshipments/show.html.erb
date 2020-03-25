@@ -2,12 +2,12 @@
 
 <p>
   <strong>Shipment:</strong>
-  <%= @invoiceshipment.shipment_id %>
+  <%= @invoiceshipment.shipment.shipmentnum %>
 </p>
 
 <p>
   <strong>Invoice:</strong>
-  <%= @invoiceshipment.invoice_id %>
+  <%= @invoiceshipment.invoice.invoicenum %>
 </p>
 
 <%= link_to 'Edit', edit_invoiceshipment_path(@invoiceshipment) %> |

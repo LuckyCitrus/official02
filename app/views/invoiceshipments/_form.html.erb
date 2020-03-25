@@ -1,27 +1,27 @@
 <%= form_with(model: invoiceshipment, local: true) do |form| %>
-  <% if invoiceshipment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(invoiceshipment.errors.count, "error") %> prohibited this invoiceshipment from being saved:</h2>
+<% if invoiceshipment.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(invoiceshipment.errors.count, "error") %> prohibited this invoiceshipment from being saved:</h2>
 
-      <ul>
+    <ul>
         <% invoiceshipment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
+<div class="field">
     <%= form.label :shipment_id %>
-    <%= form.text_field :shipment_id %>
-  </div>
+    <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum %>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :invoice_id %>
-    <%= form.text_field :invoice_id %>
-  </div>
+    <%= form.collection_select :invoice_id, Invoice.order(:invoicenum), :id, :invoicenum %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+    <%= form.submit action_name == 'new' ? 'Create Invoice Shipment' : 'Update Invoice Shipment'%>
+</div>
 <% end %>
