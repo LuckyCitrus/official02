@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Invoice Number:</strong>
+  <%= @invoice.invoicenum %>
+</p>
+
+<p>
     <strong>Invoice Date:</strong>
     <%= @invoice.invoicedate %>
 </p>
@@ -29,6 +34,7 @@
     <strong>Amount Due:</strong>
     <%= @invoice.amountdue %>
 </p>
+
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>

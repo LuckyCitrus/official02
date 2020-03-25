@@ -11,6 +11,11 @@
 </div>
 <% end %>
 
+  <div class="field">
+    <%= form.label :invoicenum %>
+    <%= form.text_field :invoicenum %>
+  </div>
+
 <div class="field">
     <%= form.label :invoicedate, "Invoice Date" %>
     <%= form.date_select :invoicedate %>
