@@ -1,43 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Order Number:</strong>
-  <%= @order.ordernum %>
+    <strong>Order Number:</strong>
+    <%= @order.ordernum %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @order.date %>
+    <strong>Date:</strong>
+    <%= @order.date %>
 </p>
 
 <p>
-  <strong>Lotstock:</strong>
-  <%= @order.lotstock %>
+    <strong>Lotstock:</strong>
+    <%= @order.lotstock %>
 </p>
 
 <p>
-  <strong>Quantity:</strong>
-  <%= @order.quantity %>
+    <strong>Quantity:</strong>
+    <%= @order.quantity %>
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= @order.price %>
+    <strong>Price:</strong>
+    <%= number_to_currency(@order.price) %>
 </p>
 
 <p>
-  <strong>Total:</strong>
-  <%= @order.total %>
+    <strong>Total:</strong>
+    <%= number_to_currency(@order.total) %>
 </p>
 
 <p>
-  <strong>Order Status:</strong>
-  <%= @order.orderstatus.orderstatus %>
+    <strong>Order Status:</strong>
+    <%= @order.orderstatus.orderstatus %>
 </p>
 
 <p>
-  <strong>Customer:</strong>
-  <%= @order.customer.try(:cus_fullname) %>
+    <strong>Customer:</strong>
+    <%= @order.customer.try(:cus_fullname) %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

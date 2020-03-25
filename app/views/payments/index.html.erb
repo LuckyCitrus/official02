@@ -21,7 +21,7 @@
         <tr>
             <td><%= payment.paymentnum %></td>
             <td><%= payment.date %></td>
-            <td><%= payment.amount %></td>
+            <td><%= number_to_currency(payment.amount) %></td>
             <td><%= payment.paymentstatus.paymentstatus %></td>
             <td><%= payment.paymentmethod.paymenttype %></td>
             <td><%= payment.customer.try(:cus_fullname) %></td>

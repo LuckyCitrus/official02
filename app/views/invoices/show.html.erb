@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Invoice Number:</strong>
-  <%= @invoice.invoicenum %>
+    <strong>Invoice Number:</strong>
+    <%= @invoice.invoicenum %>
 </p>
 
 <p>
@@ -32,7 +32,7 @@
 
 <p>
     <strong>Amount Due:</strong>
-    <%= @invoice.amountdue %>
+    <%= number_to_currency(@invoice.amountdue) %>
 </p>
 
 

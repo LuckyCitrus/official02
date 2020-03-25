@@ -3,35 +3,35 @@
 <h1>Invoices</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Invoice Number</th>
-      <th>Invoice Date</th>
-      <th>Due Date</th>
-      <th>Customer</th>
-      <th>Employee</th>
-      <th>Invoice Status</th>
-      <th>Amount Due</th>
-      <th colspan="7"></th>
-    </tr>
-  </thead>
+    <thead>
+        <tr>
+            <th>Invoice Number</th>
+            <th>Invoice Date</th>
+            <th>Due Date</th>
+            <th>Customer</th>
+            <th>Employee</th>
+            <th>Invoice Status</th>
+            <th>Amount Due</th>
+            <th colspan="7"></th>
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @invoices.each do |invoice| %>
-      <tr>
-        <td><%= invoice.invoicenum %></td>
-        <td><%= invoice.invoicedate %></td>
-        <td><%= invoice.duedate %></td>
-        <td><%= invoice.customer.cus_fullname %></td>
-        <td><%= invoice.employee.emp_fullname %></td>
-        <td><%= invoice.invoicestatus.invoicestatus %></td>
-        <td><%= invoice.amountdue %></td>
-        <td><%= link_to 'Show', invoice %></td>
-        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+        <% @invoices.each do |invoice| %>
+        <tr>
+            <td><%= invoice.invoicenum %></td>
+            <td><%= invoice.invoicedate %></td>
+            <td><%= invoice.duedate %></td>
+            <td><%= invoice.customer.cus_fullname %></td>
+            <td><%= invoice.employee.emp_fullname %></td>
+            <td><%= invoice.invoicestatus.invoicestatus %></td>
+            <td><%= number_to_currency(invoice.amountdue) %></td>
+            <td><%= link_to 'Show', invoice %></td>
+            <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+            <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <br>

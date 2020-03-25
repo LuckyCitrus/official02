@@ -24,8 +24,8 @@
             <td><%= order.date %></td>
             <td><%= order.lotstock %></td>
             <td><%= order.quantity %></td>
-            <td><%= order.price %></td>
-            <td><%= order.total %></td>
+            <td><%= number_to_currency(order.price) %></td>
+            <td><%= number_to_currency(order.total) %></td>
             <td><%= order.orderstatus.orderstatus %></td>
             <td><%= order.customer.try(:cus_fullname) %></td>
             <td><%= link_to 'Show', order %></td>
