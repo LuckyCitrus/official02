@@ -156,3 +156,8 @@ Invoice.create!([
   {invoicedate: "2020-01-01", duedate: "2020-01-01", customer_id: 1, employee_id: 1, invoicestatus_id: 1, amountdue: "1.0", invoicenum: nil},
   {invoicedate: "2020-02-02", duedate: "2020-02-02", customer_id: 2, employee_id: 2, invoicestatus_id: 2, amountdue: "2.0", invoicenum: nil}
 ])
+Invoiceshipment.create!([
+  {shipment_id: 1, invoice_id: 1},
+  {shipment_id: 2, invoice_id: 2},
+  {shipment_id: 3, invoice_id: 3}
+])
