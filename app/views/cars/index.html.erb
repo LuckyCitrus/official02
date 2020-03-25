@@ -5,14 +5,14 @@
 <table>
   <thead>
     <tr>
-      <th>Vinnumber</th>
+      <th>VIN Number</th>
       <th>Year</th>
       <th>Make</th>
       <th>Model</th>
-      <th>Titlestatus</th>
-      <th>Keystatus</th>
-      <th>Order ID</th>
-      <th colspan="3"></th>
+      <th>Title Status</th>
+      <th>Key Status</th>
+      <th>Order Number</th>
+      <th colspan="8"></th>
     </tr>
   </thead>
 
@@ -23,9 +23,9 @@
         <td><%= car.year %></td>
         <td><%= car.make %></td>
         <td><%= car.model %></td>
-        <td><%= car.titlestatus_id %></td>
-        <td><%= car.keystatus_id %></td>
-        <td><%= car.order_id %></td>
+        <td><%= car.titlestatus.titlestatus %></td>
+        <td><%= car.keystatus.keystatus %></td>
+        <td><%= car.order.ordernum %></td>
         <td><%= link_to 'Show', car %></td>
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>

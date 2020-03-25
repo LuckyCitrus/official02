@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Vinnumber:</strong>
+  <strong>VIN Number:</strong>
   <%= @car.vinnumber %>
 </p>
 
@@ -21,18 +21,18 @@
 </p>
 
 <p>
-  <strong>Titlestatus:</strong>
-  <%= @car.titlestatus_id %>
+  <strong>Title Status:</strong>
+  <%= @car.titlestatus.titlestatus %>
 </p>
 
 <p>
-  <strong>Keystatus:</strong>
-  <%= @car.keystatus_id %>
+  <strong>Key Status:</strong>
+  <%= @car.keystatus.keystatus %>
 </p>
 
 <p>
-  <strong>Order ID:</strong>
-  <%= @car.order_id %>
+  <strong>Order:</strong>
+  <%= @car.order.ordernum %>
 </p>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
