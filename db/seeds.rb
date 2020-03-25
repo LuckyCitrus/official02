@@ -34,9 +34,9 @@ Department.create!([
   {departmentname: "Leaderships", company_id: 3}
 ])
 Employee.create!([
-  {empfname: "EmpFirstName01", emplname: "EmpLastName01", address: "Address01", email: "Email01", phone: "(111)111-1111", title: "Title01", hiredate: "2020-01-01", department_id: 2, employeestatus_id: 1, dummyuser_id: 1},
-  {empfname: "EmpFirstName02", emplname: "EmpLastName02", address: "Address03", email: "Email03", phone: "(333)333-3333", title: "Title03", hiredate: "2020-03-03", department_id: 1, employeestatus_id: 4, dummyuser_id: 3},
-  {empfname: "EmpFirstName02", emplname: "EmpLastName02", address: "Address02", email: "Email02", phone: "(222)222-2222", title: "Title02", hiredate: "2020-02-02", department_id: 3, employeestatus_id: 3, dummyuser_id: 2}
+  {empfname: "EmpFirstName01", emplname: "EmpLastName01", address: "Address01", email: "Email01", phone: "(111)111-1111", title: "Title01", hiredate: "2020-01-01", department_id: 1, employeestatus_id: 1, dummyuser_id: 1},
+  {empfname: "EmpFirstName02", emplname: "EmpLastName02", address: "Address02", email: "Email02", phone: "(222)222-2222", title: "Title02", hiredate: "2020-02-02", department_id: 2, employeestatus_id: 2, dummyuser_id: 2},
+  {empfname: "EmpFirstName03", emplname: "EmpLastName03", address: "Address03", email: "Email03", phone: "(333)333-3333", title: "Title03", hiredate: "2020-03-03", department_id: 3, employeestatus_id: 3, dummyuser_id: 3}
 ])
 Location.create!([
   {city: "Houston"},
@@ -59,8 +59,8 @@ Warehouse.create!([
   {warehousename: "Conroe Warehouse", location_id: 3}
 ])
 Shipment.create!([
-  {date: "2020-01-01", quantity: 1, warehouse_id: 1, shipmentmethod_id: 2, shipmentstatus_id: 2, shipmentnum: "Shipmentnum01"},
-  {date: "2020-02-02", quantity: 2, warehouse_id: 2, shipmentmethod_id: 1, shipmentstatus_id: 1, shipmentnum: "Shipmentnum02"},
+  {date: "2020-01-01", quantity: 1, warehouse_id: 1, shipmentmethod_id: 1, shipmentstatus_id: 1, shipmentnum: "Shipmentnum01"},
+  {date: "2020-02-02", quantity: 2, warehouse_id: 2, shipmentmethod_id: 2, shipmentstatus_id: 3, shipmentnum: "Shipmentnum02"},
   {date: "2020-03-03", quantity: 3, warehouse_id: 3, shipmentmethod_id: 3, shipmentstatus_id: 3, shipmentnum: "Shipmentnum03"}
 ])
 Orderstatus.create!([
@@ -77,4 +77,15 @@ Container.create!([
   {company_id: 1, shipment_id: 1, containernum: "Containernum01"},
   {company_id: 2, shipment_id: 2, containernum: "Containernum02"},
   {company_id: 3, shipment_id: 3, containernum: "Containernum03"}
+])
+
+Invoicestatus.create!([
+  {invoicestatus: "Pending"},
+  {invoicestatus: "Paid"},
+  {invoicestatus: "Late"}
+])
+Invoice.create!([
+  {invoicedate: "2020-01-01", duedate: "2020-01-01", customer_id: 1, employee_id: 1, invoicestatus_id: 1, amountdue: "1111.11", invoicenum: "Invoicenum01"},
+  {invoicedate: "2020-02-02", duedate: "2020-02-02", customer_id: 2, employee_id: 2, invoicestatus_id: 2, amountdue: "2222.22", invoicenum: "Invoicenum02"},
+  {invoicedate: "2020-03-03", duedate: "2020-03-03", customer_id: 3, employee_id: 3, invoicestatus_id: 1, amountdue: "3.0", invoicenum: "Invoicenum03"}
 ])
