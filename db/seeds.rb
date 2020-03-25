@@ -130,3 +130,8 @@ Picture.create!([
   {picture: "Picture02", order_id: nil},
   {picture: "Picture03", order_id: nil}
 ])
+Auction.create!([
+  {auctionname: "Copart", address: "1655 RANKIN ROAD HOUSTON, TEXAS 77073 4903", location_id: 1},
+  {auctionname: "INSURANCE AUTO AUCTIONS INC", address: "2535 W Mount, Houston, TX 77038", location_id: 2},
+  {auctionname: "Auction03", address: "333 Three", location_id: 3}
+])
