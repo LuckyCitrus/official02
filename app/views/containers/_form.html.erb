@@ -16,26 +16,14 @@
     <%= form.text_field :containernum %>
 </div>
 
-<<<<<<< HEAD
-  <div class="field">
-    <%= form.label :shipment_id, "Shipment Number" %>
-    <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum %>
-  </div>
-
-  <div class="field">
-  <%= form.label :company_id, "Company Name" %>
-  <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname %>
-=======
-<div class="field">
+    <div class="field">
     <%= form.label :shipment_id, "Shipment Number" %>
     <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum, {include_blank: ""} %>
 </div>
 
-
 <div class="field">
     <%= form.label :company_id, "Company Name" %>
     <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname, {include_blank: ""} %>
->>>>>>> 57cf4e2437eddcded27df0ef87dceb3eeacd5588
 </div>
 
 <div class="actions">

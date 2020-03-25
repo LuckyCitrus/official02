@@ -22,13 +22,8 @@
 </div>
 
 <div class="field">
-<<<<<<< HEAD
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
-=======
     <%= form.label :customer_id, "Customer" %>
-    <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname %>
->>>>>>> 57cf4e2437eddcded27df0ef87dceb3eeacd5588
+    <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname, {include_blank: ""}  %>
 </div>
 
 <div class="field">
