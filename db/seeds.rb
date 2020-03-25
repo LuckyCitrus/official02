@@ -161,3 +161,8 @@ Invoiceshipment.create!([
   {shipment_id: 2, invoice_id: 2},
   {shipment_id: 3, invoice_id: 3}
 ])
+Orderinvoice.create!([
+  {order_id: 4, invoice_id: 5},
+  {order_id: 2, invoice_id: 5},
+  {order_id: 3, invoice_id: 4}
+])
