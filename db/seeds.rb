@@ -140,3 +140,18 @@ OrderAuction.create!([
   {order_id: 2, auction_id: 1},
   {order_id: 3, auction_id: 3}
 ])
+Keystatus.create!([
+  {keystatus: "On-hold"},
+  {keystatus: "Delivered"},
+  {keystatus: "Not Applicable"}
+])
+Titlestatus.create!([
+  {titlestatus: "On-hold"},
+  {titlestatus: "Delivered"},
+  {titlestatus: "Not Applicable"}
+])
+Car.create!([
+  {vinnumber: "111 11111 1 11111111", year: 2011, make: "Toyota", model: "Camry", titlestatus_id: 2, keystatus_id: 2, order_id: 1},
+  {vinnumber: "222 22222 2 22222222", year: 2012, make: "Toyota", model: "Corolla", titlestatus_id: 3, keystatus_id: 3, order_id: 2},
+  {vinnumber: "333 33333 3 33333333", year: 2013, make: "Honda", model: "Civic", titlestatus_id: 1, keystatus_id: 1, order_id: 3}
+])
