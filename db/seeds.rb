@@ -125,3 +125,8 @@ Orderinvoice.create!([
   {order_id: 2, invoice_id: 2},
   {order_id: 3, invoice_id: 3}
 ])
+Picture.create!([
+  {picture: "Picture01", order_id: nil},
+  {picture: "Picture02", order_id: nil},
+  {picture: "Picture03", order_id: nil}
+])
