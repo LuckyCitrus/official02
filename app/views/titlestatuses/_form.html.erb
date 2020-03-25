@@ -1,22 +1,22 @@
 <%= form_with(model: titlestatus, local: true) do |form| %>
-  <% if titlestatus.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(titlestatus.errors.count, "error") %> prohibited this titlestatus from being saved:</h2>
+<% if titlestatus.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(titlestatus.errors.count, "error") %> prohibited this titlestatus from being saved:</h2>
 
-      <ul>
+    <ul>
         <% titlestatus.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :titlestatus %>
+<div class="field">
+    <%= form.label :titlestatus, "Title Status" %>
     <%= form.text_field :titlestatus %>
-  </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+    <%= form.submit action_name == 'new' ? 'Create Title Status' : 'Update Title Status'%>
+</div>
 <% end %>
