@@ -1,22 +1,22 @@
 <%= form_with(model: customerstatus, local: true) do |form| %>
-  <% if customerstatus.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(customerstatus.errors.count, "error") %> prohibited this customerstatus from being saved:</h2>
+<% if customerstatus.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(customerstatus.errors.count, "error") %> prohibited this customerstatus from being saved:</h2>
 
-      <ul>
+    <ul>
         <% customerstatus.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :customerstatus %>
+<div class="field">
+    <%= form.label :customerstatus, "Customer Status" %>
     <%= form.text_field :customerstatus %>
-  </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+    <%= form.submit action_name == 'new' ? 'Create Customer Status' : 'Update Customer Status'%>
+</div>
 <% end %>
