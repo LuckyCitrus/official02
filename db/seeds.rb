@@ -115,3 +115,13 @@ Payment.create!([
   {date: "2020-02-02", amount: "2222.22", paymentstatus_id: 3, paymentmethod_id: 2, customer_id: 2, invoice_id: 2, paymentnum: "Paymentnum02"},
   {date: "2020-03-03", amount: "3333.33", paymentstatus_id: 2, paymentmethod_id: 3, customer_id: 3, invoice_id: 3, paymentnum: "Paymentnum03"}
 ])
+Invoiceshipment.create!([
+  {shipment_id: 1, invoice_id: 1},
+  {shipment_id: 2, invoice_id: 2},
+  {shipment_id: 3, invoice_id: 3}
+])
+Orderinvoice.create!([
+  {order_id: 1, invoice_id: 1},
+  {order_id: 2, invoice_id: 2},
+  {order_id: 3, invoice_id: 3}
+])
