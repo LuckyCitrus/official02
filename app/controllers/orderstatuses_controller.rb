@@ -69,6 +69,6 @@ class OrderstatusesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def orderstatus_params
-      params.require(:orderstatus).permit(:customertype)
+      params.require(:orderstatus).permit(:orderstatus)
     end
 end

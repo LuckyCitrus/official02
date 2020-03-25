@@ -63,3 +63,13 @@ Shipment.create!([
   {date: "2020-02-02", quantity: 2, warehouse_id: 2, shipmentmethod_id: 1, shipmentstatus_id: 1, shipmentnum: "Shipmentnum02"},
   {date: "2020-03-03", quantity: 3, warehouse_id: 3, shipmentmethod_id: 3, shipmentstatus_id: 3, shipmentnum: "Shipmentnum03"}
 ])
+Orderstatus.create!([
+  {orderstatus: "In-Process"},
+  {orderstatus: "Completed"},
+  {orderstatus: "Incompleted"}
+])
+Order.create!([
+  {date: "2020-01-01", lotstock: 1, quantity: 1, price: "1.11", total: "1.99", orderstatus_id: 1, customer_id: 1, ordernum: "Ordernum01"},
+  {date: "2020-02-02", lotstock: 2, quantity: 2, price: "2.22", total: "2.99", orderstatus_id: 2, customer_id: 2, ordernum: "Ordernum02"},
+  {date: "2020-03-03", lotstock: 3, quantity: 3, price: "3.33", total: "3.99", orderstatus_id: 3, customer_id: 3, ordernum: "Ordernum03"}
+])
