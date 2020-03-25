@@ -43,14 +43,15 @@
 
 <div class="field">
     <%= form.label :orderstatus_id %>
-    <%= form.text_field :orderstatus_id %>
-    <%#= form.collection_select :orderstatus_id, Orderstatus.order(:orderstatus), :id, :orderstatus %>
+    <%= form.collection_select :orderstatus_id, Orderstatus.order(:orderstatus), :id, :orderstatus %>
 </div>
 
-<!--<div class="field">-->
-    <%#= form.label :picture_id %>
-    <%#= form.collection_select :picture_id, Picture.order(:picture), :id, :picture %>
-<!--</div>-->
+<div class="field">
+    <%= form.label :customer_id %>
+    <%= form.collection_select :customer_id, Customer.order(:id), :id, :id %>
+</div>
+
+
 
 <div class="actions">
     <%= form.submit %>
