@@ -18,7 +18,6 @@
 
 <div class="field">
     <%= form.label :order_id %>
-    <%#= form.text_field :order_id %>
     <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum %>
 </div>
 
