@@ -12,8 +12,8 @@
 <% end %>
 
 <div class="field">
-  <%= form.label :ordernum %>
-  <%= form.text_field :ordernum %>
+    <%= form.label :ordernum %>
+    <%= form.text_field :ordernum %>
 </div>
 
 <div class="field">
@@ -48,7 +48,7 @@
 
 <div class="field">
     <%= form.label :customer_id %>
-    <%= form.collection_select :customer_id, Customer.order(:id), :id, :id %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname %>
 </div>
 
 <div class="actions">
