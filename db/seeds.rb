@@ -28,6 +28,17 @@ Customer.create!([
   {first_name: "CustFName02", last_name: "CustLName02", address: "CustAddress02", phone: "(222)222-2222", email: "Cust02@email.com", country_id: nil, customerstatus_id: nil, customertype_id: nil, dummyuser_id: nil},
   {first_name: "CustFName03", last_name: "CustLName03", address: "CustAddress03", phone: "(333)333-3333", email: "Cust03@email.com", country_id: nil, customerstatus_id: nil, customertype_id: nil, dummyuser_id: nil}
 ])
+Company.create!([
+                    {companyname: "Mitsab Inc"},
+                    {companyname: "Linear Shipping"},
+                    {companyname: "CompanyName03"}
+                ])
+Employeestatus.create!([
+                           {employeestatus: "Active"},
+                           {employeestatus: "Inactive"},
+                           {employeestatus: "Vacation"},
+                           {employeestatus: "Sick Leave"}
+                       ])
 Department.create!([
   {departmentname: "Logistics", company_id: 1},
   {departmentname: "Human Resources", company_id: 2},
@@ -98,4 +109,9 @@ Paymentstatus.create!([
   {paymentstatus: "Paid"},
   {paymentstatus: "Pending"},
   {paymentstatus: "Partial"}
+])
+Payment.create!([
+  {date: "2020-01-01", amount: "1111.11", paymentstatus_id: 1, paymentmethod_id: 1, customer_id: 1, invoice_id: 1, paymentnum: "Paymentnum01"},
+  {date: "2020-02-02", amount: "2222.22", paymentstatus_id: 3, paymentmethod_id: 2, customer_id: 2, invoice_id: 2, paymentnum: "Paymentnum02"},
+  {date: "2020-03-03", amount: "3333.33", paymentstatus_id: 2, paymentmethod_id: 3, customer_id: 3, invoice_id: 3, paymentnum: "Paymentnum03"}
 ])
