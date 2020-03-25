@@ -152,3 +152,7 @@ Containerorder.create!([
   {container_id: 3, order_id: 3},
   {container_id: 2, order_id: 4}
 ])
+Invoice.create!([
+  {invoicedate: "2020-01-01", duedate: "2020-01-01", customer_id: 1, employee_id: 1, invoicestatus_id: 1, amountdue: "1.0", invoicenum: nil},
+  {invoicedate: "2020-02-02", duedate: "2020-02-02", customer_id: 2, employee_id: 2, invoicestatus_id: 2, amountdue: "2.0", invoicenum: nil}
+])

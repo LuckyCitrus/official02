@@ -21,28 +21,13 @@
 </p>
 
 <p>
-    <strong>Order:</strong>
-    <%= @invoice.order_id %>
+    <strong>Invoice Status:</strong>
+    <%= @invoice.invoicestatus.id %>
 </p>
 
 <p>
-    <strong>Payment:</strong>
-    <%= @invoice.payment_id %>
-</p>
-
-<p>
-    <strong>Car:</strong>
-    <%= @invoice.car.car_name %>
-</p>
-
-<p>
-    <strong>Shipment:</strong>
-    <%= @invoice.shipment_id %>
-</p>
-
-<p>
-    <strong>Auction:</strong>
-    <%= @invoice.auction.auctionname %>
+    <strong>Amount Due:</strong>
+    <%= @invoice.amountdue %>
 </p>
 
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |

@@ -32,28 +32,13 @@
 </div>
 
 <div class="field">
-    <%= form.label :order_id %>
-    <%= form.text_field :order_id %>
+    <%= form.label :invoicestatus_id %>
+    <%= form.text_field :invoicestatus_id %>
 </div>
 
 <div class="field">
-    <%= form.label :payment_id %>
-    <%= form.text_field :payment_id %>
-</div>
-
-<div class="field">
-    <%= form.label :car_id %>
-    <%= form.collection_select :car_id, Car.all, :id, :car_name %>
-</div>
-
-<div class="field">
-    <%= form.label :shipment_id %>
-    <%= form.text_field :shipment_id %>
-</div>
-
-<div class="field">
-    <%= form.label :auction_id %>
-    <%= form.collection_select :auction_id, Auction.order(:auctionname), :id, :auctionname %>
+    <%= form.label :amountdue %>
+    <%= form.text_field :amountdue %>
 </div>
 
 <div class="actions">
