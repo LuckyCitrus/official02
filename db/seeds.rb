@@ -89,3 +89,13 @@ Invoice.create!([
   {invoicedate: "2020-02-02", duedate: "2020-02-02", customer_id: 2, employee_id: 2, invoicestatus_id: 2, amountdue: "2222.22", invoicenum: "Invoicenum02"},
   {invoicedate: "2020-03-03", duedate: "2020-03-03", customer_id: 3, employee_id: 3, invoicestatus_id: 1, amountdue: "3.0", invoicenum: "Invoicenum03"}
 ])
+Paymentmethod.create!([
+  {paymenttype: "Bank Wire"},
+  {paymenttype: "Credit Card"},
+  {paymenttype: "Money Order"}
+])
+Paymentstatus.create!([
+  {paymentstatus: "Paid"},
+  {paymentstatus: "Pending"},
+  {paymentstatus: "Partial"}
+])
