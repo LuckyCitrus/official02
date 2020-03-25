@@ -46,24 +46,19 @@
     <%= form.date_select :hiredate %>
 </div>
 
-<!--<div class="field">
-    <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
-  </div>-->
-
 <div class="field">
     <%= form.label :department_id %>
-    <%= form.collection_select :department_id, Department.order(:departmentname), :id, :departmentname %>
+    <%= form.collection_select :department_id, Department.order(:departmentname), :id, :departmentname, {include_blank: ""} %>
 </div>
 
 <div class="field">
     <%= form.label :employeestatus_id, "Employee Status" %>
-    <%= form.collection_select :employeestatus_id, Employeestatus.order(:employeestatus), :id, :employeestatus %>
+    <%= form.collection_select :employeestatus_id, Employeestatus.order(:employeestatus), :id, :employeestatus, {include_blank: ""} %>
 </div>
 
 <div class="field">
     <%= form.label :dummyuser_id, "Dummy User" %>
-    <%= form.collection_select :dummyuser_id, Dummyuser.order(:id), :id, :id %>
+    <%= form.collection_select :dummyuser_id, Dummyuser.order(:id), :id, :id, {include_blank: ""}  %>
 </div>
 
 <div class="actions">

@@ -17,11 +17,14 @@
 </div>
 
 <div class="field">
-    <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname %>
+    <%= form.label :shipment_id, "Shipment Number" %>
+    <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum, {include_blank: ""} %>
 </div>
 
+
 <div class="field">
-    <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum %>
+    <%= form.label :company_id, "Company Name" %>
+    <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname, {include_blank: ""} %>
 </div>
 
 <div class="actions">

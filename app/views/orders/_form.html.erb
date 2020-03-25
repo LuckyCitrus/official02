@@ -43,12 +43,12 @@
 
 <div class="field">
     <%= form.label :orderstatus_id, "Order Status" %>
-    <%= form.collection_select :orderstatus_id, Orderstatus.order(:orderstatus), :id, :orderstatus %>
+    <%= form.collection_select :orderstatus_id, Orderstatus.order(:orderstatus), :id, :orderstatus, {include_blank: ""}  %>
 </div>
 
 <div class="field">
     <%= form.label :customer_id %>
-    <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname, {include_blank: ""}  %>
 </div>
 
 <div class="actions">

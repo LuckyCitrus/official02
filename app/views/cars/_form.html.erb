@@ -33,17 +33,17 @@
 
 <div class="field">
     <%= form.label :titlestatus_id %>
-    <%= form.collection_select :titlestatus_id, Titlestatus.order(:titlestatus), :id, :titlestatus %>
+    <%= form.collection_select :titlestatus_id, Titlestatus.order(:titlestatus), :id, :titlestatus, {include_blank: ""} %>
 </div>
 
 <div class="field">
     <%= form.label :keystatus_id, "Key Status" %>
-    <%= form.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus %>
+    <%= form.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""} %>
 </div>
 
 <div class="field">
     <%= form.label :order_id %>
-    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum %>
+    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""} %>
 </div>
 
 <div class="actions">

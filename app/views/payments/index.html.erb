@@ -7,10 +7,10 @@
         <tr>
             <th>Payment Number</th>
             <th>Date</th>
+            <th>Customer</th>
             <th>Amount</th>
             <th>Payment Status</th>
             <th>Payment Method</th>
-            <th>Customer</th>
             <th>Invoice Number</th>
             <th colspan="7"></th>
         </tr>
@@ -21,10 +21,10 @@
         <tr>
             <td><%= payment.paymentnum %></td>
             <td><%= payment.date %></td>
+            <td><%= payment.customer.try(:cus_fullname) %></td>
             <td><%= number_to_currency(payment.amount) %></td>
             <td><%= payment.paymentstatus.paymentstatus %></td>
             <td><%= payment.paymentmethod.paymenttype %></td>
-            <td><%= payment.customer.try(:cus_fullname) %></td>
             <td><%= payment.invoice.invoicenum %></td>
             <td><%= link_to 'Show', payment %></td>
             <td><%= link_to 'Edit', edit_payment_path(payment) %></td>

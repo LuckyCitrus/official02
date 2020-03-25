@@ -13,12 +13,12 @@
 
 <div class="field">
     <%= form.label :shipment_id %>
-    <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum %>
+    <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum, {include_blank: ""}  %>
 </div>
 
 <div class="field">
     <%= form.label :invoice_id %>
-    <%= form.collection_select :invoice_id, Invoice.order(:invoicenum), :id, :invoicenum %>
+    <%= form.collection_select :invoice_id, Invoice.order(:invoicenum), :id, :invoicenum, {include_blank: ""}  %>
 </div>
 
 <div class="actions">
