@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :paymentnum %>
+    <%= form.text_field :paymentnum %>
+  </div>
+
+  <div class="field">
     <%= form.label :date %>
     <%= form.date_select :date %>
   </div>
@@ -34,6 +39,11 @@
   <div class="field">
     <%= form.label :customer_id %>
     <%= form.collection_select :customer_id, Customer.order(:last_name), :id, :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :invoice_id %>
+    <%= form.collection_select :invoice_id, Invoice.order(:id), :id, :id %>
   </div>
 
   <div class="actions">
