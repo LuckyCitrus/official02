@@ -1,6 +1,7 @@
 class OrderinvoicesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_orderinvoice, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /orderinvoices
   # GET /orderinvoices.json

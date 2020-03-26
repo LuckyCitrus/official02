@@ -5,7 +5,7 @@ class Ability
   def initialize(user)
     if user.present?
       if user.customer?
-        can :read, :all
+        can :read, [Customer, Order, Invoice, Payment]
       elsif user.employee?
         can :manage, :all
         cannot :manage, :users
