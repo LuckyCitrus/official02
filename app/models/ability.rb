@@ -7,9 +7,9 @@ class Ability
     if user.present?
       if user.customer?
         can :read, :all
-      #elsif user.employee?
-       # can :manage :all
-       # cannot :manage :users
+      elsif user.employee?
+        can :manage :all
+        cannot :manage :users
       elsif user.admin?
         can :manage, :all
       end
