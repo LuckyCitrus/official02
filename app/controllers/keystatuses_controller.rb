@@ -1,4 +1,5 @@
 class KeystatusesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_keystatus, only: [:show, :edit, :update, :destroy]
 
   # GET /keystatuses

@@ -1,4 +1,5 @@
 class PaymentstatusesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_paymentstatus, only: [:show, :edit, :update, :destroy]
 
   # GET /paymentstatuses

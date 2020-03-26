@@ -1,4 +1,5 @@
 class ShipmentmethodsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_shipmentmethod, only: [:show, :edit, :update, :destroy]
 
   # GET /shipmentmethods

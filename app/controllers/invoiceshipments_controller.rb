@@ -1,4 +1,5 @@
 class InvoiceshipmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_invoiceshipment, only: [:show, :edit, :update, :destroy]
 
   # GET /invoiceshipments
