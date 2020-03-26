@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :admin_only
+  before_action :authenticate_user!, :admin_only
   load_and_authorize_resource
 
   def index
