@@ -1,7 +1,7 @@
 class InvoiceshipmentsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :set_invoiceshipment, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /invoiceshipments
   # GET /invoiceshipments.json

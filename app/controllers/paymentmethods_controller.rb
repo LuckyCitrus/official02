@@ -1,7 +1,7 @@
 class PaymentmethodsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :set_paymentmethod, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /paymentmethods
   # GET /paymentmethods.json

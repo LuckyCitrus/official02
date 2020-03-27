@@ -1,7 +1,7 @@
 class ContainerordersController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :set_containerorder, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /containerorders
   # GET /containerorders.json
