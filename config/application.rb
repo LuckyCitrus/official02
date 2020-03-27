@@ -1,6 +1,7 @@
 require_relative 'boot'
 
-require jquery
+require 'jquery'
+require 'jquery_ujs'
 
 require 'rails/all'
 
