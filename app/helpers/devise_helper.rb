@@ -18,6 +18,6 @@ module DeviseHelper
 
     html.html_safe
   end
-=en
+=end
 
 end
