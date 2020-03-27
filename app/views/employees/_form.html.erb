@@ -57,8 +57,8 @@
 </div>
 
 <div class="field">
-    <%= form.label :dummyuser_id, "Dummy User" %>
-    <%= form.collection_select :dummyuser_id, Dummyuser.order(:id), :id, :id, {include_blank: ""}  %>
+    <%= form.label :user_id, "User" %>
+    <%= form.collection_select :user_id, User.order(:email), :id, :email, {include_blank: ""}  %>
 </div>
 
 <div class="actions">
