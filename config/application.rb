@@ -1,8 +1,5 @@
 require_relative 'boot'
 
-require 'jquery'
-require 'jquery_ujs'
-
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
