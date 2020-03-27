@@ -3,6 +3,7 @@ class Customer < ApplicationRecord
   has_many :customerstatus
   has_many :customertype
   has_many :dummyuser
+  belongs_to :user  
 
   # belongs_to :orders
   has_many :orders
