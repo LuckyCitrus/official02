@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.5'
 
+
 gem 'cancancan'
 gem 'devise'
 gem 'seed_dump'
