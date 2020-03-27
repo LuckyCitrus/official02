@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'companies#index'
   resources :containerorders
   resources :orderinvoices
   resources :order_auctions
