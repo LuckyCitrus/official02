@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_203120) do
+ActiveRecord::Schema.define(version: 2020_03_27_045452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,10 +103,12 @@ ActiveRecord::Schema.define(version: 2020_03_26_203120) do
     t.bigint "customerstatus_id"
     t.bigint "customertype_id"
     t.bigint "dummyuser_id"
+    t.bigint "user_id"
     t.index ["country_id"], name: "index_customers_on_country_id"
     t.index ["customerstatus_id"], name: "index_customers_on_customerstatus_id"
     t.index ["customertype_id"], name: "index_customers_on_customertype_id"
     t.index ["dummyuser_id"], name: "index_customers_on_dummyuser_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "customerstatuses", force: :cascade do |t|
@@ -157,9 +159,11 @@ ActiveRecord::Schema.define(version: 2020_03_26_203120) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "dummyuser_id"
+    t.bigint "user_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
     t.index ["dummyuser_id"], name: "index_employees_on_dummyuser_id"
     t.index ["employeestatus_id"], name: "index_employees_on_employeestatus_id"
+    t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
   create_table "employeestatuses", force: :cascade do |t|
@@ -361,11 +365,13 @@ ActiveRecord::Schema.define(version: 2020_03_26_203120) do
   add_foreign_key "customers", "customerstatuses"
   add_foreign_key "customers", "customertypes"
   add_foreign_key "customers", "dummyusers"
+  add_foreign_key "customers", "users"
   add_foreign_key "departments", "companies"
   add_foreign_key "dummyusers", "dummyroles"
   add_foreign_key "employees", "departments"
   add_foreign_key "employees", "dummyusers"
   add_foreign_key "employees", "employeestatuses"
+  add_foreign_key "employees", "users"
   add_foreign_key "invoices", "customers"
   add_foreign_key "invoices", "employees"
   add_foreign_key "invoices", "invoicestatuses"
