@@ -4,13 +4,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   #before_action :verify_authorized, except: index, unless: :devise_controller?
 
-=begin
-  rescue_from Pundit::NotAuthorizedError do |exception|
-	policy_name = exception.policy.class.to_s.underscore
-	flash[:alert] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default
-	redirect_to(request.referrer || root_path)
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || root_path
   end
-=end
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   private
