@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-    before_action :authenticate_user!, :configured_permitted_parameters, if: :devise_controller?
+    #before_action :authenticate_user!, :configured_permitted_parameters, if: :devise_controller?
 
     protected
 

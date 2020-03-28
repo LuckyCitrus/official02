@@ -1,22 +1,25 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    #@orders = Order.all
+    @orders = policy_scope(Order)
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order = policy_scope(Order).find(params[:id])
   end
 
   # GET /orders/new
   def new
     @order = Order.new
+    authorize @order
   end
 
   # GET /orders/1/edit
@@ -67,6 +70,7 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
+      authorize @order
     end
 
     # Only allow a list of trusted parameters through.

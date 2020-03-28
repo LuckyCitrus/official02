@@ -16,6 +16,11 @@
     <%= form.text_field :picture %>
   </div>
 
+<div class="field">
+    <%= form.label :order_id %>
+    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}  %>
+</div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

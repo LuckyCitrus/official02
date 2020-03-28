@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_one :employee
+  has_one :customer
+
   enum role: [:customer, :employee, :admin]
   after_initialize :set_default_role, :if => :new_record?
 

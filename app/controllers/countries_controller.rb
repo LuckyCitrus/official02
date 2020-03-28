@@ -1,7 +1,7 @@
 class CountriesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :employee_only
   before_action :set_country, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /countries
   # GET /countries.json

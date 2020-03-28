@@ -31,3 +31,53 @@
 
 en:
   hello: "Hello world"
+  pundit:
+    default: "You are not authorized to perform this action."
+    customer_policy:
+      index?: "You are not authorized to view this customer."
+      show?: "You are not authorized to view this customer."
+      create?: "You are not authorized to create this customer."
+      new?: "You are not authorized to create this customer."
+      update?: "You are not authorized to update this customer."
+      edit?: "You are not authorized to edit this customer."
+      destroy?: "You are not authorized to destroy this customer."
+    order_policy:
+      index?: "You are not authorized to view this order."
+      show?: "You are not authorized to view this order."
+      create?: "You are not authorized to create this order."
+      new?: "You are not authorized to create this order."
+      update?: "You are not authorized to update this order."
+      edit?: "You are not authorized to edit this order."
+      destroy?: "You are not authorized to destroy this order."
+    invoice_policy:
+      index?: "You are not authorized to view this invoice."
+      show?: "You are not authorized to view this invoice."
+      create?: "You are not authorized to create this invoice."
+      new?: "You are not authorized to create this invoice."
+      update?: "You are not authorized to update this invoice."
+      edit?: "You are not authorized to edit this invoice."
+      destroy?: "You are not authorized to destroy this invoice."
+    payment_policy:
+      index?: "You are not authorized to view this payment."
+      show?: "You are not authorized to view this payment."
+      create?: "You are not authorized to create this payment."
+      new?: "You are not authorized to create this payment."
+      update?: "You are not authorized to update this payment."
+      edit?: "You are not authorized to edit this payment."
+      destroy?: "You are not authorized to destroy this payment."
+    shipment_policy:
+      index?: "You are not authorized to view this shipment."
+      show?: "You are not authorized to view this shipment."
+      create?: "You are not authorized to create this shipment."
+      new?: "You are not authorized to create this shipment."
+      update?: "You are not authorized to update this shipment."
+      edit?: "You are not authorized to edit this shipment."
+      destroy?: "You are not authorized to destroy this shipment."
+    picture_policy:
+      index?: "You are not authorized to view this picture."
+      show?: "You are not authorized to view this picture."
+      create?: "You are not authorized to create this picture."
+      new?: "You are not authorized to create this picture."
+      update?: "You are not authorized to update this picture."
+      edit?: "You are not authorized to edit this picture."
+      destroy?: "You are not authorized to destroy this picture."

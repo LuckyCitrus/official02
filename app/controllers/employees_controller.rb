@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :employee_only
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   # GET /employees
   # GET /employees.json
@@ -71,6 +71,6 @@ class EmployeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def employee_params
-      params.require(:employee).permit(:empfname, :emplname, :address, :email, :phone, :title, :hiredate, :company_id, :department_id, :employeestatus_id, :dummyuser_id)
+      params.require(:employee).permit(:empfname, :emplname, :address, :email, :phone, :title, :hiredate, :department_id, :employeestatus_id, :user_id)
     end
 end

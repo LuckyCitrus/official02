@@ -1,42 +1,47 @@
 <%= form_with(model: customer, local: true) do |form| %>
-  <% if customer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+<% if customer.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
-      <ul>
+    <ul>
         <% customer.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <li><%= message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div class="field">
+<div class="field">
     <%= form.label :first_name, "First Name" %>
     <%= form.text_field :first_name %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :last_name, "Last Name" %>
     <%= form.text_field :last_name %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :address %>
     <%= form.text_field :address %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :phone %>
     <%= form.text_field :phone %>
-  </div>
+</div>
 
-  <div class="field">
+<div class="field">
     <%= form.label :email %>
     <%= form.text_field :email %>
-  </div>
+</div>
 
-  <div class="actions">
+<div class="field">
+    <%= form.label :user_id, "User" %>
+    <%= form.collection_select :user_id, User.order(:email), :id, :email, {include_blank: ""}  %>
+</div>
+
+<div class="actions">
     <%= form.submit %>
-  </div>
+</div>
 <% end %>
