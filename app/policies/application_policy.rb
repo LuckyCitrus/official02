@@ -16,7 +16,8 @@ class ApplicationPolicy
   end
 
   def create?
-    user.admin? || user.employee
+    user.admin? || user.employee?
+
   end
 
   def new?
@@ -24,15 +25,15 @@ class ApplicationPolicy
   end
 
   def update?
-    user.admin? || user.employee
+    user.admin? || user.employee?
   end
 
   def edit?
-    create?
+    update?
   end
 
   def destroy?
-    user.admin? || user.employee
+    user.admin? || user.employee?
   end
 
   def scope
