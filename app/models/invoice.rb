@@ -7,7 +7,7 @@ class Invoice < ApplicationRecord
   # belongs_to :car
   # belongs_to :shipment
   # belongs_to :auction
-  #
+  
   belongs_to :invoicestatus
 
   has_many :invoiceshipments
