@@ -6,12 +6,14 @@ class PaymentsController < ApplicationController
   # GET /payments
   # GET /payments.json
   def index
-    @payments = Payment.all
+    #@payments = Payment.all
+    @payments = policy_scope(Payment)
   end
 
   # GET /payments/1
   # GET /payments/1.json
   def show
+    @payment = policy_scope(Payment).find(params[:id])
   end
 
   # GET /payments/new
@@ -67,6 +69,7 @@ class PaymentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_payment
       @payment = Payment.find(params[:id])
+      authorize @payment
     end
 
     # Only allow a list of trusted parameters through.
