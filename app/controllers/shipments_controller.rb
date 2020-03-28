@@ -19,6 +19,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments/new
   def new
     @shipment = Shipment.new
+    authorize @shipment
   end
 
   # GET /shipments/1/edit

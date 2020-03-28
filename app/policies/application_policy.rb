@@ -29,7 +29,7 @@ class ApplicationPolicy
   end
 
   def edit?
-    update?
+    user.admin? || user.employee?
   end
 
   def destroy?

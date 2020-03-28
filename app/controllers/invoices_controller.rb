@@ -19,6 +19,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/new
   def new
     @invoice = Invoice.new
+    authorize @invoice
   end
 
   # GET /invoices/1/edit

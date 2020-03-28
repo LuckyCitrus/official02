@@ -19,6 +19,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
+    authorize @payment
   end
 
   # GET /payments/1/edit
