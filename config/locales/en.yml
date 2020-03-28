@@ -65,3 +65,11 @@ en:
       update?: "You are not authorized to update this payment."
       edit?: "You are not authorized to edit this payment."
       destroy?: "You are not authorized to destroy this payment."
+    shipment_policy:
+      index?: "You are not authorized to view this shipment."
+      show?: "You are not authorized to view this shipment."
+      create?: "You are not authorized to create this shipment."
+      new?: "You are not authorized to create this shipment."
+      update?: "You are not authorized to update this shipment."
+      edit?: "You are not authorized to edit this shipment."
+      destroy?: "You are not authorized to destroy this shipment."

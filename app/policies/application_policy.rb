@@ -21,7 +21,7 @@ class ApplicationPolicy
   end
 
   def new?
-    create?
+    user.admin? || user.employee?
   end
 
   def update?
