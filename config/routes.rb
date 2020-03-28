@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'companies#index'
   resources :containerorders
   resources :orderinvoices
   resources :order_auctions
@@ -34,5 +33,13 @@ Rails.application.routes.draw do
   resources :countries
   resources :customers
   resources :hellos
+  resources :users
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  root 'dashboard#index'
+  get 'users/index', to: 'users#index'
+
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'sign_up'}
+
 end

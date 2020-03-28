@@ -1,5 +1,7 @@
 class ShipmentmethodsController < ApplicationController
+  before_action :authenticate_user!, :employee_only
   before_action :set_shipmentmethod, only: [:show, :edit, :update, :destroy]
+  #load_and_authorize_resource
 
   # GET /shipmentmethods
   # GET /shipmentmethods.json

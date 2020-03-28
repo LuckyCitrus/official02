@@ -1,8 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Picture:</strong>
   <%= @picture.picture %>
+</p>
+
+<p>
+  <strong>Order Number:</strong>
+  <%= @picture.order.try(:ordernum) %>
 </p>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
