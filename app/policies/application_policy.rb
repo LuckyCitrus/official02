@@ -7,8 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    #user.present?
-    user.admin? || user.employee?
+    user.present?
   end
 
   def show?
