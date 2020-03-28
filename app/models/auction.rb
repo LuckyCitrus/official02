@@ -1,4 +1,5 @@
 class Auction < ApplicationRecord
+
   belongs_to :location
 
   #Order Round

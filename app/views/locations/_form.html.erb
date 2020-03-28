@@ -16,6 +16,19 @@
     <%= form.text_field :city %>
   </div>
 
+<%# Nested Form Form %>
+  <h3>Warehouses</h3>
+  <div id='warehouses'>
+    <%= form.fields_for :warehouses do |warehouse| %>
+      <%= render 'warehouse_fields', :f => warehouse %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'Add Warehouse', form, :warehouses %>
+    </div>
+  </div>
+<%# End of Nested Form Form %>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>

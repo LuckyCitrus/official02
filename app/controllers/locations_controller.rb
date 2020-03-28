@@ -69,6 +69,10 @@ class LocationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def location_params
-      params.require(:location).permit(:city)
+      # params.require(:location).permit(:city)
+
+      #Nested Form Whitelist
+      params.require(:location).permit(:city, warehouses_attributes: [:id, :warehousename, :destroy_])
+      #End of Nested Form Whitelist
     end
 end

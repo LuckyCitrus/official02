@@ -5,5 +5,17 @@
   <%= @location.city %>
 </p>
 
+<%# Nested Form Show %>
+<p>
+  <strong>Warehouse Name:</strong>
+</p>
+<ul>
+  <% for @warehouse in @location.warehouses %>
+    <li><%= @warehouse.warehousename %></li>
+  <% end %>
+</ul>
+<%# End of Nested Form Show %>
+
+
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>
