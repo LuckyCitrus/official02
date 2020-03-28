@@ -16,6 +16,16 @@
     <%= form.text_field :companyname %>
   </div>
 
+  <h3>Departments</h3>
+  <div id='departments'>
+    <%= form.fields_for :departments do |department| %>
+      <%= render 'department_fields', :f => department %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'Add Department', form, :departments %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

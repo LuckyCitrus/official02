@@ -5,5 +5,16 @@
   <%= @company.companyname %>
 </p>
 
+<%# Nested Form Show %>
+<p>
+  <strong>Department Name:</strong>
+</p>
+<ul>
+  <% for @department in @company.departments %>
+    <li><%= @department.departmentname %></li>
+  <% end %>
+</ul>
+<%# End of Nested Form Show %>
+
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
