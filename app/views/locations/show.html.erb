@@ -16,6 +16,17 @@
 </ul>
 <%# End of Nested Form Show %>
 
+<%# Nested Form Show %>
+<p>
+  <strong>Auction Name:</strong>
+</p>
+<ul>
+  <% for @auction in @location.auctions %>
+    <li><%= @auction.auctionname %></li>
+  <% end %>
+</ul>
+<%# End of Nested Form Show %>
+
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

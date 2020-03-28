@@ -72,7 +72,7 @@ class LocationsController < ApplicationController
       # params.require(:location).permit(:city)
 
       #Nested Form Whitelist
-      params.require(:location).permit(:city, warehouses_attributes: [:id, :warehousename, :destroy_])
+      params.require(:location).permit(:city, warehouses_attributes: [:id, :warehousename, :destroy_], auctions_attributes: [:id, :auctionname, :address, :destroy_])
       #End of Nested Form Whitelist
     end
 end

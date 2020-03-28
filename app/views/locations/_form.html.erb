@@ -28,6 +28,18 @@
   </div>
 <%# End of Nested Form Form %>
 
+<%# Nested Form Form %>
+  <h3>Auctions</h3>
+  <div id='auctions'>
+    <%= form.fields_for :auctions do |auction| %>
+      <%= render 'auction_fields', :f => auction %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'Add Auction', form, :auctions %>
+    </div>
+  </div><br><br>
+<%# End of Nested Form Form %>
+
 
   <div class="actions">
     <%= form.submit %>
