@@ -1,17 +1,20 @@
 class CustomersController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
+  #after_action :verify_authorized#, except: [:index]
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   #load_and_authorize_resource
 
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    #@customers = Customer.all
+    @customers = policy_scope(Customer)
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @customer = policy_scope(Customer).find(params[:id])
   end
 
   # GET /customers/new
@@ -67,6 +70,7 @@ class CustomersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
       @customer = Customer.find(params[:id])
+      authorize @customer
     end
 
     # Only allow a list of trusted parameters through.

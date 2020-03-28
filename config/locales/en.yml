@@ -31,3 +31,13 @@
 
 en:
   hello: "Hello world"
+  pundit:
+    default: "You are not authorized to perform this action."
+    customer_policy:
+      index?: "You are not authorized to view this item."
+      show?: "You are not authorized to view this item."
+      create?: "You are not authorized to create this item."
+      new?: "You are not authorized to create this item."
+      update?: "You are not authorized to update this item."
+      edit?: "You are not authorized to edit this item."
+      destroy?: "You are not authorized to destroy this item."
