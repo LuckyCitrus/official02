@@ -6,12 +6,14 @@ class ShipmentsController < ApplicationController
   # GET /shipments
   # GET /shipments.json
   def index
-    @shipments = Shipment.all
+    #@shipments = Shipment.all
+    @shipments = policy_scope(Shipment)
   end
 
   # GET /shipments/1
   # GET /shipments/1.json
   def show
+    @order = policy_scope(Order).find(params[:id])
   end
 
   # GET /shipments/new
@@ -67,6 +69,7 @@ class ShipmentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_shipment
       @shipment = Shipment.find(params[:id])
+      authorize @shipment
     end
 
     # Only allow a list of trusted parameters through.
