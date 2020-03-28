@@ -1,7 +1,6 @@
 class ShipmentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_shipment, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource
 
   # GET /shipments
   # GET /shipments.json

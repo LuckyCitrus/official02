@@ -1,7 +1,6 @@
 class PaymentstatusesController < ApplicationController
   before_action :authenticate_user!, :employee_only
   before_action :set_paymentstatus, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource
 
   # GET /paymentstatuses
   # GET /paymentstatuses.json
