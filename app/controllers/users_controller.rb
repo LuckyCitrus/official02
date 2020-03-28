@@ -30,14 +30,6 @@ class UsersController < ApplicationController
     redirect_to users_path, :notice => "User was successfully deleted."
   end
 
-  private
-
-  def admin_only
-    unless current_user.admin?
-        redirect_to root_path, :alert => "You are not authorized to access this page."
-    end
-  end
-
   def secure_params
     params.require(:user).permit(:role)
   end
