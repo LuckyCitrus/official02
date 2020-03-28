@@ -1,13 +1,13 @@
 class AuctionsController < ApplicationController
-  #before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
   #load_and_authorize_resource
 
-  
   # GET /auctions
   # GET /auctions.json
   def index
     @auctions = Auction.all
+    authorize Auction
   end
 
   # GET /auctions/1

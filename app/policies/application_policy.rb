@@ -7,17 +7,17 @@ class ApplicationPolicy
   end
 
   def index?
-    user.present?
+    #user.present?
+    user.admin? || user.employee?
   end
 
   def show?
-    #scope.where(:id => record.id).exists?
-    index?
+    scope.where(:id => record.id).exists?
+    #index?
   end
 
   def create?
     user.admin? || user.employee?
-
   end
 
   def new?
