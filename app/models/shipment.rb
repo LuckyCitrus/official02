@@ -8,9 +8,9 @@ class Shipment < ApplicationRecord
   has_many :invoiceshipments
   has_many :invoices, through: :invoiceshipments
 
-  validates :shipmentnum, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, presence: true
+  validates :shipmentnum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }
   validates :date, presence: true
-  validates :quantity, numericality: { greater_than: 1 }, presence: true
+  validates :quantity, presence: true, numericality: { greater_than: 1 }
   validates :warehouse_id, presence: true
   validates :shipmentmethod_id, presence: true
   validates :shipmentstatus_id, presence: true
