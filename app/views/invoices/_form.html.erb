@@ -43,7 +43,7 @@
 
 <div class="field">
     <%= form.label :amountdue, "Amount Due" %>
-    <%= form.number_field :amountdue, value: number_with_precision(order.price, precision: 2), min: 0, step: 0.01,required: true %>
+    <%= form.number_field :amountdue, value: number_with_precision(invoice.amountdue, precision: 2), min: 0, step: 0.01,required: true %>
 </div>
 
 <div class="actions">
