@@ -33,7 +33,7 @@
 
 <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, pattern: "^[a-zA-Z0-9_.+-]*@[a-zA-Z0-9-]*\.[a-zA-Z0-9-.]+$", required: true %>
+    <%= form.text_field :email, pattern: "[^@]+@[^@]+", required: true %>
 </div>
 
 <div class="field">
