@@ -12,7 +12,7 @@ class Customer < ApplicationRecord
   validates :last_name, presence: true, format: { with: /\A[a-z][a-z-]*[a-z-']\z/i }
   validates :address, presence: true
   validates :phone, presence: true, length: { minimum: 5, maximum: 24}
-  validates :email, presence: true, unique: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email, presence: true,  format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def cus_fullname
     "#{first_name} #{last_name}"

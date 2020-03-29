@@ -28,8 +28,8 @@
 
 <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, pattern: "[^@]+@[^@]+", required: true %>
-</div>
+    <%= form.email_field :email, required: true %>
+</div> <!--pattern: "[^@]+@[^@]+"-->
 
 <div class="field">
     <%= form.label :phone %>
