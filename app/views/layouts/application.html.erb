@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>MitsabWebApp</title>
+    <title><%= title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,7 +18,7 @@
         <h1>MitsabWebApp</h1>
         <%= link_to "Home", root_path %> |
         <% if current_user.try(:admin?) %>
-            <%= link_to "Users", users_path %> |
+        <%= link_to "Users", users_path %> |
         <% end %>
         <%= link_to "Employees", employees_path %> | <%= link_to "Customers", customers_path %> | <%= link_to "Cars", cars_path %> | <%= link_to "Orders", orders_path %> | <%= link_to "Invoices", invoices_path %> | <%= link_to "Payments", payments_path %> | <%= link_to "Shipments", shipments_path %>
 
