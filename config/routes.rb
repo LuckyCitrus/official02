@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   
   root 'dashboard#index'
   get 'users/index', to: 'users#index'
+  get 'register', to: redirect('register/sign_up')
   get 'orderauctions', to: redirect('order_auctions')
 
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'sign_up'}
