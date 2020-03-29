@@ -13,37 +13,37 @@
 
 <div class="field">
     <%= form.label :vinnumber, "VIN Number" %>
-    <%= form.text_field :vinnumber %>
+    <%= form.text_field :vinnumber, pattern: '^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$', required: true %>
 </div>
 
 <div class="field">
     <%= form.label :year %>
-    <%= form.number_field :year %>
+    <%= form.number_field :year, pattern: '/(19|20)\d{2}/i', min: 1900, max: Date.today.year+1, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :make %>
-    <%= form.text_field :make %>
+    <%= form.text_field :make, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :model %>
-    <%= form.text_field :model %>
+    <%= form.text_field :model, required: true %>
 </div>
 
 <div class="field">
-    <%= form.label :titlestatus_id %>
-    <%= form.collection_select :titlestatus_id, Titlestatus.order(:titlestatus), :id, :titlestatus, {include_blank: ""} %>
+    <%= form.label :titlestatus_id, "Title Status" %>
+    <%= form.collection_select :titlestatus_id, Titlestatus.order(:titlestatus), :id, :titlestatus, {include_blank: ""}, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :keystatus_id, "Key Status" %>
-    <%= form.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""} %>
+    <%= form.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""}, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :order_id %>
-    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""} %>
+    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
 </div>
 
 <div class="actions">
