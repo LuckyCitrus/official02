@@ -13,32 +13,32 @@
 
 <div class="field">
     <%= form.label :shipmentnum, "Shipment Number" %>
-    <%= form.text_field :shipmentnum %>
+    <%= form.text_field :shipmentnum, pattern: '^[a-zA-Z0-9-]*$', required: true %>
 </div>
 
 <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.date_select :date, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity, min: 1, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :warehouse_id %>
-    <%= form.collection_select :warehouse_id, Warehouse.order(:warehousename), :id, :warehousename, {include_blank: ""} %>
+    <%= form.collection_select :warehouse_id, Warehouse.order(:warehousename), :id, :warehousename, {include_blank: ""}, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :shipmentmethod_id, "Shipping Method" %>
-    <%= form.collection_select :shipmentmethod_id, Shipmentmethod.order(:shipmentmethod), :id, :shipmentmethod, {include_blank: ""} %>
+    <%= form.collection_select :shipmentmethod_id, Shipmentmethod.order(:shipmentmethod), :id, :shipmentmethod, {include_blank: ""}, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :shipmentstatus_id, "Shipping Status" %>
-    <%= form.collection_select :shipmentstatus_id, Shipmentstatus.order(:shipmentstatus), :id, :shipmentstatus, {include_blank: ""} %>
+    <%= form.collection_select :shipmentstatus_id, Shipmentstatus.order(:shipmentstatus), :id, :shipmentstatus, {include_blank: ""}, required: true %>
 </div>
 
 <div class="actions">
