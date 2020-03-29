@@ -13,8 +13,9 @@
 
 <div class="field">
     <%= form.label :vinnumber, "VIN Number" %>
-    <%= form.text_field :vinnumber, pattern: '^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$', required: true %>
+    <%= form.text_field :vinnumber, pattern: '^[a-zA-Z0-9]*$', minlength: 11, maxlength: 17, required: true %>
 </div>
+<!--VIN Number 1981 standard regex:'^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$-->
 
 <div class="field">
     <%= form.label :year %>
@@ -23,12 +24,12 @@
 
 <div class="field">
     <%= form.label :make %>
-    <%= form.text_field :make, required: true %>
+    <%= form.text_field :make, required: true, pattern: '^[a-zA-Z0-9-]*$', required: true %>
 </div>
 
 <div class="field">
     <%= form.label :model %>
-    <%= form.text_field :model, required: true %>
+    <%= form.text_field :model, required: true, pattern: '^[a-zA-Z0-9-]*$', required: true %>
 </div>
 
 <div class="field">
