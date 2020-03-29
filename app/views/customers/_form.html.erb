@@ -13,27 +13,27 @@
 
 <div class="field">
     <%= form.label :first_name, "First Name" %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, pattern: "^[a-zA-Z-']*$", required: true %>
 </div>
 
 <div class="field">
     <%= form.label :last_name, "Last Name" %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, pattern: "^[a-zA-Z-']*$", required: true %>
 </div>
 
 <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, pattern: "^[#'.0-9a-zA-Z\s,-]*$", required: true %>
 </div>
 
 <div class="field">
     <%= form.label :phone %>
-    <%= form.text_field :phone %>
+    <%= form.text_field :phone, pattern: '[^a-zA-Z]*', minlength: 5, maxlength: 24, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, pattern: "^[a-zA-Z0-9_.+-]*@[a-zA-Z0-9-]*\.[a-zA-Z0-9-.]+$", required: true %>
 </div>
 
 <div class="field">

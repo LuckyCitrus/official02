@@ -5,9 +5,14 @@ class Customer < ApplicationRecord
   has_many :dummyuser
   belongs_to :user, optional: true
 
-  # belongs_to :orders
   has_many :orders
   has_many :payments
+  
+  validates :first_name, presence: true, format: { with: /\A[a-z][a-z-]*[a-z-']\z/i }
+  validates :last_name, presence: true, format: { with: /\A[a-z][a-z-]*[a-z-']\z/i }
+  validates :address, presence: true
+  validates :phone, presence: true
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def cus_fullname
     "#{first_name} #{last_name}"

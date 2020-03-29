@@ -28,12 +28,12 @@
 
 <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, pattern: "^[a-zA-Z0-9_.+-]*@[a-zA-Z0-9-]*\.[a-zA-Z0-9-.]+$", required: true %>
+    <%= form.email_field :email, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :phone %>
-    <%= form.text_field :phone, pattern: '[^a-zA-Z]*', minlength: 5, maxlength: 24, required: true %>
+    <%= form.telephone_field :phone, pattern: '[^a-zA-Z]*', minlength: 5, maxlength: 24, required: true %>
 </div>
 
 <div class="field">
