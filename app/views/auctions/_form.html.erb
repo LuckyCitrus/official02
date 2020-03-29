@@ -13,17 +13,17 @@
 
 <div class="field">
     <%= form.label :auctionname, "Auction Name" %>
-    <%= form.text_field :auctionname %>
+    <%= form.text_field :auctionname, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :location_id %>
-    <%= form.collection_select :location_id, Location.order(:city), :id, :city, {include_blank: ""} %>
+    <%= form.collection_select :location_id, Location.order(:city), :id, :city, {include_blank: ""}, required: true %>
 </div>
 
 <div class="actions">
