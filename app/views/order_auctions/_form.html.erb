@@ -13,12 +13,12 @@
 
 <div class="field">
     <%= form.label :order_id %>
-    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}  %>
+    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :auction_id %>
-    <%= form.collection_select :auction_id, Auction.order(:auctionname), :id, :auctionname, {include_blank: ""}  %>
+    <%= form.collection_select :auction_id, Auction.order(:auctionname), :id, :auctionname, {include_blank: ""}, required: true %>
 </div>
 
 <div class="actions">
