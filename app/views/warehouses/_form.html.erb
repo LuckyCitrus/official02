@@ -13,12 +13,12 @@
 
 <div class="field">
     <%= form.label :warehousename, "Warehouse Name" %>
-    <%= form.text_field :warehousename %>
+    <%= form.text_field :warehousename, min_length: 2, max_length: 36, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :location_id %>
-    <%= form.collection_select :location_id, Location.order(:city), :id, :city, {include_blank: ""} %>
+    <%= form.collection_select :location_id, Location.order(:city), :id, :city, {include_blank: ""}, required: true %>
 </div>
 
 <div class="actions">
