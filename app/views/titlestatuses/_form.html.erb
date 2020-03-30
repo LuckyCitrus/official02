@@ -13,7 +13,7 @@
 
 <div class="field">
     <%= form.label :titlestatus, "Title Status" %>
-    <%= form.text_field :titlestatus %>
+    <%= form.text_field :titlestatus, min_length: 2, max_length: 30, required: true %>
 </div>
 
 <div class="actions">
