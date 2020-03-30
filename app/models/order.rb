@@ -12,7 +12,7 @@ class Order < ApplicationRecord
   has_many :containerorders
   has_many :container, through: :containerorders
 
-  validates :ordernum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }
+  validates :ordernum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { minimum: 2, maximum: 30 }
   validates :date, presence: true
   validates :customer_id, presence: true
   validates :lotstock, presence: true, numericality: { greater_than_or_equal_to: 0}

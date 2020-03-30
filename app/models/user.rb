@@ -9,6 +9,14 @@ class User < ApplicationRecord
     self.role ||= :customer
   end
 
+  def timeout_in
+    if self.admin? 
+      4.hours
+    else
+      1.days
+    end
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :trackable,  :omniauthable, :recoverable, 
   devise :database_authenticatable, :registerable, :rememberable, :validatable, :timeoutable

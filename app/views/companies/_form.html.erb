@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :companyname, "Company Name" %>
-    <%= form.text_field :companyname, required: true %>
+    <%= form.text_field :companyname, minlength: 3, maxlength: 36, size: 24, required: true %>
   </div>
 
   <div class="actions">

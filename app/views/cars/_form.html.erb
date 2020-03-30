@@ -13,7 +13,7 @@
 
 <div class="field">
     <%= form.label :vinnumber, "VIN Number" %>
-    <%= form.text_field :vinnumber, pattern: '^[a-zA-Z0-9]*$', minlength: 11, maxlength: 17, required: true %>
+    <%= form.text_field :vinnumber, pattern: '^[a-zA-Z0-9]*$', minlength: 11, maxlength: 17, size: 24, required: true %>
 </div>
 <!--VIN Number 1981 standard regex:'^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$-->
 
@@ -24,12 +24,12 @@
 
 <div class="field">
     <%= form.label :make %>
-    <%= form.text_field :make, required: true, pattern: '^[a-zA-Z0-9-]*$', required: true %>
+    <%= form.text_field :make, required: true, pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 36, size: 24, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :model %>
-    <%= form.text_field :model, required: true, pattern: '^[a-zA-Z0-9-]*$', required: true %>
+    <%= form.text_field :model, required: true, pattern: '^[a-zA-Z0-9-]*$', minlength: 11, maxlength: 36, size: 24, required: true %>
 </div>
 
 <div class="field">
@@ -39,7 +39,7 @@
 
 <div class="field">
     <%= form.label :keystatus_id, "Key Status" %>
-    <%= form.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""}, required: true %>
+    <%= form.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""} %>
 </div>
 
 <div class="field">

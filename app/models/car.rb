@@ -5,10 +5,9 @@ class Car < ApplicationRecord
 
   validates :vinnumber, presence: true, length: { minimum: 11, maximum: 17 }
   validates :year, presence: true, inclusion: { in: 1900..Date.today.year+1 }, format: { with: /(19|20)\d{2}/i }
-  validates :make, presence: true
-  validates :model, presence: true
+  validates :make, presence: true, presence: true, length: { minimum: 2, maximum: 36 }
+  validates :model, presence: true, presence: true, length: { minimum: 2, maximum: 36 }
   validates :titlestatus_id, presence: true
-  validates :keystatus_id, presence: true
   validates :order_id, presence: true
 
   def car_info

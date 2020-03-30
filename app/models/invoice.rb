@@ -9,7 +9,7 @@ class Invoice < ApplicationRecord
   has_many :orderinvoices
   has_many :orders, through: :orderinvoices
 
-  validates :invoicenum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }
+  validates :invoicenum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { minimum: 2, maximum: 30 }
   validates :invoicedate, presence: true
   validates :duedate, presence: true
   validates :customer_id, presence: true

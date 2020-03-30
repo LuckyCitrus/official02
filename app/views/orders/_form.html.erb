@@ -13,7 +13,7 @@
 
 <div class="field">
     <%= form.label :ordernum, "Order Number" %>
-    <%= form.text_field :ordernum, pattern: '^[a-zA-Z0-9-]*$', required: true %>
+    <%= form.text_field :ordernum, pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, size: 24, required: true %>
 </div>
 
 <div class="field">
