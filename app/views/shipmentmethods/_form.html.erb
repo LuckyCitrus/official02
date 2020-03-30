@@ -13,7 +13,7 @@
 
 <div class="field">
     <%= form.label :shipmentmethod, "Shipment Methods" %>
-    <%= form.text_field :shipmentmethod %>
+    <%= form.text_field :shipmentmethod, min_length: 2, max_length: 30, required: true %>
 </div>
 
 <div class="actions">
