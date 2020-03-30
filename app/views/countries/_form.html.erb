@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :country_name, "Country Name" %>
-    <%= form.text_field :country_name %>
+    <%= form.text_field :country_name, min_length: 2, max_length: 60, required: true %>
   </div>
 
   <div class="actions">
