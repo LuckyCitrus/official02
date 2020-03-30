@@ -13,14 +13,43 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap/scss/boostrap"
+@import "bootstrap/scss/bootstrap";
 
- .header {
-     border: 1px solid black;
-     padding: 10px;
-     background-color: lightgrey;
-     text-align: center;
- }
+body {
+  font: Helvetica, sans-serif;
+}
+
+.background-image {
+	background-image: url("Car_Cargo.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+
+.header {
+    height: 70px;
+    position: relative;
+}
+
+.header-left {
+    float: left;
+}
+
+.header-right {
+    float: right;
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+
+.header-right p {
+    padding-right: 6px;
+}
+
+nav .navbar-nav li a {
+    color: white !important;
+}
 
  /*flash*/
  .alert-error {
