@@ -13,7 +13,7 @@
 
 <div class="field">
     <%= form.label :employeestatus, "Employee Status" %>
-    <%= form.text_field :employeestatus %>
+    <%= form.text_field :employeestatus, min_length: 2, max_length: 30, required: true %>
 </div>
 
 <div class="actions">
