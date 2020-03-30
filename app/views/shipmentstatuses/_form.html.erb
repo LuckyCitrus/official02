@@ -13,7 +13,7 @@
 
 <div class="field">
     <%= form.label :shipmentstatus, "Shipment Status" %>
-    <%= form.text_field :shipmentstatus %>
+    <%= form.text_field :shipmentstatus, min_length: 2, max_length: 30, required: true %>
 </div>
 
 <div class="actions">
