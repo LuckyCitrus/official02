@@ -1,22 +1,25 @@
-<%= form_with(model: shipmentstatus, local: true) do |form| %>
-<% if shipmentstatus.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(shipmentstatus.errors.count, "error") %> prohibited this shipmentstatus from being saved:</h2>
+<div class="card-body">
+    <%= form_with(model: shipmentstatus, local: true) do |form| %>
+    <% if shipmentstatus.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(shipmentstatus.errors.count, "error") %> prohibited this shipmentstatus from being saved:</h2>
 
-    <ul>
-        <% shipmentstatus.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% shipmentstatus.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
 
-<div class="field">
-    <%= form.label :shipmentstatus, "Shipment Status" %>
-    <%= form.text_field :shipmentstatus, minlength: 2, maxlength: 30, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :shipmentstatus, "Shipment Status" %>
+        <%= form.text_field :shipmentstatus, minlength: 2, maxlength: 30, size: 24, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit action_name == 'new' ? 'Create Shipping Status' : 'Update Shipping Status'%>
+    <div class="actions">
+        <%#= form.submit action_name == 'new' ? 'Create Shipping Status' : 'Update Shipping Status'%>
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>
