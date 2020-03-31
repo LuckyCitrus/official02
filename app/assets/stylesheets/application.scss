@@ -23,12 +23,6 @@ html, body {
 			sans-serif;
 }
 
-.row-fluid {
-	display: flex;
-	justify-content: center;
-	padding: 1em;
-}
-
 .background-image {
 	background-image: url("Car_Cargo.jpg");
 	background-size: cover;
@@ -61,6 +55,34 @@ html, body {
 	position: sticky;
 	top: 0;
 	width: 100%;
+}
+
+.row-fluid {
+	display: flex;
+	justify-content: center;
+	margin: 1.5em;
+}
+
+/*.content a {
+	color: #0000EE;
+	-o-transition: .5s;
+	-ms-transition: .5s;
+	-moz-transition: .5s;
+	-webkit-transition: .5s;
+	transition: .5s;
+}
+
+.content a:hover {
+	background-color: transparent;
+}
+
+.content a:visited {
+	color: #551A8B;
+	background-color: transparent;
+}*/
+
+.btn-primary,{
+	color: #ffffff !important;
 }
 
  /*flash*/

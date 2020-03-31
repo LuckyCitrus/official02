@@ -1,25 +1,34 @@
-<h1>Key Statuses</h1>
-
-<table class="table table-hover table-bordered">
-    <thead>
-        <tr>
-            <th>Key Status</th>
-            <th colspan="3"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <% @keystatuses.each do |keystatus| %>
-        <tr>
-            <td><%= keystatus.keystatus %></td>
-            <td><%= link_to 'Show', keystatus %></td>
-            <td><%= link_to 'Edit', edit_keystatus_path(keystatus) %></td>
-            <td><%= link_to 'Destroy', keystatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Key Statuses</h1>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Key Status</th>
+                            <th colspan="3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @keystatuses.each do |keystatus| %>
+                        <tr>
+                            <td><%= keystatus.keystatus %></td>
+                            <td><%= link_to 'Show', keystatus %></td>
+                            <td><%= link_to 'Edit', edit_keystatus_path(keystatus) %></td>
+                            <td><%= link_to 'Destroy', keystatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'New Key Status', new_keystatus_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Key Status', new_keystatus_path %>
