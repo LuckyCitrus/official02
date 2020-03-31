@@ -1,6 +1,17 @@
-<h1>Editing Shipment Method</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Editing Shipment Method</h1>
+            </div>
 
-<%= render 'form', shipmentmethod: @shipmentmethod %>
+            <%= render 'form', shipmentmethod: @shipmentmethod %>
 
-<%= link_to 'Show', @shipmentmethod %> |
-<%= link_to 'Back', shipmentmethods_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @shipmentmethod, class: "btn btn-primary" %>
+                <%= link_to 'Back', shipmentmethods_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>
