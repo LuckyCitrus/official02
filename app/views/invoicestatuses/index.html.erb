@@ -1,23 +1,23 @@
 <h1>Invoice Statuses</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Invoice Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Invoice Status</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @invoicestatuses.each do |invoicestatus| %>
-      <tr>
-        <td><%= invoicestatus.invoicestatus %></td>
-        <td><%= link_to 'Show', invoicestatus %></td>
-        <td><%= link_to 'Edit', edit_invoicestatus_path(invoicestatus) %></td>
-        <td><%= link_to 'Destroy', invoicestatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+        <% @invoicestatuses.each do |invoicestatus| %>
+        <tr>
+            <td><%= invoicestatus.invoicestatus %></td>
+            <td><%= link_to 'Show', invoicestatus %></td>
+            <td><%= link_to 'Edit', edit_invoicestatus_path(invoicestatus) %></td>
+            <td><%= link_to 'Destroy', invoicestatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <br>

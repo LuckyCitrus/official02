@@ -1,23 +1,23 @@
 <h1>Payment Methods</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Payment Method</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Payment Method</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @paymentmethods.each do |paymentmethod| %>
-      <tr>
-        <td><%= paymentmethod.paymenttype %></td>
-        <td><%= link_to 'Show', paymentmethod %></td>
-        <td><%= link_to 'Edit', edit_paymentmethod_path(paymentmethod) %></td>
-        <td><%= link_to 'Destroy', paymentmethod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+        <% @paymentmethods.each do |paymentmethod| %>
+        <tr>
+            <td><%= paymentmethod.paymenttype %></td>
+            <td><%= link_to 'Show', paymentmethod %></td>
+            <td><%= link_to 'Edit', edit_paymentmethod_path(paymentmethod) %></td>
+            <td><%= link_to 'Destroy', paymentmethod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <br>

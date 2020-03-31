@@ -1,23 +1,23 @@
 <h1>Key Statuses</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Key Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Key Status</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @keystatuses.each do |keystatus| %>
-      <tr>
-        <td><%= keystatus.keystatus %></td>
-        <td><%= link_to 'Show', keystatus %></td>
-        <td><%= link_to 'Edit', edit_keystatus_path(keystatus) %></td>
-        <td><%= link_to 'Destroy', keystatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+        <% @keystatuses.each do |keystatus| %>
+        <tr>
+            <td><%= keystatus.keystatus %></td>
+            <td><%= link_to 'Show', keystatus %></td>
+            <td><%= link_to 'Edit', edit_keystatus_path(keystatus) %></td>
+            <td><%= link_to 'Destroy', keystatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <br>

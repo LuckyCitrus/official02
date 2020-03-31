@@ -1,23 +1,24 @@
 <h1>Shipment Statuses</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Shipment Status<th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Shipment Status
+            <th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @shipmentstatuses.each do |shipmentstatus| %>
-      <tr>
-        <td><%= shipmentstatus.shipmentstatus %></td>
-        <td><%= link_to 'Show', shipmentstatus %></td>
-        <td><%= link_to 'Edit', edit_shipmentstatus_path(shipmentstatus) %></td>
-        <td><%= link_to 'Destroy', shipmentstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+        <% @shipmentstatuses.each do |shipmentstatus| %>
+        <tr>
+            <td><%= shipmentstatus.shipmentstatus %></td>
+            <td><%= link_to 'Show', shipmentstatus %></td>
+            <td><%= link_to 'Edit', edit_shipmentstatus_path(shipmentstatus) %></td>
+            <td><%= link_to 'Destroy', shipmentstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <br>
