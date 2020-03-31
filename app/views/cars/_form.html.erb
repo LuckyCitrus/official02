@@ -1,5 +1,6 @@
 <div class="card-body">
-    <p><%= simple_form_for @car, local: true do |form| %><% if car.errors.any? %>
+    <%= form_with(model: car, local: true) do |form| %>
+        <% if car.errors.any? %>
         <div id="error_explanation">
             <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
 
