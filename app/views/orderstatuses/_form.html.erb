@@ -1,22 +1,24 @@
-<%= form_with(model: orderstatus, local: true) do |form| %>
-<% if orderstatus.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(orderstatus.errors.count, "error") %> prohibited this orderstatus from being saved:</h2>
+<div class="card-body">
+    <%= form_with(model: orderstatus, local: true) do |form| %>
+    <% if orderstatus.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(orderstatus.errors.count, "error") %> prohibited this orderstatus from being saved:</h2>
 
-    <ul>
-        <% orderstatus.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% orderstatus.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
 
-<div class="field">
-    <%= form.label :orderstatus, "Order Status" %>
-    <%= form.text_field :orderstatus, minlength: 2, maxlength: 30, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :orderstatus, "Order Status" %>
+        <%= form.text_field :orderstatus, minlength: 2, maxlength: 30, size: 24, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit action_name == 'new' ? 'Create Order Status' : 'Update Order Status'%>
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>
