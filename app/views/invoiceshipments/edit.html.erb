@@ -1,6 +1,17 @@
-<h1>Editing Invoice Shipment</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Editing Invoice Shipment</h1>
+            </div>
 
-<%= render 'form', invoiceshipment: @invoiceshipment %>
+            <%= render 'form', invoiceshipment: @invoiceshipment %>
 
-<%= link_to 'Show', @invoiceshipment %> |
-<%= link_to 'Back', invoiceshipments_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @invoiceshipment, class: "btn btn-primary" %>
+                <%= link_to 'Back', invoiceshipments_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>
