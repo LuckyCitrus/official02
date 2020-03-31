@@ -1,6 +1,17 @@
-<h1>Editing Customer Status</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Editing Customer Status</h1>
+            </div>
 
-<%= render 'form', customerstatus: @customerstatus %>
+            <%= render 'form', customerstatus: @customerstatus %>
 
-<%= link_to 'Show', @customerstatus %> |
-<%= link_to 'Back', customerstatuses_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @customerstatus, class: "btn btn-primary" %>
+                <%= link_to 'Back', customerstatuses_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>
