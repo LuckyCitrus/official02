@@ -1,27 +1,29 @@
-<%= form_with(model: warehouse, local: true) do |form| %>
-<% if warehouse.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(warehouse.errors.count, "error") %> prohibited this warehouse from being saved:</h2>
+<div class="card-body">
+    <%= form_with(model: warehouse, local: true) do |form| %>
+    <% if warehouse.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(warehouse.errors.count, "error") %> prohibited this warehouse from being saved:</h2>
 
-    <ul>
-        <% warehouse.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% warehouse.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
 
-<div class="field">
-    <%= form.label :warehousename, "Warehouse Name" %>
-    <%= form.text_field :warehousename, minlength: 3, maxlength: 36, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :warehousename, "Warehouse Name" %>
+        <%= form.text_field :warehousename, minlength: 3, maxlength: 36, size: 24, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :location_id %>
-    <%= form.collection_select :location_id, Location.order(:city), :id, :city, {include_blank: ""}, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :location_id %>
+        <%= form.collection_select :location_id, Location.order(:city), :id, :city, {include_blank: ""}, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>
