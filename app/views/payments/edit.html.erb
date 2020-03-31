@@ -1,6 +1,17 @@
-<h1>Editing Payment</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Editing Payment</h1>
+            </div>
 
-<%= render 'form', payment: @payment %>
+            <%= render 'form', payment: @payment %>
 
-<%= link_to 'Show', @payment %> |
-<%= link_to 'Back', payments_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @payment, class: "btn btn-primary" %>
+                <%= link_to 'Back', payments_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>
