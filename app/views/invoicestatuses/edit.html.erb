@@ -1,6 +1,17 @@
-<h1>Editing Invoice Status</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Editing Invoice Status</h1>
+            </div>
 
-<%= render 'form', invoicestatus: @invoicestatus %>
+            <%= render 'form', invoicestatus: @invoicestatus %>
 
-<%= link_to 'Show', @invoicestatus %> |
-<%= link_to 'Back', invoicestatuses_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @invoicestatus, class: "btn btn-primary" %>
+                <%= link_to 'Back', invoicestatuses_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>
