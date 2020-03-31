@@ -1,6 +1,17 @@
-<h1>Editing Shipment</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Editing Shipment</h1>
+            </div>
 
-<%= render 'form', shipment: @shipment %>
+            <%= render 'form', shipment: @shipment %>
 
-<%= link_to 'Show', @shipment %> |
-<%= link_to 'Back', shipments_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @shipment, class: "btn btn-primary" %>
+                <%= link_to 'Back', shipments_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>
