@@ -1,6 +1,17 @@
-<h1>Editing Employee Status</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Editing Employee Status</h1>
+            </div>
 
-<%= render 'form', employeestatus: @employeestatus %>
+            <%= render 'form', employeestatus: @employeestatus %>
 
-<%= link_to 'Show', @employeestatus %> |
-<%= link_to 'Back', employeestatuses_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @employeestatus, class: "btn btn-primary" %>
+                <%= link_to 'Back', employeestatuses_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>
