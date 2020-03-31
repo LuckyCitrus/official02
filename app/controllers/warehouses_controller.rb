@@ -1,4 +1,5 @@
 class WarehousesController < ApplicationController
+  before_action :authenticate_user!, :employee_only
   before_action :set_warehouse, only: [:show, :edit, :update, :destroy]
 
   # GET /warehouses

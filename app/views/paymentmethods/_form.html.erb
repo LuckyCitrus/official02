@@ -13,7 +13,7 @@
 
 <div class="field">
     <%= form.label :paymenttype, "Payment Method" %>
-    <%= form.text_field :paymenttype %>
+    <%= form.text_field :paymenttype, minlength: 2, maxlength: 30, size: 24, required: true %>
 </div>
 
 <div class="actions">

@@ -31,3 +31,64 @@
 
 en:
   hello: "Hello world"
+  site_name: "Mitsab"
+  auctions:
+      title: "Auctions"
+  cars:
+      title: "Cars"
+  companies:
+      title: "Companies"
+  containerorders:
+      title: "Container Orders"
+  containers:
+      title: "Containers"
+  countries:
+      title: "Countries"
+  customers:
+      title: "Customers"
+  customerstatuses:
+      title: "Customer Statuses"
+  customertypes:
+      title: "Customer Types"
+  dashboard:
+      title: "Dashboard"
+  departments:
+      title: "Departments"
+  employees:
+      title: "Employees"
+  employeestatuses:
+      title: "Employee Statuses"
+  invoices:
+      title: "Invoices"
+  invoiceshipments:
+      title: "Invoice Shipments"
+  invoicestatuses:
+      title: "Invoice Statuses"
+  keystatuses:
+      title: "Key Statuses"
+  locations:
+      title: "Locations"
+  order_auctions:
+      title: "Order Auctions"
+  orderinvoices:
+      title: "Order Invoices"
+  orders:
+      title: "Orders"
+  orderstatuses:
+      title: "Order Statuses"
+  paymentmethods:
+      title: "Payment Methods"
+  payments:
+      title: "Payments"
+  pictures:
+      title: "Pictures"
+  shipmentmethods:
+      title: "Shipment Methods"
+  shipments:
+      title: "Shipments"
+  titlestatuses:
+      title: "Title Statuses"
+  users:
+      title: "Users"
+  warehouses:
+      title: "Warehouses"

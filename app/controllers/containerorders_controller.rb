@@ -1,4 +1,5 @@
 class ContainerordersController < ApplicationController
+  before_action :authenticate_user!, :employee_only
   before_action :set_containerorder, only: [:show, :edit, :update, :destroy]
 
   # GET /containerorders

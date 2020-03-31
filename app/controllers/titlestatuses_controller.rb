@@ -1,4 +1,5 @@
 class TitlestatusesController < ApplicationController
+  before_action :authenticate_user!, :employee_only
   before_action :set_titlestatus, only: [:show, :edit, :update, :destroy]
 
   # GET /titlestatuses

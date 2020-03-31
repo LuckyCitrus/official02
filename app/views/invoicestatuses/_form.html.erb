@@ -13,7 +13,7 @@
 
 <div class="field">
     <%= form.label :invoicestatus, "Invoice Status" %>
-    <%= form.text_field :invoicestatus %>
+    <%= form.text_field :invoicestatus, minlength: 2, maxlength: 30, size: 24, required: true %>
 </div>
 
 <div class="actions">

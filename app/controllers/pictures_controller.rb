@@ -1,20 +1,24 @@
 class PicturesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
+    #@pictures = Picture.all
+    @pictures = policy_scope(Picture)
   end
 
   # GET /pictures/1
   # GET /pictures/1.json
   def show
+    @picture = policy_scope(Picture).find(params[:id])
   end
 
   # GET /pictures/new
   def new
     @picture = Picture.new
+    authorize @picture
   end
 
   # GET /pictures/1/edit
@@ -65,10 +69,11 @@ class PicturesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
       @picture = Picture.find(params[:id])
+      authorize @picture
     end
 
     # Only allow a list of trusted parameters through.
     def picture_params
-      params.require(:picture).permit(:picture)
+      params.require(:picture).permit(:picture, :order_id)
     end
 end

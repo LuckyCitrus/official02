@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Shipments</h1>
 
 <table>
@@ -8,11 +6,10 @@
             <th>Shipment Number</th>
             <th>Date</th>
             <th>Quantity</th>
-            <!--      <th>Container</th>-->
             <th>Warehouse</th>
             <th>Shipment Method</th>
             <th>Shipment Status</th>
-            <th colspan="3"></th>
+            <th colspan="7"></th>
         </tr>
     </thead>
 
@@ -22,7 +19,6 @@
             <td><%= shipment.shipmentnum %></td>
             <td><%= shipment.date %></td>
             <td><%= shipment.quantity %></td>
-            <!--        <td><%#= shipment.container %></td>-->
             <td><%= shipment.warehouse.warehousename %></td>
             <td><%= shipment.shipmentmethod.shipmentmethod %></td>
             <td><%= shipment.shipmentstatus.shipmentstatus %></td>
@@ -37,4 +33,3 @@
 <br>
 
 <%= link_to 'New Shipment', new_shipment_path %>
-

@@ -13,44 +13,43 @@
 
 <div class="field">
     <%= form.label :ordernum, "Order Number" %>
-    <%= form.text_field :ordernum %>
+    <%= form.text_field :ordernum, pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, size: 24, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.date_select :date, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :customer_id %>
-    <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname, {include_blank: ""}  %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname, {include_blank: ""}, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :lotstock %>
-    <%= form.number_field :lotstock %>
+    <%= form.number_field :lotstock, min: 0, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity, min: 1, required: true %>
 </div>
 
 <div class="field">
     <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.number_field :price, value: number_with_precision(order.price, precision: 2), min: 0, step: 0.01,required: true %>
 </div>
 
 <div class="field">
     <%= form.label :total %>
-    <%= form.text_field :total %>
+    <%= form.number_field :total, value: number_with_precision(order.price, precision: 2), min: order.price, step: 0.01,required: true %>
 </div>
 
 <div class="field">
     <%= form.label :orderstatus_id, "Order Status" %>
-    <%= form.collection_select :orderstatus_id, Orderstatus.order(:orderstatus), :id, :orderstatus, {include_blank: ""}  %>
+    <%= form.collection_select :orderstatus_id, Orderstatus.order(:orderstatus), :id, :orderstatus, {include_blank: ""}, required: true %>
 </div>
-
 
 <div class="actions">
     <%= form.submit %>

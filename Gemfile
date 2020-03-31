@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.5'
 
+gem "pundit"
+gem 'devise'
 gem 'seed_dump'
 gem 'yaml_db'
 

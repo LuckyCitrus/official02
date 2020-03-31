@@ -1,4 +1,5 @@
 class OrderAuctionsController < ApplicationController
+  before_action :authenticate_user!, :employee_only
   before_action :set_order_auction, only: [:show, :edit, :update, :destroy]
 
   # GET /order_auctions

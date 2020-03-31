@@ -1,20 +1,24 @@
 class InvoicesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
 
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    #@invoices = Invoice.all
+    @invoices = policy_scope(Invoice)
   end
 
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    @invoice = policy_scope(Invoice).find(params[:id])
   end
 
   # GET /invoices/new
   def new
     @invoice = Invoice.new
+    authorize @invoice
   end
 
   # GET /invoices/1/edit
@@ -65,6 +69,7 @@ class InvoicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_invoice
       @invoice = Invoice.find(params[:id])
+      authorize @invoice
     end
 
     # Only allow a list of trusted parameters through.

@@ -1,6 +1,8 @@
 class CarsController < ApplicationController
+  before_action :authenticate_user!, :employee_only
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
+  #HelloWorld
   # GET /cars
   # GET /cars.json
   def index

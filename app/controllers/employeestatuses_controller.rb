@@ -1,6 +1,7 @@
 class EmployeestatusesController < ApplicationController
+  before_action :authenticate_user!, :employee_only
   before_action :set_employeestatus, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /employeestatuses
   # GET /employeestatuses.json
   def index
