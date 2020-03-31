@@ -1,6 +1,17 @@
-<h1>Editing Container</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Editing Container</h1>
+            </div>
 
-<%= render 'form', container: @container %>
+            <%= render 'form', container: @container %>
 
-<%= link_to 'Show', @container %> |
-<%= link_to 'Back', containers_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @container, class: "btn btn-primary" %>
+                <%= link_to 'Back', containers_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>
