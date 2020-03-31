@@ -1,27 +1,36 @@
-<h1>Pictures</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Picture</th>
-      <th>Order</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pictures.each do |picture| %>
-      <tr>
-        <td><%= picture.picture %></td>
-        <td><%= picture.order.try(:ordernum) %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Pictures</h1>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Picture</th>
+                            <th>Order</th>
+                            <th colspan="4"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @pictures.each do |picture| %>
+                        <tr>
+                            <td><%= picture.picture %></td>
+                            <td><%= picture.order.try(:ordernum) %></td>
+                            <td><%= link_to 'Show', picture %></td>
+                            <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+                            <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'New Picture', new_picture_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Picture', new_picture_path %>

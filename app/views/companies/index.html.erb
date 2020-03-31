@@ -1,25 +1,34 @@
-<h1>Companies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Company Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.companyname %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Companies</h1>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Company Name</th>
+                            <th colspan="3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @companies.each do |company| %>
+                        <tr>
+                            <td><%= company.companyname %></td>
+                            <td><%= link_to 'Show', company %></td>
+                            <td><%= link_to 'Edit', edit_company_path(company) %></td>
+                            <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'New Company', new_company_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Company', new_company_path %>

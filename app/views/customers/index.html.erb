@@ -1,35 +1,44 @@
-<h1>Customers</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>User</th>
-            <th colspan="7"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <% @customers.each do |customer| %>
-        <tr>
-            <td><%= customer.first_name %></td>
-            <td><%= customer.last_name %></td>
-            <td><%= customer.address %></td>
-            <td><%= customer.phone %></td>
-            <td><%= customer.email %></td>
-            <td><%= customer.user.try(:email) %></td>
-            <td><%= link_to 'Show', customer %></td>
-            <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-            <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Customers</h1>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>User</th>
+                            <th colspan="7"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @customers.each do |customer| %>
+                        <tr>
+                            <td><%= customer.first_name %></td>
+                            <td><%= customer.last_name %></td>
+                            <td><%= customer.address %></td>
+                            <td><%= customer.phone %></td>
+                            <td><%= customer.email %></td>
+                            <td><%= customer.user.try(:email) %></td>
+                            <td><%= link_to 'Show', customer %></td>
+                            <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+                            <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Customer', new_customer_path %>

@@ -1,27 +1,36 @@
-<h1>Order Auctions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Order Number</th>
-      <th>Auction</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @order_auctions.each do |order_auction| %>
-      <tr>
-        <td><%= order_auction.order.ordernum %></td>
-        <td><%= order_auction.auction.auctionname %></td>
-        <td><%= link_to 'Show', order_auction %></td>
-        <td><%= link_to 'Edit', edit_order_auction_path(order_auction) %></td>
-        <td><%= link_to 'Destroy', order_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Order Auctions</h1>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Auction</th>
+                            <th colspan="3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @order_auctions.each do |order_auction| %>
+                        <tr>
+                            <td><%= order_auction.order.ordernum %></td>
+                            <td><%= order_auction.auction.auctionname %></td>
+                            <td><%= link_to 'Show', order_auction %></td>
+                            <td><%= link_to 'Edit', edit_order_auction_path(order_auction) %></td>
+                            <td><%= link_to 'Destroy', order_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'New Order Auction', new_order_auction_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Order Auction', new_order_auction_path %>

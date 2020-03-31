@@ -15,8 +15,12 @@
  */
 @import "bootstrap/scss/bootstrap";
 
-body {
-  font: Helvetica, sans-serif;
+html, body {
+	margin: 0;
+	padding: 0;
+			font-family: 'Trebuchet MS',
+			Helvetica,
+			sans-serif;
 }
 
 .background-image {
@@ -28,8 +32,8 @@ body {
 }
 
 .header {
-    height: 70px;
-    position: relative;
+  height: 70px;
+	position: relative;
 }
 
 .header-left {
@@ -47,8 +51,57 @@ body {
     padding-right: 6px;
 }
 
-nav .navbar-nav li a {
-    color: white !important;
+.navigation {
+	position: sticky;
+	top: 0;
+	width: 100%;
+}
+
+.row-fluid, .card {
+	display: flex;
+	justify-content: center;
+	margin: 1.5em;
+}
+
+.content a {
+	color: #0000EE;
+	-o-transition: .5s;
+	-ms-transition: .5s;
+	-moz-transition: .5s;
+	-webkit-transition: .5s;
+	transition: .5s;
+}
+
+.content a:hover {
+	background-color: transparent;
+}
+
+.content a:visited {
+	color: #551A8B;
+	background-color: transparent;
+}
+
+.btn-primary, .btn-secondary {
+	color: #ffffff !important;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open>.dropdown-toggle.btn-primary {
+	color: #ffffff !important;
+	background-color: #0495c9 !important;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary.active,
+.open>.dropdown-toggle.btn-primary {
+	background-color: #6C757D !important;
 }
 
  /*flash*/

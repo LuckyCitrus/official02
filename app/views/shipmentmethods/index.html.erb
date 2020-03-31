@@ -1,25 +1,34 @@
-<h1>Shipment Methods</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Shipment Method</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @shipmentmethods.each do |shipmentmethod| %>
-      <tr>
-        <td><%= shipmentmethod.shipmentmethod %></td>
-        <td><%= link_to 'Show', shipmentmethod %></td>
-        <td><%= link_to 'Edit', edit_shipmentmethod_path(shipmentmethod) %></td>
-        <td><%= link_to 'Destroy', shipmentmethod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Shipment Methods</h1>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Shipment Method</th>
+                            <th colspan="3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @shipmentmethods.each do |shipmentmethod| %>
+                        <tr>
+                            <td><%= shipmentmethod.shipmentmethod %></td>
+                            <td><%= link_to 'Show', shipmentmethod %></td>
+                            <td><%= link_to 'Edit', edit_shipmentmethod_path(shipmentmethod) %></td>
+                            <td><%= link_to 'Destroy', shipmentmethod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'New Shipment Method', new_shipmentmethod_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Shipment Method', new_shipmentmethod_path %>

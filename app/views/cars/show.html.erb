@@ -1,37 +1,39 @@
-<p>
-  <strong>VIN Number:</strong>
-  <%= @car.vinnumber %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    <strong>VIN Number:</strong>
+                    <%= @car.vinnumber %>
+                </p>
+                <p>
+                    <strong>Year:</strong>
+                    <%= @car.year %>
+                </p>
+                <p>
+                    <strong>Make:</strong>
+                    <%= @car.make %>
+                </p>
+                <p>
+                    <strong>Model:</strong>
+                    <%= @car.model %>
+                </p>
+                <p>
+                    <strong>Title Status:</strong>
+                    <%= @car.titlestatus.titlestatus %>
+                </p>
+                <p>
+                    <strong>Key Status:</strong>
+                    <%= @car.keystatus.keystatus %>
+                </p>
+                <p>
+                    <strong>Order:</strong>
+                    <%= @car.order.ordernum %>
+                </p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @car.year %>
-</p>
-
-<p>
-  <strong>Make:</strong>
-  <%= @car.make %>
-</p>
-
-<p>
-  <strong>Model:</strong>
-  <%= @car.model %>
-</p>
-
-<p>
-  <strong>Title Status:</strong>
-  <%= @car.titlestatus.titlestatus %>
-</p>
-
-<p>
-  <strong>Key Status:</strong>
-  <%= @car.keystatus.keystatus %>
-</p>
-
-<p>
-  <strong>Order:</strong>
-  <%= @car.order.ordernum %>
-</p>
-
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+                <%= link_to 'Edit', edit_car_path(@car), class: "btn btn-primary" %>
+                <%= link_to 'Back', cars_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>
