@@ -1,5 +1,15 @@
-<h1>New Title Status</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>New Title Status</h1>
+            </div>
 
-<%= render 'form', titlestatus: @titlestatus %>
+            <%= render 'form', titlestatus: @titlestatus %>
 
-<%= link_to 'Back', titlestatuses_path %>
+            <div class="card-footer">
+                <%= link_to 'Back', titlestatuses_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>
