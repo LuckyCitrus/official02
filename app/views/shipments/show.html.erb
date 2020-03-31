@@ -1,37 +1,35 @@
-<p>
-  <strong>Shipment Number:</strong>
-  <%= @shipment.shipmentnum %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    <strong>Shipment Number:</strong>
+                    <%= @shipment.shipmentnum %>
+                </p>
+                <p>
+                    <strong>Date:</strong>
+                    <%= @shipment.date %>
+                </p>
+                <p>
+                    <strong>Quantity:</strong>
+                    <%= @shipment.quantity %>
+                </p>
+                <p>
+                    <strong>Warehouse:</strong>
+                    <%= @shipment.warehouse.warehousename %>
+                </p>
+                <p>
+                    <strong>Shipment Method:</strong>
+                    <%= @shipment.shipmentmethod.shipmentmethod %>
+                </p>
+                <p>
+                    <strong>Shipment Status:</strong>
+                    <%= @shipment.shipmentstatus.shipmentstatus %>
+                </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @shipment.date %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @shipment.quantity %>
-</p>
-
-<!--<p>-->
-<!--  <strong>Container:</strong>-->
-  <%#= @shipment.container %>
-<!--</p>-->
-
-<p>
-  <strong>Warehouse:</strong>
-  <%= @shipment.warehouse.warehousename %>
-</p>
-
-<p>
-  <strong>Shipment Method:</strong>
-  <%= @shipment.shipmentmethod.shipmentmethod %>
-</p>
-
-<p>
-  <strong>Shipment Status:</strong>
-  <%= @shipment.shipmentstatus.shipmentstatus %>
-</p>
-
-<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
-<%= link_to 'Back', shipments_path %>
+                <%= link_to 'Edit', edit_shipment_path(@shipment), class: "btn btn-primary" %>
+                <%= link_to 'Back', shipments_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>

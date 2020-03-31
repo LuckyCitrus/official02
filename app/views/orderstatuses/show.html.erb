@@ -1,7 +1,14 @@
-<p>
-    <strong>Order Status:</strong>
-    <%= @orderstatus.orderstatus %>
-</p>
-
-<%= link_to 'Edit', edit_orderstatus_path(@orderstatus) %> |
-<%= link_to 'Back', orderstatuses_path %>
+<div class="row row-fluid">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    <strong>Order Status:</strong>
+                    <%= @orderstatus.orderstatus %>
+                </p>
+                <%= link_to 'Edit', edit_orderstatus_path(@orderstatus), class: "btn btn-primary" %>
+                <%= link_to 'Back', orderstatuses_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>
