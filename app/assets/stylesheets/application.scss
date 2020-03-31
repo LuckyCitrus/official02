@@ -57,13 +57,13 @@ html, body {
 	width: 100%;
 }
 
-.row-fluid {
+.row-fluid, .card {
 	display: flex;
 	justify-content: center;
 	margin: 1.5em;
 }
 
-/*.content a {
+.content a {
 	color: #0000EE;
 	-o-transition: .5s;
 	-ms-transition: .5s;
@@ -79,9 +79,9 @@ html, body {
 .content a:visited {
 	color: #551A8B;
 	background-color: transparent;
-}*/
+}
 
-.btn-primary,{
+.btn-primary, .btn-secondary {
 	color: #ffffff !important;
 }
 
