@@ -1,6 +1,17 @@
-<h1>Editing Order Invoice</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-heading">
+                <h1>Editing Order Invoice</h1>
+            </div>
 
-<%= render 'form', orderinvoice: @orderinvoice %>
+            <%= render 'form', orderinvoice: @orderinvoice %>
 
-<%= link_to 'Show', @orderinvoice %> |
-<%= link_to 'Back', orderinvoices_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @orderinvoice, class: "btn btn-primary" %>
+                <%= link_to 'Back', orderinvoices_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>
