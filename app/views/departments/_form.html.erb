@@ -1,5 +1,5 @@
 <div class="card-body">
-    <%= form_with(model: department, local: true) do |form| %>
+    <%= bootstrap_form_with(model: department, local: true, layout: :horizontal) do |form| %>
     <% if department.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(department.errors.count, "error") %> prohibited this department from being saved:</h2>
@@ -13,12 +13,10 @@
     <% end %>
 
     <div class="field">
-        <%= form.label :departmentname, "Department Name"%>
-        <%= form.text_field :departmentname, minlength: 3, maxlength: 36, size: 24, required: true %>
+        <%= form.text_field :departmentname, label: "Department Name", minlength: 3, maxlength: 36, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :company_id %>
         <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname, {include_blank: ""}, required: true %>
     </div>
 

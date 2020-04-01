@@ -1,5 +1,5 @@
 <div class="card-body">
-    <%= form_with(model: picture, local: true) do |form| %>
+    <%= bootstrap_form_with(model: picture, local: true, layout: :horizontal) do |form| %>
     <% if picture.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
@@ -13,12 +13,10 @@
     <% end %>
 
     <div class="field">
-        <%= form.label :picture %>
         <%= form.text_field :picture, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :order_id %>
         <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
     </div>
 
