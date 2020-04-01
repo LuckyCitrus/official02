@@ -29,7 +29,7 @@
                             <td><%= employee.email %></td>
                             <td><%= employee.phone %></td>
                             <td><%= employee.title %></td>
-                            <td><%= employee.hiredate %></td>
+                            <td><%= employee.hiredate.to_s(:short_date) %></td>
                             <td><%= employee.department.departmentname %></td>
                             <td><%= employee.employeestatus.employeestatus %></td>
                             <td><%= employee.user.try(:email) %></td>
