@@ -1,5 +1,5 @@
 <div class="card-body">
-    <%= form_with(model: orderinvoice, local: true) do |form| %>
+    <%= bootstrap_form_with(model: orderinvoice, local: true, layout: :horizontal) do |form| %>
     <% if orderinvoice.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(orderinvoice.errors.count, "error") %> prohibited this orderinvoice from being saved:</h2>
@@ -13,12 +13,10 @@
     <% end %>
 
     <div class="field">
-        <%= form.label :order_id %>
         <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :invoice_id %>
         <%= form.collection_select :invoice_id, Invoice.order(:invoicenum), :id, :invoicenum, {include_blank: ""}, required: true %>
     </div>
 

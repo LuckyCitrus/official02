@@ -1,5 +1,5 @@
 <div class="card-body">
-    <%= form_with(model: invoice, local: true) do |form| %>
+    <%= bootstrap_form_with(model: invoice, local: true, layout: :horizontal) do |form| %>
     <% if invoice.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
@@ -13,38 +13,31 @@
     <% end %>
 
     <div class="field">
-        <%= form.label :invoicenum, "Invoice Number" %>
-        <%= form.text_field :invoicenum, pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, size: 24, required: true %>
+        <%= form.text_field :invoicenum, label: "Invoice Number", pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :invoicedate, "Invoice Date" %>
-        <%= form.date_select :invoicedate, required: true %>
+        <%= form.text_field :invoicedate, label: "Invoice Date",required: true, data: { behavior: "flatpickr" }, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :duedate, "Due Date" %>
-        <%= form.date_select :duedate, required: true %>
+        <%= form.text_field :duedate, label: "Due Date",required: true, data: { behavior: "flatpickr" }, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :customer_id %>
         <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :employee_id %>
         <%= form.collection_select :employee_id, Employee.all, :id, :emp_fullname, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :invoicestatus_id, "Invoice Status" %>
         <%= form.collection_select :invoicestatus_id, Invoicestatus.order(:invoicestatus), :id, :invoicestatus, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :amountdue, "Amount Due" %>
-        <%= form.number_field :amountdue, value: number_with_precision(invoice.amountdue, precision: 2), min: 0, step: 0.01,required: true %>
+        <%= form.number_field :amountdue, label: "Amount Due", value: number_with_precision(invoice.amountdue, precision: 2), min: 0, step: 0.01,required: true %>
     </div>
 
     <div class="actions">

@@ -1,5 +1,5 @@
 <div class="card-body">
-    <%= form_with(model: containerorder, local: true) do |form| %>
+    <%= bootstrap_form_with(model: containerorder, local: true, layout: :horizontal) do |form| %>
     <% if containerorder.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(containerorder.errors.count, "error") %> prohibited this containerorder from being saved:</h2>
@@ -13,12 +13,10 @@
     <% end %>
 
     <div class="field">
-        <%= form.label :container_id %>
         <%= form.collection_select :container_id, Container.order(:containernum), :id, :containernum, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :order_id %>
         <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
     </div>
 
