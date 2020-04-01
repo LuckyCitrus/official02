@@ -8,7 +8,7 @@
                     <thead>
                         <tr>
                             <th>Order Number</th>
-                            <th>Date</th>
+                            <th>Order Date</th>
                             <th>Customer</th>
                             <th>Lotstock</th>
                             <th>Quantity</th>
@@ -22,7 +22,7 @@
                         <% @orders.each do |order| %>
                         <tr>
                             <td><%= order.ordernum %></td>
-                            <td><%= order.date %></td>
+                            <td><%= order.date.to_s(:short_date) %></td>
                             <td><%= order.customer.try(:cus_fullname) %></td>
                             <td><%= order.lotstock %></td>
                             <td><%= order.quantity %></td>

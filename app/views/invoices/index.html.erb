@@ -21,8 +21,8 @@
                         <% @invoices.each do |invoice| %>
                         <tr>
                             <td><%= invoice.invoicenum %></td>
-                            <td><%= invoice.invoicedate %></td>
-                            <td><%= invoice.duedate %></td>
+                            <td><%= invoice.invoicedate.to_s(:short_date) %></td>
+                            <td><%= invoice.duedate.to_s(:short_date) %></td>
                             <td><%= invoice.customer.cus_fullname %></td>
                             <td><%= invoice.employee.emp_fullname %></td>
                             <td><%= invoice.invoicestatus.invoicestatus %></td>

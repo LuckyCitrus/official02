@@ -20,7 +20,7 @@
                         <% @shipments.each do |shipment| %>
                         <tr>
                             <td><%= shipment.shipmentnum %></td>
-                            <td><%= shipment.date %></td>
+                            <td><%= shipment.date.to_s(:short_date) %></td>
                             <td><%= shipment.quantity %></td>
                             <td><%= shipment.warehouse.warehousename %></td>
                             <td><%= shipment.shipmentmethod.shipmentmethod %></td>

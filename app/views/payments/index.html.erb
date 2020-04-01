@@ -8,7 +8,7 @@
                     <thead>
                         <tr>
                             <th>Payment Number</th>
-                            <th>Date</th>
+                            <th>Payment Date</th>
                             <th>Customer</th>
                             <th>Amount</th>
                             <th>Payment Status</th>
@@ -21,7 +21,7 @@
                         <% @payments.each do |payment| %>
                         <tr>
                             <td><%= payment.paymentnum %></td>
-                            <td><%= payment.date %></td>
+                            <td><%= payment.date.to_s(:short_date) %></td>
                             <td><%= payment.customer.try(:cus_fullname) %></td>
                             <td><%= number_to_currency(payment.amount) %></td>
                             <td><%= payment.paymentstatus.paymentstatus %></td>
