@@ -45,7 +45,7 @@
 
     <div class="field">
         <%= form.label :hiredate, "Hire Date" %>
-        <%= form.text_field :hiredate, required: true %>
+        <%= form.text_field :hiredate, required: true, data: { behavior: "flatpickr" } %>
     </div>
 
     <div class="field">
