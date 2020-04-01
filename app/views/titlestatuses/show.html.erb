@@ -1,7 +1,15 @@
-<p>
-  <strong>Title Status:</strong>
-  <%= @titlestatus.titlestatus %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    <strong>Title Status:</strong>
+                    <%= @titlestatus.titlestatus %>
+                </p>
 
-<%= link_to 'Edit', edit_titlestatus_path(@titlestatus) %> |
-<%= link_to 'Back', titlestatuses_path %>
+                <%= link_to 'Edit', edit_titlestatus_path(@titlestatus), class: "btn btn-primary" %>
+                <%= link_to 'Back', titlestatuses_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>

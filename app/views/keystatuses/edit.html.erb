@@ -1,6 +1,17 @@
-<h1>Editing Key Status</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Editing Key Status</h1>
+            </div>
 
-<%= render 'form', keystatus: @keystatus %>
+            <%= render 'form', keystatus: @keystatus %>
 
-<%= link_to 'Show', @keystatus %> |
-<%= link_to 'Back', keystatuses_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @keystatus, class: "btn btn-primary" %>
+                <%= link_to 'Back', keystatuses_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>

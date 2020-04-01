@@ -1,53 +1,50 @@
-<p>
-    <strong>First Name:</strong>
-    <%= @employee.empfname %>
-</p>
-
-<p>
-    <strong>Last Name:</strong>
-    <%= @employee.emplname %>
-</p>
-
-<p>
-    <strong>Address:</strong>
-    <%= @employee.address %>
-</p>
-
-<p>
-    <strong>Email:</strong>
-    <%= @employee.email %>
-</p>
-
-<p>
-    <strong>Phone:</strong>
-    <%= @employee.phone %>
-</p>
-
-<p>
-    <strong>Title:</strong>
-    <%= @employee.title %>
-</p>
-
-<p>
-    <strong>Hire Date:</strong>
-    <%= @employee.hiredate %>
-</p>
-
-
-<p>
-    <strong>Department:</strong>
-    <%= @employee.department.departmentname %>
-</p>
-
-<p>
-    <strong>Employee Status:</strong>
-    <%= @employee.employeestatus.employeestatus %>
-</p>
-
-<p>
-    <strong>User:</strong>
-    <%= @employee.user.try(:email) %>
-</p>
-
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    <strong>First Name:</strong>
+                    <%= @employee.empfname %>
+                </p>
+                <p>
+                    <strong>Last Name:</strong>
+                    <%= @employee.emplname %>
+                </p>
+                <p>
+                    <strong>Address:</strong>
+                    <%= @employee.address %>
+                </p>
+                <p>
+                    <strong>Email:</strong>
+                    <%= @employee.email %>
+                </p>
+                <p>
+                    <strong>Phone:</strong>
+                    <%= @employee.phone %>
+                </p>
+                <p>
+                    <strong>Title:</strong>
+                    <%= @employee.title %>
+                </p>
+                <p>
+                    <strong>Hire Date:</strong>
+                    <%= @employee.hiredate %>
+                </p>
+                <p>
+                    <strong>Department:</strong>
+                    <%= @employee.department.departmentname %>
+                </p>
+                <p>
+                    <strong>Employee Status:</strong>
+                    <%= @employee.employeestatus.employeestatus %>
+                </p>
+                <p>
+                    <strong>User:</strong>
+                    <%= @employee.user.try(:email) %>
+                </p>
+                <%= link_to 'Edit', edit_employee_path(@employee), class: "btn btn-primary" %>
+                <%= link_to 'Back', employees_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>

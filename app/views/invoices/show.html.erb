@@ -1,38 +1,39 @@
-<p>
-    <strong>Invoice Number:</strong>
-    <%= @invoice.invoicenum %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    <strong>Invoice Number:</strong>
+                    <%= @invoice.invoicenum %>
+                </p>
+                <p>
+                    <strong>Invoice Date:</strong>
+                    <%= @invoice.invoicedate %>
+                </p>
+                <p>
+                    <strong>Due Date:</strong>
+                    <%= @invoice.duedate %>
+                </p>
+                <p>
+                    <strong>Customer:</strong>
+                    <%= @invoice.customer.cus_fullname %>
+                </p>
+                <p>
+                    <strong>Employee:</strong>
+                    <%= @invoice.employee.emp_fullname %>
+                </p>
+                <p>
+                    <strong>Invoice Status:</strong>
+                    <%= @invoice.invoicestatus.invoicestatus %>
+                </p>
+                <p>
+                    <strong>Amount Due:</strong>
+                    <%= number_to_currency(@invoice.amountdue) %>
+                </p>
 
-<p>
-    <strong>Invoice Date:</strong>
-    <%= @invoice.invoicedate %>
-</p>
-
-<p>
-    <strong>Due Date:</strong>
-    <%= @invoice.duedate %>
-</p>
-
-<p>
-    <strong>Customer:</strong>
-    <%= @invoice.customer.cus_fullname %>
-</p>
-
-<p>
-    <strong>Employee:</strong>
-    <%= @invoice.employee.emp_fullname %>
-</p>
-
-<p>
-    <strong>Invoice Status:</strong>
-    <%= @invoice.invoicestatus.invoicestatus %>
-</p>
-
-<p>
-    <strong>Amount Due:</strong>
-    <%= number_to_currency(@invoice.amountdue) %>
-</p>
-
-
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
+                <%= link_to 'Edit',  invoices_path(@invoice), class: "btn btn-primary" %>
+                <%= link_to 'Back', invoices_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>

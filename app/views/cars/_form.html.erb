@@ -1,53 +1,55 @@
-<%= form_with(model: car, local: true) do |form| %>
-<% if car.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+<div class="card-body">
+    <%= form_with(model: car, local: true) do |form| %>
+        <% if car.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
 
-    <ul>
-        <% car.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+                <% car.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
         <% end %>
-    </ul>
-</div>
-<% end %>
 
-<div class="field">
-    <%= form.label :vinnumber, "VIN Number" %>
-    <%= form.text_field :vinnumber, pattern: '^[a-zA-Z0-9]*$', minlength: 11, maxlength: 17, size: 24, required: true %>
-</div>
-<!--VIN Number 1981 standard regex:'^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$-->
+        <div class="field">
+            <%= form.label :vinnumber, "VIN Number" %>
+            <%= form.text_field :vinnumber, pattern: '^[a-zA-Z0-9]*$', minlength: 11, maxlength: 17, size: 24, required: true %>
+        </div>
+        <!--VIN Number 1981 standard regex:'^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$-->
 
-<div class="field">
-    <%= form.label :year %>
-    <%= form.number_field :year, pattern: '/(19|20)\d{2}/i', min: 1900, max: Date.today.year+1, required: true %>
-</div>
+        <div class="field">
+            <%= form.label :year %>
+            <%= form.number_field :year, pattern: '/(19|20)\d{2}/i', min: 1900, max: Date.today.year+1, required: true %>
+        </div>
 
-<div class="field">
-    <%= form.label :make %>
-    <%= form.text_field :make, required: true, pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 36, size: 24, required: true %>
-</div>
+        <div class="field">
+            <%= form.label :make %>
+            <%= form.text_field :make, required: true, pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 36, size: 24, required: true %>
+        </div>
 
-<div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model, required: true, pattern: '^[a-zA-Z0-9-]*$', minlength: 11, maxlength: 36, size: 24, required: true %>
-</div>
+        <div class="field">
+            <%= form.label :model %>
+            <%= form.text_field :model, required: true, pattern: '^[a-zA-Z0-9-]*$', minlength: 11, maxlength: 36, size: 24, required: true %>
+        </div>
 
-<div class="field">
-    <%= form.label :titlestatus_id, "Title Status" %>
-    <%= form.collection_select :titlestatus_id, Titlestatus.order(:titlestatus), :id, :titlestatus, {include_blank: ""}, required: true %>
-</div>
+        <div class="field">
+            <%= form.label :titlestatus_id, "Title Status" %>
+            <%= form.collection_select :titlestatus_id, Titlestatus.order(:titlestatus), :id, :titlestatus, {include_blank: ""}, required: true %>
+        </div>
 
-<div class="field">
-    <%= form.label :keystatus_id, "Key Status" %>
-    <%= form.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""} %>
-</div>
+        <div class="field">
+            <%= form.label :keystatus_id, "Key Status" %>
+            <%= form.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""} %>
+        </div>
 
-<div class="field">
-    <%= form.label :order_id %>
-    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
-</div>
+        <div class="field">
+            <%= form.label :order_id %>
+            <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
+        </div>
 
-<div class="actions">
-    <%= form.submit %>
+        <div class="actions">
+            <%= form.submit :Submit, class: 'btn btn-success' %>
+        </div>
+        <% end %>
 </div>
-<% end %>

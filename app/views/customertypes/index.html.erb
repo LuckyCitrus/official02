@@ -1,25 +1,32 @@
-<h1>Customer Types</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Customer Type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customertypes.each do |customertype| %>
-      <tr>
-        <td><%= customertype.customertype %></td>
-        <td><%= link_to 'Show', customertype %></td>
-        <td><%= link_to 'Edit', edit_customertype_path(customertype) %></td>
-        <td><%= link_to 'Destroy', customertype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Customer Types</h1>
+            </div>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Customer Type</th>
+                            <th colspan="3"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @customertypes.each do |customertype| %>
+                        <tr>
+                            <td><%= customertype.customertype %></td>
+                            <td><%= link_to 'Show', customertype %></td>
+                            <td><%= link_to 'Edit', edit_customertype_path(customertype) %></td>
+                            <td><%= link_to 'Destroy', customertype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <div class="card-footer">
+                <%= link_to 'New Customer Type', new_customertype_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Customer Type', new_customertype_path %>

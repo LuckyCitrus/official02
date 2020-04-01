@@ -1,7 +1,15 @@
-<p>
-  <strong>Shipment Status:</strong>
-  <%= @shipmentstatus.shipmentstatus %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    <strong>Shipment Status:</strong>
+                    <%= @shipmentstatus.shipmentstatus %>
+                </p>
 
-<%= link_to 'Edit', edit_shipmentstatus_path(@shipmentstatus) %> |
-<%= link_to 'Back', shipmentstatuses_path %>
+                <%= link_to 'Edit', edit_shipmentstatus_path(@shipmentstatus), class: "btn btn-primary" %>
+                <%= link_to 'Back', shipmentstatuses_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>

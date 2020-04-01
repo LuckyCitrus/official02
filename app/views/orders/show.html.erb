@@ -1,42 +1,42 @@
-<p>
-    <strong>Order Number:</strong>
-    <%= @order.ordernum %>
-</p>
-
-<p>
-    <strong>Date:</strong>
-    <%= @order.date %>
-</p>
-
-<p>
-    <strong>Lotstock:</strong>
-    <%= @order.lotstock %>
-</p>
-
-<p>
-    <strong>Quantity:</strong>
-    <%= @order.quantity %>
-</p>
-
-<p>
-    <strong>Price:</strong>
-    <%= number_to_currency(@order.price) %>
-</p>
-
-<p>
-    <strong>Total:</strong>
-    <%= number_to_currency(@order.total) %>
-</p>
-
-<p>
-    <strong>Order Status:</strong>
-    <%= @order.orderstatus.orderstatus %>
-</p>
-
-<p>
-    <strong>Customer:</strong>
-    <%= @order.customer.try(:cus_fullname) %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    <strong>Order Number:</strong>
+                    <%= @order.ordernum %>
+                </p>
+                <p>
+                    <strong>Date:</strong>
+                    <%= @order.date %>
+                </p>
+                <p>
+                    <strong>Lotstock:</strong>
+                    <%= @order.lotstock %>
+                </p>
+                <p>
+                    <strong>Quantity:</strong>
+                    <%= @order.quantity %>
+                </p>
+                <p>
+                    <strong>Price:</strong>
+                    <%= number_to_currency(@order.price) %>
+                </p>
+                <p>
+                    <strong>Total:</strong>
+                    <%= number_to_currency(@order.total) %>
+                </p>
+                <p>
+                    <strong>Order Status:</strong>
+                    <%= @order.orderstatus.orderstatus %>
+                </p>
+                <p>
+                    <strong>Customer:</strong>
+                    <%= @order.customer.try(:cus_fullname) %>
+                </p>
+                <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %>
+                <%= link_to 'Back', orders_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>

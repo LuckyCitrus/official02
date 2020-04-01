@@ -1,37 +1,44 @@
-<h1>Cars</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>VIN Number</th>
-      <th>Year</th>
-      <th>Make</th>
-      <th>Model</th>
-      <th>Title Status</th>
-      <th>Key Status</th>
-      <th>Order Number</th>
-      <th colspan="8"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cars.each do |car| %>
-      <tr>
-        <td><%= car.vinnumber %></td>
-        <td><%= car.year %></td>
-        <td><%= car.make %></td>
-        <td><%= car.model %></td>
-        <td><%= car.titlestatus.titlestatus %></td>
-        <td><%= car.keystatus.keystatus %></td>
-        <td><%= car.order.ordernum %></td>
-        <td><%= link_to 'Show', car %></td>
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Cars</h1>
+            </div>
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>VIN Number</th>
+                            <th>Year</th>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Title Status</th>
+                            <th>Key Status</th>
+                            <th>Order Number</th>
+                            <th colspan="8"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @cars.each do |car| %>
+                        <tr>
+                            <td><%= car.vinnumber %></td>
+                            <td><%= car.year %></td>
+                            <td><%= car.make %></td>
+                            <td><%= car.model %></td>
+                            <td><%= car.titlestatus.titlestatus %></td>
+                            <td><%= car.keystatus.keystatus %></td>
+                            <td><%= car.order.ordernum %></td>
+                            <td><%= link_to 'Show', car %></td>
+                            <td><%= link_to 'Edit', edit_car_path(car) %></td>
+                            <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <div class="card-footer">
+                <%= link_to 'New Car', new_car_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Car', new_car_path %>

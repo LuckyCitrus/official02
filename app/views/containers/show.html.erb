@@ -1,17 +1,22 @@
-<p>
-    <strong>Container Number:</strong>
-    <%= @container.containernum %>
-</p>
-
-<p>
-    <strong>Shipment Number:</strong>
-    <%= @container.shipment.shipmentnum %>
-</p>
-
-<p>
-    <strong>Company:</strong>
-    <%= @container.company.companyname %>
-</p>
-
-<%= link_to 'Edit', edit_container_path(@container) %> |
-<%= link_to 'Back', containers_path %>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-body">
+                <p>
+                    <strong>Container Number:</strong>
+                    <%= @container.containernum %>
+                </p>
+                <p>
+                    <strong>Shipment Number:</strong>
+                    <%= @container.shipment.shipmentnum %>
+                </p>
+                <p>
+                    <strong>Company:</strong>
+                    <%= @container.company.companyname %>
+                </p>
+                <%= link_to 'Edit', edit_container_path(@container), class: "btn btn-primary" %>
+                <%= link_to 'Back', containers_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,32 +1,34 @@
-<%= form_with(model: auction, local: true) do |form| %>
-<% if auction.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(auction.errors.count, "error") %> prohibited this auction from being saved:</h2>
+<div class="card-body">
+    <%= form_with(model: auction, local: true) do |form| %>
+    <% if auction.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(auction.errors.count, "error") %> prohibited this auction from being saved:</h2>
 
-    <ul>
-        <% auction.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% auction.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
 
-<div class="field">
-    <%= form.label :auctionname, "Auction Name" %>
-    <%= form.text_field :auctionname, minlength: 3, maxlength: 36, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :auctionname, "Auction Name" %>
+        <%= form.text_field :auctionname, minlength: 3, maxlength: 36, size: 24, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, pattern: "^[#'.0-9a-zA-Z\s,-]*$", minlength: 5, maxlength: 72, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :address %>
+        <%= form.text_field :address, pattern: "^[#'.0-9a-zA-Z\s,-]*$", minlength: 5, maxlength: 72, size: 24, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :location_id %>
-    <%= form.collection_select :location_id, Location.order(:city), :id, :city, {include_blank: ""}, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :location_id %>
+        <%= form.collection_select :location_id, Location.order(:city), :id, :city,  prompt: 'Location', required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+        <%= form.submit  :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>
