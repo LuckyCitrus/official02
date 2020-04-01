@@ -1,47 +1,49 @@
-<%= form_with(model: shipment, local: true) do |form| %>
-<% if shipment.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
+<div class="card-body">
+    <%= form_with(model: shipment, local: true) do |form| %>
+    <% if shipment.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
 
-    <ul>
-        <% shipment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% shipment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
 
-<div class="field">
-    <%= form.label :shipmentnum, "Shipment Number" %>
-    <%= form.text_field :shipmentnum, pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :shipmentnum, "Shipment Number" %>
+        <%= form.text_field :shipmentnum, pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, size: 24, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :date %>
+        <%= form.date_select :date, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, min: 1, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :quantity %>
+        <%= form.number_field :quantity, min: 1, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :warehouse_id %>
-    <%= form.collection_select :warehouse_id, Warehouse.order(:warehousename), :id, :warehousename, {include_blank: ""}, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :warehouse_id %>
+        <%= form.collection_select :warehouse_id, Warehouse.order(:warehousename), :id, :warehousename, {include_blank: ""}, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :shipmentmethod_id, "Shipping Method" %>
-    <%= form.collection_select :shipmentmethod_id, Shipmentmethod.order(:shipmentmethod), :id, :shipmentmethod, {include_blank: ""}, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :shipmentmethod_id, "Shipping Method" %>
+        <%= form.collection_select :shipmentmethod_id, Shipmentmethod.order(:shipmentmethod), :id, :shipmentmethod, {include_blank: ""}, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :shipmentstatus_id, "Shipping Status" %>
-    <%= form.collection_select :shipmentstatus_id, Shipmentstatus.order(:shipmentstatus), :id, :shipmentstatus, {include_blank: ""}, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :shipmentstatus_id, "Shipping Status" %>
+        <%= form.collection_select :shipmentstatus_id, Shipmentstatus.order(:shipmentstatus), :id, :shipmentstatus, {include_blank: ""}, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>

@@ -1,27 +1,29 @@
-<%= form_with(model: picture, local: true) do |form| %>
-  <% if picture.errors.any? %>
+<div class="card-body">
+    <%= form_with(model: picture, local: true) do |form| %>
+    <% if picture.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+        <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
 
-      <ul>
-        <% picture.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+            <% picture.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.text_field :picture, required: true %>
-  </div>
+    <div class="field">
+        <%= form.label :picture %>
+        <%= form.text_field :picture, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :order_id %>
-    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
+    <div class="field">
+        <%= form.label :order_id %>
+        <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

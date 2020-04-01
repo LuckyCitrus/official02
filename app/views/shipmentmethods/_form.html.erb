@@ -1,22 +1,24 @@
-<%= form_with(model: shipmentmethod, local: true) do |form| %>
-<% if shipmentmethod.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(shipmentmethod.errors.count, "error") %> prohibited this shipmentmethod from being saved:</h2>
+<div class="card-body">
+    <%= form_with(model: shipmentmethod, local: true) do |form| %>
+    <% if shipmentmethod.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(shipmentmethod.errors.count, "error") %> prohibited this shipmentmethod from being saved:</h2>
 
-    <ul>
-        <% shipmentmethod.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% shipmentmethod.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
 
-<div class="field">
-    <%= form.label :shipmentmethod, "Shipment Methods" %>
-    <%= form.text_field :shipmentmethod, minlength: 2, maxlength: 30, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.label :shipmentmethod, "Shipment Methods" %>
+        <%= form.text_field :shipmentmethod, minlength: 2, maxlength: 30, size: 24, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit action_name == 'new' ? 'Create Shipping Method' : 'Update Shipping Method'%>
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>

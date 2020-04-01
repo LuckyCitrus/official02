@@ -104,6 +104,18 @@ html, body {
 	background-color: #6C757D !important;
 }
 
+form {
+	position: relative;
+	width: 100%;
+}
+
+.field input, select, option
+ {
+	position: absolute;
+	left: 180px;
+	width: calc(100% - 50%);
+}
+
  /*flash*/
  .alert-error {
      background-color: #f2dede;

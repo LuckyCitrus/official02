@@ -1,6 +1,16 @@
-<h1>Editing Auction</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Editing Auction</h1>
+            </div>
 
-<%= render 'form', auction: @auction %>
+            <%= render 'form', auction: @auction %>
 
-<%= link_to 'Show', @auction %> |
-<%= link_to 'Back', auctions_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @auction, class: "btn btn-primary" %>
+                <%= link_to 'Back', auctions_path, class: "btn btn-secondary" %>
+            </div>
+        </div>
+    </div>
+</div>
