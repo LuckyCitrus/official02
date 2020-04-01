@@ -1,5 +1,5 @@
 <div class="card-body">
-    <%= form_with(model: customer, local: true) do |form| %>
+    <%= bootstrap_form_with(model: customer, local: true, layout: :horizontal) do |form| %>
     <% if customer.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
@@ -13,33 +13,27 @@
     <% end %>
 
     <div class="field">
-        <%= form.label :first_name, "First Name" %>
-        <%= form.text_field :first_name, pattern: "^[a-zA-Z-']*$", minlength: 2, maxlength: 36, size: 24, required: true %>
+        <%= form.text_field :first_name, label: "First Name", pattern: "^[a-zA-Z-']*$", minlength: 2, maxlength: 36, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :last_name, "Last Name" %>
-        <%= form.text_field :last_name, pattern: "^[a-zA-Z-']*$", minlength: 2, maxlength: 36, size: 24, required: true %>
+        <%= form.text_field :last_name, label: "Last Name", pattern: "^[a-zA-Z-']*$", minlength: 2, maxlength: 36, size: 24, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :address %>
         <%= form.text_field :address, pattern: "^[#'.0-9a-zA-Z\s,-]*$", minlength: 5, maxlength: 72, size: 24, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :phone %>
-        <%= form.text_field :phone, pattern: '[^a-zA-Z]*', minlength: 5, maxlength: 24, required: true %>
+        <%= form.telephone_field :phone, pattern: '[^a-zA-Z]*', minlength: 5, maxlength: 24, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :email %>
         <%= form.email_field :email, minlength: 5, maxlength: 254, size: 24, required: true %>
     </div>
     <!--, pattern: "[^@]+@[^@]+"-->
 
     <div class="field">
-        <%= form.label :user_id, "User" %>
         <%= form.collection_select :user_id, User.order(:email), :id, :email, {include_blank: ""} %>
     </div>
 

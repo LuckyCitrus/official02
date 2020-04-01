@@ -1,5 +1,5 @@
 <div class="card-body">
-    <%= form_with(model: auction, local: true) do |form| %>
+    <%= bootstrap_form_with(model: auction, local: true, layout: :horizontal) do |form| %>
     <% if auction.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(auction.errors.count, "error") %> prohibited this auction from being saved:</h2>
@@ -13,18 +13,15 @@
     <% end %>
 
     <div class="field">
-        <%= form.label :auctionname, "Auction Name" %>
-        <%= form.text_field :auctionname, minlength: 3, maxlength: 36, size: 24, required: true %>
+        <%= form.text_field :auctionname, label: "Auction Name", minlength: 3, maxlength: 36, size: 24, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :address %>
         <%= form.text_field :address, pattern: "^[#'.0-9a-zA-Z\s,-]*$", minlength: 5, maxlength: 72, size: 24, required: true %>
     </div>
 
     <div class="field">
-        <%= form.label :location_id %>
-        <%= form.collection_select :location_id, Location.order(:city), :id, :city,  prompt: 'Location', required: true %>
+        <%= form.collection_select :location_id, Location.order(:city), :id, :city, {include_blank: ""},  required: true %>
     </div>
 
     <div class="actions">

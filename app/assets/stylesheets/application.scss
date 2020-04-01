@@ -14,17 +14,19 @@
  *= require_self
  */
 @import "bootstrap/scss/bootstrap";
+@import "rails_bootstrap_forms";
 
 html, body {
 	margin: 0;
 	padding: 0;
-			font-family: 'Trebuchet MS',
+			font-family: 'Trebuchet MS', 'Roboto',
 			Helvetica,
 			sans-serif;
 }
 
 .background-image {
-	background-image: url("Car_Cargo.jpg");
+	//background-image: url("https://bototomstone.sfo2.digitaloceanspaces.com/Car_Cargo.jpg");
+	background-image: url("https://bucketeer-396b7776-65f2-4c5b-b817-0d75c447dd4e.s3.amazonaws.com/public/Car_Cargo.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -55,6 +57,7 @@ html, body {
 	position: sticky;
 	top: 0;
 	width: 100%;
+	z-index: 1;
 }
 
 .row-fluid, .card {
@@ -108,12 +111,15 @@ form {
 	position: relative;
 	width: 100%;
 }
+label {
+	white-space: nowrap;
+}
 
 .field input, select, option
  {
-	position: absolute;
+	/*position: absolute;
 	left: 180px;
-	width: calc(100% - 50%);
+	width: calc(100% - 60%);*/
 }
 
  /*flash*/
