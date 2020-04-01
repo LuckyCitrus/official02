@@ -101,6 +101,21 @@ nav a:hover{
 	background-color: transparent;
 }
 
+/*table {
+	white-space:nowrap;
+	max-width:100%;
+}*/
+    table,
+    th,
+    td {
+    	border: 1px solid #666;
+    }
+
+    table th,
+    table td {
+    	padding: 10px;
+    	/* Apply cell padding */
+    }
 .btn-primary, .btn-secondary {
 	color: #ffffff !important;
 }

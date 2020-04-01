@@ -1,10 +1,11 @@
 <div class="row row-fluid">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-xs-12">
         <div class="card card-default">
             <div class="card-header">
                 <h1>Orders</h1>
             </div>
-                <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered table-responsive">
+                <thead class="thead-light">
                     <thead>
                         <tr>
                             <th>Order Number</th>
@@ -18,24 +19,24 @@
                             <th colspan="8"></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <% @orders.each do |order| %>
-                        <tr>
-                            <td><%= order.ordernum %></td>
-                            <td><%= order.date.to_s(:short_date) %></td>
-                            <td><%= order.customer.try(:cus_fullname) %></td>
-                            <td><%= order.lotstock %></td>
-                            <td><%= order.quantity %></td>
-                            <td><%= number_to_currency(order.price) %></td>
-                            <td><%= number_to_currency(order.total) %></td>
-                            <td><%= order.orderstatus.orderstatus %></td>
-                            <td><%= link_to 'Show', order %></td>
-                            <td><%= link_to 'Edit', edit_order_path(order) %></td>
-                            <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                        </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+                <tbody>
+                    <% @orders.each do |order| %>
+                    <tr>
+                        <td><%= order.ordernum %></td>
+                        <td><%= order.date.to_s(:short_date) %></td>
+                        <td><%= order.customer.try(:cus_fullname) %></td>
+                        <td><%= order.lotstock %></td>
+                        <td><%= order.quantity %></td>
+                        <td><%= number_to_currency(order.price) %></td>
+                        <td><%= number_to_currency(order.total) %></td>
+                        <td><%= order.orderstatus.orderstatus %></td>
+                        <td><%= link_to 'Show', order %></td>
+                        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+                        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
             <div class="card-footer">
                 <%= link_to 'New Order', new_order_path, class: "btn btn-primary" %>
             </div>
