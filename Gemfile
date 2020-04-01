@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.5'
 
+gem "bootstrap_form", "~> 4.0"
 gem 'flatpickr'
 gem 'pundit'
 gem 'devise'
