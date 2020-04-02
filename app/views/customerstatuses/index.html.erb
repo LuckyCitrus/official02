@@ -1,27 +1,27 @@
 <div class="row row-fluid">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-sm-5">
         <div class="card card-default">
             <div class="card-header">
                 <h1>Customer Statuses</h1>
             </div>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Customer Status</th>
-                            <th colspan="3"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @customerstatuses.each do |customerstatus| %>
-                        <tr>
-                            <td><%= customerstatus.customerstatus %></td>
-                            <td><%= link_to 'Show', customerstatus %></td>
-                            <td><%= link_to 'Edit', edit_customerstatus_path(customerstatus) %></td>
-                            <td><%= link_to 'Destroy', customerstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                        </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+            <table class="table table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Customer Status</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @customerstatuses.each do |customerstatus| %>
+                    <tr>
+                        <td><%= customerstatus.customerstatus %></td>
+                        <td><%= link_to 'Show', customerstatus %></td>
+                        <td><%= link_to 'Edit', edit_customerstatus_path(customerstatus) %></td>
+                        <td><%= link_to 'Destroy', customerstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
             <div class="card-footer">
                 <%= link_to 'New Customer Status', new_customerstatus_path, class: "btn btn-primary" %>
             </div>
