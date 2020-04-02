@@ -1,6 +1,6 @@
 <div class="card-body">
     <%= bootstrap_form_with(model: titlestatus, local: true, layout: :horizontal) do |form| %>
-    <% if titlestatus.errors.any? %>
+    <!--<% if titlestatus.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(titlestatus.errors.count, "error") %> prohibited this titlestatus from being saved:</h2>
 
@@ -10,10 +10,10 @@
             <% end %>
         </ul>
     </div>
-    <% end %>
+    <% end %>--><%= errors_for(@titlestatus) %>
 
     <div class="field">
-        <%= form.text_field :titlestatus, label: "Title Status", minlength: 2, maxlength: 30, required: true %>
+        <%= form.text_field :titlestatus, label: "Title Status", maxlength: 128, required: true %>
     </div>
 
     <div class="actions">

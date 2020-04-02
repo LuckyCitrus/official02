@@ -1,6 +1,6 @@
 <div class="card-body">
     <%= bootstrap_form_with(model: invoiceshipment, local: true, layout: :horizontal) do |form| %>
-    <% if invoiceshipment.errors.any? %>
+    <!--<% if invoiceshipment.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(invoiceshipment.errors.count, "error") %> prohibited this invoiceshipment from being saved:</h2>
 
@@ -10,7 +10,7 @@
             <% end %>
         </ul>
     </div>
-    <% end %>
+    <% end %>--><%= errors_for(@invoiceshipment) %>
 
     <div class="field">
         <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum, {include_blank: ""}, required: true %>

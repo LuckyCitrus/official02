@@ -1,6 +1,6 @@
 <div class="card-body">
     <%= bootstrap_form_with(model: shipmentmethod, local: true, layout: :horizontal) do |form| %>
-    <% if shipmentmethod.errors.any? %>
+    <!--<% if shipmentmethod.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(shipmentmethod.errors.count, "error") %> prohibited this shipmentmethod from being saved:</h2>
 
@@ -10,10 +10,10 @@
             <% end %>
         </ul>
     </div>
-    <% end %>
+    <% end %>--><%= errors_for(@customerstatus) %>
 
     <div class="field">
-        <%= form.text_field :shipmentmethod, label: "Shipment Method", minlength: 2, maxlength: 30, required: true %>
+        <%= form.text_field :shipmentmethod, label: "Shipment Method", maxlength: 128, required: true %>
     </div>
 
     <div class="actions">

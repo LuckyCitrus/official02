@@ -1,6 +1,6 @@
 <div class="card-body">
     <%= bootstrap_form_with(model: container, local: true, layout: :horizontal) do |form| %>
-    <% if container.errors.any? %>
+    <!--<% if container.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(container.errors.count, "error") %> prohibited this container from being saved:</h2>
 
@@ -10,10 +10,10 @@
             <% end %>
         </ul>
     </div>
-    <% end %>
+    <% end %>--><%= errors_for(@container) %>
 
     <div class="field">
-        <%= form.text_field :containernum, label: "Container Number", pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, size: 24, required: true %>
+        <%= form.text_field :containernum, label: "Container Number", pattern: '^[a-zA-Z0-9-]*$', help: "Only alphanumeric characters are allowed", maxlength: 128, required: true %>
     </div>
 
     <div class="field">
