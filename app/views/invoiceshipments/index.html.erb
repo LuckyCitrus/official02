@@ -1,29 +1,29 @@
 <div class="row row-fluid">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="card card-default">
         <div class="card card-default">
             <div class="card-header">
                 <h1>Invoice Shipments</h1>
             </div>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Shipment</th>
-                            <th>Invoice</th>
-                            <th colspan="3"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @invoiceshipments.each do |invoiceshipment| %>
-                        <tr>
-                            <td><%= invoiceshipment.shipment.shipmentnum %></td>
-                            <td><%= invoiceshipment.invoice.invoicenum %></td>
-                            <td><%= link_to 'Show', invoiceshipment %></td>
-                            <td><%= link_to 'Edit', edit_invoiceshipment_path(invoiceshipment) %></td>
-                            <td><%= link_to 'Destroy', invoiceshipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                        </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+            <table class="table table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Shipment</th>
+                        <th>Invoice</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @invoiceshipments.each do |invoiceshipment| %>
+                    <tr>
+                        <td><%= invoiceshipment.shipment.shipmentnum %></td>
+                        <td><%= invoiceshipment.invoice.invoicenum %></td>
+                        <td><%= link_to 'Show', invoiceshipment %></td>
+                        <td><%= link_to 'Edit', edit_invoiceshipment_path(invoiceshipment) %></td>
+                        <td><%= link_to 'Destroy', invoiceshipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
             <div class="card-footer">
                 <%= link_to 'New Invoice Shipment', new_invoiceshipment_path, class: "btn btn-primary" %>
             </div>

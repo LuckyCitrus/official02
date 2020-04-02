@@ -19,7 +19,7 @@
 
                 <div class="field">
                     <%#= f.label :password, "New Password" %> <!--<i>(leave blank if you don't want to change it)</i>-->
-                    <%= f.password_field :password, autocomplete: "new-password", minlength: 6, maxlength: 128, size: 24, placeholder: "Leave blank if password is not changed" %>
+                    <%= f.password_field :password, autocomplete: "new-password", minlength: 6, maxlength: 128, size: 24, help: "Leave blank if password is not changed" %>
                     <!--<% if @minimum_password_length %>
     <br /><em><%= @minimum_password_length %> characters minimum</em>
     <% end %>-->
@@ -31,7 +31,7 @@
 
                 <div class="field">
                     <%#= f.label :current_password, "Current Password" %> <!--<i>(we need your current password to confirm your changes)</i>-->
-                    <%= f.password_field :current_password, label: "Current Password", autocomplete: "current-password", minlength: 6, maxlength: 128, size: 24, required: true, placeholder: "Type current password to confirm changes" %>
+                    <%= f.password_field :current_password, label: "Current Password", autocomplete: "current-password", minlength: 6, maxlength: 128, size: 24, required: true, help: "Type current password to confirm changes" %>
                 </div>
 
                 <div class="actions">

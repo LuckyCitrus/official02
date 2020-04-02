@@ -7,8 +7,8 @@
                     <%= @order.ordernum %>
                 </p>
                 <p>
-                    <strong>Date:</strong>
-                    <%= @order.date %>
+                    <strong>Order Date:</strong>
+                    <%= @order.date.to_s(:long_date) %>
                 </p>
                 <p>
                     <strong>Lotstock:</strong>

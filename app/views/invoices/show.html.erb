@@ -8,11 +8,11 @@
                 </p>
                 <p>
                     <strong>Invoice Date:</strong>
-                    <%= @invoice.invoicedate %>
+                    <%= @invoice.invoicedate.to_s(:long_date) %>
                 </p>
                 <p>
                     <strong>Due Date:</strong>
-                    <%= @invoice.duedate %>
+                    <%= @invoice.duedate.to_s(:long_date) %>
                 </p>
                 <p>
                     <strong>Customer:</strong>
