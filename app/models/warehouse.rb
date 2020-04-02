@@ -1,5 +1,7 @@
 class Warehouse < ApplicationRecord
+
   belongs_to :location
+
   # belongs_to :shipment
 
   validates :warehousename, presence: true, length: { minimum: 2, maximum: 36 }

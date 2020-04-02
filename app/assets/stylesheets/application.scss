@@ -16,7 +16,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "rails_bootstrap_forms";
 
-html, body {
+html, body{
 	margin: 0;
 	padding: 0;
 			font-family: 'Trebuchet MS', 'Roboto',
@@ -50,7 +50,7 @@ html, body {
 }
 
 .header-right p {
-    padding-right: 6px;
+    padding-right: 10px;
 }
 
 .navigation {
@@ -64,6 +64,26 @@ html, body {
 	display: flex;
 	justify-content: center;
 	margin: 1.5em;
+}
+
+nav.navbar {
+	padding: 0 1rem;
+}
+
+.navbar {
+  min-height: 50px;
+}
+
+.nav-link {
+  height: 50px;
+  line-height: 35px;
+  border-radius: .5px;
+}
+
+nav a:hover{ 
+    transition: ease-in-out all .1s; 
+    -moz-transition: ease-in-out all .1s;
+    -webkit-transition: ease-in-out all .1s;
 }
 
 .content a {
@@ -84,6 +104,21 @@ html, body {
 	background-color: transparent;
 }
 
+/*table {
+	white-space:nowrap;
+	max-width:100%;
+}*/
+    table,
+    th,
+    td {
+    	border: 1px solid #666;
+    }
+
+    table th,
+    table td {
+    	padding: 10px;
+    	/* Apply cell padding */
+    }
 .btn-primary, .btn-secondary {
 	color: #ffffff !important;
 }
@@ -115,12 +150,12 @@ label {
 	white-space: nowrap;
 }
 
-.field input, select, option
+/*.field input, select, option
  {
-	/*position: absolute;
+	position: absolute;
 	left: 180px;
-	width: calc(100% - 60%);*/
-}
+	width: calc(100% - 60%);
+}*/
 
  /*flash*/
  .alert-error {

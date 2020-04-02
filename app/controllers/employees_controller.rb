@@ -20,6 +20,8 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
+    @employee = policy_scope(Employee).find(params[:id])
+    authorize @employee
   end
 
   # POST /employees
@@ -41,6 +43,8 @@ class EmployeesController < ApplicationController
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
   def update
+    @employee = policy_scope(Employee).find(params[:id])
+    authorize @employee
     respond_to do |format|
       if @employee.update(employee_params)
         format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
@@ -55,6 +59,8 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
+    @employee = policy_scope(Employee).find(params[:id])
+    authorize @employee
     @employee.destroy
     respond_to do |format|
       format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
@@ -66,6 +72,7 @@ class EmployeesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
       @employee = Employee.find(params[:id])
+      authorize @employee
     end
 
     # Only allow a list of trusted parameters through.

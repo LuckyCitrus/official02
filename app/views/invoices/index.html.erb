@@ -1,39 +1,39 @@
 <div class="row row-fluid">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-xs-12">
         <div class="card card-default">
             <div class="card-header">
                 <h1>Invoices</h1>
             </div>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Invoice Number</th>
-                            <th>Invoice Date</th>
-                            <th>Due Date</th>
-                            <th>Customer</th>
-                            <th>Employee</th>
-                            <th>Invoice Status</th>
-                            <th>Amount Due</th>
-                            <th colspan="7"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @invoices.each do |invoice| %>
-                        <tr>
-                            <td><%= invoice.invoicenum %></td>
-                            <td><%= invoice.invoicedate %></td>
-                            <td><%= invoice.duedate %></td>
-                            <td><%= invoice.customer.cus_fullname %></td>
-                            <td><%= invoice.employee.emp_fullname %></td>
-                            <td><%= invoice.invoicestatus.invoicestatus %></td>
-                            <td><%= number_to_currency(invoice.amountdue) %></td>
-                            <td><%= link_to 'Show', invoice %></td>
-                            <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-                            <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                        </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+            <table class="table table-hover table-bordered table-responsive">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Invoice Number</th>
+                        <th>Invoice Date</th>
+                        <th>Due Date</th>
+                        <th>Customer</th>
+                        <th>Employee</th>
+                        <th>Invoice Status</th>
+                        <th>Amount Due</th>
+                        <th colspan="7"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @invoices.each do |invoice| %>
+                    <tr>
+                        <td><%= invoice.invoicenum %></td>
+                        <td><%= invoice.invoicedate.to_s(:short_date) %></td>
+                        <td><%= invoice.duedate.to_s(:short_date) %></td>
+                        <td><%= invoice.customer.cus_fullname %></td>
+                        <td><%= invoice.employee.emp_fullname %></td>
+                        <td><%= invoice.invoicestatus.invoicestatus %></td>
+                        <td><%= number_to_currency(invoice.amountdue) %></td>
+                        <td><%= link_to 'Show', invoice %></td>
+                        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+                        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
             <div class="card-footer">
                 <%= link_to 'New Invoice', new_invoice_path, class: "btn btn-primary" %>
             </div>

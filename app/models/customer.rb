@@ -2,7 +2,7 @@ class Customer < ApplicationRecord
   has_many :country
   has_many :customerstatus
   has_many :customertype
-  has_many :dummyuser
+  #has_many :dummyuser
   belongs_to :user, optional: true
 
   has_many :orders

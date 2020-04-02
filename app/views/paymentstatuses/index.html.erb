@@ -1,27 +1,27 @@
 <div class="row row-fluid">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-sm-5">
         <div class="card card-default">
             <div class="card-header">
                 <h1>Payment Statuses</h1>
             </div>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Payment Status</th>
-                            <th colspan="3"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @paymentstatuses.each do |paymentstatus| %>
-                        <tr>
-                            <td><%= paymentstatus.paymentstatus %></td>
-                            <td><%= link_to 'Show', paymentstatus %></td>
-                            <td><%= link_to 'Edit', edit_paymentstatus_path(paymentstatus) %></td>
-                            <td><%= link_to 'Destroy', paymentstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                        </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+            <table class="table table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Payment Status</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @paymentstatuses.each do |paymentstatus| %>
+                    <tr>
+                        <td><%= paymentstatus.paymentstatus %></td>
+                        <td><%= link_to 'Show', paymentstatus %></td>
+                        <td><%= link_to 'Edit', edit_paymentstatus_path(paymentstatus) %></td>
+                        <td><%= link_to 'Destroy', paymentstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
             <div class="card-footer">
                 <%= link_to 'New Payment Status', new_paymentstatus_path, class: "btn btn-primary" %>
             </div>

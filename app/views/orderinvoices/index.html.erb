@@ -1,29 +1,29 @@
 <div class="row row-fluid">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-sm-5">
         <div class="card card-default">
             <div class="card-header">
                 <h1>Order Invoices</h1>
             </div>
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Order</th>
-                            <th>Invoice</th>
-                            <th colspan="3"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @orderinvoices.each do |orderinvoice| %>
-                        <tr>
-                            <td><%= orderinvoice.order.ordernum %></td>
-                            <td><%= orderinvoice.invoice.invoicenum %></td>
-                            <td><%= link_to 'Show', orderinvoice %></td>
-                            <td><%= link_to 'Edit', edit_orderinvoice_path(orderinvoice) %></td>
-                            <td><%= link_to 'Destroy', orderinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                        </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+            <table class="table table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Order</th>
+                        <th>Invoice</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @orderinvoices.each do |orderinvoice| %>
+                    <tr>
+                        <td><%= orderinvoice.order.ordernum %></td>
+                        <td><%= orderinvoice.invoice.invoicenum %></td>
+                        <td><%= link_to 'Show', orderinvoice %></td>
+                        <td><%= link_to 'Edit', edit_orderinvoice_path(orderinvoice) %></td>
+                        <td><%= link_to 'Destroy', orderinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
             <div class="card-footer">
                 <%= link_to 'New Order Invoice', new_orderinvoice_path, class: "btn btn-primary" %>
             </div>

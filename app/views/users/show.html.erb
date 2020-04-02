@@ -4,7 +4,8 @@
             <div class="card-body">
                 <h3>User</h3>
                 <p>Email: <%= @user.email if @user.email %></p>
-
+                <p>Name: <%= @user.employee.try(:emp_fullname) %>
+                    <%= @user.customer.try(:cus_fullname) %></p>
                 <%= link_to 'Back', users_path, class: "btn btn-secondary" %>
             </div>
         </div>
