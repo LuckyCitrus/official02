@@ -1,14 +1,37 @@
 <div class="row row-fluid">
-    <div class="col-sm-5">
-        <div class="card">
-            <div class="card-body">
-                <p>
-                    <strong>City:</strong>
-                    <%= @location.city %>
-                </p>
-                <%= link_to 'Edit', edit_location_path(@location), class: "btn btn-primary" %>
-                <%= link_to 'Back', locations_path, class: "btn btn-secondary" %>
-            </div>
-        </div>
+  <div class="col-sm-5">
+    <div class="card">
+      <div class="card-body">
+        <p>
+          <strong>City:</strong>
+          <%= @location.city %>
+        </p>
+
+        <%# Nested Form Show %>
+        <p>
+          <strong>Warehouse Name:</strong>
+        </p>
+        <ul>
+          <% for @warehouse in @location.warehouses %>
+            <li><%= @warehouse.warehousename %></li>
+          <% end %>
+        </ul>
+        <%# End of Nested Form Show %>
+
+        <%# Nested Form Show %>
+        <p>
+          <strong>Auction Name:</strong>
+        </p>
+        <ul>
+          <% for @auction in @location.auctions %>
+            <li><%= @auction.auctionname %></li>
+          <% end %>
+        </ul>
+        <%# End of Nested Form Show %>
+
+        <%= link_to 'Edit', edit_location_path(@location), class: "btn btn-primary" %>
+        <%= link_to 'Back', locations_path, class: "btn btn-secondary" %>
+      </div>
     </div>
+  </div>
 </div>

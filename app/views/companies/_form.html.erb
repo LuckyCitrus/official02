@@ -1,23 +1,32 @@
-<div class="card-body">
-    <%= bootstrap_form_with(model: company, local: true, layout: :horizontal) do |form| %>
-    <% if company.errors.any? %>
+<%= form_with(model: company, local: true) do |form| %>
+  <% if company.errors.any? %>
     <div id="error_explanation">
-        <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
 
-        <ul>
-            <% company.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-        </ul>
+      <ul>
+        <% company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :companyname, "Company Name" %>
+    <%= form.text_field :companyname %>
+  </div>
+
+  <h3>Departments</h3>
+  <div id='departments'>
+    <%= form.fields_for :departments do |department| %>
+      <%= render 'department_fields', :f => department %>
     <% end %>
-
-    <div class="field">
-        <%= form.text_field :companyname, label: "Company Name", minlength: 3, maxlength: 36, size: 24, required: true %>
+    <div class='links'>
+      <%= link_to_add_association 'Add Department', form, :departments %>
     </div>
+  </div><br><br>
 
-    <div class="actions">
-        <%= form.submit :Submit, class: 'btn btn-success' %>
-    </div>
-    <% end %>
-</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
