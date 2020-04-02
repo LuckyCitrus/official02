@@ -1,3 +1,3 @@
 class Paymentmethod < ApplicationRecord
-  validates :paymenttype, presence: true, length: { minimum: 2, maximum: 30 }
+  validates :paymenttype, presence: true, length: { maximum: 128 }
 end

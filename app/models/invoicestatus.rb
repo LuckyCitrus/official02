@@ -1,5 +1,5 @@
 class Invoicestatus < ApplicationRecord
   has_many :invoices
 
-  validates :invoicestatus, presence: true, length: { minimum: 2, maximum: 30 }
+  validates :invoicestatus, presence: true, length: { maximum: 128 }
 end

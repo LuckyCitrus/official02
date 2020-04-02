@@ -1,3 +1,3 @@
 class Shipmentmethod < ApplicationRecord
-  validates :shipmentmethod, presence: true, length: { minimum: 2, maximum: 30 }
+  validates :shipmentmethod, presence: true, length: { maximum: 128 }
 end
