@@ -26,7 +26,7 @@ html, body {
 	font-family: 'Trebuchet MS', 'Roboto',Helvetica, sans-serif;
 	font-size: 14px;
  }
-
+ 
 .background-image {
 	background-image: url("https://bucketeer-396b7776-65f2-4c5b-b817-0d75c447dd4e.s3.amazonaws.com/public/Car_Cargo.png");
 	background-size: cover;
@@ -47,8 +47,8 @@ html, body {
 .header-right {
     float: right;
     position:absolute;
-    bottom:0;
-    right:0;
+    bottom: 0;
+    right: 0;
 }
 
 .header-right p {
@@ -78,14 +78,63 @@ nav.navbar {
 
 .nav-link {
   height: 50px;
-  line-height: 35px;
+  line-height: 30px;
   border-radius: .5px;
+  min-width: 80px;
+  text-align: center;
 }
 
 nav a:hover{ 
     transition: ease-in-out all .1s; 
     -moz-transition: ease-in-out all .1s;
     -webkit-transition: ease-in-out all .1s;
+}
+
+.dropbtn {
+	padding: 16px;
+	border: none;
+	font-size: 14px;
+	background-color: transparent;
+	color: #ffffff;
+	min-width: 150px;
+	font-family: 'Trebuchet MS', 'Roboto', Helvetica, sans-serif;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #343A40;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	width: 100%;
+}
+
+.dropdown-content a {
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	text-align:center;
+	font-size: 14px;
+}
+
+.dropdown-content a:hover {
+	background-color: rgb(31, 33, 36);
+	color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+	color: #ffffff;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #000000;
+	color: #ffffff;
 }
 
 .content a {
@@ -102,7 +151,7 @@ nav a:hover{
 }
 
 .content a:visited {
-	color: #551A8B;
+	//color: #551A8B;
 	background-color: transparent;
 }
 
