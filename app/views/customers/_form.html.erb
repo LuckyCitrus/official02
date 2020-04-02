@@ -25,7 +25,7 @@
     </div>
 
     <div class="field">
-        <%= form.telephone_field :phone, pattern: '[^a-zA-Z]*', help: "No alphabetical characters are allowed", minlength: 5, maxlength: 24, required: true %>
+        <%= form.telephone_field :phone, pattern: '[^a-zA-Z]*', help: "No alphabetical characters are allowed", maxlength: 64, required: true %>
     </div>
 
     <div class="field">

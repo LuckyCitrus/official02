@@ -12,7 +12,7 @@ class Employee < ApplicationRecord
   validates :emplname, presence: true, format: { with: /\A[a-z][a-z-]*[a-z-']\z/i }, length: { maximum: 128 }
   validates :address, presence: true, length: { maximum: 128 }
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, length: { maximum: 254 }
-  validates :phone, presence: true, length: { maximum: 24 }
+  validates :phone, presence: true, length: { maximum: 64 }
   validates :title, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { maximum: 128 }
   validates :hiredate, presence: true
   validates :employeestatus_id, presence: true
