@@ -1,6 +1,9 @@
 <div class="row row-fluid">
     <div class="col-sm-5">
         <div class="card">
+            <div class="card-header">
+                <h3>Auction</h3>
+            </div>
             <div class="card-body">
                 <p>
                     <strong>Auction Name:</strong>
@@ -14,9 +17,11 @@
                     <strong>Location:</strong>
                     <%= @auction.location.city %>
                 </p>
-                <%= link_to 'Edit', edit_auction_path(@auction), class: "btn btn-primary" %>
-                <%= link_to 'Back', auctions_path, class: "btn btn-secondary" %>
+
             </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_auction_path(@auction), class: "btn btn-primary" %>
+                <%= link_to 'Back', auctions_path, class: "btn btn-secondary" %> </div>
         </div>
     </div>
 </div>

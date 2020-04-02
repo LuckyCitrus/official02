@@ -1,14 +1,19 @@
 <div class="row row-fluid">
     <div class="col-sm-5">
         <div class="card">
+            <div class="card-header">
+                <h3>Payment Status</h3>
+            </div>
             <div class="card-body">
                 <p>
                     <strong>Payment Status:</strong>
                     <%= @paymentstatus.paymentstatus %>
                 </p>
-                <%= link_to 'Edit', edit_paymentstatus_path(@paymentstatus), class: "btn btn-primary" %>
-                <%= link_to 'Back', paymentstatuses_path, class: "btn btn-secondary" %>
+
             </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_paymentstatus_path(@paymentstatus), class: "btn btn-primary" %>
+                <%= link_to 'Back', paymentstatuses_path, class: "btn btn-secondary" %> </div>
         </div>
     </div>
 </div>

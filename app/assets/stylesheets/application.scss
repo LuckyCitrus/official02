@@ -16,11 +16,16 @@
 @import "bootstrap/scss/bootstrap";
 @import "rails_bootstrap_forms";
 
-html, body{
+html, body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Trebuchet MS', 'Roboto', Helvetica, sans-serif;
 }
+
+ p, a {
+	font-family: 'Trebuchet MS', 'Roboto',Helvetica, sans-serif;
+	font-size: 14px;
+ }
 
 .background-image {
 	background-image: url("https://bucketeer-396b7776-65f2-4c5b-b817-0d75c447dd4e.s3.amazonaws.com/public/Car_Cargo.png");

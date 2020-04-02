@@ -12,7 +12,7 @@ class ShipmentsController < ApplicationController
   # GET /shipments/1
   # GET /shipments/1.json
   def show
-    @order = policy_scope(Order).find(params[:id])
+    @shipment = policy_scope(Shipment).find(params[:id])
   end
 
   # GET /shipments/new
