@@ -1,5 +1,11 @@
 <% if user_signed_in? %>
-
+<div class="charts">
+    <%= line_chart charts_invoices_by_month_path,
+	xtitle: "Month",
+	ytitle: "Invoices ($)",
+	title: "Invoices per Month"
+	%>
+</div>
 <% else %>
 <div class="background-image"></div>
 <% end %>
