@@ -78,12 +78,16 @@ en:
       title: "Order Statuses"
   paymentmethods:
       title: "Payment Methods"
+  paymentstatuses:
+      title: "Payment Statuses"
   payments:
       title: "Payments"
   pictures:
       title: "Pictures"
   shipmentmethods:
       title: "Shipment Methods"
+  shipmentstatuses:
+      title: "Shipment Statuses"
   shipments:
       title: "Shipments"
   titlestatuses:

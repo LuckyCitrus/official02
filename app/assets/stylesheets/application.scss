@@ -109,6 +109,7 @@ nav a:hover{
 	display: none;
 	position: absolute;
 	background-color: #343A40;
+	opacity: .95;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
 	width: 100%;
@@ -138,7 +139,7 @@ nav a:hover{
 }
 
 .content a {
-	color: #0000EE;
+	//color: #0000EE;
 	-o-transition: .5s;
 	-ms-transition: .5s;
 	-moz-transition: .5s;
