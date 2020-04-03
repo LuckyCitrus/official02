@@ -1,6 +1,9 @@
 <div class="row row-fluid">
     <div class="col-sm-5">
         <div class="card">
+            <div class="card-header">
+                <h3>Container Order</h3>
+            </div>
             <div class="card-body">
                 <p>
                     <strong>Container:</strong>
@@ -11,9 +14,10 @@
                     <%= @containerorder.order.ordernum %>
                 </p>
 
-                <%= link_to 'Edit', edit_containerorder_path(@containerorder), class: "btn btn-primary" %>
-                <%= link_to 'Back', containerorders_path, class: "btn btn-secondary" %>
             </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_containerorder_path(@containerorder), class: "btn btn-primary" %>
+                <%= link_to 'Back', containerorders_path, class: "btn btn-secondary" %> </div>
         </div>
     </div>
 </div>

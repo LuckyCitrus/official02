@@ -1,6 +1,6 @@
 <div class="card-body">
     <%= bootstrap_form_with(model: paymentmethod, local: true, layout: :horizontal) do |form| %>
-    <% if paymentmethod.errors.any? %>
+    <!--<% if paymentmethod.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(paymentmethod.errors.count, "error") %> prohibited this paymentmethod from being saved:</h2>
 
@@ -10,10 +10,10 @@
             <% end %>
         </ul>
     </div>
-    <% end %>
+    <% end %>--><%= errors_for(@paymentmethod) %>
 
     <div class="field">
-        <%= form.text_field :paymenttype, label: "Payment Method", minlength: 2, maxlength: 30, required: true %>
+        <%= form.text_field :paymenttype, label: "Payment Method", maxlength: 128, required: true %>
     </div>
 
     <div class="actions">

@@ -1,3 +1,3 @@
 class Shipmentstatus < ApplicationRecord
-  validates :shipmentstatus, presence: true, length: { minimum: 2, maximum: 30 }
+  validates :shipmentstatus, presence: true, length: { maximum: 128 }
 end

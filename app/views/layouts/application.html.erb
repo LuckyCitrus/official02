@@ -35,19 +35,127 @@
                     <% if current_user.try(:admin?) %>
                     <li class="nav-item active px-2"><%= link_to "Users", users_path, class: "nav-link" %></li>
                     <% end %>
-                    <li class="nav-item active px-2"><%= link_to "Employees", employees_path, class: "nav-link" %></li>
+                    <% if current_user.try(:admin?) || current_user.try(:employee?) %>
+                    <div class="dropdown">
+                        <button class="dropbtn">Employees</button>
+                        <div class="dropdown-content">
+                            <li class="nav-item active px-2"><%= link_to "Employees", employees_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Employee Statuses", employeestatuses_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Departments", departments_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Companies", companies_path, class: "nav-link" %></li>
+                        </div>
+                    </div>
+                    <% end %>
+
+                    <% if current_user.try(:admin?) || current_user.try(:employee?) %>
+                    <div class="dropdown">
+                        <button class="dropbtn">Customers</button>
+                        <div class="dropdown-content">
+                            <li class="nav-item active px-2"><%= link_to "Customers", customers_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Customer Statuses", customerstatuses_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Customer Types", customertypes_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Countries", countries_path, class: "nav-link" %></li>
+                        </div>
+                    </div>
+                    <% else %>
                     <li class="nav-item active px-2"><%= link_to "Customers", customers_path, class: "nav-link" %></li>
-                    <li class="nav-item active px-2"><%= link_to "Cars", cars_path, class: "nav-link" %></li>
-                    <li class="nav-item active px-2"><%= link_to "Orders", orders_path, class: "nav-link" %></li>
+                    <% end %>
+
+                    <% if current_user.try(:admin?) || current_user.try(:employee?) %>
+                    <div class="dropdown">
+                        <button class="dropbtn">Cars</button>
+                        <div class="dropdown-content">
+                            <li class="nav-item active px-2"><%= link_to "Cars", cars_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Title Statuses", titlestatuses_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Key Statuses", keystatuses_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Auctions", auctions_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Locations", locations_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Warehouses", warehouses_path, class: "nav-link" %></li>
+                        </div>
+                    </div>
+                    <% end %>
+
+                    <% if current_user.try(:admin?) || current_user.try(:employee?) %>
+                    <div class="dropdown">
+                        <button class="dropbtn">Orders</button>
+                        <div class="dropdown-content">
+                            <li class="nav-item active px-2"><%= link_to "Orders", orders_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Order Statuses", orderstatuses_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Order Auctions", order_auctions_path, class: "nav-link" %></li>
+
+                            <li class="nav-item active px-2"><%= link_to "Order Invoices", orderinvoices_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Pictures", pictures_path, class: "nav-link" %></li>
+                        </div>
+                    </div>
+                    <% else %>
+                    <div class="dropdown">
+                        <button class="dropbtn" id="order-btn">Orders</button>
+                        <div class="dropdown-content">
+                            <li class="nav-item active px-2"><%= link_to "Orders", orders_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Cars", cars_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Pictures", pictures_path, class: "nav-link" %></li>
+                        </div>
+                    </div>
+                    <% end %>
+
+                    <% if current_user.try(:admin?) || current_user.try(:employee?) %>
+                    <div class="dropdown">
+                        <button class="dropbtn">Invoices</button>
+                        <div class="dropdown-content">
+                            <li class="nav-item active px-2"><%= link_to "Invoices", invoices_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Invoice Statuses", invoicestatuses_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Invoice Shipments", invoiceshipments_path, class: "nav-link" %></li>
+                        </div>
+                    </div>
+                    <% else %>
                     <li class="nav-item active px-2"><%= link_to "Invoices", invoices_path, class: "nav-link" %></li>
+                    <% end %>
+
+                    <% if current_user.try(:admin?) || current_user.try(:employee?) %>
+                    <div class="dropdown">
+                        <button class="dropbtn">Payments</button>
+                        <div class="dropdown-content">
+                            <li class="nav-item active px-2"><%= link_to "Payments", payments_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Payment Statuses", paymentstatuses_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Payment Methods", paymentmethods_path, class: "nav-link" %></li>
+                        </div>
+                    </div>
+                    <% else %>
                     <li class="nav-item active px-2"><%= link_to "Payments", payments_path, class: "nav-link" %></li>
+                    <% end %>
+
+                    <% if current_user.try(:admin?) || current_user.try(:employee?) %>
+                    <div class="dropdown">
+                        <button class="dropbtn">Shipments</button>
+                        <div class="dropdown-content">
+                            <li class="nav-item active px-2"><%= link_to "Shipments", shipments_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Shipment Statuses", shipmentstatuses_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Shipment Methods", shipmentmethods_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Containers", containers_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Container Order", containerorders_path, class: "nav-link" %></li>
+                        </div>
+                    </div>
+                    <% else %>
                     <li class="nav-item active px-2"><%= link_to "Shipments", shipments_path, class: "nav-link" %></li>
+                    <% end %>
+
                 </ul>
+
             </div>
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-                    <li class="nav-item active px-2"><%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "nav-link px-2" %></li>
-                    <li class="nav-item active px-2"><%= link_to "Sign Out", destroy_user_session_path, class: "nav-link", method: :delete %></li>
+                    <div class="dropdown">
+                        <button class="dropbtn">Account</button>
+                        <div class="dropdown-content">
+                            <% if current_user.try(:admin?) %>
+                            <li class="nav-item active px-2"><%= link_to "Profile", current_user, class: "nav-link px-2" %></li>
+                            <% end %>
+                            <li class="nav-item active px-2"><%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "nav-link px-2" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Sign Out", destroy_user_session_path, class: "nav-link", method: :delete %></li>
+
+                        </div>
+                    </div>
+
                     <% else %>
                     <li class="nav-item active px-2"><%= link_to "Sign In", new_user_session_path, class: "nav-link" %></li>
                     <li class="nav-item active px-2"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>

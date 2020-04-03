@@ -1,6 +1,6 @@
 <div class="card-body">
     <%= bootstrap_form_with(model: payment, local: true, layout: :horizontal) do |form| %>
-    <% if payment.errors.any? %>
+    <!--<% if payment.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
 
@@ -10,10 +10,10 @@
             <% end %>
         </ul>
     </div>
-    <% end %>
+    <% end %>--><%= errors_for(@payment) %>
 
     <div class="field">
-        <%= form.text_field :paymentnum, label: "Payment Number", pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, required: true %>
+        <%= form.text_field :paymentnum, label: "Payment Number", pattern: '^[a-zA-Z0-9-]*$', help: "Only alphanumeric characters are allowed", maxlength: 128, required: true %>
     </div>
 
     <div class="field">

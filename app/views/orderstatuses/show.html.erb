@@ -1,14 +1,19 @@
 <div class="row row-fluid">
     <div class="col-sm-5">
         <div class="card">
+            <div class="card-header">
+                <h3>Order Status</h3>
+            </div>
             <div class="card-body">
                 <p>
                     <strong>Order Status:</strong>
                     <%= @orderstatus.orderstatus %>
                 </p>
-                <%= link_to 'Edit', edit_orderstatus_path(@orderstatus), class: "btn btn-primary" %>
-                <%= link_to 'Back', orderstatuses_path, class: "btn btn-secondary" %>
+
             </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_orderstatus_path(@orderstatus), class: "btn btn-primary" %>
+                <%= link_to 'Back', orderstatuses_path, class: "btn btn-secondary" %> </div>
         </div>
     </div>
 </div>

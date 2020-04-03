@@ -1,3 +1,3 @@
 class Employeestatus < ApplicationRecord
-  validates :employeestatus, presence: true, length: { minimum: 2, maximum: 30 }
+  validates :employeestatus, presence: true, length: { maximum: 128 }
 end

@@ -1,6 +1,9 @@
 <div class="row row-fluid">
     <div class="col-sm-5">
         <div class="card">
+            <div class="card-header">
+                <h3>Order</h3>
+            </div>
             <div class="card-body">
                 <p>
                     <strong>Order Number:</strong>
@@ -34,9 +37,11 @@
                     <strong>Customer:</strong>
                     <%= @order.customer.try(:cus_fullname) %>
                 </p>
-                <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %>
-                <%= link_to 'Back', orders_path, class: "btn btn-secondary" %>
+
             </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %>
+                <%= link_to 'Back', orders_path, class: "btn btn-secondary" %> </div>
         </div>
     </div>
 </div>

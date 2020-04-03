@@ -16,7 +16,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "rails_bootstrap_forms";
 
-html, body{
+html, body {
 	margin: 0;
 	padding: 0;
 			font-family: 'Trebuchet MS', 'Roboto',
@@ -24,6 +24,11 @@ html, body{
 			sans-serif;
 }
 
+ p, a {
+	font-family: 'Trebuchet MS', 'Roboto',Helvetica, sans-serif;
+	font-size: 14px;
+ }
+ 
 .background-image {
 	//background-image: url("https://bototomstone.sfo2.digitaloceanspaces.com/Car_Cargo.jpg");
 	background-image: url("https://bucketeer-396b7776-65f2-4c5b-b817-0d75c447dd4e.s3.amazonaws.com/public/Car_Cargo.jpg");
@@ -45,8 +50,8 @@ html, body{
 .header-right {
     float: right;
     position:absolute;
-    bottom:0;
-    right:0;
+    bottom: 0;
+    right: 0;
 }
 
 .header-right p {
@@ -76,8 +81,10 @@ nav.navbar {
 
 .nav-link {
   height: 50px;
-  line-height: 35px;
+  line-height: 32px;
   border-radius: .5px;
+  min-width: 80px;
+  text-align: center;
 }
 
 nav a:hover{ 
@@ -86,8 +93,60 @@ nav a:hover{
     -webkit-transition: ease-in-out all .1s;
 }
 
+#order-btn {
+	min-width: 100px;
+}
+
+.dropbtn {
+	padding: 16px;
+	border: none;
+	font-size: 14px;
+	background-color: transparent;
+	color: #ffffff;
+	min-width: 150px;
+	font-family: 'Trebuchet MS', 'Roboto', Helvetica, sans-serif;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #343A40;
+	opacity: .95;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	width: 100%;
+}
+
+.dropdown-content a {
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	text-align:center;
+	font-size: 14px;
+}
+
+.dropdown-content a:hover {
+	background-color: rgb(31, 33, 36);
+	color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+	color: #ffffff;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #000000;
+	color: #ffffff;
+}
+
 .content a {
-	color: #0000EE;
+	//color: #0000EE;
 	-o-transition: .5s;
 	-ms-transition: .5s;
 	-moz-transition: .5s;
@@ -100,7 +159,8 @@ nav a:hover{
 }
 
 .content a:visited {
-	color: #551A8B;
+	//color: #551A8B;
+	color: #007BFF;
 	background-color: transparent;
 }
 
@@ -108,17 +168,7 @@ nav a:hover{
 	white-space:nowrap;
 	max-width:100%;
 }*/
-    table,
-    th,
-    td {
-    	border: 1px solid #666;
-    }
 
-    table th,
-    table td {
-    	padding: 10px;
-    	/* Apply cell padding */
-    }
 .btn-primary, .btn-secondary {
 	color: #ffffff !important;
 }

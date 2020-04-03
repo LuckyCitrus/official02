@@ -1,6 +1,6 @@
 <div class="card-body">
     <%= bootstrap_form_with(model: car, local: true, layout: :horizontal) do |form| %>
-    <% if car.errors.any? %>
+    <!--<% if car.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
 
@@ -10,10 +10,10 @@
             <% end %>
         </ul>
     </div>
-    <% end %>
+    <% end %>--><%= errors_for(@car) %>
 
     <div class="field">
-        <%= form.text_field :vinnumber, label: "VIN Number", pattern: '^[a-zA-Z0-9]*$', minlength: 11, maxlength: 17, size: 24, required: true %>
+        <%= form.text_field :vinnumber, label: "VIN Number", pattern: '^[a-zA-Z0-9]*$', help: "No special characters are allowed", minlength: 11, maxlength: 17, required: true %>
     </div>
     <!--VIN Number 1981 standard regex:'^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$-->
 
@@ -22,11 +22,11 @@
     </div>
 
     <div class="field">
-        <%= form.text_field :make, required: true, pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 36, size: 24, required: true %>
+        <%= form.text_field :make, required: true, pattern: '^[a-zA-Z0-9-]*$', help: "No special characters are allowed", maxlength: 128, required: true %>
     </div>
 
     <div class="field">
-        <%= form.text_field :model, required: true, pattern: '^[a-zA-Z0-9-]*$', minlength: 11, maxlength: 36, size: 24, required: true %>
+        <%= form.text_field :model, required: true, pattern: '^[a-zA-Z0-9-]*$', help: "Only alphanumeric characters are allowed", maxlength: 128, required: true %>
     </div>
 
     <div class="field">

@@ -8,7 +8,7 @@ class Shipment < ApplicationRecord
   has_many :invoiceshipments
   has_many :invoices, through: :invoiceshipments
 
-  validates :shipmentnum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { minimum: 2, maximum: 30 }
+  validates :shipmentnum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { maximum: 128 }
   validates :date, presence: true
   validates :quantity, presence: true, numericality: { greater_than: 1 }
   validates :warehouse_id, presence: true
