@@ -6,8 +6,11 @@ class Invoice < ApplicationRecord
   has_many :invoiceshipments
   has_many :shipments, through: :invoiceshipments
 
-  has_many :orderinvoices
+  has_many :orderinvoices 
+  accepts_nested_attributes_for :orderinvoices, reject_if: :all_blank, allow_destroy: :true
   has_many :orders, through: :orderinvoices
+  accepts_nested_attributes_for :orders, reject_if: :all_blank, allow_destroy: :true
+
 
   validates :invoicenum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { minimum: 2, maximum: 30 }
   validates :invoicedate, presence: true

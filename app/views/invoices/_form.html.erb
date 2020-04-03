@@ -1,47 +1,120 @@
-<div class="card-body">
+<div class="col-xs-12">   
+
     <%= bootstrap_form_with(model: invoice, local: true, layout: :horizontal) do |form| %>
-    <% if invoice.errors.any? %>
-    <div id="error_explanation">
-        <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+        <% if invoice.errors.any? %>
+        
+        <div id="error_explanation">
+            <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+    
+            <ul>
+                <% invoice.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
+        
+    
+        <div id="invoice-wrap">
+  
+   
+        <div class="row">
+        <div class="col-xs-12">
+            <h3 class="page-header">INVOICE</h3>
+            </div><!-- /.col -->
+        
+        </div>
+        <hr>
+        
+        
+        <div class="row invoice-info">
+        <div class="col-xs-4 invoice-col">
+        
+           
+            <address>
+            <div class="field">
+                <%= form.text_field :invoicenum, label: "Invoice Number", pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, required: true %>
+            </div>
+            
+            <div class="field">
+                <%= form.text_field :invoicedate, label: "Invoice Date",required: true, data: { behavior: "flatpickr" }, required: true %>
+            </div>
+            
+            <div class="field">
+                <%= form.text_field :duedate, label: "Due Date",required: true, data: { behavior: "flatpickr" }, required: true %>
+            </div>
+            </address>        
+        </div><!-- /.col -->
 
-        <ul>
-            <% invoice.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+        
+        <div class="col-xs-4 invoice-col">
+            
+            <address>
+            <div class="field">
+            <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname, {include_blank: ""}, required: true %>
+            </div>
+        
+            <div class="field">
+                <%= form.collection_select :employee_id, Employee.all, :id, :emp_fullname, {include_blank: ""}, required: true %>
+            </div>
+        
+            <div class="field">
+                <%= form.collection_select :invoicestatus_id, Invoicestatus.order(:invoicestatus), :id, :invoicestatus, {include_blank: ""}, required: true %>
+            </div>
+            </address>
+
+        </div><!-- /.col -->
+
+        <div class="col-xs-4 invoice-col">
+            <form class="form-horizontal">
+
+          
+
+
+        </div><!-- /.col -->
+        </div><!-- /.row -->
+
+
+        <div class="row">
+        <div class="col-xs-12 table-responsive">
+        <hr>
+        
+        <h3>Orders</h3>
+        <div id='orders'>
+            <%= form.fields_for :orderinvoices do |orderinvoice| %>
+            <%= render 'order_fields', :f => orderinvoice %>
             <% end %>
-        </ul>
-    </div>
-    <% end %>
+            <div class='links'>
+            <%= link_to_add_association 'Add Order', form, :orders %>
+            </div>
+        </div><br><br>
 
-    <div class="field">
-        <%= form.text_field :invoicenum, label: "Invoice Number", pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, required: true %>
-    </div>
+   
 
-    <div class="field">
-        <%= form.text_field :invoicedate, label: "Invoice Date",required: true, data: { behavior: "flatpickr" }, required: true %>
-    </div>
+        </div><!-- /.col -->    
+        </div>
 
-    <div class="field">
-        <%= form.text_field :duedate, label: "Due Date",required: true, data: { behavior: "flatpickr" }, required: true %>
-    </div>
+        <div class="col-xs-4 invoice-col">
+        <adress>
+       
+        <div class="field row">
+            <%= form.number_field :amountdue, label: "Amount Due", value: number_with_precision(invoice.amountdue, precision: 2), min: 0, step: 0.01,required: true %>
+        </div>
 
-    <div class="field">
-        <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname, {include_blank: ""}, required: true %>
-    </div>
+        <div class="actions">
+            <%= form.submit :Submit, class: 'btn btn-success' %>
+        </div> 
+        </address>    
+        </div><!-- End of Row -->
+        
 
-    <div class="field">
-        <%= form.collection_select :employee_id, Employee.all, :id, :emp_fullname, {include_blank: ""}, required: true %>
-    </div>
+        
+        <div id="terms">
+        <h5>Terms</h5>
+        <textarea id="10">Payment terms: net 30. Interest accrued at 1.5% per month thereafter.</textarea>
+        </div>
+        </div><!-- ? -->
 
-    <div class="field">
-        <%= form.collection_select :invoicestatus_id, Invoicestatus.order(:invoicestatus), :id, :invoicestatus, {include_blank: ""}, required: true %>
+        <% end %><!--End of fucntion-->
     </div>
-
-    <div class="field">
-        <%= form.number_field :amountdue, label: "Amount Due", value: number_with_precision(invoice.amountdue, precision: 2), min: 0, step: 0.01,required: true %>
-    </div>
-
-    <div class="actions">
-        <%= form.submit :Submit, class: 'btn btn-success' %>
-    </div>
-    <% end %>
 </div>
