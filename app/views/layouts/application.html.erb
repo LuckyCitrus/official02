@@ -88,7 +88,14 @@
                         </div>
                     </div>
                     <% else %>
-                    <li class="nav-item active px-2"><%= link_to "Orders", orders_path, class: "nav-link" %></li>
+                    <div class="dropdown">
+                        <button class="dropbtn" id="order-btn">Orders</button>
+                        <div class="dropdown-content">
+                            <li class="nav-item active px-2"><%= link_to "Orders", orders_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Cars", cars_path, class: "nav-link" %></li>
+                            <li class="nav-item active px-2"><%= link_to "Pictures", pictures_path, class: "nav-link" %></li>
+                        </div>
+                    </div>
                     <% end %>
 
                     <% if current_user.try(:admin?) || current_user.try(:employee?) %>

@@ -78,7 +78,7 @@ nav.navbar {
 
 .nav-link {
   height: 50px;
-  line-height: 30px;
+  line-height: 32px;
   border-radius: .5px;
   min-width: 80px;
   text-align: center;
@@ -88,6 +88,10 @@ nav a:hover{
     transition: ease-in-out all .1s; 
     -moz-transition: ease-in-out all .1s;
     -webkit-transition: ease-in-out all .1s;
+}
+
+#order-btn {
+	min-width: 100px;
 }
 
 .dropbtn {

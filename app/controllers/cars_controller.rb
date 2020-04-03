@@ -6,17 +6,20 @@ class CarsController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
-    @cars = Car.all
+    #@cars = Car.all
+    @cars = policy_scope(Car)
   end
 
   # GET /cars/1
   # GET /cars/1.json
   def show
+    @car = policy_scope(Car).find(params[:id])
   end
 
   # GET /cars/new
   def new
     @car = Car.new
+    authorize @car
   end
 
   # GET /cars/1/edit
@@ -67,6 +70,7 @@ class CarsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_car
       @car = Car.find(params[:id])
+      authorize @car
     end
 
     # Only allow a list of trusted parameters through.
