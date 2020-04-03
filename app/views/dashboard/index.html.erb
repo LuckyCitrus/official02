@@ -6,6 +6,16 @@
 	title: "Invoices per Month"
 	%>
 </div>
+
+<div class="charts">
+    <%= column_chart charts_orders_by_month_path,
+	xtitle: "Month",
+	ytitle: "Orders",
+	title: "Orders per Month"
+	%>
+</div>
+
+
 <% else %>
 <div class="background-image"></div>
 <% end %>

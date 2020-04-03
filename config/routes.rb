@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 
   namespace :charts do
     get 'invoices_by_month'
+    get 'orders_by_month'
   end
 
 end
