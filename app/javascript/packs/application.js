@@ -32,3 +32,7 @@ document.addEventListener("turbolinks:load", () => {
         allowInput: true
     })
 }); 
+
+$('document').on 'click', '.submit-btn', () => {
+    $('f').submit()
+};
