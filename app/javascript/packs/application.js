@@ -31,4 +31,9 @@ document.addEventListener("turbolinks:load", () => {
         altFormat: "l, F j, Y",
         allowInput: true
     })
-});
+}); 
+    jQuery(function ($) {
+        $('.dropdown > a').click(function () {
+            location.href = this.href;
+        });
+    }); 
