@@ -26,9 +26,9 @@
     <%= f.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""} %>
   </div>
 
-  <div class="field">
-    <%= f.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
-  </div>
+<!--  <div class="field">-->
+    <%#= f.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
+<!--  </div>-->
 
   <%= link_to_remove_association "Remove Car", f %>
 
