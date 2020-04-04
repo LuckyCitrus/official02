@@ -8,6 +8,6 @@ class Auction < ApplicationRecord
 
   validates :auctionname, presence: true, length: { maximum: 128 }
   validates :address, presence: true, length: { maximum: 128 }
-  validates :location_id, presence: true
+  # validates :location_id, presence: true
 
 end

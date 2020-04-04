@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :orderstatus
-  has_many :cars
+  # has_many :cars
   has_many :orderinvoices
   has_many :invoices, through: :orderinvoices
 
@@ -11,6 +11,11 @@ class Order < ApplicationRecord
   has_many :auction, through: :order_auctions
   has_many :containerorders
   has_many :container, through: :containerorders
+
+  # Nested Form Model
+  has_many :cars, dependent: :destroy
+  accepts_nested_attributes_for :cars, reject_if: :all_blank, allow_destroy: :true
+  # End of Nested Form Model
 
   validates :ordernum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { maximum: 128 }
   validates :date, presence: true
