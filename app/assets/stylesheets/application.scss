@@ -38,7 +38,7 @@ body {
 
 .header-right {
     float: right;
-    position:absolute;
+    position: absolute;
     bottom:0;
     right:0;
 }
@@ -49,6 +49,16 @@ body {
 
 nav .navbar-nav li a {
     color: white !important;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.charts {
+    width: 60%;
 }
 
  /*flash*/

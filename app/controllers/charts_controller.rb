@@ -8,5 +8,8 @@ class ChartsController < ApplicationController
 		render json: DashboardCalculations.orders_by_month
 	end
 
+	def total_payments
+		render json: DashboardCalculations.total_payments
+	end
 
 end
