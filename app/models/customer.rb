@@ -13,6 +13,7 @@ class Customer < ApplicationRecord
   validates :address, presence: true, length: { maximum: 128 }
   validates :phone, presence: true, length: { maximum: 64 }
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, length: { maximum: 254 }
+  validates :user_id, uniqueness: true
 
   def cus_fullname
     "#{first_name} #{last_name}"
