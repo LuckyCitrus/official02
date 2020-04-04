@@ -1,9 +1,13 @@
 <%# Nested Form Partial %>
-<div class="field">
-  <%= f.label :warehousename, "Warehouse Name"%>
-  <%= f.text_field :warehousename %>
+<div class='nested-fields'>
+
+  <div class="field">
+    <%= f.label :warehousename, "Warehouse Name"%>
+    <%= f.text_field :warehousename %>
+
+  </div>
+
+  <%= link_to_remove_association "Remove Warehouse", f %>
 
 </div>
-
-<%= link_to_remove_association "Remove Warehouse", f %>
 <%# End of Nested Form Partial %>
