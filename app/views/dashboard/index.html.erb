@@ -1,30 +1,38 @@
 <% if user_signed_in? %>
-<div class="container">
-	<div class="charts">
-		<%= column_chart charts_orders_by_month_path,
+<div class="row row-fluid">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Dashboard</h3>
+            </div>
+            <div class="card-body">
+                <div class="charts">
+                    <%= column_chart charts_orders_by_month_path,
 		colors: ["#4baec0"],
 		xtitle: "Month",
 		ytitle: "Orders",
 		title: "Monthly Orders"
-		%>
+		%><br>
 
-		<%= area_chart charts_invoices_by_month_path,
+                    <%= area_chart charts_invoices_by_month_path,
 		prefix: "$",
 		colors: ["#64a5d1"],
 		xtitle: "Month",
 		ytitle: "Invoices ($)",
 		title: "Monthly Invoices"
-		%>
+		%><br>
 
-		<%= bar_chart charts_total_payments_path,
+                    <%= bar_chart charts_total_payments_path,
 		colors: ["#6489d1"],
 		xtitle: "Amount",
 		ytitle: "Payment Status",
 		title: "Total Payments"
 		%>
-	</div>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<% else %>
-<div class="background-image"></div>
-<% end %>
+    <% else %>
+    <div class="background-image"></div>
+    <% end %>
