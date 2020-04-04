@@ -32,8 +32,3 @@ document.addEventListener("turbolinks:load", () => {
         allowInput: true
     })
 }); 
-    jQuery(function ($) {
-        $('.dropdown > a').click(function () {
-            location.href = this.href;
-        });
-    }); 

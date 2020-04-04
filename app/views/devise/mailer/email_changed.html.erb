@@ -1,7 +1,11 @@
-<p>Hello <%= @email %>!</p>
+<p>Hello <%= @resource.email %>!</p>
 
 <% if @resource.try(:unconfirmed_email?) %>
-  <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
-<% else %>
-  <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
-<% end %>
+<p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.<br>
+    <% else %>
+    We're contacting you to notify you that your email has been changed to <%= @resource.email %>.<br>
+    <% end %>
+    If you did not change your email, please contact us as soon as possible.</p>
+
+<p>Thank you,<br>
+    Mitsab Incorporation</p>
