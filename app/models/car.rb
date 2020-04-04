@@ -8,7 +8,7 @@ class Car < ApplicationRecord
   validates :make, presence: true, presence: true, length: { maximum: 128 }
   validates :model, presence: true, presence: true, length: { maximum: 128 }
   validates :titlestatus_id, presence: true
-  validates :order_id, presence: true
+  # validates :order_id, presence: true
 
   def car_info
     " #{year} #{make} #{model}"
