@@ -1,13 +1,12 @@
  <td>
-  <%= link_to user.email, user %>
-</td>
-<td>
-  <%= bootstrap_form_with(model: user, local: true, layout: :horizontal) do |form| %>
-    <%= form.select(:role, User.roles.keys.map {|role| [role.titleize,role]}, hide_label: true, class: "btn btn-secondary btn-lg dropdown-toggle") %>
-    <%= form.submit 'Change Role', class: "btn btn-sm btn-outline-primary py-0 in-line" %>
-  <% end %>
-</td>
-<td>
-  <%= link_to("Delete User", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-outline-danger btn-sm" ) unless user == current_user %>
-</td>
-
+     <%= link_to user.email, user %>
+ </td>
+ <td>
+     <%= bootstrap_form_with(model: user, local: true, layout: :vertical) do |form| %>
+     <%= form.select(:role, User.roles.keys.map {|role| [role.titleize,role]}, hide_label: true, class: "btn btn-secondary btn-lg dropdown-toggle") %>
+     <%= form.submit 'Change Role', class: "btn btn-sm btn-outline-primary py-0 in-line" %>
+     <% end %>
+ </td>
+ <td>
+     <%= link_to("Delete User", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-outline-danger btn-sm" ) unless user == current_user %>
+ </td>

@@ -1,5 +1,5 @@
 <div class="card-body">
-    <%= bootstrap_form_with(model: location, local: true, layout: :horizontal) do |form| %>
+    <%= bootstrap_form_with(model: location, local: true, layout: :vertical) do |form| %>
     <!--<% if location.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -15,32 +15,32 @@
         <%= form.text_field :city, maxlength: 128, required: true %>
     </div>
 
-  <%# Nested Form Form %>
-  <h3>Warehouses</h3>
-  <div id='warehouses'>
-    <%= form.fields_for :warehouses do |warehouse| %>
-      <%= render 'warehouse_fields', :f => warehouse %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'Add Warehouse', form, :warehouses %>
+    <%# Nested Form Form %>
+    <h3>Warehouses</h3>
+    <div id='warehouses'>
+        <%= form.fields_for :warehouses do |warehouse| %>
+        <%= render 'warehouse_fields', :f => warehouse %>
+        <% end %>
+        <div class='links'>
+            <%= link_to_add_association 'Add Warehouse', form, :warehouses %>
+        </div>
     </div>
-  </div>
-<%# End of Nested Form Form %>
+    <%# End of Nested Form Form %>
 
-<%# Nested Form Form %>
-  <h3>Auctions</h3>
-  <div id='auctions'>
-    <%= form.fields_for :auctions do |auction| %>
-      <%= render 'auction_fields', :f => auction %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'Add Auction', form, :auctions %>
+    <%# Nested Form Form %>
+    <h3>Auctions</h3>
+    <div id='auctions'>
+        <%= form.fields_for :auctions do |auction| %>
+        <%= render 'auction_fields', :f => auction %>
+        <% end %>
+        <div class='links'>
+            <%= link_to_add_association 'Add Auction', form, :auctions %>
+        </div>
+    </div><br><br>
+    <%# End of Nested Form Form %>
+
+
+    <div class="actions">
+        <%= form.submit %>
     </div>
-  </div><br><br>
-<%# End of Nested Form Form %>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <% end %>

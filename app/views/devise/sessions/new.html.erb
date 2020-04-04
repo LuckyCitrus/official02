@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
 
-                <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name), layout: :horizontal) do |f| %>
+                <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name), layout: :vertical) do |f| %>
                 <div class="field">
                     <%= f.email_field :email, autofocus: true, autocomplete: "email", maxlength: 254, size: 40, required: true %>
                 </div>
