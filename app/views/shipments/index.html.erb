@@ -19,15 +19,15 @@
                 <tbody>
                     <% @shipments.each do |shipment| %>
                     <tr>
-                        <td><%= shipment.shipmentnum %></td>
+                        <td><%= link_to shipment.shipmentnum, shipment %></td>
                         <td><%= shipment.date.to_s(:short_date) %></td>
                         <td><%= shipment.quantity %></td>
-                        <td><%= shipment.warehouse.warehousename %></td>
+                        <td><%= link_to shipment.warehouse.warehousename, shipment.warehouse %></td>
                         <td><%= shipment.shipmentmethod.shipmentmethod %></td>
                         <td><%= shipment.shipmentstatus.shipmentstatus %></td>
-                        <td><%= link_to 'Show', shipment %></td>
-                        <td><%= link_to 'Edit', edit_shipment_path(shipment) %></td>
-                        <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <!--<td><%= link_to 'Show', shipment %></td>-->
+                        <td><%= link_to 'Edit', edit_shipment_path(shipment) %> / 
+                        <%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
