@@ -14,10 +14,10 @@
                 <tbody>
                     <% @shipmentmethods.each do |shipmentmethod| %>
                     <tr>
-                        <td><%= shipmentmethod.shipmentmethod %></td>
-                        <td><%= link_to 'Show', shipmentmethod %></td>
-                        <td><%= link_to 'Edit', edit_shipmentmethod_path(shipmentmethod) %></td>
-                        <td><%= link_to 'Destroy', shipmentmethod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to shipmentmethod.shipmentmethod, shipmentmethod %></td>
+                        <!--<td><%= link_to 'Show', shipmentmethod %></td>-->
+                        <td><%= link_to 'Edit', edit_shipmentmethod_path(shipmentmethod) %> / 
+                        <%= link_to 'Destroy', shipmentmethod, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
