@@ -15,9 +15,18 @@
                 </p>
                 <p>
                     <strong>Location:</strong>
-                    <%= @auction.location.city %>
+                    <%= link_to @auction.location.city, @auction.location %>
                 </p>
 
+                <p>
+                    <strong>Orders:</strong>
+                    <ul>
+                        <% @auction.orders.each do |order| %>
+                        <li><strong>Order Number: </strong>
+                            <%= link_to order.ordernum, order %></li>
+                        <% end %>
+                    </ul>
+                </p>
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_auction_path(@auction), class: "btn btn-primary" %>

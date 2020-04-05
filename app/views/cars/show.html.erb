@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
                 <p>
-                    <strong>VIN Number:</strong>
+                    <strong>VIN #:</strong>
                     <%= @car.vinnumber %>
                 </p>
                 <p>
@@ -31,7 +31,11 @@
                 </p>
                 <p>
                     <strong>Order:</strong>
-                    <%= @car.order.ordernum %>
+                    <%= link_to @car.order.ordernum, @car.order %>
+                </p>
+                <p>
+                    <strong>Customer:</strong>
+                    <%= link_to @car.order.customer.try(:cus_fullname), @car.order.customer %>
                 </p>
 
             </div>

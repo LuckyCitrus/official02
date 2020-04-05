@@ -11,13 +11,25 @@
                 </p>
                 <p>
                     <strong>Shipment Number:</strong>
-                    <%= @container.shipment.shipmentnum %>
+                    <%= link_to @container.shipment.shipmentnum, @container.shipment %>
                 </p>
                 <p>
                     <strong>Company:</strong>
-                    <%= @container.company.companyname %>
+                    <%= link_to @container.company.companyname, @container.company %>
                 </p>
 
+
+                <p>
+                    <strong>Orders:</strong>
+                    <ul>
+                        <% @container.orders.each do |order| %>
+                        <li><strong>Order Number: </strong>
+                            <%= link_to order.ordernum, order %></li>
+                        <% end %>
+                    </ul>
+                </p>
+
+            
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_container_path(@container), class: "btn btn-primary" %>

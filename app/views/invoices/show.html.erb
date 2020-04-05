@@ -19,11 +19,11 @@
                 </p>
                 <p>
                     <strong>Customer:</strong>
-                    <%= @invoice.customer.cus_fullname %>
+                    <%= link_to @invoice.customer.cus_fullname, @invoice.customer %>
                 </p>
                 <p>
                     <strong>Employee:</strong>
-                    <%= @invoice.employee.emp_fullname %>
+                    <%= link_to @invoice.employee.emp_fullname, @invoice.employee %>
                 </p>
                 <p>
                     <strong>Invoice Status:</strong>
@@ -32,6 +32,26 @@
                 <p>
                     <strong>Amount Due:</strong>
                     <%= number_to_currency(@invoice.amountdue) %>
+                </p>
+
+                <p>
+                    <strong>Orders:</strong>
+                    <ul>
+                        <% @invoice.orders.each do |order| %>
+                        <li><strong>Order Number: </strong>
+                            <%= link_to order.ordernum, order %></li>
+                        <% end %>
+                    </ul>
+                </p>
+
+                <p>
+                    <strong>Payments:</strong>
+                    <ul>
+                        <% @invoice.payments.each do |payment| %>
+                        <li><strong>Payment Number: </strong>
+                            <%= link_to payment.paymentnum, payment %></li>
+                        <% end %>
+                    </ul>
                 </p>
 
             </div>

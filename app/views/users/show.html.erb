@@ -11,12 +11,14 @@
                 </p>
                 <p>
                     <strong>Name: </strong>
-                    <%= @user.employee.try(:emp_fullname) %>
-                    <%= @user.customer.try(:cus_fullname) %>
+                    <%= link_to @user.employee.try(:emp_fullname), @user.employee if @user.employee %>
+                    <%= link_to @user.customer.try(:cus_fullname), @user.customer if @user.customer %>
                 </p>
                 <p>
                     <strong>Role: </strong>
-                    <%= @user.role.titleize %>
+                    <%= link_to @user.role.titleize, employees_path if @user.role == 'employee' %>
+                    <%= link_to @user.role.titleize, customers_path if @user.role == 'customer' %>
+                    <%= @user.role.titleize if @user.role == 'admin' %>
                 </p>
 
             </div>

@@ -11,7 +11,17 @@
                 </p>
                 <p>
                     <strong>Company:</strong>
-                    <%= @department.company.companyname %>
+                    <%= link_to @department.company.companyname, @department.company %>
+                </p>
+
+                <p>
+                    <strong>Employees:</strong>
+                    <ul>
+                        <% @department.employees.each do |employee| %>
+                        <li><strong>Name: </strong>
+                            <%= link_to employee.try(:emp_fullname), employee %></li>
+                        <% end %>
+                    </ul>
                 </p>
 
             </div>

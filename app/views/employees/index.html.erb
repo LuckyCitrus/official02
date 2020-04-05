@@ -28,7 +28,7 @@
                         <td><%= employee.phone %></td>
                         <td><%= employee.title %></td>
                         <td><%= employee.hiredate.to_s(:short_date) %></td>
-                        <td><%= employee.department.departmentname %></td>
+                        <td><%= link_to employee.department.departmentname, employee.department if employee.department %></td>
                         <td><%= employee.employeestatus.employeestatus %></td>
                         <% if current_user.try(:admin?)  %>
                         <td><%= link_to employee.user.try(:email), employee.user if employee.user %></td>
@@ -36,8 +36,8 @@
                         <td><%= employee.user.try(:email) %></td>
                         <%end%>
                         <!--<td><%= link_to 'Show', employee %></td>-->
-                        <td><%= link_to 'Edit', edit_employee_path(employee) %> / 
-                        <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_employee_path(employee) %> /
+                            <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>

@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   has_many :pictures
   belongs_to :customer
   has_many :order_auctions
-  has_many :auction, through: :order_auctions
+  has_many :auctions, through: :order_auctions
   has_many :containerorders
   has_many :container, through: :containerorders
 

@@ -27,11 +27,11 @@
                 </p>
                 <p>
                     <strong>Customer:</strong>
-                    <%= @payment.customer.cus_fullname %>
+                    <%= link_to @payment.customer.cus_fullname, @payment.customer %>
                 </p>
                 <p>
                     <strong>Invoice:</strong>
-                    <%= @payment.invoice.invoicenum %>
+                    <%= link_to @payment.invoice.invoicenum, @payment.invoice %>
                 </p>
 
             </div>

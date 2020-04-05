@@ -19,7 +19,7 @@
                 </p>
                 <p>
                     <strong>Warehouse:</strong>
-                    <%= @shipment.warehouse.warehousename %>
+                    <%= link_to @shipment.warehouse.warehousename, @shipment.warehouse %>
                 </p>
                 <p>
                     <strong>Shipment Method:</strong>
@@ -28,6 +28,26 @@
                 <p>
                     <strong>Shipment Status:</strong>
                     <%= @shipment.shipmentstatus.shipmentstatus %>
+                </p>
+
+                <p>
+                    <strong>Invoices:</strong>
+                    <ul>
+                        <% @shipment.invoices.each do |invoice| %>
+                        <li><strong>Invoice Number: </strong>
+                            <%= link_to invoice.invoicenum, invoice %></li>
+                        <% end %>
+                    </ul>
+                </p>
+
+                <p>
+                    <strong>Containers:</strong>
+                    <ul>
+                        <% @shipment.containers.each do |container| %>
+                        <li><strong>Container Number: </strong>
+                            <%= link_to container.containernum, container %></li>
+                        <% end %>
+                    </ul>
                 </p>
 
             </div>

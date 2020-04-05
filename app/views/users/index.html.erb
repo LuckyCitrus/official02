@@ -13,7 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% @users.each do |user| %>
+                    <% @users.order(role: :desc).each do |user| %>
                     <tr>
                         <%= render user %>
                     </tr>

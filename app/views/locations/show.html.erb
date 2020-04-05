@@ -17,7 +17,7 @@
                 </p>
                 <ul>
                     <% for @warehouse in @location.warehouses %>
-                    <li><%= @warehouse.warehousename %></li>
+                    <li><%= link_to @warehouse.warehousename, @warehouse %></li>
                     <% end %>
                 </ul>
                 <%# End of Nested Form Show %>
@@ -28,7 +28,7 @@
                 </p>
                 <ul>
                     <% for @auction in @location.auctions %>
-                    <li><%= @auction.auctionname %></li>
+                    <li><%= link_to @auction.auctionname, @auction %></li>
                     <% end %>
                 </ul>
                 <%# End of Nested Form Show %>

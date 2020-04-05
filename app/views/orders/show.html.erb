@@ -35,14 +35,25 @@
                 </p>
                 <p>
                     <strong>Customer:</strong>
-                    <%= @order.customer.try(:cus_fullname) %>
+                    <%= link_to @order.customer.try(:cus_fullname), @order.customer %>
                 </p>
                 <p>
                     <strong>Cars:</strong>
                     <ul>
                         <% for @car in @order.cars %>
-                        <li>VIN# <%= @car.vinnumber %>
-                        (<%= @car.car_info %>)</li>
+                        <li><strong>VIN Number :</strong>
+                            <%= link_to @car.vinnumber, @car %>
+                            (<%= @car.car_info %>)</li>
+                        <% end %>
+                    </ul>
+                </p>
+
+                <p>
+                    <strong>Auctions:</strong>
+                    <ul>
+                        <% @order.auctions.each do |auction| %>
+                        <li><strong>Auction Name: </strong>
+                            <%= link_to auction.auctionname, auction %></li>
                         <% end %>
                     </ul>
                 </p>
@@ -51,7 +62,8 @@
                     <strong>Invoices:</strong>
                     <ul>
                         <% @order.invoices.each do |invoice| %>
-                        <li><%= invoice.invoicenum %></li>
+                        <li><strong>Invoice Number: </strong>
+                            <%= link_to invoice.invoicenum, invoice %></li>
                         <% end %>
                     </ul>
                 </p>
