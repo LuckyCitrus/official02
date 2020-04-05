@@ -20,8 +20,8 @@
                         <td><%= auction.address %></td>
                         <td><%= link_to auction.location.city, auction.location %></td>
                         <!--<td><%= link_to 'Show', auction %></td>-->
-                        <td><%= link_to 'Edit', edit_auction_path(auction), style: "color: #551A8B;" %> /
-                            <%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' }, style: "color: #551A8B;" %></td>
+                        <td><%= link_to 'Edit', edit_auction_path(auction) %> /
+                            <%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' }%></td>
                         <td></td>
                     </tr>
                     <% end %>

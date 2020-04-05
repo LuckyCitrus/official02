@@ -18,8 +18,8 @@
                         <td><%= link_to warehouse.warehousename, warehouse %></td>
                         <td><%= link_to warehouse.location.city, warehouse.location %></td>
                         <!--<td><%= link_to 'Show', warehouse %></td>-->
-                        <td><%= link_to 'Edit', edit_warehouse_path(warehouse), style: "color: #551A8B;" %> /
-                            <%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' }, style: "color: #551A8B;" %>
+                        <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %> /
+                            <%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %>
                     </tr>
                     <% end %>
                 </tbody>

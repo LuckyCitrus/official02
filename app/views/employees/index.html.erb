@@ -7,8 +7,7 @@
             <table class="table table-hover table-bordered table-responsive">
                 <thead class="thead-light">
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Name</th>
                         <th>Address</th>
                         <th>Email</th>
                         <th>Phone</th>
@@ -23,8 +22,7 @@
                 <tbody>
                     <% @employees.each do |employee| %>
                     <tr>
-                        <td><%= employee.empfname %></td>
-                        <td><%= employee.emplname %></td>
+                        <td><%= link_to employee.try(:emp_fullname), employee %></td>
                         <td><%= employee.address %></td>
                         <td><%= employee.email %></td>
                         <td><%= employee.phone %></td>
@@ -32,10 +30,14 @@
                         <td><%= employee.hiredate.to_s(:short_date) %></td>
                         <td><%= employee.department.departmentname %></td>
                         <td><%= employee.employeestatus.employeestatus %></td>
+                        <% if current_user.try(:admin?)  %>
+                        <td><%= link_to employee.user.try(:email), employee.user if employee.user %></td>
+                        <% else %>
                         <td><%= employee.user.try(:email) %></td>
-                        <td><%= link_to 'Show', employee %></td>
-                        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-                        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <%end%>
+                        <!--<td><%= link_to 'Show', employee %></td>-->
+                        <td><%= link_to 'Edit', edit_employee_path(employee) %> / 
+                        <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>

@@ -16,8 +16,8 @@
                     <tr>
                         <td><%= link_to location.city, location %></td>
                         <!--<td><%= link_to 'Show', location %></td>-->
-                        <td><%= link_to 'Edit', edit_location_path(location), style: "color: #551A8B;" %> / 
-                        <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, style: "color: #551A8B;" %></td>
+                        <td><%= link_to 'Edit', edit_location_path(location) %> / 
+                        <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
