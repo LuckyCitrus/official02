@@ -37,6 +37,24 @@
                     <strong>Customer:</strong>
                     <%= @order.customer.try(:cus_fullname) %>
                 </p>
+                <p>
+                    <strong>Cars:</strong>
+                    <ul>
+                        <% for @car in @order.cars %>
+                        <li>VIN# <%= @car.vinnumber %>
+                            (<%= @car.car_info %>)</li>
+                        <% end %>
+                    </ul>
+                </p>
+
+                <p>
+                    <strong>Invoices:</strong>
+                    <ul>
+                        <% @order.invoices.each do |invoice| %>
+                        <li><%= invoice.invoicenum %></li>
+                        <% end %>
+                    </ul>
+                </p>
 
             </div>
             <div class="card-footer">
