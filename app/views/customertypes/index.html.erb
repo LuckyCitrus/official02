@@ -14,10 +14,10 @@
                 <tbody>
                     <% @customertypes.each do |customertype| %>
                     <tr>
-                        <td><%= customertype.customertype %></td>
-                        <td><%= link_to 'Show', customertype %></td>
-                        <td><%= link_to 'Edit', edit_customertype_path(customertype) %></td>
-                        <td><%= link_to 'Destroy', customertype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to customertype.customertype, customertype %></td>
+                        <!--td><%= link_to 'Show', customertype %></td>-->
+                        <td><%= link_to 'Edit', edit_customertype_path(customertype) %> / 
+                        <%= link_to 'Destroy', customertype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
