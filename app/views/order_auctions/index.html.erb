@@ -15,11 +15,11 @@
                 <tbody>
                     <% @order_auctions.each do |order_auction| %>
                     <tr>
-                        <td><%= order_auction.order.ordernum %></td>
-                        <td><%= order_auction.auction.auctionname %></td>
-                        <td><%= link_to 'Show', order_auction %></td>
-                        <td><%= link_to 'Edit', edit_order_auction_path(order_auction) %></td>
-                        <td><%= link_to 'Destroy', order_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to order_auction.order.ordernum, order_auction.order %></td>
+                        <td><%= link_to order_auction.auction.auctionname, order_auction.auction %></td>
+                        <!--<td><%= link_to 'Show', order_auction %></td>-->
+                        <td><%= link_to 'Edit', edit_order_auction_path(order_auction) %> / 
+                        <%= link_to 'Destroy', order_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
