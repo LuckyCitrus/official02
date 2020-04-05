@@ -17,7 +17,7 @@
                     <% @auctions.each do |auction| %>
                     <tr>
                         <td><%= link_to auction.auctionname, auction %></td>
-                        <td><%= link_to auction.address, auction %></td>
+                        <td><%= auction.address %></td>
                         <td><%= link_to auction.location.city, auction.location %></td>
                         <!--<td><%= link_to 'Show', auction %></td>-->
                         <td><%= link_to 'Edit', edit_auction_path(auction), style: "color: #551A8B;" %> /
