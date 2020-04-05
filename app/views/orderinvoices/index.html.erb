@@ -15,11 +15,11 @@
                 <tbody>
                     <% @orderinvoices.each do |orderinvoice| %>
                     <tr>
-                        <td><%= orderinvoice.order.ordernum %></td>
-                        <td><%= orderinvoice.invoice.invoicenum %></td>
-                        <td><%= link_to 'Show', orderinvoice %></td>
-                        <td><%= link_to 'Edit', edit_orderinvoice_path(orderinvoice) %></td>
-                        <td><%= link_to 'Destroy', orderinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to orderinvoice.order.ordernum, orderinvoice.order %></td>
+                        <td><%= link_to orderinvoice.invoice.invoicenum, orderinvoice.invoice %></td>
+                        <!--<td><%= link_to 'Show', orderinvoice %></td>-->
+                        <td><%= link_to 'Edit', edit_orderinvoice_path(orderinvoice) %> / 
+                        <%= link_to 'Destroy', orderinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
