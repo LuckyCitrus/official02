@@ -20,16 +20,16 @@
                 <tbody>
                     <% @cars.each do |car| %>
                     <tr>
-                        <td><%= car.vinnumber %></td>
-                        <td><%= car.year %></td>
-                        <td><%= car.make %></td>
-                        <td><%= car.model %></td>
-                        <td><%= car.titlestatus.titlestatus %></td>
-                        <td><%= car.keystatus.keystatus %></td>
-                        <td><%= car.order.ordernum %></td>
-                        <td><%= link_to 'Show', car %></td>
-                        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-                        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to car.vinnumber, car %></td>
+                        <td><%= link_to car.year, car %></td>
+                        <td><%= link_to car.make, car %></td>
+                        <td><%= link_to car.model, car %></td>
+                        <td><%= link_to car.titlestatus.titlestatus, car %></td>
+                        <td><%= link_to car.keystatus.keystatus, car %></td>
+                        <td><%= link_to car.order.ordernum, car.order %></td>
+                        <!--<td><%= link_to 'Show', car %></td>-->
+                        <td><%= link_to 'Edit', edit_car_path(car), style: "color: #551A8B;" %> / 
+                        <%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }, style: "color: #551A8B;" %></td>
                     </tr>
                     <% end %>
                 </tbody>
