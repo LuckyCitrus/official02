@@ -15,11 +15,11 @@
                 <tbody>
                     <% @pictures.each do |picture| %>
                     <tr>
-                        <td><%= picture.picture %></td>
-                        <td><%= picture.order.try(:ordernum) %></td>
-                        <td><%= link_to 'Show', picture %></td>
-                        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-                        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to picture.picture, picture %></td>
+                        <td><%= link_to picture.order.try(:ordernum), picture.order if picture.order %></td>
+                        <!--<td><%= link_to 'Show', picture %></td>-->
+                        <td><%= link_to 'Edit', edit_picture_path(picture) %> / 
+                        <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
