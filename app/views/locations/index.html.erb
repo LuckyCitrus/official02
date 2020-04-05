@@ -1,5 +1,5 @@
 <div class="row row-fluid">
-    <div class="col-sm-5">
+    <div class="col-sm-4">
         <div class="card card-default">
             <div class="card-header">
                 <h1>Locations</h1>
@@ -14,10 +14,10 @@
                 <tbody>
                     <% @locations.each do |location| %>
                     <tr>
-                        <td><%= location.city %></td>
-                        <td><%= link_to 'Show', location %></td>
-                        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-                        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to location.city, location %></td>
+                        <!--<td><%= link_to 'Show', location %></td>-->
+                        <td><%= link_to 'Edit', edit_location_path(location), style: "color: #551A8B;" %> / 
+                        <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, style: "color: #551A8B;" %></td>
                     </tr>
                     <% end %>
                 </tbody>
