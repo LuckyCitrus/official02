@@ -15,11 +15,11 @@
                 <tbody>
                     <% @invoiceshipments.each do |invoiceshipment| %>
                     <tr>
-                        <td><%= invoiceshipment.shipment.shipmentnum %></td>
-                        <td><%= invoiceshipment.invoice.invoicenum %></td>
-                        <td><%= link_to 'Show', invoiceshipment %></td>
-                        <td><%= link_to 'Edit', edit_invoiceshipment_path(invoiceshipment) %></td>
-                        <td><%= link_to 'Destroy', invoiceshipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to invoiceshipment.shipment.shipmentnum, invoiceshipment.shipment %></td>
+                        <td><%= link_to invoiceshipment.invoice.invoicenum, invoiceshipment.invoice %></td>
+                        <!--<td><%= link_to 'Show', invoiceshipment %></td>-->
+                        <td><%= link_to 'Edit', edit_invoiceshipment_path(invoiceshipment) %>
+                        <%= link_to 'Destroy', invoiceshipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
