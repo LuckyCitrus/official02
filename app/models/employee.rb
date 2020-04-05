@@ -16,6 +16,6 @@ class Employee < ApplicationRecord
   validates :title, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { maximum: 128 }
   validates :hiredate, presence: true
   validates :employeestatus_id, presence: true
-  validates :user_id, uniqueness: true
+  validates :user_id, uniqueness: true, allow_nil: true
 
 end
