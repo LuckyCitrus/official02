@@ -14,10 +14,10 @@
                 <tbody>
                     <% @employeestatuses.each do |employeestatus| %>
                     <tr>
-                        <td><%= employeestatus.employeestatus %></td>
-                        <td><%= link_to 'Show', employeestatus %></td>
-                        <td><%= link_to 'Edit', edit_employeestatus_path(employeestatus) %></td>
-                        <td><%= link_to 'Destroy', employeestatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to employeestatus.employeestatus, employeestatus %></td>
+                        <!--<td><%= link_to 'Show', employeestatus %></td>-->
+                        <td><%= link_to 'Edit', edit_employeestatus_path(employeestatus) %> / 
+                        <%= link_to 'Destroy', employeestatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
