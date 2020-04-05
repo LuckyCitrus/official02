@@ -20,16 +20,16 @@
                 <tbody>
                     <% @invoices.each do |invoice| %>
                     <tr>
-                        <td><%= invoice.invoicenum %></td>
+                        <td><%= link_to invoice.invoicenum, invoice %></td>
                         <td><%= invoice.invoicedate.to_s(:short_date) %></td>
                         <td><%= invoice.duedate.to_s(:short_date) %></td>
-                        <td><%= invoice.customer.cus_fullname %></td>
-                        <td><%= invoice.employee.emp_fullname %></td>
+                        <td><%= link_to invoice.customer.cus_fullname, invoice.customer %></td>
+                        <td><%= link_to invoice.employee.emp_fullname, invoice.employee %></td>
                         <td><%= invoice.invoicestatus.invoicestatus %></td>
                         <td><%= number_to_currency(invoice.amountdue) %></td>
-                        <td><%= link_to 'Show', invoice %></td>
-                        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-                        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <!--<td><%= link_to 'Show', invoice %></td>-->
+                        <td><%= link_to 'Edit', edit_invoice_path(invoice) %> / 
+                        <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>

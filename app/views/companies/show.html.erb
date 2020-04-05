@@ -9,6 +9,15 @@
                     <strong>Company Name:</strong>
                     <%= @company.companyname %>
                 </p>
+                <p>
+                     <strong>Departments:</strong>
+                    <ul>
+                    </p>
+                        <% for @department in @company.departments %>
+                        <li><%= @department.departmentname %></li>
+                        <% end %>
+                    </ul>
+                </p>
 
             </div>
             <div class="card-footer">
