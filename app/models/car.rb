@@ -11,6 +11,6 @@ class Car < ApplicationRecord
   validates :order_id, presence: true#, unless: :order.blank?
 
   def car_info
-    " #{year} #{make} #{model}"
+    "#{year} #{make} #{model}"
   end
 end

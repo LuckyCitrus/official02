@@ -10,7 +10,7 @@ class Order < ApplicationRecord
   has_many :order_auctions
   has_many :auctions, through: :order_auctions
   has_many :containerorders
-  has_many :container, through: :containerorders
+  has_many :containers, through: :containerorders
 
   # Nested Form Model
   has_many :cars, dependent: :destroy

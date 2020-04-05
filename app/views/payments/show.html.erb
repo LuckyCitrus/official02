@@ -32,6 +32,7 @@
                 <p>
                     <strong>Invoice:</strong>
                     <%= link_to @payment.invoice.invoicenum, @payment.invoice %>
+                    (<%= @payment.invoice.invoicestatus.invoicestatus %>)
                 </p>
 
             </div>

@@ -39,17 +39,28 @@
                     <ul>
                         <% @invoice.orders.each do |order| %>
                         <li><strong>Order Number: </strong>
-                            <%= link_to order.ordernum, order %></li>
+                            <%= link_to order.ordernum, order %>
+                            (<%= order.orderstatus.orderstatus %>)</li>
                         <% end %>
                     </ul>
                 </p>
-
+                <p>
+                    <strong>Shipments:</strong>
+                    <ul>
+                        <% @invoice.shipments.each do |shipment| %>
+                        <li><strong>Shipment Number: </strong>
+                            <%= link_to shipment.shipmentnum, shipment %>
+                            (<%= shipment.shipmentstatus.shipmentstatus %>)</li>
+                        <% end %>
+                    </ul>
+                </p>
                 <p>
                     <strong>Payments:</strong>
                     <ul>
                         <% @invoice.payments.each do |payment| %>
                         <li><strong>Payment Number: </strong>
-                            <%= link_to payment.paymentnum, payment %></li>
+                            <%= link_to payment.paymentnum, payment %>
+                            (<%= payment.paymentstatus.paymentstatus %>)</li>
                         <% end %>
                     </ul>
                 </p>

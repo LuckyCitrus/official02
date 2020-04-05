@@ -12,6 +12,7 @@
                 <p>
                     <strong>Shipment Number:</strong>
                     <%= link_to @container.shipment.shipmentnum, @container.shipment %>
+                    (<%= @container.shipment.shipmentstatus.shipmentstatus %>)</li>
                 </p>
                 <p>
                     <strong>Company:</strong>
@@ -24,12 +25,13 @@
                     <ul>
                         <% @container.orders.each do |order| %>
                         <li><strong>Order Number: </strong>
-                            <%= link_to order.ordernum, order %></li>
+                            <%= link_to order.ordernum, order %>
+                            (<%= order.orderstatus.orderstatus %>)</li>
                         <% end %>
                     </ul>
                 </p>
 
-            
+
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_container_path(@container), class: "btn btn-primary" %>

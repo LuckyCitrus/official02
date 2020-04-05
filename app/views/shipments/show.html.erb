@@ -35,7 +35,8 @@
                     <ul>
                         <% @shipment.invoices.each do |invoice| %>
                         <li><strong>Invoice Number: </strong>
-                            <%= link_to invoice.invoicenum, invoice %></li>
+                            <%= link_to invoice.invoicenum, invoice %>
+                            (<%= invoice.invoicestatus.invoicestatus %>)</li>
                         <% end %>
                     </ul>
                 </p>
