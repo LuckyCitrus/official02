@@ -15,11 +15,11 @@
                 <tbody>
                     <% @containerorders.each do |containerorder| %>
                     <tr>
-                        <td><%= containerorder.container.containernum %></td>
-                        <td><%= containerorder.order.ordernum %></td>
-                        <td><%= link_to 'Show', containerorder %></td>
-                        <td><%= link_to 'Edit', edit_containerorder_path(containerorder) %></td>
-                        <td><%= link_to 'Destroy', containerorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to containerorder.container.containernum, containerorder.container %></td>
+                        <td><%= link_to containerorder.order.ordernum, containerorder.order %></td>
+                        <!--<td><%= link_to 'Show', containerorder %></td>-->
+                        <td><%= link_to 'Edit', edit_containerorder_path(containerorder) %> /
+                        <%= link_to 'Destroy', containerorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
