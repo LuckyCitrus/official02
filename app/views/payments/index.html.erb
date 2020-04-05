@@ -20,16 +20,16 @@
                 <tbody>
                     <% @payments.each do |payment| %>
                     <tr>
-                        <td><%= payment.paymentnum %></td>
+                        <td><%= link_to payment.paymentnum, payment %></td>
                         <td><%= payment.date.to_s(:short_date) %></td>
-                        <td><%= payment.customer.try(:cus_fullname) %></td>
+                        <td><%= link_to payment.customer.try(:cus_fullname), payment.customer %></td>
                         <td><%= number_to_currency(payment.amount) %></td>
                         <td><%= payment.paymentstatus.paymentstatus %></td>
                         <td><%= payment.paymentmethod.paymenttype %></td>
-                        <td><%= payment.invoice.invoicenum %></td>
-                        <td><%= link_to 'Show', payment %></td>
-                        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
-                        <td><%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to payment.invoice.invoicenum, payment.invoice%></td>
+                        <!--<td><%= link_to 'Show', payment %></td>-->
+                        <td><%= link_to 'Edit', edit_payment_path(payment) %> / 
+                        <%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>

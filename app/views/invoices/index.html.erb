@@ -23,8 +23,8 @@
                         <td><%= link_to invoice.invoicenum, invoice %></td>
                         <td><%= invoice.invoicedate.to_s(:short_date) %></td>
                         <td><%= invoice.duedate.to_s(:short_date) %></td>
-                        <td><%= link_to invoice.customer.cus_fullname, invoice.customer %></td>
-                        <td><%= link_to invoice.employee.emp_fullname, invoice.employee %></td>
+                        <td><%= link_to invoice.customer.try(:cus_fullname), invoice.customer %></td>
+                        <td><%= link_to invoice.employee.try(:emp_fullname), invoice.employee %></td>
                         <td><%= invoice.invoicestatus.invoicestatus %></td>
                         <td><%= number_to_currency(invoice.amountdue) %></td>
                         <!--<td><%= link_to 'Show', invoice %></td>-->
