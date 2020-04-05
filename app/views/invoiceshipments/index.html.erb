@@ -18,7 +18,7 @@
                         <td><%= link_to invoiceshipment.shipment.shipmentnum, invoiceshipment.shipment %></td>
                         <td><%= link_to invoiceshipment.invoice.invoicenum, invoiceshipment.invoice %></td>
                         <!--<td><%= link_to 'Show', invoiceshipment %></td>-->
-                        <td><%= link_to 'Edit', edit_invoiceshipment_path(invoiceshipment) %>
+                        <td><%= link_to 'Edit', edit_invoiceshipment_path(invoiceshipment) %> / 
                         <%= link_to 'Destroy', invoiceshipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>

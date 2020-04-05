@@ -14,10 +14,10 @@
                 <tbody>
                     <% @paymentstatuses.each do |paymentstatus| %>
                     <tr>
-                        <td><%= paymentstatus.paymentstatus %></td>
-                        <td><%= link_to 'Show', paymentstatus %></td>
-                        <td><%= link_to 'Edit', edit_paymentstatus_path(paymentstatus) %></td>
-                        <td><%= link_to 'Destroy', paymentstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to paymentstatus.paymentstatus, paymentstatus %></td>
+                        <!--<td><%= link_to 'Show', paymentstatus %></td>-->
+                        <td><%= link_to 'Edit', edit_paymentstatus_path(paymentstatus) %> / 
+                        <%= link_to 'Destroy', paymentstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
