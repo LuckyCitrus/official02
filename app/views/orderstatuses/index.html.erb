@@ -15,10 +15,10 @@
                 <tbody>
                     <% @orderstatuses.each do |orderstatus| %>
                     <tr>
-                        <td><%= orderstatus.orderstatus %></td>
-                        <td><%= link_to 'Show', orderstatus %></td>
-                        <td><%= link_to 'Edit', edit_orderstatus_path(orderstatus) %></td>
-                        <td><%= link_to 'Destroy', orderstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to orderstatus.orderstatus, orderstatus %></td>
+                        <!--<td><%= link_to 'Show', orderstatus %></td>-->
+                        <td><%= link_to 'Edit', edit_orderstatus_path(orderstatus) %> / 
+                        <%= link_to 'Destroy', orderstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
