@@ -1,6 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :orderstatus
-  # has_many :cars
   has_many :orderinvoices
   has_many :invoices, through: :orderinvoices
 
@@ -21,7 +20,7 @@ class Order < ApplicationRecord
   validates :date, presence: true
   validates :customer_id, presence: true
   validates :lotstock, presence: true, numericality: { greater_than_or_equal_to: 0}
-  validates :quantity, presence: true, numericality: { greater_than: 1 }
+  validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0}
   validates :total, presence: true, numericality: { greater_than_or_equal_to: :price}
   validates :orderstatus, presence: true

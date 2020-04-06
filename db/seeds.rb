@@ -1,157 +1,247 @@
-Dummyrole.create!([
-  {role: "Admin"},
-  {role: "Employee"},
-  {role: "Customer"}
-])
-Customerstatus.create!([
-  {customerstatus: "In-line"},
-  {customerstatus: "Appointed"},
-  {customerstatus: "Occurred "}
-])
-Customertype.create!([
-  {customertype: "New"},
-  {customertype: "Returning"},
-  {customertype: "Free Trial"}
-])
-Country.create!([
-  {country_name: "United States"},
-  {country_name: "Dubai"},
-  {country_name: "Jordan"}
-])
-Dummyuser.create!([
-  {username: "username01", password: "password01", dummyrole_id: 1},
-  {username: "username02", password: "password02", dummyrole_id: 3},
-  {username: "username03", password: "password03", dummyrole_id: 2}
-])
-Customer.create!([
-  {first_name: "CustFName01", last_name: "CustLName01", address: "CustAddress01", phone: "(111)111-1111", email: "Cust01@email.com", country_id: nil, customerstatus_id: nil, customertype_id: nil, dummyuser_id: nil},
-  {first_name: "CustFName02", last_name: "CustLName02", address: "CustAddress02", phone: "(222)222-2222", email: "Cust02@email.com", country_id: nil, customerstatus_id: nil, customertype_id: nil, dummyuser_id: nil},
-  {first_name: "CustFName03", last_name: "CustLName03", address: "CustAddress03", phone: "(333)333-3333", email: "Cust03@email.com", country_id: nil, customerstatus_id: nil, customertype_id: nil, dummyuser_id: nil}
-])
-Company.create!([
-                    {companyname: "Mitsab Inc"},
-                    {companyname: "Linear Shipping"},
-                    {companyname: "CompanyName03"}
-                ])
-Employeestatus.create!([
-                           {employeestatus: "Active"},
-                           {employeestatus: "Inactive"},
-                           {employeestatus: "Vacation"},
-                           {employeestatus: "Sick Leave"}
-                       ])
-Department.create!([
-  {departmentname: "Logistics", company_id: 1},
-  {departmentname: "Human Resources", company_id: 2},
-  {departmentname: "Leaderships", company_id: 3}
-])
-Employee.create!([
-  {empfname: "EmpFirstName01", emplname: "EmpLastName01", address: "Address01", email: "Email01", phone: "(111)111-1111", title: "Title01", hiredate: "2020-01-01", department_id: 1, employeestatus_id: 1, dummyuser_id: 1},
-  {empfname: "EmpFirstName02", emplname: "EmpLastName02", address: "Address02", email: "Email02", phone: "(222)222-2222", title: "Title02", hiredate: "2020-02-02", department_id: 2, employeestatus_id: 2, dummyuser_id: 2},
-  {empfname: "EmpFirstName03", emplname: "EmpLastName03", address: "Address03", email: "Email03", phone: "(333)333-3333", title: "Title03", hiredate: "2020-03-03", department_id: 3, employeestatus_id: 3, dummyuser_id: 3}
-])
-Location.create!([
-  {city: "Houston"},
-  {city: "Dallas"},
-  {city: "Conroe"}
-])
-Shipmentstatus.create!([
-  {shipmentstatus: "In-transit"},
-  {shipmentstatus: "Delivered"},
-  {shipmentstatus: "Waiting"}
-])
-Shipmentmethod.create!([
-  {shipmentmethod: "Cargo"},
-  {shipmentmethod: "Airline"},
-  {shipmentmethod: "Ground"}
-])
-Warehouse.create!([
-  {warehousename: "Houston Warehouse", location_id: 1},
-  {warehousename: "Dallas Warehouse", location_id: 2},
-  {warehousename: "Conroe Warehouse", location_id: 3}
-])
-Shipment.create!([
-  {date: "2020-01-01", quantity: 1, warehouse_id: 1, shipmentmethod_id: 1, shipmentstatus_id: 1, shipmentnum: "Shipmentnum01"},
-  {date: "2020-02-02", quantity: 2, warehouse_id: 2, shipmentmethod_id: 2, shipmentstatus_id: 3, shipmentnum: "Shipmentnum02"},
-  {date: "2020-03-03", quantity: 3, warehouse_id: 3, shipmentmethod_id: 3, shipmentstatus_id: 3, shipmentnum: "Shipmentnum03"}
-])
-Orderstatus.create!([
-  {orderstatus: "In-Process"},
-  {orderstatus: "Completed"},
-  {orderstatus: "Incompleted"}
-])
-Order.create!([
-  {date: "2020-01-01", lotstock: 1, quantity: 1, price: "1.11", total: "1.99", orderstatus_id: 1, customer_id: 1, ordernum: "Ordernum01"},
-  {date: "2020-02-02", lotstock: 2, quantity: 2, price: "2.22", total: "2.99", orderstatus_id: 2, customer_id: 2, ordernum: "Ordernum02"},
-  {date: "2020-03-03", lotstock: 3, quantity: 3, price: "3.33", total: "3.99", orderstatus_id: 3, customer_id: 3, ordernum: "Ordernum03"}
-])
-Container.create!([
-  {company_id: 1, shipment_id: 1, containernum: "Containernum01"},
-  {company_id: 2, shipment_id: 2, containernum: "Containernum02"},
-  {company_id: 3, shipment_id: 3, containernum: "Containernum03"}
-])
+require "csv"
 
-Invoicestatus.create!([
-  {invoicestatus: "Pending"},
-  {invoicestatus: "Paid"},
-  {invoicestatus: "Late"}
-])
-Invoice.create!([
-  {invoicedate: "2020-01-01", duedate: "2020-01-01", customer_id: 1, employee_id: 1, invoicestatus_id: 1, amountdue: "1111.11", invoicenum: "Invoicenum01"},
-  {invoicedate: "2020-02-02", duedate: "2020-02-02", customer_id: 2, employee_id: 2, invoicestatus_id: 2, amountdue: "2222.22", invoicenum: "Invoicenum02"},
-  {invoicedate: "2020-03-03", duedate: "2020-03-03", customer_id: 3, employee_id: 3, invoicestatus_id: 1, amountdue: "3.0", invoicenum: "Invoicenum03"}
-])
-Paymentmethod.create!([
-  {paymenttype: "Bank Wire"},
-  {paymenttype: "Credit Card"},
-  {paymenttype: "Money Order"}
-])
-Paymentstatus.create!([
-  {paymentstatus: "Paid"},
-  {paymentstatus: "Pending"},
-  {paymentstatus: "Partial"}
-])
-Payment.create!([
-  {date: "2020-01-01", amount: "1111.11", paymentstatus_id: 1, paymentmethod_id: 1, customer_id: 1, invoice_id: 1, paymentnum: "Paymentnum01"},
-  {date: "2020-02-02", amount: "2222.22", paymentstatus_id: 3, paymentmethod_id: 2, customer_id: 2, invoice_id: 2, paymentnum: "Paymentnum02"},
-  {date: "2020-03-03", amount: "3333.33", paymentstatus_id: 2, paymentmethod_id: 3, customer_id: 3, invoice_id: 3, paymentnum: "Paymentnum03"}
-])
-Invoiceshipment.create!([
-  {shipment_id: 1, invoice_id: 1},
-  {shipment_id: 2, invoice_id: 2},
-  {shipment_id: 3, invoice_id: 3}
-])
-Orderinvoice.create!([
-  {order_id: 1, invoice_id: 1},
-  {order_id: 2, invoice_id: 2},
-  {order_id: 3, invoice_id: 3}
-])
-Picture.create!([
-  {picture: "Picture01", order_id: nil},
-  {picture: "Picture02", order_id: nil},
-  {picture: "Picture03", order_id: nil}
-])
-Auction.create!([
-  {auctionname: "Copart", address: "1655 RANKIN ROAD HOUSTON, TEXAS 77073 4903", location_id: 1},
-  {auctionname: "INSURANCE AUTO AUCTIONS INC", address: "2535 W Mount, Houston, TX 77038", location_id: 2},
-  {auctionname: "Auction03", address: "333 Three", location_id: 3}
-])
-OrderAuction.create!([
-  {order_id: 1, auction_id: 2},
-  {order_id: 2, auction_id: 1},
-  {order_id: 3, auction_id: 3}
-])
-Keystatus.create!([
-  {keystatus: "On-hold"},
-  {keystatus: "Delivered"},
-  {keystatus: "Not Applicable"}
-])
-Titlestatus.create!([
-  {titlestatus: "On-hold"},
-  {titlestatus: "Delivered"},
-  {titlestatus: "Not Applicable"}
-])
-Car.create!([
-  {vinnumber: "111 11111 1 11111111", year: 2011, make: "Toyota", model: "Camry", titlestatus_id: 2, keystatus_id: 2, order_id: 1},
-  {vinnumber: "222 22222 2 22222222", year: 2012, make: "Toyota", model: "Corolla", titlestatus_id: 3, keystatus_id: 3, order_id: 2},
-  {vinnumber: "333 33333 3 33333333", year: 2013, make: "Honda", model: "Civic", titlestatus_id: 1, keystatus_id: 1, order_id: 3}
-])
+Auction.destroy_all
+Car.destroy_all
+Company.destroy_all
+Containerorder.destroy_all
+Container.destroy_all
+Country.destroy_all
+Customer.destroy_all
+Customerstatus.destroy_all
+Customertype.destroy_all
+Department.destroy_all
+Employee.destroy_all
+Employeestatus.destroy_all
+Invoice.destroy_all
+Invoiceshipment.destroy_all
+Invoicestatus.destroy_all
+Keystatus.destroy_all
+Location.destroy_all
+OrderAuction.destroy_all
+Orderinvoice.destroy_all
+Order.destroy_all
+Orderstatus.destroy_all
+Paymentmethod.destroy_all
+Payment.destroy_all
+Paymentstatus.destroy_all
+Shipmentmethod.destroy_all
+Shipment.destroy_all
+Shipmentstatus.destroy_all
+Titlestatus.destroy_all
+Warehouse.destroy_all
+
+#===================================================================================
+
+File.open("#{Rails.root}/db/data/locations.csv") do |locations|
+  locations.read.each_line do |location|
+    city = location
+    Location.create!(:city=>city)
+  end
+end
+
+File.open("#{Rails.root}/db/data/customerstatuses.csv") do |customerstatuses|
+  customerstatuses.read.each_line do |customerstatus|
+    customerstatus = customerstatus
+    Customerstatus.create!(:customerstatus=>customerstatus)
+  end
+end
+
+File.open("#{Rails.root}/db/data/customertypes.csv") do |customertypes|
+  customertypes.read.each_line do |customertype|
+    customertype = customertype
+    Customertype.create!(:customertype=>customertype)
+  end
+end
+
+File.open("#{Rails.root}/db/data/employeestatuses.csv") do |employeestatuses|
+  employeestatuses.read.each_line do |employeestatus|
+    employeestatus = employeestatus
+    Employeestatus.create!(:employeestatus=>employeestatus)
+  end
+end
+
+File.open("#{Rails.root}/db/data/invoicestatuses.csv") do |invoicestatuses|
+  invoicestatuses.read.each_line do |invoicestatus|
+    invoicestatus = invoicestatus
+    Invoicestatus.create!(:invoicestatus=>invoicestatus)
+  end
+end
+
+File.open("#{Rails.root}/db/data/keystatuses.csv") do |keystatuses|
+  keystatuses.read.each_line do |keystatus|
+    keystatus = keystatus
+    Keystatus.create!(:keystatus=>keystatus)
+  end
+end
+
+File.open("#{Rails.root}/db/data/orderstatuses.csv") do |orderstatuses|
+  orderstatuses.read.each_line do |orderstatus|
+    orderstatus = orderstatus
+    Orderstatus.create!(:orderstatus=>orderstatus)
+  end
+end
+
+File.open("#{Rails.root}/db/data/paymentmethods.csv") do |paymentmethods|
+  paymentmethods.read.each_line do |paymentmethod|
+    paymenttype = paymentmethod
+    Paymentmethod.create!(:paymenttype=>paymenttype)
+  end
+end
+
+File.open("#{Rails.root}/db/data/paymentstatuses.csv") do |paymentstatuses|
+  paymentstatuses.read.each_line do |paymentstatus|
+    paymentstatus = paymentstatus
+    Paymentstatus.create!(:paymentstatus=>paymentstatus)
+  end
+end
+
+File.open("#{Rails.root}/db/data/shipmentmethods.csv") do |shipmentmethods|
+  shipmentmethods.read.each_line do |shipmentmethod|
+    shipmentmethod = shipmentmethod
+    Shipmentmethod.create!(:shipmentmethod=>shipmentmethod)
+  end
+end
+
+File.open("#{Rails.root}/db/data/shipmentstatuses.csv") do |shipmentstatuses|
+  shipmentstatuses.read.each_line do |shipmentstatus|
+    shipmentstatus = shipmentstatus
+    Shipmentstatus.create!(:shipmentstatus=>shipmentstatus)
+  end
+end
+
+File.open("#{Rails.root}/db/data/titlestatuses.csv") do |titlestatuses|
+  titlestatuses.read.each_line do |titlestatus|
+    titlestatus = titlestatus
+    Titlestatus.create!(:titlestatus=>titlestatus)
+  end
+end
+
+File.open("#{Rails.root}/db/data/countries.csv") do |countries|
+  countries.read.each_line do |country|
+    country_name = country
+    Country.create!(:country_name=>country_name)
+  end
+end
+
+File.open("#{Rails.root}/db/data/companies.csv") do |companies|
+  companies.read.each_line do |company|
+    companyname = company
+    Company.create!(:companyname=>companyname)
+  end
+end
+
+#===================================================================================
+
+File.open("#{Rails.root}/db/data/departments.csv") do |departments|
+  departments.read.each_line do |department|
+    departmentname, company_id = department.chomp.split(",")
+    Department.create!(:departmentname=>departmentname, :company_id=>company_id)
+  end
+end
+
+File.open("#{Rails.root}/db/data/customers.csv") do |customers|
+  customers.read.each_line do |customer|
+    first_name, last_name, address, phone, email, country_id, customerstatus_id, customertype_id, user_id  = customer.chomp.split(",")
+    Customer.create!(:first_name=>first_name, :last_name=>last_name, :address=>address, :phone=>phone, :email=>email, :country_id=>country_id, :customerstatus_id=>customerstatus_id, :customertype_id=>customertype_id, :user_id=>user_id)
+  end
+end
+
+File.open("#{Rails.root}/db/data/employees.csv") do |employees|
+  employees.read.each_line do |employee|
+    empfname, emplname, address, email, phone, title, hiredate, department_id, employeestatus_id, user_id  = employee.chomp.split(",")
+    Employee.create!(:empfname=>empfname, :emplname=>emplname, :address=>address, :email=>email, :phone=>phone, :title=>title, :hiredate=>hiredate, :department_id=>department_id, :employeestatus_id=>employeestatus_id, :user_id=>user_id)
+  end
+end
+
+File.open("#{Rails.root}/db/data/auctions.csv") do |auctions|
+  auctions.read.each_line do |auction|
+    auctionname, address, location_id = auction.chomp.split(",")
+    Auction.create!(:auctionname=>auctionname, :address=>address, :location_id=>location_id)
+  end
+end
+
+File.open("#{Rails.root}/db/data/warehouses.csv") do |warehouses|
+  warehouses.read.each_line do |warehouse|
+    warehousename, location_id = warehouse.chomp.split(",")
+    Warehouse.create!(:warehousename=>warehousename, :location_id=>location_id)
+  end
+end
+
+File.open("#{Rails.root}/db/data/orders.csv") do |orders|
+  orders.read.each_line do |order|
+    date, lotstock, quantity, price, total, orderstatus_id, customer_id, ordernum = order.chomp.split(",")
+    Order.create!(:date=>date, :lotstock=>lotstock, :quantity=>quantity, :price=>price, :total=>total, :orderstatus_id=>orderstatus_id, :customer_id=>customer_id, :ordernum=>ordernum)
+  end
+end
+
+File.open("#{Rails.root}/db/data/invoices.csv") do |invoices|
+  invoices.read.each_line do |invoice|
+    invoicedate, duedate, customer_id, employee_id, invoicestatus_id, amountdue, invoicenum = invoice.chomp.split(",")
+    Invoice.create!(:invoicedate=>invoicedate, :duedate=>duedate, :customer_id=>customer_id, :employee_id=>employee_id, :invoicestatus_id=>invoicestatus_id, :amountdue=>amountdue, :invoicenum=>invoicenum)
+  end
+end
+
+File.open("#{Rails.root}/db/data/payments.csv") do |payments|
+  payments.read.each_line do |payment|
+    date, amount, paymentstatus_id, paymentmethod_id, customer_id, invoice_id, paymentnum = payment.chomp.split(",")
+    Payment.create!(:date=>date, :amount=>amount, :paymentstatus_id=>paymentstatus_id, :paymentmethod_id=>paymentmethod_id, :customer_id=>customer_id, :invoice_id=>invoice_id, :paymentnum=>paymentnum)
+  end
+end
+
+File.open("#{Rails.root}/db/data/shipments.csv") do |shipments|
+  shipments.read.each_line do |shipment|
+    date, quantity, warehouse_id, shipmentmethod_id, shipmentstatus_id, shipmentnum = shipment.chomp.split(",")
+    Shipment.create!(:date=>date, :quantity=>quantity, :warehouse_id=>warehouse_id, :shipmentmethod_id=>shipmentmethod_id, :shipmentstatus_id=>shipmentstatus_id, :shipmentnum=>shipmentnum)
+  end
+end
+
+File.open("#{Rails.root}/db/data/containers.csv") do |containers|
+  containers.read.each_line do |container|
+    company_id, shipment_id, containernum = container.chomp.split(",")
+    Container.create!(:company_id=>company_id, :shipment_id=>shipment_id, :containernum=>containernum)
+  end
+end
+
+File.open("#{Rails.root}/db/data/cars.csv") do |cars|
+  cars.read.each_line do |car|
+    vinnumber, year, make, model, titlestatus_id, keystatus_id, order_id = car.chomp.split(",")
+    Car.create!(:vinnumber=>vinnumber, :year=>year, :make=>make, :model=>model,:titlestatus_id=>titlestatus_id, :keystatus_id=>keystatus_id, :order_id=>order_id)
+  end
+end
+
+#===================================================================================
+
+File.open("#{Rails.root}/db/data/containerorders.csv") do |containerorders|
+  containerorders.read.each_line do |containerorder|
+    container_id, order_id = containerorder.chomp.split(",")
+    Containerorder.create!(:container_id=>container_id, :order_id=>order_id)
+  end
+end
+
+File.open("#{Rails.root}/db/data/invoiceshipments.csv") do |invoiceshipments|
+  invoiceshipments.read.each_line do |invoiceshipment|
+    invoice_id, shipment_id = invoiceshipment.chomp.split(",")
+    Invoiceshipment.create!(:invoice_id=>invoice_id, :shipment_id=>shipment_id)
+  end
+end
+
+File.open("#{Rails.root}/db/data/orderauctions.csv") do |order_auctions|
+  order_auctions.read.each_line do |order_auction|
+    order_id, auction_id = order_auction.chomp.split(",")
+    OrderAuction.create!(:order_id=>order_id, :auction_id=>auction_id)
+  end
+end
+
+File.open("#{Rails.root}/db/data/orderinvoices.csv") do |orderinvoices|
+  orderinvoices.read.each_line do |orderinvoice|
+    order_id, invoice_id = orderinvoice.chomp.split(",")
+    Orderinvoice.create!(:order_id=>order_id, :invoice_id=>invoice_id)
+  end
+end
+
+File.open("#{Rails.root}/db/data/shipmentinvoices.csv") do |invoiceshipments|
+  invoiceshipments.read.each_line do |invoiceshipment|
+    shipment_id, invoice_id = invoiceshipment.chomp.split(",")
+    Invoiceshipment.create!(:shipment_id=>shipment_id, :invoice_id=>invoice_id)
+  end
+end
