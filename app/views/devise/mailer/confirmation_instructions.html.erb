@@ -1,5 +1,8 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome <%= @resource.email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Thank you for registering to Mitsab Portal.<br>
+Please visit the link below to confirm your account:<br>
+<%= link_to 'Confirm My Account', confirmation_url(@resource, confirmation_token: @token) %></p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>Thank you,<br>
+    Mitsab Incorporation</p>

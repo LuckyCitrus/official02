@@ -31,4 +31,8 @@ document.addEventListener("turbolinks:load", () => {
         altFormat: "l, F j, Y",
         allowInput: true
     })
-});
+}); 
+
+$('document').on 'click', '.submit-btn', () => {
+    $('f').submit()
+};
