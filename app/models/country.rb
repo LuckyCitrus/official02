@@ -1,5 +1,5 @@
 class Country < ApplicationRecord
-  # belongs_to :customers
+  has_many :customers
   
   validates :country_name, presence: true, length: { maximum: 128 }
 end

@@ -11,6 +11,9 @@
                         <th>Address</th>
                         <th>Phone</th>
                         <th>Email</th>
+                        <th>Country</th>
+                        <th>Customer Status</th>
+                        <th>Customer Type</th>
                         <th>User</th>
                         <th colspan="7"></th>
                     </tr>
@@ -22,14 +25,17 @@
                         <td><%= customer.address %></td>
                         <td><%= customer.phone %></td>
                         <td><%= customer.email %></td>
+                        <td><%= customer.country.try(:country_name) %></td>
+                        <td><%= customer.customerstatus.customerstatus %></td>
+                        <td><%= customer.customertype.customertype %></td>
                         <% if current_user.try(:admin?)  %>
                         <td><%= link_to customer.user.try(:email), customer.user if customer.user %></td>
                         <% else %>
                         <td><%= customer.user.try(:email) %></td>
                         <%end%>
                         <!--<td><%= link_to 'Show', customer %></td>-->
-                        <td><%= link_to 'Edit', edit_customer_path(customer) %> / 
-                        <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_customer_path(customer) %> /
+                            <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>

@@ -1,5 +1,5 @@
 class Customertype < ApplicationRecord
-  # belongs_to :customers
+  has_many :customers
 
   validates :customertype, presence: true, length: { maximum: 128 }
 end

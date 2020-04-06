@@ -1,7 +1,7 @@
 class Customer < ApplicationRecord
-  has_many :country
-  has_many :customerstatus
-  has_many :customertype
+  belongs_to :country
+  belongs_to :customerstatus
+  belongs_to :customertype
   #has_many :dummyuser
   belongs_to :user, optional: true
 

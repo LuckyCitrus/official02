@@ -33,6 +33,20 @@
     </div>
 
     <div class="field">
+        <%= form.collection_select :country_id, Country.order(:country_name), :id, :country_name, {include_blank: ""} %>
+    </div>
+
+
+    <div class="field">
+        <%= form.collection_select :customerstatus_id, Customerstatus.order(:customerstatus), :id, :customerstatus, {include_blank: ""} %>
+    </div>
+
+
+    <div class="field">
+        <%= form.collection_select :customertype_id, Customertype.order(:customertype), :id, :customertype, {include_blank: ""} %>
+    </div>
+
+    <div class="field">
         <%= form.collection_select :user_id, User.order(:email), :id, :email, {include_blank: ""}, disabled: !current_user.admin? %>
     </div>
 

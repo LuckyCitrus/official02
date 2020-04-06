@@ -1,5 +1,5 @@
 class Customerstatus < ApplicationRecord
-  belongs_to :customers
+  has_many :customers
 
   validates :customerstatus, presence: true, length: { maximum: 128 }
 end
