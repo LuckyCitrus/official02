@@ -1,7 +1,6 @@
 class Auction < ApplicationRecord
-
   belongs_to :location_id
-  
+
   #Order Round
   has_many :order_auctions
   has_many :orders, through: :order_auctions
