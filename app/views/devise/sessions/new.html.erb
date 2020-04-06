@@ -22,14 +22,15 @@
                 </div>
                 <% end %>
 
-                <%= render "devise/shared/links" %>
+                <%= render "devise/shared/links" %><hr>
 
-            </div>
-            <div class="card-footer">
+            <div class="actions">
                 <%= f.submit "Log In", class: 'btn btn-primary', data: { turbolinks: false } %>
                 <%= link_to "Sign Up", new_registration_path(resource_name), class: "btn btn-secondary" %>
             </div>
             <% end %>
+
+            </div>
         </div>
     </div>
 </div>

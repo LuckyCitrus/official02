@@ -33,6 +33,7 @@ document.addEventListener("turbolinks:load", () => {
     })
 }); 
 
-$('document').on 'click', '.submit-btn', () => {
+//Enabling breaks destroy methods
+/*$('document').on 'click', '.submit-btn', () => {
     $('f').submit()
-};
+};*/
