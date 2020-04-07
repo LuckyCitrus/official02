@@ -2,7 +2,7 @@
     <div class="col-xs-12">
         <div class="card card-default">
             <div class="card-header">
-                <h1>Monthly Orders per Auctions</h1>
+                <h2>Monthly Orders Per Auctions</h2>
             </div>
             <table class="table table-hover table-bordered">
                 <thead class="thead-light">
@@ -21,6 +21,9 @@
                     <% end %>
                 </tbody>
             </table>
+            <div class="card-footer">
+                <%= link_to "View PDF", reports_auction_orders_path(@auction_orders, format: :pdf), class: "btn btn-primary" %>
+            </div>
         </div>
     </div>
 </div>
