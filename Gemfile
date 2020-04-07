@@ -9,6 +9,7 @@ gem 'pundit'
 gem 'devise'
 gem 'seed_dump'
 gem 'yaml_db'
+gem 'gon'
 
 # Gems for Nested Form
 gem 'jquery-rails'

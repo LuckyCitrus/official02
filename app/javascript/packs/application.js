@@ -11,6 +11,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 require('jquery')
+require("packs/main")
 
 import "cocoon";
 

@@ -40,7 +40,7 @@
                 <%= form.text_field :invoicedate, label: "Invoice Date",required: true, data: { behavior: "flatpickr" }, required: true %>
             </div>
             
-            <div class="field">
+            <div class="field ">
                 <%= form.text_field :duedate, label: "Due Date",required: true, data: { behavior: "flatpickr" }, required: true %>
             </div>
             </address>        
@@ -50,10 +50,16 @@
         <div class="col-xs-4 invoice-col">
             
             <address>
-            <div class="field">
-            <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname, {include_blank: ""}, required: true %>
+            <div class="field ">
+           
+            <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname,  {include_blank: ""}, {class: "cust-id"}%>
+            
+            <%= form.hidden_field :customer_id , id: "Cust_id" %>
             </div>
-        
+            
+
+            
+
             <div class="field">
                 <%= form.collection_select :employee_id, Employee.all, :id, :emp_fullname, {include_blank: ""}, required: true %>
             </div>
@@ -65,46 +71,145 @@
 
         </div><!-- /.col -->
 
+
         <div class="col-xs-4 invoice-col">
             <form class="form-horizontal">
 
-          
+            <address>
 
+            <input class="form-control selected_id"  value=""/>
 
+            
+            </address>
+        
+        </div><!-- /.form -->
         </div><!-- /.col -->
-        </div><!-- /.row -->
 
+        
+        <!--Beginnig of table area with row add items-->
 
         <div class="row">
         <div class="col-xs-12 table-responsive">
         <hr>
-        
-        <h3>Orders</h3>
-        <div id='orders'>
-            <%= form.fields_for :orderinvoices do |orderinvoice| %>
-            <%= render 'order_fields', :f => orderinvoice %>
-            <% end %>
-            <div class='links'>
-            <%= link_to_add_association 'Add Order', form, :orders %>
-            </div>
-        </div><br><br>
+        <table class="table table-hover" id="items">
 
+        <thead>
+        <th class="item-name">Order ID</th>
+        <th class="description">Description</th>
+        <th class="unit">Unit Cost</th>
+        <th class="quantity">Quantity</th>
+        <th class="units">Price</th>
+        <th class="no_print">Actions</th>
+        </thead>
+    
+        <!-- 650 column beginning -->
+    
+    <tbody>
+      <tr class="item-row">
+        <td><input class="form-control order_selected_id" value="Order #" /></td>
+        <td><input class="form-control item_desc" value="Description" /></td>
+        <td><input class="form-control cost" value="0.00" /></td>
+        <td><input class="form-control qty" value="0" /></td>
+        <td><input class="form-control price" value="0.00" /><span class="subtotal_currency"></span></td>
+        <td class="delete_td"><a class="delete" href="javascript:;" title="Remove row"><span class="ti-close"></span></a></td>
+      </tr>
+    
+
+      <!--225  Column Beginning -->
+
+      
+      <tr id="hiderow">
+        <td colspan="6"><a id="addrow" class="btn btn-success btn-sm" href="javascript:;" title="Add a row"><span class="ti-plus"></span>  Add a row</a></td>
+      </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    
+    <!-- Deleted totals area -->              
+
+    <div class="row">
+    <div class="col-xs-6 col-xs-offset-6">
+    <div class="table-responsive">
    
+    </div>
+
 
         </div><!-- /.col -->    
-        </div>
+        </div><!-- /.row --> 
+
+
+        <!-- Begging of Shipping Table --> 
+
+        <div class="row">
+        <div class="col-xs-12 table-responsive">
+        <hr>
+        <table class="table table-hover" id="items">
+
+        <thead>
+        <th class="item-name">Container No.</th>
+        <th class="description">Warehouse</th>
+        <th class="unit">Location</th>
+        <th class="quantity">Via</th>
+        <th class="units">Price</th>
+        <th class="no_print">Actions</th>
+        </thead>
+    
+        <!-- First row beginning -->
+    
+    <tbody>
+      <tr class="item-row">
+        <td><input class="form-control cointainer_num" value="Number #" /></td>
+        <td><input class="form-control warehouse" value="Warehouse Name" /></td>
+        <td><input class="form-control location" value="Address" /></td>
+        <td><input class="form-control method" value="" /></td>
+        <td><input class="form-control shipping_price" value="0.00" /><span class="subtotal_currency"></span></td>
+        <td class="delete_td"><a class="delete" href="javascript:;" title="Remove row"><span class="ti-close"></span></a></td>
+      </tr>
+    </tbody>
+    </table>
+
+    </div>
+    </div>
+    
+    <!-- Beginning of totals area -->              
+
+    <div class="row">
+    <div class="col-xs-6 col-xs-offset-6">
+
+    
+    <div class="table-responsive">
+    <table class="table table-hover" id="totals">
+      <tr>
+        <th style="width:50%">Subtotal:</th>
+        <td><span id="subtotal">0.00</span><span class="subtotal_currency"></span></td>
+      </tr>
+      <tr>
+        <th>Tax:</th>
+        <td><input id="9" class="form-control" value="0.00" /></td>
+      </tr>
+      <tr>
+        <th>Total:</th>
+        <td class="balance"><span class="due" id="invoice_total">0.00</span><span class="subtotal_currency"></span></td>
+        </tr>
+        </table>
+    </div>
+    </div>
+    </div>
+
 
         <div class="col-xs-4 invoice-col">
+
         <adress>
-       
         <div class="field row">
             <%= form.number_field :amountdue, label: "Amount Due", value: number_with_precision(invoice.amountdue, precision: 2), min: 0, step: 0.01,required: true %>
-        </div>
-
+            </div>
+        
         <div class="actions">
             <%= form.submit :Submit, class: 'btn btn-success' %>
         </div> 
         </address>    
+        
         </div><!-- End of Row -->
         
 
@@ -114,7 +219,7 @@
         <textarea id="10">Payment terms: net 30. Interest accrued at 1.5% per month thereafter.</textarea>
         </div>
         </div><!-- ? -->
-
-        <% end %><!--End of fucntion-->
+        
+        <% end %><!--End of fucntion-->   
     </div>
 </div>

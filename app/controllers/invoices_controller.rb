@@ -2,6 +2,7 @@ class InvoicesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
 
+
   # GET /invoices
   # GET /invoices.json
   def index
@@ -15,14 +16,23 @@ class InvoicesController < ApplicationController
     @invoice = policy_scope(Invoice).find(params[:id])
   end
 
+
   # GET /invoices/new
   def new
+    
     @invoice = Invoice.new
     authorize @invoice
+
+    gon.customer_invoice = Invoice.all
+    gon.customer_orders = Order.all
+
   end
+
+
 
   # GET /invoices/1/edit
   def edit
+
   end
 
   # POST /invoices
@@ -75,7 +85,7 @@ class InvoicesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def invoice_params
       # params.require(:invoice).permit(:invoicedate, :duedate, :customer_id, :employee_id, :order_id, :payment_id, :car_id, :shipment_id, :auction_id)
-      params.require(:invoice).permit(:invoicedate, :duedate, :customer_id, :employee_id, :invoicestatus_id, :amountdue, :invoicenum,
-      orders_attributes:[:id, orderstatus_id,:lotstock, :_destroy], orderinvoices_attributes: [:id, :order_id, :_destroy])
+      params.require(:invoice).permit(:invoicedate, :duedate, :customer_id, :employee_id, :invoicestatus_id, :amountdue, :invoicenum)
+      
     end
 end
