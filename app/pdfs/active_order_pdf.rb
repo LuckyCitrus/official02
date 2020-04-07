@@ -23,7 +23,7 @@ require 'date'
 
 	def orders_table	
 		bounding_box([0, cursor], width: 720, height: 36) do
-				text_box "Monthly Active Orders", size: 14, style: :bold, align: :center
+			text_box "Monthly Active Orders", size: 14, style: :bold, align: :center
 		end
 		table order_summary do
 			row(0).font_style = :bold

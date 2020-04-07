@@ -27,6 +27,8 @@
                     <% end %>
                 </tbody>
             </table>
+            <%= link_to "View PDF", reports_active_invoices_path(@active_orders, format: :pdf) %>
+
         </div>
     </div>
 </div>
