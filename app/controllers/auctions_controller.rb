@@ -56,6 +56,7 @@ class AuctionsController < ApplicationController
   # DELETE /auctions/1.json
   def destroy
     @auction.destroy
+    authorize @auction
     respond_to do |format|
       format.html { redirect_to auctions_url, notice: 'Auction was successfully destroyed.' }
       format.json { head :no_content }

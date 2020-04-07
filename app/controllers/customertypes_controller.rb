@@ -56,6 +56,7 @@ class CustomertypesController < ApplicationController
   # DELETE /customertypes/1.json
   def destroy
     @customertype.destroy
+    authorize @customertype
     respond_to do |format|
       format.html { redirect_to customertypes_url, notice: 'Customertype was successfully destroyed.' }
       format.json { head :no_content }

@@ -59,6 +59,7 @@ class ShipmentsController < ApplicationController
   # DELETE /shipments/1.json
   def destroy
     @shipment.destroy
+    authorize @shipment
     respond_to do |format|
       format.html { redirect_to shipments_url, notice: 'Shipment was successfully destroyed.' }
       format.json { head :no_content }

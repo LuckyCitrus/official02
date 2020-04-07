@@ -60,6 +60,7 @@ class CarsController < ApplicationController
   # DELETE /cars/1.json
   def destroy
     @car.destroy
+    authorize @car
     respond_to do |format|
       format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
       format.json { head :no_content }
