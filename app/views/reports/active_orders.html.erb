@@ -24,8 +24,8 @@
                     <tr>
                         <td><%= active_order.name %></td>
                         <td><%= active_order.email %></td>
-                        <td><%= active_order.date %></td>
                         <td><%= active_order.ordernum %></td>
+                        <td><%= active_order.date %></td>
                         <td><%= active_order.orderstatus %></td>
                         <td><%= active_order.paymentstatus %></td>
                         <td><%= active_order.shipmentstatus %></td>
@@ -35,6 +35,7 @@
                     <% end %>
                 </tbody>
             </table>
+            <%= link_to "Download PDF", reports_active_orders_path(@active_orders, format: :pdf) %>
 
         </div>
     </div>
