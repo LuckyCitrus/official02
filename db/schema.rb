@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_220306) do
+ActiveRecord::Schema.define(version: 2020_04_07_002234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -400,14 +400,16 @@ ActiveRecord::Schema.define(version: 2020_04_06_220306) do
   add_foreign_key "shipments", "warehouses"
   add_foreign_key "warehouses", "locations"
 
-  create_view "active_orders", sql_definition: <<-SQL
+  create_view "active_orders", materialized: true, sql_definition: <<-SQL
       SELECT concat(cus.first_name, cus.last_name) AS name,
       cus.email,
+      o.ordernum,
       o.date,
       os.orderstatus,
       ps.paymentstatus,
       ss.shipmentstatus,
-      con.containernum
+      con.containernum,
+      w.warehousename
      FROM (((((((((customers cus
        JOIN orders o ON ((cus.id = o.customer_id)))
        JOIN orderstatuses os ON ((os.id = o.orderstatus_id)))
@@ -418,17 +420,9 @@ ActiveRecord::Schema.define(version: 2020_04_06_220306) do
        JOIN shipments s ON ((s.id = con.shipment_id)))
        JOIN shipmentstatuses ss ON ((ss.id = s.shipmentstatus_id)))
        JOIN warehouses w ON ((w.id = s.warehouse_id)))
-    WHERE (((os.orderstatus)::text <> 'Completed'::text) AND ((ps.paymentstatus)::text = 'Paid'::text) AND (o.date > (CURRENT_DATE - '1 mon'::interval)))
+    WHERE (((os.orderstatus)::text <> 'Completed
+  '::text) AND ((ps.paymentstatus)::text = 'Complete
+  '::text) AND (o.date > (CURRENT_DATE - '1 mon'::interval)))
     ORDER BY o.date;
-  SQL
-  create_view "auction_orders", sql_definition: <<-SQL
-      SELECT a.auctionname,
-      count(o.quantity) AS total_orders
-     FROM ((auctions a
-       JOIN order_auctions oa ON ((a.id = oa.auction_id)))
-       JOIN orders o ON ((o.id = oa.order_id)))
-    WHERE (o.date > (CURRENT_DATE - '1 mon'::interval))
-    GROUP BY a.auctionname
-    ORDER BY (count(o.quantity)) DESC;
   SQL
 end
