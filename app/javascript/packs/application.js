@@ -17,6 +17,9 @@ import "cocoon";
 require("flatpickr/dist/flatpickr.css")
 require("flatpickr/dist/themes/airbnb.css");
 
+//Webpacker ActiveStorage- Kiet
+import ActiveStorageDragAndDrop from 'active_storage_drag_and_drop'
+ActiveStorageDragAndDrop.start();
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
