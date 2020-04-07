@@ -1,14 +1,15 @@
 class Location < ApplicationRecord
 
-  #delete cascading
-  has_many :auctions, inverse_of: :location, dependent: :destroy
-  has_many :warehouses, dependent: :destroy
+  #normalized for
+  has_many :auctions, inverse_of: :location
+  has_many :warehouses
 
-  #nested form
+  #nested forms
   accepts_nested_attributes_for :warehouses, reject_if: :all_blank, allow_destroy: :true
   accepts_nested_attributes_for :auctions, reject_if: :all_blank, allow_destroy: :true
 
-  #field validation
+  #fields validation
   validates :city, presence: true, length: { maximum: 128 }
   validates :city, presence: true, length: { maximum: 36 }
+
 end

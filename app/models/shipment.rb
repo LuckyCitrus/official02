@@ -14,11 +14,12 @@ class Shipment < ApplicationRecord
   has_many :invoices, through: :invoiceshipments
   has_many :companies, through: :containers
 
-  #field validation
+  #fields validation
   validates :shipmentnum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { maximum: 128 }
   validates :date, presence: true
   validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :warehouse_id, presence: true
   validates :shipmentmethod_id, presence: true
   validates :shipmentstatus_id, presence: true
+
 end

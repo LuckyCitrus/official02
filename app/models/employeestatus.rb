@@ -1,8 +1,9 @@
 class Employeestatus < ApplicationRecord
 
-  #delete cascading
-  has_many :employees, dependent: :destroy
+  #normalized for
+  has_many :employees
 
-  #field validation
+  #fields validation
   validates :employeestatus, presence: true, length: { maximum: 128 }
+
 end

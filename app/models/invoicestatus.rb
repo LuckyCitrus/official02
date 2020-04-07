@@ -1,6 +1,6 @@
 class Invoicestatus < ApplicationRecord
 
-  #delete cascading
+  #normalized for
   has_many :invoices
 
   #field validation

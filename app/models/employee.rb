@@ -1,11 +1,12 @@
 class Employee < ApplicationRecord
+
   #dependencies
   belongs_to :department
   belongs_to :employeestatus
   belongs_to :user, optional: true
 
-  #delete cascading
-  has_many :invoices, dependent: :destroy
+  #normalized for
+  has_many :invoices
 
   #field validation
   validates :empfname, presence: true, format: { with: /\A[a-z ][a-z- ]*[a-z-' ]\z/i }, length: { maximum: 128 }
@@ -22,5 +23,4 @@ class Employee < ApplicationRecord
     "#{empfname} #{emplname}"
   end
 
-  #belongs_to :dummyuser
 end

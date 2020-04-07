@@ -1,8 +1,9 @@
 class Customertype < ApplicationRecord
 
-  #delete cascading
-  has_many :customers, dependent: :destroy
+  #normalized for
+  has_many :customers
 
-  #field validation
+  #fields validation
   validates :customertype, presence: true, length: { maximum: 128 }
+
 end

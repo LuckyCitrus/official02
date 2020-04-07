@@ -1,7 +1,7 @@
 class Company < ApplicationRecord
 
-  #delete cascading
-  has_many :departments, dependent: :destroy
+  #normalized for
+  has_many :departments
 
   #associative relation
   has_many :employees, through: :departments
@@ -11,4 +11,5 @@ class Company < ApplicationRecord
 
   #field validation
   validates :companyname, presence: true, length: { maximum: 128 }
+
 end

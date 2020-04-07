@@ -1,9 +1,9 @@
 class Paymentmethod < ApplicationRecord
 
-  #delete cascading
-  has_many :payments, dependent: :destroy
+  #normalized for
+  has_many :payments
 
-  #field validation
+  #fields validation
   validates :paymenttype, presence: true, length: { maximum: 128 }
 
 end

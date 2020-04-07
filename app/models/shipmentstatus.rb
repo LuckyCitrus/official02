@@ -1,8 +1,9 @@
 class Shipmentstatus < ApplicationRecord
 
-  #delete cascading
-  has_many :shipments, dependent: :destroy
+  #normalized for
+  has_many :shipments
 
   #field validation
   validates :shipmentstatus, presence: true, length: { maximum: 128 }
+
 end

@@ -3,10 +3,10 @@ class Auction < ApplicationRecord
   #dependencies
   belongs_to :location
 
-  #delete cascading
+  #normalized for
   has_many :order_auctions
 
-  #associative relation
+  #associative relations
   has_many :orders, through: :order_auctions
 
   #fields validation

@@ -4,7 +4,8 @@ class Containerorder < ApplicationRecord
   belongs_to :container
   belongs_to :order
 
-  #field validation
+  #fields validation
   validates :container_id, presence: true
   validates :order_id, presence: true
+
 end

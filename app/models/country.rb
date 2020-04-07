@@ -1,6 +1,6 @@
 class Country < ApplicationRecord
 
-  #delete cascading
+  #normalized for
   has_many :customers
 
   #fields validation

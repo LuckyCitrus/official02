@@ -11,15 +11,15 @@ class Order < ApplicationRecord
   has_many :containerorders, dependent: :destroy
   has_many :pictures, dependent: :destroy
 
-  #associative relation
+  #associative relations
   has_many :containers, through: :containerorders
   has_many :invoices, through: :orderinvoices
   has_many :auctions, through: :order_auctions
 
-  #nested form
+  #nested forms
   accepts_nested_attributes_for :cars, reject_if: :all_blank, allow_destroy: :true
 
-  #field validation
+  #fields validation
   validates :ordernum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { maximum: 128 }
   validates :date, presence: true
   validates :customer_id, presence: true

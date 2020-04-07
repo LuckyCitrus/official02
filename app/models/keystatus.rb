@@ -1,7 +1,7 @@
 class Keystatus < ApplicationRecord
 
-	#delete cascading
-	has_many :cars, dependent: :destroy
+	#normalized for
+	has_many :cars
 
 	#fields validation
 	validates :keystatus, presence: true, length: { maximum: 128 }
