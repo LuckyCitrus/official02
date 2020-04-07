@@ -8,7 +8,7 @@ class DashboardCalculations
     end
 
     def self.shipments_by_month
-        Shipment.group_by_month(:shipmentdate, format: '%b %Y').sum(:quantity)
+        Shipment.group_by_month(:date, format: '%b %Y').sum(:quantity)
     end
 
     def self.total_payments

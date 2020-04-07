@@ -6,33 +6,38 @@
                 <h3>Dashboard</h3>
             </div>
             <div class="card-body">
-                <div class="charts">
-                    <%= column_chart charts_orders_by_month_path,
-		colors: ["#4baec0"],
-		xtitle: "Month",
-		ytitle: "Orders",
-		title: "Monthly Orders"
-		%><br>
-
+                <div class="charts" ;>
+                    <%= column_chart charts_orders_by_month_path, 
+                    xtitle: "Month",
+                    ytitle: "Orders",
+                    title: "Monthly Orders"
+                    %><br>
                     <%= area_chart charts_invoices_by_month_path,
-		prefix: "$",
-		colors: ["#64a5d1"],
-		xtitle: "Month",
-		ytitle: "Invoices ($)",
-		title: "Monthly Invoices"
-		%><br>
-
+                    prefix: "$",
+                    thousands: ",",
+                    colors: ["#64a5d1"],
+                    xtitle: "Month",
+                    ytitle: "Invoices ($)",
+                    title: "Monthly Invoices"
+                    %><br>
+                    <%= column_chart charts_shipments_by_month_path,
+                    colors: ["#63CCBF"],
+                    xtitle: "Month",
+                    ytitle: "Shipments",
+                    title: "Monthly Shipments"
+                    %><br>
                     <%= bar_chart charts_total_payments_path,
-		colors: ["#6489d1"],
-		xtitle: "Amount",
-		ytitle: "Payment Status",
-		title: "Total Payments"
-		%>
+                    prefix: "$",
+                    colors: ["#6489d1"],
+                    xtitle: "Amount ($)",
+                    ytitle: "Payment Status",
+                    title: "Annual Total Payments"
+		            %>
                 </div>
             </div>
         </div>
     </div>
 
     <% else %>
-    <div class="background-image"></div>
+    <div class=" background-image"></div>
     <% end %>
