@@ -9,11 +9,13 @@ gem 'pundit'
 gem 'devise'
 gem 'seed_dump'
 gem 'yaml_db'
+gem 'gon'
 
 # Gems for Nested Form
 gem 'jquery-rails'
 gem 'cocoon'
 
+gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use postgresql as the database for Active Record
