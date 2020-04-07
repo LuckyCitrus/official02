@@ -1,3 +1,0 @@
-class Dummyrole < ApplicationRecord
-
-end
