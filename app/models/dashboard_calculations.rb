@@ -7,6 +7,10 @@ class DashboardCalculations
         Order.group_by_month(:date, format: '%b %Y').sum(:quantity)
     end
 
+    def self.shipments_by_month
+        Shipment.group_by_month(:shipmentdate, format: '%b %Y').sum(:quantity)
+    end
+
     def self.total_payments
         Payment.joins(:paymentstatus).where(["paymentstatuses.id = payments.paymentstatus_id"]).group("paymentstatuses.paymentstatus").count
     end
