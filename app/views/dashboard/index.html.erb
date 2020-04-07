@@ -8,31 +8,70 @@
             <div class="card-body">
                 <div class="charts" ;>
                     <%= column_chart charts_orders_by_month_path, 
+                    download: {filename: "Monthly_Orders_" + Date.today.to_s(:short_date)},
                     xtitle: "Month",
                     ytitle: "Orders",
-                    title: "Monthly Orders"
+                    title: "Monthly Total Orders"
                     %><br>
                     <%= area_chart charts_invoices_by_month_path,
+                    download: {filename: "Monthly_Invoices_" + Date.today.to_s(:short_date)},
                     prefix: "$",
                     thousands: ",",
                     colors: ["#64a5d1"],
                     xtitle: "Month",
                     ytitle: "Invoices ($)",
-                    title: "Monthly Invoices"
+                    title: "Monthly Total Invoices"
                     %><br>
                     <%= column_chart charts_shipments_by_month_path,
+                    download: {filename: "Monthly_Shipments_" + Date.today.to_s(:short_date)},
                     colors: ["#63CCBF"],
                     xtitle: "Month",
                     ytitle: "Shipments",
-                    title: "Monthly Shipments"
+                    title: "Monthly Total Shipments"
                     %><br>
-                    <%= bar_chart charts_total_payments_path,
+                    <%#= bar_chart charts_total_payments_path,
+                    download: {filename: "Annual_Total_Payments_" + Date.today.to_s(:short_date)},
                     prefix: "$",
                     colors: ["#6489d1"],
                     xtitle: "Amount ($)",
                     ytitle: "Payment Status",
                     title: "Annual Total Payments"
 		            %>
+                    <%= column_chart  [
+                    {
+                        name: "Completed",
+                        data: Payment.where(paymentstatus_id: 1).group_by_month(:date, format: '%b %Y').count,
+                        stack: "stack 1"           
+                    },
+                    {
+                        name: "Pending",
+                        data: Payment.where(paymentstatus_id: 2).group_by_month(:date, format: '%b %Y').count,
+                        stack: "stack 2"
+                    },
+                    {
+                        name: "Partial",
+                        data: Payment.where(paymentstatus_id: 3).group_by_month(:date, format: '%b %Y').count,
+                        stack: "stack 3"
+                    },
+                    {
+                        name: "Denied",
+                        data: Payment.where(paymentstatus_id: 4).group_by_month(:date, format: '%b %Y').count,
+                        stack: "stack 4"
+                    },
+                    {
+                        name: "Refunded",
+                        data: Payment.where(paymentstatus_id: 5).group_by_month(:date, format: '%b %Y').count,
+                        stack: "stack 4"
+                    }
+                    ], stacked: true,
+                    download: {filename: "Annual_Total_Payments_" + Date.today.to_s(:short_date)},
+                    prefix: "$",
+                    thousands: ",",
+                    colors: ["#7063CC","#63AECC" , "#63CCB7", "#CE6363", "#CC7D63"],
+                    xtitle: "Month",
+                    ytitle: "Amount ($)",
+                    title: "Annual Total Payments"
+                %>
                 </div>
             </div>
         </div>
