@@ -28,14 +28,19 @@
                         <td><%= invoice.invoicestatus.invoicestatus %></td>
                         <td><%= number_to_currency(invoice.amountdue) %></td>
                         <!--<td><%= link_to 'Show', invoice %></td>-->
-                        <td><%= link_to 'Edit', edit_invoice_path(invoice) %> / 
-                        <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_invoice_path(invoice) %> /
+                            <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Invoice', new_invoice_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Invoice', new_invoice_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>
