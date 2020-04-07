@@ -18,14 +18,19 @@
                         <td><%= link_to invoiceshipment.shipment.shipmentnum, invoiceshipment.shipment %></td>
                         <td><%= link_to invoiceshipment.invoice.invoicenum, invoiceshipment.invoice %></td>
                         <!--<td><%= link_to 'Show', invoiceshipment %></td>-->
-                        <td><%= link_to 'Edit', edit_invoiceshipment_path(invoiceshipment) %> / 
-                        <%= link_to 'Destroy', invoiceshipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_invoiceshipment_path(invoiceshipment) %> /
+                            <%= link_to 'Destroy', invoiceshipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Invoice Shipment', new_invoiceshipment_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Invoice Shipment', new_invoiceshipment_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>

@@ -5,7 +5,8 @@ class InvoiceshipmentsController < ApplicationController
   # GET /invoiceshipments
   # GET /invoiceshipments.json
   def index
-    @invoiceshipments = Invoiceshipment.all
+    #@invoiceshipments = Invoiceshipment.all
+    @pagy, @invoiceshipments = pagy(Invoiceshipment)
   end
 
   # GET /invoiceshipments/1
