@@ -1,0 +1,45 @@
+<div class="row row-fluid">
+    <div class="col-xs-12">
+        <div class="card card-default">
+            <div class="card-header">
+                <h2>Monthly Active Orders</h2>
+            </div>
+            <table class="table table-hover table-bordered table responsive">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Order</th>
+                        <th>Order Date</th>
+                        <th>Order Status</th>
+                        <th>Payment Status</th>
+                        <th>Shipment Status</th>
+                        <th>Container</th>
+                        <th>Warehouse</th>
+                        <th colspan="10"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @active_orders.each do |active_order| %>
+                    <tr>
+                        <td><%= active_order.name %></td>
+                        <td><%= active_order.email %></td>
+                        <td><%= active_order.ordernum %></td>
+                        <td><%= active_order.date %></td>
+                        <td><%= active_order.orderstatus %></td>
+                        <td><%= active_order.paymentstatus %></td>
+                        <td><%= active_order.shipmentstatus %></td>
+                        <td><%= active_order.containernum %></td>
+                        <td><%= active_order.warehousename %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <div class="card-footer">
+                <%= link_to "View PDF", reports_active_orders_path(@active_orders, format: :pdf), class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
