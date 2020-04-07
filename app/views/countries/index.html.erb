@@ -16,8 +16,10 @@
                     <tr>
                         <td><%= link_to country.country_name, country %></td>
                         <!--<td><%= link_to 'Show', country %></td>-->
-                        <td><%= link_to 'Edit', edit_country_path(country) %> / 
-                        <%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_country_path(country) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

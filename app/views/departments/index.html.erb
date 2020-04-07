@@ -18,8 +18,10 @@
                         <td><%= link_to department.departmentname, department %></td>
                         <td><%= link_to department.company.companyname, department.company %></td>
                         <!--<td><%= link_to 'Show', department %></td>-->
-                        <td><%= link_to 'Edit', edit_department_path(department) %> / 
-                        <%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_department_path(department) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

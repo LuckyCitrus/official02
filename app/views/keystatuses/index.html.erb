@@ -16,8 +16,10 @@
                     <tr>
                         <td><%= link_to keystatus.keystatus, keystatus %></td>
                         <!--<td><%= link_to 'Show', keystatus %></td>-->
-                        <td><%= link_to 'Edit', edit_keystatus_path(keystatus) %> / 
-                        <%= link_to 'Destroy', keystatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_keystatus_path(keystatus) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', keystatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

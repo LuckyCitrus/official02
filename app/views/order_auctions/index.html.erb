@@ -18,8 +18,10 @@
                         <td><%= link_to order_auction.order.ordernum, order_auction.order %></td>
                         <td><%= link_to order_auction.auction.auctionname, order_auction.auction %></td>
                         <!--<td><%= link_to 'Show', order_auction %></td>-->
-                        <td><%= link_to 'Edit', edit_order_auction_path(order_auction) %> / 
-                        <%= link_to 'Destroy', order_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_order_auction_path(order_auction) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', order_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

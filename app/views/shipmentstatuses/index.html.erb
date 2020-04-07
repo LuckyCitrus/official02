@@ -16,8 +16,10 @@
                     <tr>
                         <td><%= link_to shipmentstatus.shipmentstatus, shipmentstatus %></td>
                         <!--<td><%= link_to 'Show', shipmentstatus %></td>-->
-                        <td><%= link_to 'Edit', edit_shipmentstatus_path(shipmentstatus) %> / 
-                        <%= link_to 'Destroy', shipmentstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_shipmentstatus_path(shipmentstatus) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', shipmentstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

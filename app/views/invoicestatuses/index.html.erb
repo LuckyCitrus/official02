@@ -16,8 +16,10 @@
                     <tr>
                         <td><%= link_to invoicestatus.invoicestatus, invoicestatus %></td>
                         <!--<td><%= link_to 'Show', invoicestatus %></td>-->
-                        <td><%= link_to 'Edit', edit_invoicestatus_path(invoicestatus) %> / 
+                        <td><%= link_to 'Edit', edit_invoicestatus_path(invoicestatus) %>
+                        <% if current_user.admin? %> / 
                         <%= link_to 'Destroy', invoicestatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>
