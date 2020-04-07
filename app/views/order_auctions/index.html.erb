@@ -18,14 +18,19 @@
                         <td><%= link_to order_auction.order.ordernum, order_auction.order %></td>
                         <td><%= link_to order_auction.auction.auctionname, order_auction.auction %></td>
                         <!--<td><%= link_to 'Show', order_auction %></td>-->
-                        <td><%= link_to 'Edit', edit_order_auction_path(order_auction) %> / 
-                        <%= link_to 'Destroy', order_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_order_auction_path(order_auction) %> /
+                            <%= link_to 'Destroy', order_auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Order Auction', new_order_auction_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Order Auction', new_order_auction_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>
