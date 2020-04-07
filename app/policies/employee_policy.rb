@@ -4,7 +4,6 @@ class EmployeePolicy < ApplicationPolicy
   def initialize(user, employee)
     @user = user
     @employee = employee
-  end
 
   class Scope < Scope
     def resolve

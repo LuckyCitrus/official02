@@ -56,6 +56,7 @@ class EmployeestatusesController < ApplicationController
   # DELETE /employeestatuses/1.json
   def destroy
     @employeestatus.destroy
+    authorize @employeestatus
     respond_to do |format|
       format.html { redirect_to employeestatuses_url, notice: 'Employeestatus was successfully destroyed.' }
       format.json { head :no_content }
