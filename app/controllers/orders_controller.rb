@@ -6,7 +6,8 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     #@orders = Order.all
-    @orders = policy_scope(Order)
+    #@orders = policy_scope(Order)
+    @pagy, @orders = pagy(policy_scope(Order))
   end
 
   # GET /orders/1

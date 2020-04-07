@@ -6,18 +6,18 @@
             </div>
             <table class="table table-hover table-bordered table-responsive">
                 <thead class="thead-light">
-                        <tr>
-                            <th>Order Number</th>
-                            <th>Order Date</th>
-                            <th>Customer</th>
-                            <th>Lotstock</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Total</th>
-                            <th>Order Status</th>
-                            <th colspan="8"></th>
-                        </tr>
-                    </thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Order Date</th>
+                        <th>Customer</th>
+                        <th>Lotstock</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Order Status</th>
+                        <th colspan="8"></th>
+                    </tr>
+                </thead>
                 <tbody>
                     <% @orders.each do |order| %>
                     <tr>
@@ -30,14 +30,19 @@
                         <td><%= number_to_currency(order.total) %></td>
                         <td><%= order.orderstatus.orderstatus %></td>
                         <!--<td><%= link_to 'Show', order %></td>-->
-                        <td><%= link_to 'Edit', edit_order_path(order) %> / 
-                        <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_order_path(order) %> /
+                            <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Order', new_order_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Order', new_order_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>
