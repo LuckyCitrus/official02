@@ -6,7 +6,8 @@ class PaymentsController < ApplicationController
   # GET /payments.json
   def index
     #@payments = Payment.all
-    @payments = policy_scope(Payment)
+    #@payments = policy_scope(Payment)
+    @pagy, @payments = pagy(policy_scope(Payment))
   end
 
   # GET /payments/1
