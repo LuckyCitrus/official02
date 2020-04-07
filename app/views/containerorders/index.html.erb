@@ -19,13 +19,18 @@
                         <td><%= link_to containerorder.order.ordernum, containerorder.order %></td>
                         <!--<td><%= link_to 'Show', containerorder %></td>-->
                         <td><%= link_to 'Edit', edit_containerorder_path(containerorder) %> /
-                        <%= link_to 'Destroy', containerorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            <%= link_to 'Destroy', containerorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Container Order', new_containerorder_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Container Order', new_containerorder_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>

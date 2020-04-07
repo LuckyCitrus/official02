@@ -28,14 +28,19 @@
                         <td><%= car.keystatus.keystatus %></td>
                         <td><%= link_to car.order.ordernum, car.order %></td>
                         <!--<td><%= link_to 'Show', car %></td>-->
-                        <td><%= link_to 'Edit', edit_car_path(car) %> / 
-                        <%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_car_path(car) %> /
+                            <%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Car', new_car_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Car', new_car_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>
