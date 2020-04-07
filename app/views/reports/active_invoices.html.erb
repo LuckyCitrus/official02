@@ -1,0 +1,34 @@
+<div class="row row-fluid">
+    <div class="col-xs-12">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Monthly Active Invoices</h1>
+            </div>
+            <table class="table table-hover table-bordered table responsive">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Invoice</th>
+                        <th>Invoice Date</th>
+                        <th>Invoice Status</th>
+                        <th colspan="6"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @active_invoices.each do |active_invoice| %>
+                    <tr>
+                        <td><%= active_invoice.name %></td>
+                        <td><%= active_invoice.email %></td>
+                        <td><%= active_invoice.invoicenum %></td>
+                        <td><%= active_invoice.invoicedate %></td>
+                        <td><%= active_invoice.invoicestatus %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br>

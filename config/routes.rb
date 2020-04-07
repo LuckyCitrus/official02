@@ -40,9 +40,9 @@ Rails.application.routes.draw do
   
   root 'dashboard#index'
   get 'users/index', to: 'users#index'
-  #get 'auction_orders/index', to: 'auction_orders#index'
-  get 'reports/auction_orders', to: 'reports#auction_orders'
   get 'reports/active_orders', to: 'reports#active_orders'
+  get 'reports/active_invoices', to: 'reports#active_invoices'
+  get 'reports/auction_orders', to: 'reports#auction_orders'
   get 'register', to: redirect('register/sign_up')
   get 'orderauctions', to: redirect('order_auctions')
 
