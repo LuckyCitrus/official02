@@ -1,13 +1,13 @@
 class Employee < ApplicationRecord
+  #dependencies
   belongs_to :department
   belongs_to :employeestatus
-  #belongs_to :dummyuser
   belongs_to :user, optional: true
 
-  def emp_fullname
-    "#{empfname} #{emplname}"
-  end
+  #delete cascading
+  has_many :invoices, dependent: :destroy
 
+  #field validation
   validates :empfname, presence: true, format: { with: /\A[a-z ][a-z- ]*[a-z-' ]\z/i }, length: { maximum: 128 }
   validates :emplname, presence: true, format: { with: /\A[a-z ][a-z- ]*[a-z-' ]\z/i }, length: { maximum: 128 }
   validates :address, presence: true, length: { maximum: 128 }
@@ -18,4 +18,9 @@ class Employee < ApplicationRecord
   validates :employeestatus_id, presence: true
   validates :user_id, uniqueness: true, allow_nil: true
 
+  def emp_fullname
+    "#{empfname} #{emplname}"
+  end
+
+  #belongs_to :dummyuser
 end

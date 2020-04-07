@@ -1,13 +1,16 @@
 class Customer < ApplicationRecord
+
+  #dependencies
   belongs_to :country
   belongs_to :customerstatus
   belongs_to :customertype
-  #has_many :dummyuser
   belongs_to :user, optional: true
 
-  has_many :orders
+  #delete cascading
+  has_many :orders, dependent: :destroy
   has_many :payments, dependent: :destroy
-  
+
+  #field validation
   validates :first_name, presence: true, format: { with: /\A[a-z ][a-z- ]*[a-z-' ]\z/i }, length: { maximum: 128 }
   validates :last_name, presence: true, format: { with: /\A[a-z ][a-z- ]*[a-z-' ]\z/i }, length: { maximum: 128 }
   validates :address, presence: true, length: { maximum: 128 }
@@ -19,4 +22,5 @@ class Customer < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  #has_many :dummyuser
 end

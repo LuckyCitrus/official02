@@ -1,2 +1,3 @@
 class Dummyrole < ApplicationRecord
+
 end
