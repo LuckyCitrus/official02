@@ -20,8 +20,10 @@
                         <td><%= link_to container.shipment.shipmentnum, container.shipment %></td>
                         <td><%= link_to container.company.companyname, container.company %></td>
                         <!--<td><%= link_to 'Show', container %></td>-->
-                        <td><%= link_to 'Edit', edit_container_path(container) %> /
+                        <td><%= link_to 'Edit', edit_container_path(container) %>
+                        <% if current_user.admin? %> / 
                             <%= link_to 'Destroy', container, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

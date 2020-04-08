@@ -30,8 +30,10 @@
                         <td><%= number_to_currency(order.total) %></td>
                         <td><%= order.orderstatus.orderstatus %></td>
                         <!--<td><%= link_to 'Show', order %></td>-->
-                        <td><%= link_to 'Edit', edit_order_path(order) %> /
+                        <td><%= link_to 'Edit', edit_order_path(order) %>
+                        <% if current_user.admin? %> / 
                             <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

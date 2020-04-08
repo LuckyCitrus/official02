@@ -18,8 +18,10 @@
                         <td><%= link_to containerorder.container.containernum, containerorder.container %></td>
                         <td><%= link_to containerorder.order.ordernum, containerorder.order %></td>
                         <!--<td><%= link_to 'Show', containerorder %></td>-->
-                        <td><%= link_to 'Edit', edit_containerorder_path(containerorder) %> /
+                        <td><%= link_to 'Edit', edit_containerorder_path(containerorder) %>
+                        <% if current_user.admin? %> / 
                             <%= link_to 'Destroy', containerorder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

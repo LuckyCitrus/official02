@@ -17,8 +17,10 @@
                     <tr>
                         <td><%= link_to orderstatus.orderstatus, orderstatus %></td>
                         <!--<td><%= link_to 'Show', orderstatus %></td>-->
-                        <td><%= link_to 'Edit', edit_orderstatus_path(orderstatus) %> / 
-                        <%= link_to 'Destroy', orderstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_orderstatus_path(orderstatus) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', orderstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

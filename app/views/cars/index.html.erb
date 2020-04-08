@@ -28,8 +28,10 @@
                         <td><%= car.keystatus.keystatus %></td>
                         <td><%= link_to car.order.ordernum, car.order %></td>
                         <!--<td><%= link_to 'Show', car %></td>-->
-                        <td><%= link_to 'Edit', edit_car_path(car) %> /
+                        <td><%= link_to 'Edit', edit_car_path(car) %>
+                        <% if current_user.admin? %> / 
                             <%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

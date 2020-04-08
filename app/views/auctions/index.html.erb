@@ -20,8 +20,10 @@
                         <td><%= auction.address %></td>
                         <td><%= link_to auction.location.city, auction.location %></td>
                         <!--<td><%= link_to 'Show', auction %></td>-->
-                        <td><%= link_to 'Edit', edit_auction_path(auction) %> /
-                            <%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+                        <td><%= link_to 'Edit', edit_auction_path(auction) %>
+                            <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            <% end %>
                         <td></td>
                     </tr>
                     <% end %>

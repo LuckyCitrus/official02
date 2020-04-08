@@ -16,8 +16,10 @@
                     <tr>
                         <td><%= link_to titlestatus.titlestatus, titlestatus %></td>
                         <!--<td><%= link_to 'Show', titlestatus %></td>-->
-                        <td><%= link_to 'Edit', edit_titlestatus_path(titlestatus) %> / 
-                        <%= link_to 'Destroy', titlestatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_titlestatus_path(titlestatus) %>
+                            <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', titlestatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            <% end %>
                     </tr>
                     <% end %>
                 </tbody>

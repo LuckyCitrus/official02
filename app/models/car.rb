@@ -1,8 +1,11 @@
 class Car < ApplicationRecord
-   belongs_to :titlestatus
-   belongs_to :keystatus
-   belongs_to :order
 
+  #dependencies
+  belongs_to :titlestatus
+  belongs_to :keystatus
+  belongs_to :order
+
+  #fields validation
   validates :vinnumber, presence: true, length: { minimum: 11, maximum: 17 }
   validates :year, presence: true, inclusion: { in: 1900..Date.today.year+1 }, format: { with: /(19|20)\d{2}/i }
   validates :make, presence: true, length: { maximum: 128 }
@@ -13,4 +16,5 @@ class Car < ApplicationRecord
   def car_info
     "#{year} #{make} #{model}"
   end
+
 end

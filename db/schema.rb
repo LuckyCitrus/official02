@@ -131,21 +131,6 @@ ActiveRecord::Schema.define(version: 2020_04_07_010548) do
     t.index ["company_id"], name: "index_departments_on_company_id"
   end
 
-  create_table "dummyroles", force: :cascade do |t|
-    t.string "role"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "dummyusers", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
-    t.bigint "dummyrole_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["dummyrole_id"], name: "index_dummyusers_on_dummyrole_id"
-  end
-
   create_table "employees", force: :cascade do |t|
     t.string "empfname"
     t.string "emplname"
@@ -371,12 +356,9 @@ ActiveRecord::Schema.define(version: 2020_04_07_010548) do
   add_foreign_key "customers", "countries"
   add_foreign_key "customers", "customerstatuses"
   add_foreign_key "customers", "customertypes"
-  add_foreign_key "customers", "dummyusers"
   add_foreign_key "customers", "users"
   add_foreign_key "departments", "companies"
-  add_foreign_key "dummyusers", "dummyroles"
   add_foreign_key "employees", "departments"
-  add_foreign_key "employees", "dummyusers"
   add_foreign_key "employees", "employeestatuses"
   add_foreign_key "employees", "users"
   add_foreign_key "invoices", "customers"
