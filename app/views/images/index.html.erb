@@ -9,6 +9,7 @@
         <%= image_tag image.image, class: 'd-block w-100' if image.image.attached?%>
 
         <p class="my-1"><%= image.description %></p>
+        <p class="my-1"><%= image.user_id %></p>
 
         <%= link_to "View Image", image_path(image.id), class: 'btn btn-secondary stretched-link' %>
       </div>

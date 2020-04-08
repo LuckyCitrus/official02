@@ -24,6 +24,11 @@
         <%= f.text_area :description, class: 'form-control' %>
       </div>
 
+      <div class="field">
+        <%= f.label :user_id %>
+        <%= f.collection_select :id, User.order(:id), :id, :email, {include_blank: ""} %>
+      </div>
+
       <%= f.submit 'Post', class: 'btn btn-primary' %>
     <% end %>
   </div>

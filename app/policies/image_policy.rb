@@ -11,7 +11,8 @@ class ImagePolicy < ApplicationPolicy
       if user.admin? || user.employee
         scope.all
       else
-        scope.includes(:customer).where(customers: { user_id: user.id })
+        # scope.includes(:user).where(users: { user_id: @user.id })
+        scope.includes(:user).where(user_id: @user.id)
       end
 
     end
