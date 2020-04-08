@@ -265,11 +265,10 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   chartkick
-  devise
-  groupdate
   cocoon
   devise
   flatpickr
+  groupdate
   jbuilder (~> 2.7)
   jquery-rails
   pagy
