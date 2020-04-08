@@ -1,2 +1,22 @@
-<h1>Images#show</h1>
-<p>Find me in app/views/images/show.html.erb</p>
+<h2>Image</h2>
+
+<div class="row">
+  <div class="col-md-9">
+    <div class="card">
+      <div class="card-body p-2">
+        <%#= image_tag @images.images, class: 'd-block w-100' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <%#= link_to @images.user.full_name, profile_path(@images.user.username) %>
+
+    <p class="border-top mt-3 py-2">
+      <% if @images.description.present? %>
+        <%= @images.description %> -
+      <% end %>
+      <span class="text-muted"><%= time_ago_in_words @images.created_at %> ago</span>
+    </p>
+  </div>
+</div>
