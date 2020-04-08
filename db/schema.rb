@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_073244) do
+ActiveRecord::Schema.define(version: 2020_04_08_073521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -261,7 +261,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_073244) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
     t.bigint "invoice_id"
-    t.string "paymentnum"
+    t.integer "paymentnum", default: -> { "nextval('paymentnum_seq'::regclass)" }
     t.index ["customer_id"], name: "index_payments_on_customer_id"
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
     t.index ["paymentmethod_id"], name: "index_payments_on_paymentmethod_id"
