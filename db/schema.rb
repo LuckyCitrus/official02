@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_073851) do
+ActiveRecord::Schema.define(version: 2020_04_08_185300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,6 +158,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_073851) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_images_on_order_id"
     t.index ["user_id"], name: "index_images_on_user_id"
   end
 
@@ -353,6 +355,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_073851) do
   add_foreign_key "employees", "departments"
   add_foreign_key "employees", "employeestatuses"
   add_foreign_key "employees", "users"
+  add_foreign_key "images", "orders"
   add_foreign_key "images", "users"
   add_foreign_key "invoices", "customers"
   add_foreign_key "invoices", "employees"
