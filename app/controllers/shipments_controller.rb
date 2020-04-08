@@ -6,13 +6,14 @@ class ShipmentsController < ApplicationController
   # GET /shipments.json
   def index
     #@shipments = Shipment.all
-    @shipments = policy_scope(Shipment)
+    #@shipments = policy_scope(Shipment)
+    @pagy, @shipments = pagy(policy_scope(Shipment))
   end
 
   # GET /shipments/1
   # GET /shipments/1.json
   def show
-    @order = policy_scope(Order).find(params[:id])
+    @shipment = policy_scope(Shipment).find(params[:id])
   end
 
   # GET /shipments/new
@@ -59,6 +60,7 @@ class ShipmentsController < ApplicationController
   # DELETE /shipments/1.json
   def destroy
     @shipment.destroy
+    authorize @shipment
     respond_to do |format|
       format.html { redirect_to shipments_url, notice: 'Shipment was successfully destroyed.' }
       format.json { head :no_content }

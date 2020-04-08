@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_045452) do
+ActiveRecord::Schema.define(version: 2020_04_07_010548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,21 +129,6 @@ ActiveRecord::Schema.define(version: 2020_03_27_045452) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "company_id"
     t.index ["company_id"], name: "index_departments_on_company_id"
-  end
-
-  create_table "dummyroles", force: :cascade do |t|
-    t.string "role"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "dummyusers", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
-    t.bigint "dummyrole_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["dummyrole_id"], name: "index_dummyusers_on_dummyrole_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -339,7 +324,14 @@ ActiveRecord::Schema.define(version: 2020_03_27_045452) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
     t.integer "role"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -364,12 +356,9 @@ ActiveRecord::Schema.define(version: 2020_03_27_045452) do
   add_foreign_key "customers", "countries"
   add_foreign_key "customers", "customerstatuses"
   add_foreign_key "customers", "customertypes"
-  add_foreign_key "customers", "dummyusers"
   add_foreign_key "customers", "users"
   add_foreign_key "departments", "companies"
-  add_foreign_key "dummyusers", "dummyroles"
   add_foreign_key "employees", "departments"
-  add_foreign_key "employees", "dummyusers"
   add_foreign_key "employees", "employeestatuses"
   add_foreign_key "employees", "users"
   add_foreign_key "invoices", "customers"
@@ -392,4 +381,47 @@ ActiveRecord::Schema.define(version: 2020_03_27_045452) do
   add_foreign_key "shipments", "shipmentstatuses"
   add_foreign_key "shipments", "warehouses"
   add_foreign_key "warehouses", "locations"
+
+  create_view "active_orders", materialized: true, sql_definition: <<-SQL
+      SELECT concat(cus.first_name, cus.last_name) AS name,
+      cus.email,
+      o.ordernum,
+      o.date,
+      os.orderstatus,
+      ps.paymentstatus,
+      ss.shipmentstatus,
+      con.containernum,
+      w.warehousename
+     FROM (((((((((customers cus
+       JOIN orders o ON ((cus.id = o.customer_id)))
+       JOIN orderstatuses os ON ((os.id = o.orderstatus_id)))
+       JOIN payments p ON ((cus.id = p.customer_id)))
+       JOIN paymentstatuses ps ON ((ps.id = p.paymentstatus_id)))
+       JOIN containerorders co ON ((o.id = co.order_id)))
+       JOIN containers con ON ((con.id = co.container_id)))
+       JOIN shipments s ON ((s.id = con.shipment_id)))
+       JOIN shipmentstatuses ss ON ((ss.id = s.shipmentstatus_id)))
+       JOIN warehouses w ON ((w.id = s.warehouse_id)))
+    WHERE (((os.orderstatus)::text <> 'Completed
+  '::text) AND ((ps.paymentstatus)::text = 'Complete
+  '::text) AND (o.date > (CURRENT_DATE - '1 mon'::interval)))
+    ORDER BY o.date;
+  SQL
+  create_view "active_invoices", sql_definition: <<-SQL
+      SELECT concat(cus.first_name, cus.last_name) AS name,
+      cus.email,
+      i.invoicenum,
+      i.invoicedate,
+      ist.invoicestatus
+     FROM ((((((customers cus
+       JOIN orders o ON ((cus.id = o.customer_id)))
+       JOIN orderstatuses os ON ((os.id = o.orderstatus_id)))
+       JOIN payments p ON ((cus.id = p.customer_id)))
+       JOIN paymentstatuses ps ON ((ps.id = p.paymentstatus_id)))
+       JOIN invoices i ON ((i.customer_id = cus.id)))
+       JOIN invoicestatuses ist ON ((ist.id = i.invoicestatus_id)))
+    WHERE (((ist.invoicestatus)::text <> 'Paid
+  '::text) AND ((ps.paymentstatus)::text <> 'Paid'::text) AND (i.invoicedate > (CURRENT_DATE - '1 mon'::interval)))
+    ORDER BY i.invoicedate;
+  SQL
 end

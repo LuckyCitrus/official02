@@ -1,53 +1,64 @@
-<p>
-    <strong>First Name:</strong>
-    <%= @employee.empfname %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Employee</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>First Name:</strong>
+                    <%= @employee.empfname %>
+                </p>
+                <p>
+                    <strong>Last Name:</strong>
+                    <%= @employee.emplname %>
+                </p>
+                <p>
+                    <strong>Address:</strong>
+                    <%= @employee.address %>
+                </p>
+                <p>
+                    <strong>Email:</strong>
+                    <%= @employee.email %>
+                </p>
+                <p>
+                    <strong>Phone:</strong>
+                    <%= @employee.phone %>
+                </p>
+                <p>
+                    <strong>Title:</strong>
+                    <%= @employee.title %>
+                </p>
+                <p>
+                    <strong>Hire Date:</strong>
+                    <%= @employee.hiredate.to_s(:long_date) %>
+                </p>
+                <p>
+                    <strong>Department:</strong>
+                    <%= link_to @employee.department.departmentname, @employee.department if @employee.department %>
+                </p>
+                <p>
+                    <strong>Company:</strong>
+                    <%= link_to @employee.department.company.companyname, @employee.department.company if @employee.department.company %>
+                </p>
+                <p>
+                    <strong>Employee Status:</strong>
+                    <%= @employee.employeestatus.employeestatus %>
+                </p>
 
-<p>
-    <strong>Last Name:</strong>
-    <%= @employee.emplname %>
-</p>
+                <p>
+                    <strong>User:</strong>
+                    <% if current_user.try(:admin?)  %>
+                    <%= link_to @employee.user.try(:email), @employee.user if @employee.user %>
+                    <% else %>
+                    <td><%= @employee.user.try(:email) %></td>
+                    <%end%>
+                </p>
 
-<p>
-    <strong>Address:</strong>
-    <%= @employee.address %>
-</p>
-
-<p>
-    <strong>Email:</strong>
-    <%= @employee.email %>
-</p>
-
-<p>
-    <strong>Phone:</strong>
-    <%= @employee.phone %>
-</p>
-
-<p>
-    <strong>Title:</strong>
-    <%= @employee.title %>
-</p>
-
-<p>
-    <strong>Hire Date:</strong>
-    <%= @employee.hiredate %>
-</p>
-
-
-<p>
-    <strong>Department:</strong>
-    <%= @employee.department.departmentname %>
-</p>
-
-<p>
-    <strong>Employee Status:</strong>
-    <%= @employee.employeestatus.employeestatus %>
-</p>
-
-<p>
-    <strong>User:</strong>
-    <%= @employee.user.try(:email) %>
-</p>
-
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_employee_path(@employee), class: "btn btn-primary" %>
+                <%= link_to 'Back', employees_path, class: "btn btn-secondary" %> </div>
+        </div>
+    </div>
+</div>

@@ -1,25 +1,34 @@
-<h1>Titles Statuses</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @titlestatuses.each do |titlestatus| %>
-      <tr>
-        <td><%= titlestatus.titlestatus %></td>
-        <td><%= link_to 'Show', titlestatus %></td>
-        <td><%= link_to 'Edit', edit_titlestatus_path(titlestatus) %></td>
-        <td><%= link_to 'Destroy', titlestatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Title Statuses</h1>
+            </div>
+            <table class="table table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Title Status</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @titlestatuses.each do |titlestatus| %>
+                    <tr>
+                        <td><%= link_to titlestatus.titlestatus, titlestatus %></td>
+                        <!--<td><%= link_to 'Show', titlestatus %></td>-->
+                        <td><%= link_to 'Edit', edit_titlestatus_path(titlestatus) %>
+                            <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', titlestatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            <% end %>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <div class="card-footer">
+                <%= link_to 'New Title Status', new_titlestatus_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Title Status', new_titlestatus_path %>

@@ -1,7 +1,15 @@
 class Location < ApplicationRecord
-  has_many :auctions
-  has_many :warehouses
-  has_many :shipments, through: :warehouses
 
-  validates :city, presence: true, length: { minimum: 2, maximum: 36 }
+  #normalized for
+  has_many :auctions, inverse_of: :location
+  has_many :warehouses
+
+  #nested forms
+  accepts_nested_attributes_for :warehouses, reject_if: :all_blank, allow_destroy: :true
+  accepts_nested_attributes_for :auctions, reject_if: :all_blank, allow_destroy: :true
+
+  #fields validation
+  validates :city, presence: true, length: { maximum: 128 }
+  validates :city, presence: true, length: { maximum: 36 }
+
 end

@@ -1,43 +1,57 @@
-<h1>Employees</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Title</th>
-            <th>Hire Date</th>
-            <th>Department</th>
-            <th>Employee Status</th>
-            <th>User</th>
-            <th colspan="11"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <% @employees.each do |employee| %>
-        <tr>
-            <td><%= employee.empfname %></td>
-            <td><%= employee.emplname %></td>
-            <td><%= employee.address %></td>
-            <td><%= employee.email %></td>
-            <td><%= employee.phone %></td>
-            <td><%= employee.title %></td>
-            <td><%= employee.hiredate %></td>
-            <td><%= employee.department.departmentname %></td>
-            <td><%= employee.employeestatus.employeestatus %></td>
-            <td><%= employee.user.try(:email) %></td>
-            <td><%= link_to 'Show', employee %></td>
-            <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-            <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Employee', new_employee_path %>
+<div class="row row-fluid">
+    <div class="col-xs-10">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Employees</h1>
+            </div>
+            <table class="table table-hover table-bordered table-responsive">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Title</th>
+                        <th>Hire Date</th>
+                        <th>Department</th>
+                        <th>Employee Status</th>
+                        <th>User</th>
+                        <th colspan="11"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @employees.each do |employee| %>
+                    <tr>
+                        <td><%= link_to employee.try(:emp_fullname), employee %></td>
+                        <td><%= employee.address %></td>
+                        <td><%= employee.email %></td>
+                        <td><%= employee.phone %></td>
+                        <td><%= employee.title %></td>
+                        <td><%= employee.hiredate.to_s(:short_date) %></td>
+                        <td><%= link_to employee.department.departmentname, employee.department if employee.department %></td>
+                        <td><%= employee.employeestatus.employeestatus %></td>
+                        <% if current_user.try(:admin?)  %>
+                        <td><%= link_to employee.user.try(:email), employee.user if employee.user %></td>
+                        <% else %>
+                        <td><%= employee.user.try(:email) %></td>
+                        <%end%>
+                        <!--<td><%= link_to 'Show', employee %></td>-->
+                        <td><%= link_to 'Edit', edit_employee_path(employee) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <div class="card-footer">
+                <div class="footer-left">
+                    <%= link_to 'New Employee', new_employee_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

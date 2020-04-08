@@ -1,38 +1,74 @@
-<p>
-    <strong>Invoice Number:</strong>
-    <%= @invoice.invoicenum %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Invoice</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>Invoice Number:</strong>
+                    <%= @invoice.invoicenum %>
+                </p>
+                <p>
+                    <strong>Invoice Date:</strong>
+                    <%= @invoice.invoicedate.to_s(:long_date) %>
+                </p>
+                <p>
+                    <strong>Due Date:</strong>
+                    <%= @invoice.duedate.to_s(:long_date) %>
+                </p>
+                <p>
+                    <strong>Customer:</strong>
+                    <%= link_to @invoice.customer.cus_fullname, @invoice.customer %>
+                </p>
+                <p>
+                    <strong>Employee:</strong>
+                    <%= link_to @invoice.employee.emp_fullname, @invoice.employee %>
+                </p>
+                <p>
+                    <strong>Invoice Status:</strong>
+                    <%= @invoice.invoicestatus.invoicestatus %>
+                </p>
+                <p>
+                    <strong>Amount Due:</strong>
+                    <%= number_to_currency(@invoice.amountdue) %>
+                </p>
 
-<p>
-    <strong>Invoice Date:</strong>
-    <%= @invoice.invoicedate %>
-</p>
+                <p>
+                    <strong>Orders:</strong>
+                    <ul>
+                        <% @invoice.orders.each do |order| %>
+                        <li><strong>Order Number: </strong>
+                            <%= link_to order.ordernum, order %>
+                            (<%= order.orderstatus.orderstatus %>)</li>
+                        <% end %>
+                    </ul>
+                </p>
+                <p>
+                    <strong>Shipments:</strong>
+                    <ul>
+                        <% @invoice.shipments.each do |shipment| %>
+                        <li><strong>Shipment Number: </strong>
+                            <%= link_to shipment.shipmentnum, shipment %>
+                            (<%= shipment.shipmentstatus.shipmentstatus %>)</li>
+                        <% end %>
+                    </ul>
+                </p>
+                <p>
+                    <strong>Payments:</strong>
+                    <ul>
+                        <% @invoice.payments.each do |payment| %>
+                        <li><strong>Payment Number: </strong>
+                            <%= link_to payment.paymentnum, payment %>
+                            (<%= payment.paymentstatus.paymentstatus %>)</li>
+                        <% end %>
+                    </ul>
+                </p>
 
-<p>
-    <strong>Due Date:</strong>
-    <%= @invoice.duedate %>
-</p>
-
-<p>
-    <strong>Customer:</strong>
-    <%= @invoice.customer.cus_fullname %>
-</p>
-
-<p>
-    <strong>Employee:</strong>
-    <%= @invoice.employee.emp_fullname %>
-</p>
-
-<p>
-    <strong>Invoice Status:</strong>
-    <%= @invoice.invoicestatus.invoicestatus %>
-</p>
-
-<p>
-    <strong>Amount Due:</strong>
-    <%= number_to_currency(@invoice.amountdue) %>
-</p>
-
-
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit',  invoices_path(@invoice), class: "btn btn-primary" %>
+                <%= link_to 'Back', invoices_path, class: "btn btn-secondary" %> </div>
+        </div>
+    </div>
+</div>

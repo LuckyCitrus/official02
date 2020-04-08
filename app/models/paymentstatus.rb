@@ -1,3 +1,9 @@
 class Paymentstatus < ApplicationRecord
-  validates :paymentstatus, presence: true, length: { minimum: 2, maximum: 30 }
+
+  #normalized for
+  has_many :payments
+
+  #fields validation
+  validates :paymentstatus, presence: true, length: { maximum: 128 }
+
 end

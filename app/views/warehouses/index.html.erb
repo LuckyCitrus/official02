@@ -1,27 +1,36 @@
-<h1>Warehouses</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Warehouse Name</th>
-      <th>Location</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @warehouses.each do |warehouse| %>
-      <tr>
-        <td><%= warehouse.warehousename %></td>
-        <td><%= warehouse.location.city %></td>
-        <td><%= link_to 'Show', warehouse %></td>
-        <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %></td>
-        <td><%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Warehouses</h1>
+            </div>
+            <table class="table table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Warehouse Name</th>
+                        <th>Location</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @warehouses.each do |warehouse| %>
+                    <tr>
+                        <td><%= link_to warehouse.warehousename, warehouse %></td>
+                        <td><%= link_to warehouse.location.city, warehouse.location %></td>
+                        <!--<td><%= link_to 'Show', warehouse %></td>-->
+                        <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %>
+                            <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %>
+                            <% end %>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <div class="card-footer">
+                <%= link_to 'New Warehouse', new_warehouse_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Warehouse', new_warehouse_path %>

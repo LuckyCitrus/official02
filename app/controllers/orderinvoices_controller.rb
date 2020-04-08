@@ -5,7 +5,8 @@ class OrderinvoicesController < ApplicationController
   # GET /orderinvoices
   # GET /orderinvoices.json
   def index
-    @orderinvoices = Orderinvoice.all
+    #@orderinvoices = Orderinvoice.all
+    @pagy, @orderinvoices = pagy(Orderinvoice)
   end
 
   # GET /orderinvoices/1
@@ -56,6 +57,7 @@ class OrderinvoicesController < ApplicationController
   # DELETE /orderinvoices/1.json
   def destroy
     @orderinvoice.destroy
+    authorize @orderinvoice
     respond_to do |format|
       format.html { redirect_to orderinvoices_url, notice: 'Orderinvoice was successfully destroyed.' }
       format.json { head :no_content }

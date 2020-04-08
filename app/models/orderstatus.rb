@@ -1,5 +1,9 @@
 class Orderstatus < ApplicationRecord
+
+  #normalized for
   has_many :orders
 
-  validates :customerstatus, presence: true, length: { minimum: 2, maximum: 30 }
+  #fields validation
+  validates :orderstatus, presence: true, length: { maximum: 128 }
+
 end

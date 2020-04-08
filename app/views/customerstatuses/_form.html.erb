@@ -1,22 +1,23 @@
-<%= form_with(model: customerstatus, local: true) do |form| %>
-<% if customerstatus.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(customerstatus.errors.count, "error") %> prohibited this customerstatus from being saved:</h2>
+<div class="card-body">
+    <%= bootstrap_form_with(model: customerstatus, local: true, layout: :vertical) do |form| %>
+    <!--<% if customerstatus.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(customerstatus.errors.count, "error") %> prohibited this customerstatus from being saved:</h2>
 
-    <ul>
-        <% customerstatus.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% customerstatus.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>--><%= errors_for(@customerstatus) %>
 
-<div class="field">
-    <%= form.label :customerstatus, "Customer Status" %>
-    <%= form.text_field :customerstatus, minlength: 2, maxlength: 30, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.text_field :customerstatus, label: "Customer Status", maxlength: 128, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit action_name == 'new' ? 'Create Customer Status' : 'Update Customer Status'%>
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>

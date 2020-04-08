@@ -1,37 +1,44 @@
-<p>
-    <strong>Payment Number:</strong>
-    <%= @payment.paymentnum %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Payment</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>Payment Number:</strong>
+                    <%= @payment.paymentnum %>
+                </p>
+                <p>
+                    <strong>Payment Date:</strong>
+                    <%= @payment.date.to_s(:long_date) %>
+                </p>
+                <p>
+                    <strong>Amount:</strong>
+                    <%= number_to_currency(@payment.amount) %>
+                </p>
+                <p>
+                    <strong>Payment Status:</strong>
+                    <%= @payment.paymentstatus.paymentstatus %>
+                </p>
+                <p>
+                    <strong>Payment Method:</strong>
+                    <%= @payment.paymentmethod.paymenttype %>
+                </p>
+                <p>
+                    <strong>Customer:</strong>
+                    <%= link_to @payment.customer.cus_fullname, @payment.customer %>
+                </p>
+                <p>
+                    <strong>Invoice:</strong>
+                    <%= link_to @payment.invoice.invoicenum, @payment.invoice %>
+                    (<%= @payment.invoice.invoicestatus.invoicestatus %>)
+                </p>
 
-<p>
-    <strong>Date:</strong>
-    <%= @payment.date %>
-</p>
-
-<p>
-    <strong>Amount:</strong>
-    <%= number_to_currency(@payment.amount) %>
-</p>
-
-<p>
-    <strong>Payment Status:</strong>
-    <%= @payment.paymentstatus.paymentstatus %>
-</p>
-
-<p>
-    <strong>Payment Method:</strong>
-    <%= @payment.paymentmethod.paymenttype %>
-</p>
-
-<p>
-    <strong>Customer:</strong>
-    <%= @payment.customer.cus_fullname %>
-</p>
-
-<p>
-    <strong>Invoice:</strong>
-    <%= @payment.invoice.invoicenum %>
-</p>
-
-<%= link_to 'Edit', edit_payment_path(@payment) %> |
-<%= link_to 'Back', payments_path %>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_payment_path(@payment), class: "btn btn-primary" %>
+                <%= link_to 'Back', payments_path, class: "btn btn-secondary" %> </div>
+        </div>
+    </div>
+</div>

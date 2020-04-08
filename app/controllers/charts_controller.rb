@@ -15,5 +15,5 @@ class ChartsController < ApplicationController
 	def total_payments
 		render json: DashboardCalculations.total_payments
 	end
-
+	
 end

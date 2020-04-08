@@ -1,0 +1,12 @@
+<%# Nested Form Partial %>
+<div class='nested-fields'>
+
+    <div class="field">
+      <%= f.text_field :auctionname, label: "Auction Name", maxlength: 128, required: true %>
+      <%= f.text_field :address, pattern: "^[#'.0-9a-zA-Z\s,-]*$", maxlength: 128, required: true %>
+    </div>
+
+    <%= link_to_remove_association "Remove Auction", f %>
+
+</div>
+<%# End of Nested Form Partial %>

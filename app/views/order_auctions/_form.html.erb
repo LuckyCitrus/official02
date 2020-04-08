@@ -1,27 +1,27 @@
-<%= form_with(model: order_auction, local: true) do |form| %>
-<% if order_auction.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(order_auction.errors.count, "error") %> prohibited this order_auction from being saved:</h2>
+<div class="card-body">
+    <%= bootstrap_form_with(model: order_auction, local: true, layout: :vertical) do |form| %>
+    <!--<% if order_auction.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(order_auction.errors.count, "error") %> prohibited this order_auction from being saved:</h2>
 
-    <ul>
-        <% order_auction.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% order_auction.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>--><%= errors_for(@order_auction) %>
 
-<div class="field">
-    <%= form.label :order_id %>
-    <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
-</div>
+    <div class="field">
+        <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :auction_id %>
-    <%= form.collection_select :auction_id, Auction.order(:auctionname), :id, :auctionname, {include_blank: ""}, required: true %>
-</div>
+    <div class="field">
+        <%= form.collection_select :auction_id, Auction.order(:auctionname), :id, :auctionname, {include_blank: ""}, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit action_name == 'new' ? 'Create Order Auction' : 'Update Order Auction'%>
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>

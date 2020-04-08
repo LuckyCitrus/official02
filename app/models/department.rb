@@ -1,6 +1,13 @@
 class Department < ApplicationRecord
+
+  #dependencies
   belongs_to :company
 
-  validates :departmentname, presence: true, length: { minimum: 3, maximum: 36 }
+  #normalized for
+  has_many :employees
+
+  #fields validation
+  validates :departmentname, presence: true, length: { maximum: 128 }
   validates :company_id, presence: true
+
 end

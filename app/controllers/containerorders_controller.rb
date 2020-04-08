@@ -5,7 +5,8 @@ class ContainerordersController < ApplicationController
   # GET /containerorders
   # GET /containerorders.json
   def index
-    @containerorders = Containerorder.all
+    #@containerorders = Containerorder.all
+    @pagy, @containerorders = pagy(Containerorder)
   end
 
   # GET /containerorders/1
@@ -56,6 +57,7 @@ class ContainerordersController < ApplicationController
   # DELETE /containerorders/1.json
   def destroy
     @containerorder.destroy
+    authorize @containerorder
     respond_to do |format|
       format.html { redirect_to containerorders_url, notice: 'Containerorder was successfully destroyed.' }
       format.json { head :no_content }

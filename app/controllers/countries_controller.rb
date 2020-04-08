@@ -5,7 +5,8 @@ class CountriesController < ApplicationController
   # GET /countries
   # GET /countries.json
   def index
-    @countries = Country.all
+    #@countries = Country.all
+    @pagy, @countries = pagy(Country.all)
   end
 
   # GET /countries/1
@@ -56,6 +57,7 @@ class CountriesController < ApplicationController
   # DELETE /countries/1.json
   def destroy
     @country.destroy
+    authorize @country
     respond_to do |format|
       format.html { redirect_to countries_url, notice: 'Country was successfully destroyed.' }
       format.json { head :no_content }

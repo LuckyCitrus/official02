@@ -14,13 +14,23 @@
  *= require_self
  */
 @import "bootstrap/scss/bootstrap";
+@import "rails_bootstrap_forms";
 
-body {
-  font: Helvetica, sans-serif;
+html, body {
+	margin: 0;
+	padding: 0;
+			font-family: 'Trebuchet MS', 'Roboto',
+			Helvetica,
+			sans-serif;
 }
 
+ p, a, li, td {
+	font-family: 'Trebuchet MS', 'Roboto', Helvetica, sans-serif;
+	font-size: 14px;
+ }
+ 
 .background-image {
-	background-image: url("Car_Cargo.jpg");
+	background-image: url("https://bucketeer-396b7776-65f2-4c5b-b817-0d75c447dd4e.s3.amazonaws.com/public/Car_Cargo.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -28,30 +38,132 @@ body {
 }
 
 .header {
-    height: 70px;
-    position: relative;
+  height: 70px;
+	position: relative;
 }
 
-.header-left {
+.header-left .footer-left {
     float: left;
 }
 
-.header-right {
+.header-right, .footer-right {
     float: right;
-    position: absolute;
-    bottom:0;
-    right:0;
+    position:absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .header-right p {
-    padding-right: 6px;
+    padding-right: 10px;
 }
 
-nav .navbar-nav li a {
-    color: white !important;
+.navigation {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	z-index: 1;
 }
 
-.container {
+.row-fluid, .card {
+	display: flex;
+	justify-content: center;
+	margin: 1.5em;
+}
+
+nav.navbar {
+	padding: 0 1rem;
+}
+
+.navbar {
+  min-height: 50px;
+}
+
+.nav-link {
+  height: 50px;
+  line-height: 32px;
+  border-radius: .5px;
+  min-width: 80px;
+  text-align: center;
+}
+
+nav a:hover{ 
+    transition: ease-in-out all .1s; 
+    -moz-transition: ease-in-out all .1s;
+    -webkit-transition: ease-in-out all .1s;
+}
+
+#order-btn {
+	min-width: 100px;
+}
+
+.dropbtn {
+	padding: 16px;
+	border: none;
+	font-size: 14px;
+	background-color: transparent;
+	color: #ffffff;
+	min-width: 150px;
+	font-family: 'Trebuchet MS', 'Roboto', Helvetica, sans-serif;
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #343A40;
+	opacity: .95;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	width: 100%;
+}
+
+.dropdown-content a {
+	color: #ffffff;
+	text-decoration: none;
+	display: block;
+	text-align:center;
+	font-size: 14px;
+}
+
+.dropdown-content a:hover {
+	background-color: rgb(31, 33, 36);
+	color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+	color: #ffffff;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+.content a {
+	//color: #0000EE;
+	-o-transition: .5s;
+	-ms-transition: .5s;
+	-moz-transition: .5s;
+	-webkit-transition: .5s;
+	transition: .5s;
+}
+
+.content a:hover {
+	background-color: transparent;
+}
+
+.content a:visited {
+	//color: #551A8B;
+	color: #007BFF;
+	background-color: transparent;
+}
+
+/*.container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +171,50 @@ nav .navbar-nav li a {
 
 .charts {
     //width: 60%;
+}*/
+
+/*table {
+	white-space:nowrap;
+	max-width:100%;
+}*/
+
+.btn-primary, .btn-secondary {
+	color: #ffffff !important;
 }
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open>.dropdown-toggle.btn-primary {
+	color: #ffffff !important;
+	//background-color: #0495c9 !important;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary.active,
+.open>.dropdown-toggle.btn-primary {
+	background-color: #6C757D !important;
+}
+
+form {
+	position: relative;
+	width: 100%;
+}
+
+label {
+	white-space: nowrap;
+}
+
+{
+	position: absolute;
+	left: 180px;
+	width: calc(100% - 60%);
+}*/
 
  /*flash*/
  .alert-error {

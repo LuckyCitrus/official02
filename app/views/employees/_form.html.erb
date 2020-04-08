@@ -1,68 +1,60 @@
-<%= form_with(model: employee, local: true) do |form| %>
-<% if employee.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+<div class="card-body">
+    <%= bootstrap_form_with(model: @employee, local: true, layout: :vertical) do |form| %>
+    <!--<% if employee.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
-    <ul>
-        <% employee.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% employee.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>--><%= errors_for(@employee) %>
 
-<div class="field">
-    <%= form.label :empfname, "First Name" %>
-    <%= form.text_field :empfname, pattern: "^[a-zA-Z-']*$", minlength: 2, maxlength: 36, size: 24, required: true %>
-</div>
 
-<div class="field">
-    <%= form.label :emplname, "Last Name" %>
-    <%= form.text_field :emplname, pattern: "^[a-zA-Z-']*$", minlength: 2, maxlength: 36, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.text_field :empfname, label: "First Name", pattern: "^[a-zA-Z-']*$", help: "Only alphabetical characters are allowed", maxlength: 128, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, pattern: "^[#'.0-9a-zA-Z\s,-]*$", minlength: 5, maxlength: 72, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.text_field :emplname,label: "Last Name", pattern: "^[a-zA-Z-']*$", help: "Only alphabetical characters are allowed", maxlength: 128, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email, minlength: 5, maxlength: 254, size: 24, required: true %>
-</div>
-<!--pattern: "[^@]+@[^@]+"-->
+    <div class="field">
+        <%= form.text_field :address, pattern: "^[#'.0-9a-zA-Z\s,-]*$", maxlength: 128, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :phone %>
-    <%= form.telephone_field :phone, pattern: '[^a-zA-Z]*', minlength: 5, maxlength: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.email_field :email, maxlength: 254, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, minlength: 2, maxlength: 36, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.telephone_field :phone, pattern: '[^a-zA-Z]*', help: "No alphabetical characters are  allowed", maxlength: 64, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :hiredate, "Hire Date" %>
-    <%= form.date_select :hiredate, required: true %>
-</div>
+    <div class="field">
+        <%= form.text_field :title, maxlength: 128, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :department_id %>
-    <%= form.collection_select :department_id, Department.order(:departmentname), :id, :departmentname, {include_blank: ""} %>
-</div>
+    <div class="field">
+        <%= form.text_field :hiredate, label: "Hire Date", data: { behavior: "flatpickr" }, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :employeestatus_id, "Employee Status" %>
-    <%= form.collection_select :employeestatus_id, Employeestatus.order(:employeestatus), :id, :employeestatus, {include_blank: ""}, required: true %>
-</div>
+    <div class="field">
+        <%= form.collection_select :department_id, Department.order(:departmentname), :id, :departmentname, {include_blank: ""} %>
+    </div>
 
-<div class="field">
-    <%= form.label :user_id, "User" %>
-    <%= form.collection_select :user_id, User.order(:email), :id, :email, {include_blank: ""} %>
-</div>
+    <div class="field">
+        <%= form.collection_select :employeestatus_id, Employeestatus.order(:employeestatus), :id, :employeestatus, {include_blank: ""}, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit %>
+    <div class="field">
+        <%= form.collection_select :user_id, User.order(:email), :id, :email, {include_blank: ""}, disabled: !current_user.admin? %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>

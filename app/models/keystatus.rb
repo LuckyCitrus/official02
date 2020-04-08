@@ -1,5 +1,9 @@
 class Keystatus < ApplicationRecord
-	#belongs_to :car
-	
-	validates :keystatus, presence: true, length: { minimum: 2, maximum: 30 }
+
+	#normalized for
+	has_many :cars
+
+	#fields validation
+	validates :keystatus, presence: true, length: { maximum: 128 }
+
 end

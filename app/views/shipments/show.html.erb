@@ -1,37 +1,62 @@
-<p>
-  <strong>Shipment Number:</strong>
-  <%= @shipment.shipmentnum %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Shipment</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>Shipment Number:</strong>
+                    <%= @shipment.shipmentnum %>
+                </p>
+                <p>
+                    <strong>Shipment Date:</strong>
+                    <%= @shipment.date.to_s(:long_date) %>
+                </p>
+                <p>
+                    <strong>Quantity:</strong>
+                    <%= @shipment.quantity %>
+                </p>
+                <p>
+                    <strong>Warehouse:</strong>
+                    <%= link_to @shipment.warehouse.warehousename, @shipment.warehouse %>
+                </p>
+                <p>
+                    <strong>Shipment Method:</strong>
+                    <%= @shipment.shipmentmethod.shipmentmethod %>
+                </p>
+                <p>
+                    <strong>Shipment Status:</strong>
+                    <%= @shipment.shipmentstatus.shipmentstatus %>
+                </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @shipment.date %>
-</p>
+                <p>
+                    <strong>Invoices:</strong>
+                    <ul>
+                        <% @shipment.invoices.each do |invoice| %>
+                        <li><strong>Invoice Number: </strong>
+                            <%= link_to invoice.invoicenum, invoice %>
+                            (<%= invoice.invoicestatus.invoicestatus %>)</li>
+                        <% end %>
+                    </ul>
+                </p>
 
-<p>
-  <strong>Quantity:</strong>
-  <%= @shipment.quantity %>
-</p>
+                <p>
+                    <strong>Containers:</strong>
+                    <ul>
+                        <% @shipment.containers.each do |container| %>
+                        <li><strong>Container Number: </strong>
+                            <%= link_to container.containernum, container %></li>
+                        <% end %>
+                    </ul>
+                </p>
 
-<!--<p>-->
-<!--  <strong>Container:</strong>-->
-  <%#= @shipment.container %>
-<!--</p>-->
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_shipment_path(@shipment), class: "btn btn-primary" %>
+                <%= link_to 'Back', shipments_path, class: "btn btn-secondary" %>
+            </div>
 
-<p>
-  <strong>Warehouse:</strong>
-  <%= @shipment.warehouse.warehousename %>
-</p>
-
-<p>
-  <strong>Shipment Method:</strong>
-  <%= @shipment.shipmentmethod.shipmentmethod %>
-</p>
-
-<p>
-  <strong>Shipment Status:</strong>
-  <%= @shipment.shipmentstatus.shipmentstatus %>
-</p>
-
-<%= link_to 'Edit', edit_shipment_path(@shipment) %> |
-<%= link_to 'Back', shipments_path %>
+        </div>
+    </div>
+</div>

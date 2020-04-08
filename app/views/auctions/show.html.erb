@@ -1,17 +1,37 @@
-<p>
-  <strong>Auction Name:</strong>
-  <%= @auction.auctionname %>  
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Auction</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>Auction Name:</strong>
+                    <%= @auction.auctionname %>
+                </p>
+                <p>
+                    <strong>Address:</strong>
+                    <%= @auction.address %>
+                </p>
+                <p>
+                    <strong>Location:</strong>
+                    <%= link_to @auction.location.city, @auction.location %>
+                </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @auction.address %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @auction.location.city %>
-</p>
-
-<%= link_to 'Edit', edit_auction_path(@auction) %> |
-<%= link_to 'Back', auctions_path %>
+                <p>
+                    <strong>Orders:</strong>
+                    <ul>
+                        <% @auction.orders.each do |order| %>
+                        <li><strong>Order Number: </strong>
+                            <%= link_to order.ordernum, order %>
+                            (<%= order.orderstatus.orderstatus %>)</li>
+                        <% end %>
+                    </ul>
+                </p>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_auction_path(@auction), class: "btn btn-primary" %>
+                <%= link_to 'Back', auctions_path, class: "btn btn-secondary" %> </div>
+        </div>
+    </div>
+</div>

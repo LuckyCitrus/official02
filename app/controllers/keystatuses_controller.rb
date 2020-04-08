@@ -56,6 +56,7 @@ class KeystatusesController < ApplicationController
   # DELETE /keystatuses/1.json
   def destroy
     @keystatus.destroy
+    authorize @keystatus
     respond_to do |format|
       format.html { redirect_to keystatuses_url, notice: 'Keystatus was successfully destroyed.' }
       format.json { head :no_content }

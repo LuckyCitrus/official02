@@ -1,7 +1,19 @@
-<p>
-  <strong>Payment Method:</strong>
-  <%= @paymentmethod.paymenttype %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Payment Method</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>Payment Method:</strong>
+                    <%= @paymentmethod.paymenttype %>
+                </p>
 
-<%= link_to 'Edit', edit_paymentmethod_path(@paymentmethod) %> |
-<%= link_to 'Back', paymentmethods_path %>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_paymentmethod_path(@paymentmethod), class: "btn btn-primary" %>
+                <%= link_to 'Back', paymentmethods_path, class: "btn btn-secondary" %> </div>
+        </div>
+    </div>
+</div>

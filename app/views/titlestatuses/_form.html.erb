@@ -1,22 +1,23 @@
-<%= form_with(model: titlestatus, local: true) do |form| %>
-<% if titlestatus.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(titlestatus.errors.count, "error") %> prohibited this titlestatus from being saved:</h2>
+<div class="card-body">
+    <%= bootstrap_form_with(model: titlestatus, local: true, layout: :vertical) do |form| %>
+    <!--<% if titlestatus.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(titlestatus.errors.count, "error") %> prohibited this titlestatus from being saved:</h2>
 
-    <ul>
-        <% titlestatus.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% titlestatus.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>--><%= errors_for(@titlestatus) %>
 
-<div class="field">
-    <%= form.label :titlestatus, "Title Status" %>
-    <%= form.text_field :titlestatus, minlength: 2, maxlength: 30, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.text_field :titlestatus, label: "Title Status", maxlength: 128, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit action_name == 'new' ? 'Create Title Status' : 'Update Title Status'%>
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>

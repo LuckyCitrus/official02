@@ -4,6 +4,7 @@ en:
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
+      header: 'Resend confirmation instructions'
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
@@ -16,13 +17,14 @@ en:
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
+      confirmation_token_invalid: 'The confirmation link is no longer valid.  Please try sending a new confirmation email below.'
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Account Confirmation"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Reset Account Password"
       unlock_instructions:
-        subject: "Unlock instructions"
+        subject: "Unlock Account"
       email_changed:
         subject: "Email Changed"
       password_change:

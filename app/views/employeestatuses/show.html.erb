@@ -1,7 +1,19 @@
-<p>
-  <strong>Employee Status:</strong>
-  <%= @employeestatus.employeestatus %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Employee Status</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>Employee Status:</strong>
+                    <%= @employeestatus.employeestatus %>
+                </p>
 
-<%= link_to 'Edit', edit_employeestatus_path(@employeestatus) %> |
-<%= link_to 'Back', employeestatuses_path %>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit',  edit_employeestatus_path(@employeestatus), class: "btn btn-primary" %>
+                <%= link_to 'Back', employeestatuses_path, class: "btn btn-secondary" %> </div>
+        </div>
+    </div>
+</div>

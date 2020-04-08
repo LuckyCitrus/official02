@@ -1,32 +1,63 @@
-<p>
-    <strong>First Name:</strong>
-    <%= @customer.first_name %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Customer</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>First Name:</strong>
+                    <%= @customer.first_name %>
+                </p>
+                <p>
+                    <strong>Last Name:</strong>
+                    <%= @customer.last_name %>
+                </p>
+                <p>
+                    <strong>Address:</strong>
+                    <%= @customer.address %>
+                </p>
+                <p>
+                    <strong>Phone:</strong>
+                    <%= @customer.phone %>
+                </p>
+                <p>
+                    <strong>Email:</strong>
+                    <%= @customer.email %>
+                </p>
+                <p>
+                    <strong>User:</strong>
+                    <% if current_user.try(:admin?)  %>
+                    <td><%= link_to @customer.user.try(:email), @customer.user if @customer.user %></td>
+                    <% else %>
+                    <td><%= @customer.user.try(:email) %></td>
+                    <%end%>
+                </p>
 
-<p>
-    <strong>Last Name:</strong>
-    <%= @customer.last_name %>
-</p>
+                <p>
+                    <strong>Orders:</strong>
+                    <ul>
+                        <% @customer.orders.each do |order| %>
+                        <li><strong>Order Number: </strong>
+                            <%= link_to order.ordernum, order %></li>
+                        <% end %>
+                    </ul>
+                </p>
 
-<p>
-    <strong>Address:</strong>
-    <%= @customer.address %>
-</p>
+                <p>
+                    <strong>Payments:</strong>
+                    <ul>
+                        <% @customer.payments.each do |payment| %>
+                        <li><strong>Payment Number: </strong>
+                            <%= link_to payment.paymentnum, payment %></li>
+                        <% end %>
+                    </ul>
+                </p>
 
-<p>
-    <strong>Phone:</strong>
-    <%= @customer.phone %>
-</p>
-
-<p>
-    <strong>Email:</strong>
-    <%= @customer.email %>
-</p>
-
-<p>
-    <strong>User:</strong>
-    <%= @customer.user.try(:email) %>
-</p>
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-primary" %>
+                <%= link_to 'Back', customers_path, class: "btn btn-secondary" %> </div>
+        </div>
+    </div>
+</div>

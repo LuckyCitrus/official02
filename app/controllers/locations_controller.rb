@@ -56,6 +56,7 @@ class LocationsController < ApplicationController
   # DELETE /locations/1.json
   def destroy
     @location.destroy
+    authorize @location
     respond_to do |format|
       format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
       format.json { head :no_content }
@@ -70,6 +71,10 @@ class LocationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def location_params
-      params.require(:location).permit(:city)
+      # params.require(:location).permit(:city)
+
+      #Nested Form Whitelist
+      params.require(:location).permit(:city, warehouses_attributes: [:id, :warehousename, :_destroy], auctions_attributes: [:id, :auctionname, :address, :_destroy])
+      #End of Nested Form Whitelist
     end
 end

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_one :employee
-  has_one :customer
+  has_one :employee, dependent: :destroy
+  has_one :customer, dependent: :destroy
 
   enum role: [:customer, :employee, :admin]
   after_initialize :set_default_role, :if => :new_record?
@@ -18,7 +18,6 @@ class User < ApplicationRecord
   end
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :trackable,  :omniauthable, :recoverable, 
-  devise :database_authenticatable, :registerable, :rememberable, :validatable, :timeoutable
-
+  #  :lockable, :trackable,  :omniauthable
+  devise :database_authenticatable, :registerable, :rememberable, :validatable, :timeoutable, :confirmable, :recoverable
 end

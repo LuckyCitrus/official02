@@ -6,7 +6,8 @@ class InvoicesController < ApplicationController
   # GET /invoices.json
   def index
     #@invoices = Invoice.all
-    @invoices = policy_scope(Invoice)
+    #@invoices = policy_scope(Invoice)
+    @pagy, @invoices = pagy(policy_scope(Invoice))
   end
 
   # GET /invoices/1
@@ -59,6 +60,7 @@ class InvoicesController < ApplicationController
   # DELETE /invoices/1.json
   def destroy
     @invoice.destroy
+    authorize @invoice
     respond_to do |format|
       format.html { redirect_to invoices_url, notice: 'Invoice was successfully destroyed.' }
       format.json { head :no_content }

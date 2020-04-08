@@ -1,32 +1,31 @@
-<%= form_with(model: container, local: true) do |form| %>
-<% if container.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(container.errors.count, "error") %> prohibited this container from being saved:</h2>
+<div class="card-body">
+    <%= bootstrap_form_with(model: container, local: true, layout: :vertical) do |form| %>
+    <!--<% if container.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(container.errors.count, "error") %> prohibited this container from being saved:</h2>
 
-    <ul>
-        <% container.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% container.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>--><%= errors_for(@container) %>
 
-<div class="field">
-    <%= form.label :containernum, "Container Number" %>
-    <%= form.text_field :containernum, pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.text_field :containernum, label: "Container Number", pattern: '^[a-zA-Z0-9-]*$', help: "Only alphanumeric characters are allowed", maxlength: 128, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :shipment_id, "Shipment Number" %>
-    <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum, {include_blank: ""}, required: true %>
-</div>
+    <div class="field">
+        <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum, {include_blank: ""}, required: true %>
+    </div>
 
-<div class="field">
-    <%= form.label :company_id, "Company Name" %>
-    <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname, {include_blank: ""}, required: true %>
-</div>
+    <div class="field">
+        <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname, {include_blank: ""}, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>

@@ -1,12 +1,23 @@
-<p>
-  <strong>Picture:</strong>
-  <%= @picture.picture %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Picture</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>Picture:</strong>
+                    <%= @picture.picture %>
+                </p>
+                <p>
+                    <strong>Order Number:</strong>
+                    <%= @picture.order.try(:ordernum) %>
+                </p>
 
-<p>
-  <strong>Order Number:</strong>
-  <%= @picture.order.try(:ordernum) %>
-</p>
-
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_picture_path(@picture), class: "btn btn-primary" %>
+                <%= link_to 'Back', pictures_path, class: "btn btn-secondary" %> </div>
+        </div>
+    </div>
+</div>

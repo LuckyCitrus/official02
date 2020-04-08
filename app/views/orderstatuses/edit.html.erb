@@ -1,6 +1,17 @@
-<h1>Editing Order Status</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Editing Order Status</h1>
+            </div>
 
-<%= render 'form', orderstatus: @orderstatus %>
+            <%= render 'form', orderstatus: @orderstatus %>
 
-<%= link_to 'Show', @orderstatus %> |
-<%= link_to 'Back', orderstatuses_path %>
+            <div class="card-footer">
+                <%= link_to 'Show', @orderstatus, class: "btn btn-primary" %>
+                <%= link_to 'Back', orderstatuses_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>

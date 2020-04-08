@@ -1,37 +1,47 @@
-<p>
-  <strong>VIN Number:</strong>
-  <%= @car.vinnumber %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Car</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>VIN #:</strong>
+                    <%= @car.vinnumber %>
+                </p>
+                <p>
+                    <strong>Year:</strong>
+                    <%= @car.year %>
+                </p>
+                <p>
+                    <strong>Make:</strong>
+                    <%= @car.make %>
+                </p>
+                <p>
+                    <strong>Model:</strong>
+                    <%= @car.model %>
+                </p>
+                <p>
+                    <strong>Title Status:</strong>
+                    <%= @car.titlestatus.titlestatus %>
+                </p>
+                <p>
+                    <strong>Key Status:</strong>
+                    <%= @car.keystatus.keystatus %>
+                </p>
+                <p>
+                    <strong>Order:</strong>
+                    <%= link_to @car.order.ordernum, @car.order %>
+                </p>
+                <p>
+                    <strong>Customer:</strong>
+                    <%= link_to @car.order.customer.try(:cus_fullname), @car.order.customer %>
+                </p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @car.year %>
-</p>
-
-<p>
-  <strong>Make:</strong>
-  <%= @car.make %>
-</p>
-
-<p>
-  <strong>Model:</strong>
-  <%= @car.model %>
-</p>
-
-<p>
-  <strong>Title Status:</strong>
-  <%= @car.titlestatus.titlestatus %>
-</p>
-
-<p>
-  <strong>Key Status:</strong>
-  <%= @car.keystatus.keystatus %>
-</p>
-
-<p>
-  <strong>Order:</strong>
-  <%= @car.order.ordernum %>
-</p>
-
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_car_path(@car), class: "btn btn-primary" %>
+                <%= link_to 'Back', cars_path, class: "btn btn-secondary" %> </div>
+        </div>
+    </div>
+</div>

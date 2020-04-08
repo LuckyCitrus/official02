@@ -1,5 +1,9 @@
 class Customertype < ApplicationRecord
-  # belongs_to :customers
 
-  validates :customertype, presence: true, length: { minimum: 2, maximum: 30 }
+  #normalized for
+  has_many :customers
+
+  #fields validation
+  validates :customertype, presence: true, length: { maximum: 128 }
+
 end

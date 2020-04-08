@@ -1,25 +1,34 @@
-<h1>Customer Statuses</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Customer Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customerstatuses.each do |customerstatus| %>
-      <tr>
-        <td><%= customerstatus.customerstatus %></td>
-        <td><%= link_to 'Show', customerstatus %></td>
-        <td><%= link_to 'Edit', edit_customerstatus_path(customerstatus) %></td>
-        <td><%= link_to 'Destroy', customerstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Customer Statuses</h1>
+            </div>
+            <table class="table table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Customer Status</th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @customerstatuses.each do |customerstatus| %>
+                    <tr>
+                        <td><%= link_to customerstatus.customerstatus, customerstatus %></td>
+                        <!--td><%= link_to 'Show', customerstatus %></td>-->
+                        <td><%= link_to 'Edit', edit_customerstatus_path(customerstatus) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', customerstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <div class="card-footer">
+                <%= link_to 'New Customer Status', new_customerstatus_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Customer Status', new_customerstatus_path %>

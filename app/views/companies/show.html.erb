@@ -1,7 +1,39 @@
-<p>
-  <strong>Company Name:</strong>
-  <%= @company.companyname %>
-</p>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Company</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>Company Name:</strong>
+                    <%= @company.companyname %>
+                </p>
+                <p>
+                    <strong>Departments:</strong>
+                    <ul>
+                </p>
+                <% for @department in @company.departments %>
+                <li><%= @department.departmentname %></li>
+                <% end %>
+                </ul>
+                </p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+                <p>
+                    <strong>Employees:</strong>
+                    <ul>
+                        <% @company.employees.each do |employee| %>
+                        <li><strong>Name: </strong>
+                            <%= link_to employee.try(:emp_fullname), employee %></li>
+                        <% end %>
+                    </ul>
+                </p>
+
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Edit', edit_company_path(@company), class: "btn btn-primary" %>
+                <%= link_to 'Back', companies_path, class: "btn btn-secondary" %> </div>
+        </div>
+    </div>
+</div>
+</div>

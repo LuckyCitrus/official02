@@ -1,35 +1,57 @@
-<h1>Customers</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>User</th>
-            <th colspan="7"></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <% @customers.each do |customer| %>
-        <tr>
-            <td><%= customer.first_name %></td>
-            <td><%= customer.last_name %></td>
-            <td><%= customer.address %></td>
-            <td><%= customer.phone %></td>
-            <td><%= customer.email %></td>
-            <td><%= customer.user.try(:email) %></td>
-            <td><%= link_to 'Show', customer %></td>
-            <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-            <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+<div class="row row-fluid">
+    <div class="col-xs-12">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>Customers</h1>
+            </div>
+            <table class="table table-hover table-bordered table-responsive">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                        <th>Customer Status</th>
+                        <th>Customer Type</th>
+                        <th>User</th>
+                        <th colspan="7"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @customers.each do |customer| %>
+                    <tr>
+                        <td><%= link_to customer.try(:cus_fullname), customer %></td>
+                        <td><%= customer.address %></td>
+                        <td><%= customer.phone %></td>
+                        <td><%= customer.email %></td>
+                        <td><%= customer.country.try(:country_name) %></td>
+                        <td><%= customer.customerstatus.customerstatus %></td>
+                        <td><%= customer.customertype.customertype %></td>
+                        <% if current_user.try(:admin?)  %>
+                        <td><%= link_to customer.user.try(:email), customer.user if customer.user %></td>
+                        <% else %>
+                        <td><%= customer.user.try(:email) %></td>
+                        <%end%>
+                        <!--<td><%= link_to 'Show', customer %></td>-->
+                        <td><%= link_to 'Edit', edit_customer_path(customer) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <div class="card-footer">
+                <div class="footer-left">
+                    <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br>
-
-<%= link_to 'New Customer', new_customer_path %>

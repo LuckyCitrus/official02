@@ -1,22 +1,23 @@
-<%= form_with(model: paymentmethod, local: true) do |form| %>
-<% if paymentmethod.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(paymentmethod.errors.count, "error") %> prohibited this paymentmethod from being saved:</h2>
+<div class="card-body">
+    <%= bootstrap_form_with(model: paymentmethod, local: true, layout: :vertical) do |form| %>
+    <!--<% if paymentmethod.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(paymentmethod.errors.count, "error") %> prohibited this paymentmethod from being saved:</h2>
 
-    <ul>
-        <% paymentmethod.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
+        <ul>
+            <% paymentmethod.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>--><%= errors_for(@paymentmethod) %>
 
-<div class="field">
-    <%= form.label :paymenttype, "Payment Method" %>
-    <%= form.text_field :paymenttype, minlength: 2, maxlength: 30, size: 24, required: true %>
-</div>
+    <div class="field">
+        <%= form.text_field :paymenttype, label: "Payment Method", maxlength: 128, required: true %>
+    </div>
 
-<div class="actions">
-    <%= form.submit action_name == 'new' ? 'Create Payment Method' : 'Update Payment Method'%>
+    <div class="actions">
+        <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <% end %>
 </div>
-<% end %>

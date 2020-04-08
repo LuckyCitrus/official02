@@ -1,5 +1,17 @@
-<h1>New Car</h1>
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card card-default">
+            <div class="card-header">
+                <h1>New Car</h1>
+            </div>
 
-<%= render 'form', car: @car %>
+            <%= render 'form', car: @car %>
 
-<%= link_to 'Back', cars_path %>
+            <div class="card-footer">
+
+                <%= link_to 'Back', cars_path, class: "btn btn-secondary" %>
+
+            </div>
+        </div>
+    </div>
+</div>

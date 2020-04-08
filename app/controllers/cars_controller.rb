@@ -1,22 +1,26 @@
 class CarsController < ApplicationController
-  before_action :authenticate_user!, :employee_only
+  before_action :authenticate_user!
   before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   #HelloWorld
   # GET /cars
   # GET /cars.json
   def index
-    @cars = Car.all
+    #@cars = Car.all
+    #@cars = policy_scope(Car)
+    @pagy, @cars = pagy(policy_scope(Car))
   end
 
   # GET /cars/1
   # GET /cars/1.json
   def show
+    @car = policy_scope(Car).find(params[:id])
   end
 
   # GET /cars/new
   def new
     @car = Car.new
+    authorize @car
   end
 
   # GET /cars/1/edit
@@ -57,6 +61,7 @@ class CarsController < ApplicationController
   # DELETE /cars/1.json
   def destroy
     @car.destroy
+    authorize @car
     respond_to do |format|
       format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
       format.json { head :no_content }
@@ -67,6 +72,7 @@ class CarsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_car
       @car = Car.find(params[:id])
+      authorize @car
     end
 
     # Only allow a list of trusted parameters through.

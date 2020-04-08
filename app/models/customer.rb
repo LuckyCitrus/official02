@@ -1,18 +1,25 @@
 class Customer < ApplicationRecord
-  has_many :country
-  has_many :customerstatus
-  has_many :customertype
-  has_many :dummyuser
+
+  #dependencies
+  belongs_to :country
+  belongs_to :customerstatus
+  belongs_to :customertype
   belongs_to :user, optional: true
 
-  has_many :orders
-  has_many :payments
-  
-  validates :first_name, presence: true, format: { with: /\A[a-z][a-z-]*[a-z-']\z/i }, length: { minimum: 2, maximum: 36 }
-  validates :last_name, presence: true, format: { with: /\A[a-z][a-z-]*[a-z-']\z/i }, length: { minimum: 2, maximum: 36 }
-  validates :address, presence: true, length: { minimum: 5, maximum: 72 }
-  validates :phone, presence: true, length: { minimum: 5, maximum: 24 }
-  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, length: { minimum: 5, maximum: 254 }
+  #normalized for
+  has_many :invoices
+
+  #delete cascading
+  has_many :orders, dependent: :destroy
+  has_many :payments, dependent: :destroy
+
+  #fields validation
+  validates :first_name, presence: true, format: { with: /\A[a-z ][a-z- ]*[a-z-' ]\z/i }, length: { maximum: 128 }
+  validates :last_name, presence: true, format: { with: /\A[a-z ][a-z- ]*[a-z-' ]\z/i }, length: { maximum: 128 }
+  validates :address, presence: true, length: { maximum: 128 }
+  validates :phone, presence: true, length: { maximum: 64 }
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, length: { maximum: 254 }
+  validates :user_id, uniqueness: true, allow_nil: true
 
   def cus_fullname
     "#{first_name} #{last_name}"
