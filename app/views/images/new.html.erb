@@ -1,0 +1,35 @@
+<h2>Upload</h2>
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_for @image do |f| %>
+      <% if f.object.errors.any? %>
+        <div class="alert alert-danger">
+          <p>The following errors prevent the image from being uploaded.</p>
+
+          <ul>
+            <% f.object.errors.full_messages.each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.drag_and_drop_file_field :image, 'Drag and drop image here' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :order_id %>
+        <%= f.collection_select :order_id, Order.all, :id, :ordernum, {include_blank: ""} %>
+      </div>
+
+      <%= f.submit 'Post', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

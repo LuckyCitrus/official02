@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require active_storage_drag_and_drop
  */
 @import "bootstrap/scss/bootstrap";
 @import "rails_bootstrap_forms";
@@ -33,7 +34,7 @@ html, body {
 	background-image: url("https://bucketeer-396b7776-65f2-4c5b-b817-0d75c447dd4e.s3.amazonaws.com/public/Car_Cargo.jpg");
 	background-size: cover;
 	background-position: center;
-	background-repeat: repeat;
+	background-repeat: no-repeat;
 	height: 100vh;
 }
 
@@ -43,15 +44,15 @@ html, body {
 }
 
 .header-left, .footer-left {
-    float: left;
+  float: left;
 }
 
-.header-right, .footer-right {
-    float: right;
-    position:absolute;
-    bottom: 0;
-    right: 0;
-}
+ .header-right, .footer-right {
+   float: right;
+   position:absolute;
+   bottom: 0;
+   right: 0;
+ }
 
 .header-right p {
     padding-right: 10px;
@@ -163,16 +164,6 @@ nav a:hover{
 	background-color: transparent;
 }
 
-/*.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.charts {
-    //width: 60%;
-}*/
-
 /*table {
 	white-space:nowrap;
 	max-width:100%;
@@ -187,15 +178,15 @@ nav a:hover{
 .btn-primary:active,
 .btn-primary.active,
 .open>.dropdown-toggle.btn-primary {
-	color: #ffffff !important;
-	//background-color: #0495c9 !important;
-	background-color: #007BFF !important;
+  color: #ffffff !important;
+  //background-color: #0495c9 !important;
+  background-color: #007BFF !important;
 }
 
 .btn:hover {
-	filter: brightness(120%);
-	transition: all .4s ease;
-	-webkit-transition: all .4s ease;
+  filter: brightness(120%);
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
 }
 
 .btn-secondary:hover,
@@ -203,20 +194,20 @@ nav a:hover{
 .btn-secondary:active,
 .btn-secondary.active,
 .open>.dropdown-toggle.btn-primary {
-	color: #ffffff !important;
-	background-color: #6C757D !important;
+  color: #ffffff !important;
+  background-color: #6C757D !important;
 }
 
 form {
 	position: relative;
 	width: 100%;
 }
-
 label {
 	white-space: nowrap;
 }
 
-/*{
+/*.field input, select, option
+ {
 	position: absolute;
 	left: 180px;
 	width: calc(100% - 60%);
