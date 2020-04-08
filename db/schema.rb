@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_010548) do
+ActiveRecord::Schema.define(version: 2020_04_08_185300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,12 +102,10 @@ ActiveRecord::Schema.define(version: 2020_04_07_010548) do
     t.bigint "country_id"
     t.bigint "customerstatus_id"
     t.bigint "customertype_id"
-    t.bigint "dummyuser_id"
     t.bigint "user_id"
     t.index ["country_id"], name: "index_customers_on_country_id"
     t.index ["customerstatus_id"], name: "index_customers_on_customerstatus_id"
     t.index ["customertype_id"], name: "index_customers_on_customertype_id"
-    t.index ["dummyuser_id"], name: "index_customers_on_dummyuser_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
@@ -143,10 +141,8 @@ ActiveRecord::Schema.define(version: 2020_04_07_010548) do
     t.bigint "employeestatus_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "dummyuser_id"
     t.bigint "user_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
-    t.index ["dummyuser_id"], name: "index_employees_on_dummyuser_id"
     t.index ["employeestatus_id"], name: "index_employees_on_employeestatus_id"
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
@@ -157,16 +153,14 @@ ActiveRecord::Schema.define(version: 2020_04_07_010548) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "helloos", force: :cascade do |t|
-    t.string "worldd"
+  create_table "images", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "hellos", force: :cascade do |t|
-    t.string "world"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_images_on_order_id"
+    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -361,6 +355,8 @@ ActiveRecord::Schema.define(version: 2020_04_07_010548) do
   add_foreign_key "employees", "departments"
   add_foreign_key "employees", "employeestatuses"
   add_foreign_key "employees", "users"
+  add_foreign_key "images", "orders"
+  add_foreign_key "images", "users"
   add_foreign_key "invoices", "customers"
   add_foreign_key "invoices", "employees"
   add_foreign_key "invoices", "invoicestatuses"
@@ -382,8 +378,18 @@ ActiveRecord::Schema.define(version: 2020_04_07_010548) do
   add_foreign_key "shipments", "warehouses"
   add_foreign_key "warehouses", "locations"
 
+  create_view "auction_orders", materialized: true, sql_definition: <<-SQL
+      SELECT a.auctionname,
+      sum(o.quantity) AS total_orders
+     FROM ((auctions a
+       JOIN order_auctions oa ON ((a.id = oa.auction_id)))
+       JOIN orders o ON ((o.id = oa.order_id)))
+    WHERE (o.date > (CURRENT_DATE - '1 mon'::interval))
+    GROUP BY a.auctionname
+    ORDER BY (sum(o.quantity)) DESC;
+  SQL
   create_view "active_orders", materialized: true, sql_definition: <<-SQL
-      SELECT concat(cus.first_name, cus.last_name) AS name,
+      SELECT (((cus.first_name)::text || ' '::text) || (cus.last_name)::text) AS name,
       cus.email,
       o.ordernum,
       o.date,
@@ -402,13 +408,13 @@ ActiveRecord::Schema.define(version: 2020_04_07_010548) do
        JOIN shipments s ON ((s.id = con.shipment_id)))
        JOIN shipmentstatuses ss ON ((ss.id = s.shipmentstatus_id)))
        JOIN warehouses w ON ((w.id = s.warehouse_id)))
-    WHERE (((os.orderstatus)::text <> 'Completed
-  '::text) AND ((ps.paymentstatus)::text = 'Complete
+    WHERE (((os.orderstatus)::text <> 'Completed
+  '::text) AND ((ps.paymentstatus)::text = 'Complete
   '::text) AND (o.date > (CURRENT_DATE - '1 mon'::interval)))
     ORDER BY o.date;
   SQL
-  create_view "active_invoices", sql_definition: <<-SQL
-      SELECT concat(cus.first_name, cus.last_name) AS name,
+  create_view "active_invoices", materialized: true, sql_definition: <<-SQL
+      SELECT DISTINCT (((cus.first_name)::text || ' '::text) || (cus.last_name)::text) AS name,
       cus.email,
       i.invoicenum,
       i.invoicedate,
@@ -420,7 +426,7 @@ ActiveRecord::Schema.define(version: 2020_04_07_010548) do
        JOIN paymentstatuses ps ON ((ps.id = p.paymentstatus_id)))
        JOIN invoices i ON ((i.customer_id = cus.id)))
        JOIN invoicestatuses ist ON ((ist.id = i.invoicestatus_id)))
-    WHERE (((ist.invoicestatus)::text <> 'Paid
+    WHERE (((ist.invoicestatus)::text <> 'Paid
   '::text) AND ((ps.paymentstatus)::text <> 'Paid'::text) AND (i.invoicedate > (CURRENT_DATE - '1 mon'::interval)))
     ORDER BY i.invoicedate;
   SQL

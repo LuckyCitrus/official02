@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  get 'images/index'
+  get 'images/new'
+  get 'images/show'
+  resources :images
+
   resources :containerorders
   resources :orderinvoices
   resources :order_auctions
@@ -37,7 +43,7 @@ Rails.application.routes.draw do
   resources :auction_orders
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
+
   get 'dashboard/index'
   root 'dashboard#index'
   get 'users/index', to: 'users#index'

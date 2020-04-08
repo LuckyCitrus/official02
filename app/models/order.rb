@@ -10,6 +10,7 @@ class Order < ApplicationRecord
   has_many :cars, dependent: :destroy
   has_many :containerorders, dependent: :destroy
   has_many :pictures, dependent: :destroy
+  has_many :images, dependent: :destroy
 
   #associative relations
   has_many :containers, through: :containerorders

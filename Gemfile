@@ -20,6 +20,11 @@ gem 'yaml_db'
 gem 'jquery-rails'
 gem 'cocoon'
 
+# Gems for Active Storage
+gem 'active_storage_drag_and_drop'
+gem 'active_storage_validations'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use postgresql as the database for Active Record
