@@ -12,7 +12,9 @@ class ImagePolicy < ApplicationPolicy
         scope.all
       else
         # scope.includes(:user).where(users: { user_id: @user.id })
-        scope.includes(:user).where(user_id: @user.id)
+        # scope.includes(:user).where(user_id: @user.id)
+        # scope.includes(:user).where(user_id: @image.order.customer.user.id)
+        scope.joins(order: [:customer]).where(customers: { user_id: user.id })
       end
 
     end
