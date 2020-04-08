@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_185300) do
+ActiveRecord::Schema.define(version: 2020_04_08_219234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,7 +172,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_185300) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "invoicestatus_id"
     t.decimal "amountdue"
-    t.string "invoicenum"
+    t.integer "invoicenum", default: -> { "nextval('invoicenum_seq'::regclass)" }
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["employee_id"], name: "index_invoices_on_employee_id"
     t.index ["invoicestatus_id"], name: "index_invoices_on_invoicestatus_id"
@@ -233,7 +233,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_185300) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
-    t.string "ordernum"
+    t.integer "ordernum", default: -> { "nextval('ordernum_seq'::regclass)" }
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["orderstatus_id"], name: "index_orders_on_orderstatus_id"
   end
@@ -259,7 +259,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_185300) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
     t.bigint "invoice_id"
-    t.string "paymentnum"
+    t.integer "paymentnum", default: -> { "nextval('paymentnum_seq'::regclass)" }
     t.index ["customer_id"], name: "index_payments_on_customer_id"
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
     t.index ["paymentmethod_id"], name: "index_payments_on_paymentmethod_id"
@@ -378,6 +378,23 @@ ActiveRecord::Schema.define(version: 2020_04_08_185300) do
   add_foreign_key "shipments", "warehouses"
   add_foreign_key "warehouses", "locations"
 
+  create_view "active_invoices", materialized: true, sql_definition: <<-SQL
+      SELECT DISTINCT (((cus.first_name)::text || ' '::text) || (cus.last_name)::text) AS name,
+      cus.email,
+      i.invoicenum,
+      i.invoicedate,
+      ist.invoicestatus
+     FROM ((((((customers cus
+       JOIN orders o ON ((cus.id = o.customer_id)))
+       JOIN orderstatuses os ON ((os.id = o.orderstatus_id)))
+       JOIN payments p ON ((cus.id = p.customer_id)))
+       JOIN paymentstatuses ps ON ((ps.id = p.paymentstatus_id)))
+       JOIN invoices i ON ((i.customer_id = cus.id)))
+       JOIN invoicestatuses ist ON ((ist.id = i.invoicestatus_id)))
+    WHERE (((ist.invoicestatus)::text <> 'Paid
+  '::text) AND ((ps.paymentstatus)::text <> 'Paid'::text) AND (i.invoicedate > (CURRENT_DATE - '1 mon'::interval)))
+    ORDER BY i.invoicedate;
+  SQL
   create_view "auction_orders", materialized: true, sql_definition: <<-SQL
       SELECT a.auctionname,
       sum(o.quantity) AS total_orders
@@ -408,26 +425,9 @@ ActiveRecord::Schema.define(version: 2020_04_08_185300) do
        JOIN shipments s ON ((s.id = con.shipment_id)))
        JOIN shipmentstatuses ss ON ((ss.id = s.shipmentstatus_id)))
        JOIN warehouses w ON ((w.id = s.warehouse_id)))
-    WHERE (((os.orderstatus)::text <> 'Completed
-  '::text) AND ((ps.paymentstatus)::text = 'Complete
+    WHERE (((os.orderstatus)::text <> 'Completed
+  '::text) AND ((ps.paymentstatus)::text = 'Complete
   '::text) AND (o.date > (CURRENT_DATE - '1 mon'::interval)))
     ORDER BY o.date;
-  SQL
-  create_view "active_invoices", materialized: true, sql_definition: <<-SQL
-      SELECT DISTINCT (((cus.first_name)::text || ' '::text) || (cus.last_name)::text) AS name,
-      cus.email,
-      i.invoicenum,
-      i.invoicedate,
-      ist.invoicestatus
-     FROM ((((((customers cus
-       JOIN orders o ON ((cus.id = o.customer_id)))
-       JOIN orderstatuses os ON ((os.id = o.orderstatus_id)))
-       JOIN payments p ON ((cus.id = p.customer_id)))
-       JOIN paymentstatuses ps ON ((ps.id = p.paymentstatus_id)))
-       JOIN invoices i ON ((i.customer_id = cus.id)))
-       JOIN invoicestatuses ist ON ((ist.id = i.invoicestatus_id)))
-    WHERE (((ist.invoicestatus)::text <> 'Paid
-  '::text) AND ((ps.paymentstatus)::text <> 'Paid'::text) AND (i.invoicedate > (CURRENT_DATE - '1 mon'::interval)))
-    ORDER BY i.invoicedate;
   SQL
 end

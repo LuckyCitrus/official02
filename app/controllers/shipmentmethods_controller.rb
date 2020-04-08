@@ -56,7 +56,6 @@ class ShipmentmethodsController < ApplicationController
   # DELETE /shipmentmethods/1.json
   def destroy
     @shipmentmethod.destroy
-    authorize @shipmentmethod
     respond_to do |format|
       format.html { redirect_to shipmentmethods_url, notice: 'Shipmentmethod was successfully destroyed.' }
       format.json { head :no_content }

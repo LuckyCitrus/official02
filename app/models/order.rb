@@ -21,7 +21,7 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :cars, reject_if: :all_blank, allow_destroy: :true
 
   #fields validation
-  validates :ordernum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { maximum: 128 }
+  validates :ordernum, uniqueness: true, length: { maximum: 128 }#, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }
   validates :date, presence: true
   validates :customer_id, presence: true
   validates :lotstock, presence: true, numericality: { greater_than_or_equal_to: 0}

@@ -15,7 +15,7 @@ class Invoice < ApplicationRecord
   has_many :orders, through: :orderinvoices
 
   #field validation
-  validates :invoicenum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { maximum: 128 }
+  validates :invoicenum, uniqueness: true, length: { maximum: 128 }#, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }
   validates :invoicedate, presence: true
   validates :duedate, presence: true
   validates :customer_id, presence: true

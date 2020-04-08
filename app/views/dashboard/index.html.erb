@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if current_user.admin? || current_user.employee? %>
 <div class="row row-fluid">
     <div class="col-md-5">
         <div class="card">

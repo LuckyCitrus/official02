@@ -57,7 +57,6 @@ class CountriesController < ApplicationController
   # DELETE /countries/1.json
   def destroy
     @country.destroy
-    authorize @country
     respond_to do |format|
       format.html { redirect_to countries_url, notice: 'Country was successfully destroyed.' }
       format.json { head :no_content }
