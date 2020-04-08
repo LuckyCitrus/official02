@@ -8,7 +8,7 @@ class CarPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      if user.admin? || user.employee
+      if user.admin? || user.employee?
         scope.all
       else
         scope.joins(order: [:customer]).where(customers: { user_id: user.id })

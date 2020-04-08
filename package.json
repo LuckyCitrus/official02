@@ -10,7 +10,6 @@
     "chart.js": "^2.9.3",
     "chartkick": "^3.2.0",
     "cocoon": "github:nathanvda/cocoon#c24ba53",
-    "datatables.net-bs4": "^1.10.20",
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
