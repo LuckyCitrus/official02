@@ -6,7 +6,7 @@ class PicturesController < ApplicationController
   # GET /pictures.json
   def index
     #@pictures = Picture.all
-    @pictures = policy_scope(Picture)
+    @pictures = policy_scope(Picture.order(order_id: :desc))
   end
 
   # GET /pictures/1

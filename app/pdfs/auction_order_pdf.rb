@@ -31,7 +31,7 @@ require 'date'
 			columns(0..5).size = 11
 			self.row_colors = ["DDDDDD", "FFFFFF"]
 	  		self.position = :center
-			self.cell_style = {padding: [14, 24]}
+			self.cell_style = {padding: [12, 28]}
 		end
 	end
 

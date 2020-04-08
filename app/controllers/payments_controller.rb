@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
   def index
     #@payments = Payment.all
     #@payments = policy_scope(Payment)
-    @pagy, @payments = pagy(policy_scope(Payment))
+    @pagy, @payments = pagy(policy_scope(Payment.order(date: :desc)))
   end
 
   # GET /payments/1

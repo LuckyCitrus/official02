@@ -6,7 +6,7 @@
             </div>
             <div class="charts">
                 <%= column_chart charts_total_auction_orders_path, 
-                    download: {filename: "Monthly_Orders_Per_Auctions_" + Date.today.to_s(:short_date)},
+                    download: {filename: "Monthly_Orders_Per_Auctions_" + Date.today.to_s(:num_date)},
                     colors: ["#64a5d1"],
                     xtitle: "Auction",
                     ytitle: "Orders"

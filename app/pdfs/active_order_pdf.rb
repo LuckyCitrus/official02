@@ -30,7 +30,7 @@ require 'date'
 			columns(0..9).align = :left
 			columns(0..9).size = 10.2
 			self.row_colors = ["DDDDDD", "FFFFFF"]
-			self.cell_style = {padding: [10, 4]}
+			self.cell_style = {padding: [12, 4]}
 			self.header = true
 		end
 	end

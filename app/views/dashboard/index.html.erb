@@ -8,13 +8,13 @@
             <div class="card-body">
                 <div class="charts">
                     <%= column_chart charts_orders_by_month_path, 
-                    download: {filename: "Monthly_Total_Orders_" + Date.today.to_s(:short_date)},
+                    download: {filename: "Monthly_Total_Orders_" + Date.today.to_s(:num_date)},
                     xtitle: "Month",
                     ytitle: "Orders",
                     title: "Monthly Total Orders"
                     %><br>
                     <%= area_chart charts_invoices_by_month_path,
-                    download: {filename: "Monthly_Total_Invoices_" + Date.today.to_s(:short_date)},
+                    download: {filename: "Monthly_Total_Invoices_" + Date.today.to_s(:num_date)},
                     prefix: "$",
                     thousands: ",",
                     colors: ["#64a5d1"],
@@ -23,7 +23,7 @@
                     title: "Monthly Total Invoices"
                     %><br>
                     <%= column_chart charts_shipments_by_month_path,
-                    download: {filename: "Monthly_Total_Shipments_" + Date.today.to_s(:short_date)},
+                    download: {filename: "Monthly_Total_Shipments_" + Date.today.to_s(:num_date)},
                     colors: ["#63CCBF"],
                     xtitle: "Month",
                     ytitle: "Shipments",
@@ -64,7 +64,7 @@
                         stack: "stack 4"
                     }
                     ], stacked: true,
-                    download: {filename: "Monthly_Total_Payments_" + Date.today.to_s(:short_date)},
+                    download: {filename: "Monthly_Total_Payments_" + Date.today.to_s(:num_date)},
                     prefix: "$",
                     thousands: ",",
                     colors: ["#7063CC","#63AECC" , "#63CCB7", "#CE6363", "#CC7D63"],
@@ -80,4 +80,3 @@
     <% else %>
     <div class=" background-image"></div>
     <% end %>
-

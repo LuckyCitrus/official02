@@ -31,7 +31,9 @@ require 'date'
 			columns(0..5).size = 11
 			self.row_colors = ["DDDDDD", "FFFFFF"]
 			self.header = true
-	  		self.position = :center
+			self.position = :center
+			self.cell_style = {padding: [12, 10]}
+			  
 		end
 	end
 
