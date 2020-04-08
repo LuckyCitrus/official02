@@ -56,7 +56,6 @@ class PaymentmethodsController < ApplicationController
   # DELETE /paymentmethods/1.json
   def destroy
     @paymentmethod.destroy
-    authorize @paymentmethod
     respond_to do |format|
       format.html { redirect_to paymentmethods_url, notice: 'Paymentmethod was successfully destroyed.' }
       format.json { head :no_content }

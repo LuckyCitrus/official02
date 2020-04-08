@@ -1,4 +1,4 @@
-SELECT CONCAT(first_name,last_name) as name, email, ordernum, o.date, orderstatus, paymentstatus, shipmentstatus, containernum, warehousename
+SELECT first_name || ' ' || last_name as name, email, ordernum, o.date, orderstatus, paymentstatus, shipmentstatus, containernum, warehousename
 FROM customers cus JOIN orders o on cus.id = o.customer_id
 JOIN orderstatuses os on os.id = o.orderstatus_id
 JOIN payments p on cus.id = p.customer_id

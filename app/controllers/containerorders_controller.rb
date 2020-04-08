@@ -57,7 +57,6 @@ class ContainerordersController < ApplicationController
   # DELETE /containerorders/1.json
   def destroy
     @containerorder.destroy
-    authorize @containerorder
     respond_to do |format|
       format.html { redirect_to containerorders_url, notice: 'Containerorder was successfully destroyed.' }
       format.json { head :no_content }

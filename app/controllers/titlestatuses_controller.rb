@@ -56,7 +56,6 @@ class TitlestatusesController < ApplicationController
   # DELETE /titlestatuses/1.json
   def destroy
     @titlestatus.destroy
-    authorize @shipmentstatus
     respond_to do |format|
       format.html { redirect_to titlestatuses_url, notice: 'Titlestatus was successfully destroyed.' }
       format.json { head :no_content }

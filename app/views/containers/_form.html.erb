@@ -13,7 +13,7 @@
     <% end %>--><%= errors_for(@container) %>
 
     <div class="field">
-        <%= form.text_field :containernum, label: "Container Number", pattern: '^[a-zA-Z0-9-]*$', help: "Only alphanumeric characters are allowed", maxlength: 128, required: true %>
+        <%= form.text_field :containernum, label: "Container Number", pattern: '^[a-zA-Z0-9-]*$', help: "Only alphanumeric characters are allowed", maxlength: 128 %>
     </div>
 
     <div class="field">
