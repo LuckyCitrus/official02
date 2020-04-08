@@ -6,12 +6,12 @@
             </div>
             <div class="card-body">
                 <p>
-                    <strong>Order:</strong>
-                    <%= @orderinvoice.order.ordernum %>
+                    <strong>Order #:</strong>
+                    <%= link_to @orderinvoice.order.ordernum, @orderinvoice.order %>
                 </p>
                 <p>
-                    <strong>Invoice:</strong>
-                    <%= @orderinvoice.invoice.invoicenum %>
+                    <strong>Invoice #:</strong>
+                    <%= link_to @orderinvoice.invoice.invoicenum, @orderinvoice.invoice %>
                 </p>
 
             </div>

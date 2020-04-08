@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
                 <p>
-                    <strong>Invoice Number:</strong>
+                    <strong>Invoice #:</strong>
                     <%= @invoice.invoicenum %>
                 </p>
                 <p>
@@ -38,7 +38,7 @@
                     <strong>Orders:</strong>
                     <ul>
                         <% @invoice.orders.each do |order| %>
-                        <li><strong>Order Number: </strong>
+                        <li><strong>Order #: </strong>
                             <%= link_to order.ordernum, order %>
                             (<%= order.orderstatus.orderstatus %>)</li>
                         <% end %>
@@ -48,7 +48,7 @@
                     <strong>Shipments:</strong>
                     <ul>
                         <% @invoice.shipments.each do |shipment| %>
-                        <li><strong>Shipment Number: </strong>
+                        <li><strong>Shipment #: </strong>
                             <%= link_to shipment.shipmentnum, shipment %>
                             (<%= shipment.shipmentstatus.shipmentstatus %>)</li>
                         <% end %>
@@ -58,7 +58,7 @@
                     <strong>Payments:</strong>
                     <ul>
                         <% @invoice.payments.each do |payment| %>
-                        <li><strong>Payment Number: </strong>
+                        <li><strong>Payment #: </strong>
                             <%= link_to payment.paymentnum, payment %>
                             (<%= payment.paymentstatus.paymentstatus %>)</li>
                         <% end %>

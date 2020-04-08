@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
                 <p>
-                    <strong>Shipment Number:</strong>
+                    <strong>Shipment #:</strong>
                     <%= @shipment.shipmentnum %>
                 </p>
                 <p>
@@ -34,7 +34,7 @@
                     <strong>Invoices:</strong>
                     <ul>
                         <% @shipment.invoices.each do |invoice| %>
-                        <li><strong>Invoice Number: </strong>
+                        <li><strong>Invoice #: </strong>
                             <%= link_to invoice.invoicenum, invoice %>
                             (<%= invoice.invoicestatus.invoicestatus %>)</li>
                         <% end %>
@@ -45,7 +45,7 @@
                     <strong>Containers:</strong>
                     <ul>
                         <% @shipment.containers.each do |container| %>
-                        <li><strong>Container Number: </strong>
+                        <li><strong>Container #: </strong>
                             <%= link_to container.containernum, container %></li>
                         <% end %>
                     </ul>

@@ -22,7 +22,7 @@
                     <strong>Orders:</strong>
                     <ul>
                         <% @auction.orders.each do |order| %>
-                        <li><strong>Order Number: </strong>
+                        <li><strong>Order #: </strong>
                             <%= link_to order.ordernum, order %>
                             (<%= order.orderstatus.orderstatus %>)</li>
                         <% end %>

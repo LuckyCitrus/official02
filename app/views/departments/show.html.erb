@@ -18,8 +18,7 @@
                     <strong>Employees:</strong>
                     <ul>
                         <% @department.employees.each do |employee| %>
-                        <li><strong>Name: </strong>
-                            <%= link_to employee.try(:emp_fullname), employee %></li>
+                        <li><%= link_to employee.try(:emp_fullname), employee %></li>
                         <% end %>
                     </ul>
                 </p>
