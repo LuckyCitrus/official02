@@ -6,5 +6,7 @@ class AddInvoicenumAutonumber < ActiveRecord::Migration[6.0]
         execute "ALTER TABLE invoices ALTER COLUMN invoicenum SET DEFAULT NEXTVAL('invoicenum_seq');"
         }
     end
+
   end
 end
+ 
