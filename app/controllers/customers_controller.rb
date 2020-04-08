@@ -6,7 +6,8 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     #@customers = Customer.all
-    @customers = policy_scope(Customer)
+    #@customers = policy_scope(Customer)
+    @pagy, @customers = pagy(policy_scope(Customer))
   end
 
   # GET /customers/1

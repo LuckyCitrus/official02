@@ -6,7 +6,8 @@ class ShipmentsController < ApplicationController
   # GET /shipments.json
   def index
     #@shipments = Shipment.all
-    @shipments = policy_scope(Shipment)
+    #@shipments = policy_scope(Shipment)
+    @pagy, @shipments = pagy(policy_scope(Shipment))
   end
 
   # GET /shipments/1

@@ -6,7 +6,8 @@ class InvoicesController < ApplicationController
   # GET /invoices.json
   def index
     #@invoices = Invoice.all
-    @invoices = policy_scope(Invoice)
+    #@invoices = policy_scope(Invoice)
+    @pagy, @invoices = pagy(policy_scope(Invoice))
   end
 
   # GET /invoices/1

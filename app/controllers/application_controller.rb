@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include Pundit
+  include Pagy::Backend
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   #before_action :verify_authorized, except: index, unless: :devise_controller?

@@ -5,7 +5,8 @@ class ContainerordersController < ApplicationController
   # GET /containerorders
   # GET /containerorders.json
   def index
-    @containerorders = Containerorder.all
+    #@containerorders = Containerorder.all
+    @pagy, @containerorders = pagy(Containerorder)
   end
 
   # GET /containerorders/1

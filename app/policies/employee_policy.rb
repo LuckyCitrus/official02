@@ -15,5 +15,4 @@ class EmployeePolicy < ApplicationPolicy
       end
     end
   end
-
 end

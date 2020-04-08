@@ -5,7 +5,8 @@ class OrderinvoicesController < ApplicationController
   # GET /orderinvoices
   # GET /orderinvoices.json
   def index
-    @orderinvoices = Orderinvoice.all
+    #@orderinvoices = Orderinvoice.all
+    @pagy, @orderinvoices = pagy(Orderinvoice)
   end
 
   # GET /orderinvoices/1

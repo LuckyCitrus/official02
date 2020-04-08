@@ -5,7 +5,8 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
+    #@employees = Employee.all
+    @pagy, @employees = pagy(Employee.all)
   end
 
   # GET /employees/1

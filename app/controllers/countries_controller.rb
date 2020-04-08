@@ -5,7 +5,8 @@ class CountriesController < ApplicationController
   # GET /countries
   # GET /countries.json
   def index
-    @countries = Country.all
+    #@countries = Country.all
+    @pagy, @countries = pagy(Country.all)
   end
 
   # GET /countries/1

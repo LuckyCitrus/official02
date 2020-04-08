@@ -42,11 +42,11 @@ html, body {
 	position: relative;
 }
 
-.header-left {
+.header-left .footer-left {
     float: left;
 }
 
-.header-right {
+.header-right, .footer-right {
     float: right;
     position:absolute;
     bottom: 0;
@@ -179,7 +179,7 @@ nav a:hover{
 .btn-primary.active,
 .open>.dropdown-toggle.btn-primary {
 	color: #ffffff !important;
-	background-color: #0495c9 !important;
+	//background-color: #0495c9 !important;
 }
 
 .btn-secondary,
