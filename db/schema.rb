@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_072832) do
+ActiveRecord::Schema.define(version: 2020_04_08_073244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -174,7 +174,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_072832) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "invoicestatus_id"
     t.decimal "amountdue"
-    t.string "invoicenum"
+    t.integer "invoicenum", default: -> { "nextval('invoicenum_seq'::regclass)" }
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["employee_id"], name: "index_invoices_on_employee_id"
     t.index ["invoicestatus_id"], name: "index_invoices_on_invoicestatus_id"
