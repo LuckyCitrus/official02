@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_one :customer, dependent: :destroy
 
   #Active Storage
-  has_many :image
+  has_many :images
 
   enum role: [:customer, :employee, :admin]
   after_initialize :set_default_role, :if => :new_record?

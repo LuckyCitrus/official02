@@ -1,22 +1,23 @@
 class ImagesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
-    @images = Image.all
+    # @images = Image.all
+    @images = Image.order(created_at: :desc).limit(15)
   end
 
   def new
-    @images = Image.new
+    @image = Image.new
   end
 
   def show
-    @images =Image.find(params[:id])
+    @image =Image.find(params[:id])
   end
 
   def create
-    @images = current_user.image.build(image_params)
-    if @images.save
-      redirect_to @images, notice: 'Image uploaded!'
+    @image = current_user.images.build(image_params)
+    if @image.save
+      redirect_to @image, notice: 'Image uploaded!'
     else
       render :new
     end
@@ -25,7 +26,7 @@ class ImagesController < ApplicationController
   private
 
   def image_params
-    params.require(:image).permit(:description, :image)
+    params.require(:image).permit(:image, :description)
   end
 
 end
