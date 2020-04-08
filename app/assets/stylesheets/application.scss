@@ -163,6 +163,16 @@ nav a:hover{
 	background-color: transparent;
 }
 
+/*.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.charts {
+    //width: 60%;
+}*/
+
 /*table {
 	white-space:nowrap;
 	max-width:100%;
@@ -195,12 +205,12 @@ form {
 	position: relative;
 	width: 100%;
 }
+
 label {
 	white-space: nowrap;
 }
 
-/*.field input, select, option
- {
+{
 	position: absolute;
 	left: 180px;
 	width: calc(100% - 60%);

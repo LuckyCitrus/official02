@@ -4,15 +4,15 @@
 // that code so it'll be compiled.
 import 'bootstrap'
 import flatpickr from "flatpickr"
+import "cocoon";
 
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-
+require("chartkick")
+require("chart.js")
 require('jquery')
-
-import "cocoon";
 
 require("flatpickr/dist/flatpickr.css")
 require("flatpickr/dist/themes/airbnb.css");

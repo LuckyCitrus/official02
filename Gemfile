@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.5'
 
+gem 'groupdate'
+gem 'chartkick'
 gem 'pagy'
 gem 'prawn-table'
 gem 'prawn'

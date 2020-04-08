@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
+  get 'dashboard/index'
   root 'dashboard#index'
   get 'users/index', to: 'users#index'
   get 'reports/active_orders', to: 'reports#active_orders'
@@ -46,6 +47,13 @@ Rails.application.routes.draw do
   get 'register', to: redirect('register/sign_up')
   get 'orderauctions', to: redirect('order_auctions')
 
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'sign_up'}
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'sign_up' }
+
+  namespace :charts do
+    get 'invoices_by_month'
+    get 'orders_by_month'
+    get 'shipments_by_month'
+    get 'total_payments'
+  end
 
 end
