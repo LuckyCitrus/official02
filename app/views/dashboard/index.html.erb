@@ -6,7 +6,7 @@
                 <h3>Dashboard</h3>
             </div>
             <div class="card-body">
-                <div class="charts" ;>
+                <div class="charts">
                     <%= column_chart charts_orders_by_month_path, 
                     download: {filename: "Monthly_Total_Orders_" + Date.today.to_s(:short_date)},
                     xtitle: "Month",

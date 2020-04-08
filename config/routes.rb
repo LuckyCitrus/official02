@@ -54,6 +54,7 @@ Rails.application.routes.draw do
     get 'orders_by_month'
     get 'shipments_by_month'
     get 'total_payments'
+    get 'total_auction_orders'
   end
 
 end

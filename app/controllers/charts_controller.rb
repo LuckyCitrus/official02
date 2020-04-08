@@ -16,4 +16,7 @@ class ChartsController < ApplicationController
 		render json: DashboardCalculations.total_payments
 	end
 	
+	def total_auction_orders
+		render json: DashboardCalculations.total_auction_orders
+	end
 end

@@ -15,4 +15,8 @@ class DashboardCalculations
         Payment.joins(:paymentstatus).where(["paymentstatuses.id = payments.paymentstatus_id"]).group("paymentstatuses.paymentstatus").count
     end
 
+    def self.total_auction_orders
+        Order.joins(order_auctions: :auction).where(["orders.id = order_auctions.order_id AND orders.date > CURRENT_DATE - INTERVAL '1 month'"]).group("auctions.auctionname").order("SUM(orders.quantity) DESC").sum(:quantity)
+    end
+
 end
