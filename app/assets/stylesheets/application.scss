@@ -182,7 +182,6 @@ nav a:hover{
 	color: #ffffff !important;
 }
 
-.btn-primary,
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
@@ -190,14 +189,21 @@ nav a:hover{
 .open>.dropdown-toggle.btn-primary {
 	color: #ffffff !important;
 	//background-color: #0495c9 !important;
+	background-color: #007BFF !important;
 }
 
-.btn-secondary,
+.btn:hover {
+	filter: brightness(120%);
+	transition: all .4s ease;
+	-webkit-transition: all .4s ease;
+}
+
 .btn-secondary:hover,
 .btn-secondary:focus,
 .btn-secondary:active,
 .btn-secondary.active,
 .open>.dropdown-toggle.btn-primary {
+	color: #ffffff !important;
 	background-color: #6C757D !important;
 }
 
@@ -210,7 +216,7 @@ label {
 	white-space: nowrap;
 }
 
-{
+/*{
 	position: absolute;
 	left: 180px;
 	width: calc(100% - 60%);
