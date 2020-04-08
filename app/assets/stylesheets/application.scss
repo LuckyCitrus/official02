@@ -33,7 +33,7 @@ html, body {
 	background-image: url("https://bucketeer-396b7776-65f2-4c5b-b817-0d75c447dd4e.s3.amazonaws.com/public/Car_Cargo.jpg");
 	background-size: cover;
 	background-position: center;
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 	height: 100vh;
 }
 
@@ -42,7 +42,7 @@ html, body {
 	position: relative;
 }
 
-.header-left .footer-left {
+.header-left, .footer-left {
     float: left;
 }
 
