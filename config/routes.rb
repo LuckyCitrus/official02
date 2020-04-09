@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   resources :auctions
   resources :locations
   resources :orders
-  resources :pictures
   resources :orderstatuses
   resources :customertypes
   resources :customerstatuses
