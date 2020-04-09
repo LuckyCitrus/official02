@@ -3,7 +3,7 @@
         <div class="card card-default">
             <div class="card-header">
                 <h2>Monthly Orders Per Auctions</h2>
-            </div>
+            </div><br>
             <div class="charts">
                 <%= column_chart charts_total_auction_orders_path, 
                     download: {filename: "Monthly_Orders_Per_Auctions_" + Date.today.to_s(:num_date)},

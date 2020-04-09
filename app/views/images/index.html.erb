@@ -1,23 +1,41 @@
-<br><br><br>
-<h2>Images Gallery</h2>
-<br><br><br><br>
-<div class="card-columns">
-  <% @images.each do |image| %>
-    <div class="card">
-      <div class="card-body p-1">
+<div class="row row-fluid">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h2>Images Gallery</h2>
+            </div>
+            <div class="card-body">
+                <div class="card-columns">
+                    <% @images.each do |image| %>
+                    <div class="card">
+                        <div class="card-body p-1">
+                            <%= link_to image_path(image.id) do %>
+                            <%= image_tag image.image, class: 'd-block w-100 img-fluid' if image.image.attached? %>
+                            <% end %>
 
-        <%= image_tag image.image, class: 'd-block w-100' if image.image.attached?%>
+                            <p class="m-2"><b>Order # </b><%= link_to image.order.ordernum, image.order %></p>
+                            <p class="m-2"><b>Description:</b> <%= image.description %></p>
+                            <hr>
 
-        <p class="my-1"><u><b>Description:</b></u> <%= image.description %></p>
-<!--        <p class="my-1"><u><b>User:</b></u> <%#= image.order.customer.user.email %></p>-->
-        <p class="my-1"><u><b>User:</b></u> <%= image.order.customer.email %></p>
-        <p class="my-1"><u><b>Order Number:</b></u> <%= image.order.ordernum %></p>
+                            <%= link_to edit_image_path(image) do %>
+                            <i class="fas fa-edit fa-lg m-2"></i>
+                            <% end %>
 
-        <%= link_to "View Image", image_path(image.id), class: 'btn btn-secondary stretched-link' %>
-        <%= link_to 'Destroy Image', image_path(image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary stretched-link' %>
+                            <% if current_user.admin? %>
+                            <%= link_to image_path(image.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                            <i class="fas fa-trash fa-lg m-2"></i>
+                            <% end %>
+                            <% end %>
 
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+            <div class="card-footer">
+                <%= link_to 'New Image', new_image_path(@image), class: "btn btn-primary" %>
 
-      </div>
+            </div>
+        </div>
     </div>
-  <% end %>
 </div>

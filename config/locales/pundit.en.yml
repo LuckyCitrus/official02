@@ -49,3 +49,11 @@ en:
       update?: "You are not authorized to update this picture."
       edit?: "You are not authorized to edit this picture."
       destroy?: "You are not authorized to destroy this picture."
+    image_policy:
+      index?: "You are not authorized to view this image."
+      show?: "You are not authorized to view this image."
+      create?: "You are not authorized to create this image."
+      new?: "You are not authorized to create this image."
+      update?: "You are not authorized to update this image."
+      edit?: "You are not authorized to edit this image."
+      destroy?: "You are not authorized to destroy this image."

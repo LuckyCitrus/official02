@@ -65,10 +65,10 @@ html, body {
 	z-index: 1;
 }
 
-.row-fluid, .card {
+.row-fluid/*, .card*/ {
 	display: flex;
 	justify-content: center;
-	margin: 1.5em;
+	margin: 2em;
 }
 
 nav.navbar {
@@ -202,6 +202,7 @@ form {
 	position: relative;
 	width: 100%;
 }
+
 label {
 	white-space: nowrap;
 }
@@ -213,6 +214,14 @@ label {
 	width: calc(100% - 60%);
 }*/
 
+.fas {
+	color: black;
+}
+
+label[for="image_image"] {
+	//display: none;
+	font-size: 14px;
+}
  /*flash*/
  .alert-error {
      background-color: #f2dede;

@@ -23,9 +23,25 @@ class ImagesController < ApplicationController
     @image = current_user.images.build(image_params)
 
     if @image.save
-      redirect_to @image, notice: 'Image uploaded!'
+      redirect_to @image, notice: 'Image was successfully uploaded!'
     else
       render :new
+    end
+  end
+
+  def edit
+     @image = Image.find(params[:id])
+end
+
+  def update
+    respond_to do |format|
+      if @image.update(image_params)
+        format.html { redirect_to @image, notice: 'Image was successfully updated.' }
+        format.json { render :show, status: :ok, location: @image }
+      else
+        format.html { render :edit }
+        format.json { render json: @image.errors, status: :unprocessable_entity }
+      end
     end
   end
 
