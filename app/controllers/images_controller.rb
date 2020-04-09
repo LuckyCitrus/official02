@@ -1,11 +1,12 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_image, only: [:show, :destroy]
+  before_action :set_image, only: [:show, :edit, :update, :destroy]
   # before_action :set_image
 
   def index
     # @images = Image.all
-    @images = Image.order(created_at: :desc).limit(15)
+    #@images = Image.order(created_at: :desc).limit(15)
+    @images = policy_scope(Image).order(created_at: :desc).limit(15)
   end
 
   def new
@@ -58,7 +59,7 @@ class ImagesController < ApplicationController
 
   def set_image
     @image = Image.find(params[:id])
-    authorize @image
+    #authorize @image
   end
 
   def image_params
