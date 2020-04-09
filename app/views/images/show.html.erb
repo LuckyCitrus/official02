@@ -14,7 +14,7 @@
                 <p class="card-text"><%= @image.description %></p>
                 <% end %>
                 <p class="border-top mt-3 py-2">
-                    Posted by <%= link_to @image.user.email, @image.user %> - 
+                    Posted by <%= link_to @image.user.email, @image.user %> -
                     <span class="text-muted"><%= time_ago_in_words @image.created_at %> ago</span>
                 </p>
             </div>
