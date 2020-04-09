@@ -6,13 +6,21 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-amazon:
+digitalocean_s3:
   service: S3
-  access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
-  secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
+  access_key_id: <%= Rails.application.credentials.dig(:digitalocean_s3, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:digitalocean_s3, :secret_access_key) %>
   region: sfo2
   bucket: bototomstone
   endpoint: 'https://sfo2.digitaloceanspaces.com'
+
+aws_s3:
+  service: S3
+  access_key_id: <%= Rails.application.credentials.dig(:aws_s3, :access_key_id) %>
+  secret_access_key: <%= Rails.application.credentials.dig(:aws_s3, :secret_access_key) %>
+  region: us-east-1
+  bucket: bucketeer-396b7776-65f2-4c5b-b817-0d75c447dd4e
+
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
