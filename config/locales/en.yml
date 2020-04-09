@@ -58,6 +58,8 @@ en:
       title: "Employees"
   employeestatuses:
       title: "Employee Statuses"
+  images:
+      title: "Images"
   invoices:
       title: "Invoices"
   invoiceshipments:
