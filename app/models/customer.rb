@@ -12,6 +12,7 @@ class Customer < ApplicationRecord
   #delete cascading
   has_many :orders, dependent: :destroy
   has_many :payments, dependent: :destroy
+  has_many :cars, through: :orders
 
   #fields validation
   validates :first_name, presence: true, format: { with: /\A[a-z ][a-z- ]*[a-z-' ]\z/i }, length: { maximum: 128 }

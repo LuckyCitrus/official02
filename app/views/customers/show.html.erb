@@ -25,6 +25,8 @@
                     <strong>Email:</strong>
                     <%= @customer.email %>
                 </p>
+
+                <% if @customer.user %>
                 <p>
                     <strong>User:</strong>
                     <% if current_user.try(:admin?)  %>
@@ -33,26 +35,48 @@
                     <td><%= @customer.user.try(:email) %></td>
                     <%end%>
                 </p>
+                <% end %>
 
+                <% unless @customer.orders.empty? %>
                 <p>
                     <strong>Orders:</strong>
                     <ul>
                         <% @customer.orders.each do |order| %>
-                        <li><strong>Order Number: </strong>
-                            <%= link_to order.ordernum, order %></li>
-                        <% end %>
+                        <li><strong>Order #: </strong>
+                            <%= link_to order.ordernum, order %>
+                            <% @customer.cars.each do |car| %>
+                            <ul>
+                                <li>VIN #: <%= link_to car.vinnumber, car %>
+                                (<%= car.try(:car_info) %>)</li>
+                            </ul>
+                            <% end %>
+                            <% end %>
+                        </li>
                     </ul>
                 </p>
+                <% end %>
 
+
+                <% unless @customer.invoices.empty? %>
                 <p>
-                    <strong>Payments:</strong>
+                    <strong>Invoices:</strong>
                     <ul>
-                        <% @customer.payments.each do |payment| %>
-                        <li><strong>Payment Number: </strong>
-                            <%= link_to payment.paymentnum, payment %></li>
-                        <% end %>
+                        <% @customer.invoices.each do |invoice| %>
+                        <li><strong>Invoice #: </strong>
+                            <%= link_to invoice.invoicenum, invoice %>
+                            <% unless @customer.payments.empty? %>
+
+                            <% @customer.payments.each do |payment| %>
+                            <ul>
+                                <li>Payment #: <%= link_to payment.paymentnum, payment %></li>
+                            </ul>
+                            <% end %>
+                            <% end %>
+                            <% end %>
+                        </li>
                     </ul>
                 </p>
+                <% end %>
 
             </div>
             <div class="card-footer">
