@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_image, only: [:show]
+  before_action :set_image, only: [:show, :destroy]
+  # before_action :set_image
 
   def index
     # @images = Image.all
@@ -25,6 +26,16 @@ class ImagesController < ApplicationController
       redirect_to @image, notice: 'Image uploaded!'
     else
       render :new
+    end
+  end
+
+  def destroy
+    @image.destroy
+    authorize @image
+
+    respond_to do |format|
+      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 

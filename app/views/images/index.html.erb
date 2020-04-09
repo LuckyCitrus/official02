@@ -14,6 +14,9 @@
         <p class="my-1"><u><b>Order Number:</b></u> <%= image.order.ordernum %></p>
 
         <%= link_to "View Image", image_path(image.id), class: 'btn btn-secondary stretched-link' %>
+        <%= link_to 'Destroy Image', image_path(image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary stretched-link' %>
+
+
       </div>
     </div>
   <% end %>
