@@ -14,9 +14,10 @@
                             <%= image_tag image.image, class: 'd-block w-100 img-fluid' if image.image.attached? %>
                             <% end %>
 
-                            <p class="my-1"><b>Description:</b> <%= image.description %></p>
-                            <p class="my-1"><b>User:</b><%= image.user.email %></p>
-                            <p class="my-1"><b>Order #:</b><%= image.order.ordernum %></p>
+                            <<<<<<< HEAD <p class="my-1"><b>Description:</b> <%= image.description %></p>
+                                <p class="my-1"><b>User:</b><%= image.user.email %></p>
+                                <p class="my-1"><b>Order #:</b><%= image.order.ordernum %></p>
+                                <%= link_to 'Destroy Image', image_path(image.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary stretched-link' %>
                         </div>
                     </div>
                     <% end %>
@@ -27,5 +28,5 @@
 
             </div>
         </div>
-    </div>
+</div>
 </div>
