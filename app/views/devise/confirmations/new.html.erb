@@ -11,12 +11,12 @@
                 <div class="field">
                     <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), maxlength: 254, size: 24, required: true %>
                 </div>
-                <%= render "devise/shared/links" %>
+                <%= render "devise/shared/links" %><hr>
+                <div class="actions">
+                    <%= f.submit "Resend Confirmation", class: "btn btn-primary" %>
+                    <% end %>
+                </div>
+            </div>
 
-            </div>
-            <div class="card-footer">
-                <%= f.submit "Resend Confirmation", class: "btn btn-primary" %>
-                <% end %>
-            </div>
         </div>
     </div>
