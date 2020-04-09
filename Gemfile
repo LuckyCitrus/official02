@@ -23,7 +23,7 @@ gem 'cocoon'
 # Gems for Active Storage
 gem 'active_storage_drag_and_drop'
 gem 'active_storage_validations'
-
+gem "aws-sdk-s3", require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
