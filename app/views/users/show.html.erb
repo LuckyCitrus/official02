@@ -9,11 +9,13 @@
                     <strong>Email: </strong>
                     <%= @user.email if @user.email %>
                 </p>
+                <% if @user.employee? || @user.customer? %>
                 <p>
                     <strong>Name: </strong>
                     <%= link_to @user.employee.try(:emp_fullname), @user.employee if @user.employee %>
                     <%= link_to @user.customer.try(:cus_fullname), @user.customer if @user.customer %>
                 </p>
+                <% end %>
                 <p>
                     <strong>Role: </strong>
                     <%= link_to @user.role.titleize, employees_path if @user.role == 'employee' %>
