@@ -1,6 +1,7 @@
 <div class="row row-fluid">
     <div class="col-md-4">
         <div class="card">
+
             <div class="view overlay">
                 <%= image_tag @image.image, class:"card-img-top img-fluid" %>
                 <div class="mask rgba-white-slight"></div>
@@ -23,6 +24,7 @@
                     <span class="text-muted"><%= time_ago_in_words @image.created_at %> ago</span>
                 </p>
             </div>
+
             <div class="card-footer">
                 <%= link_to 'Edit', edit_image_path(@image), class: "btn btn-primary" %>
                 <%= link_to 'Back', images_path, class: "btn btn-secondary" %>

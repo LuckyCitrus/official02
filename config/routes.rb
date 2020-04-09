@@ -1,18 +1,12 @@
 Rails.application.routes.draw do
 
-  # get 'images/index'
-  # get 'images/new'
-  # get 'images/show'
   resources :images
 
   resources :containerorders
   resources :orderinvoices
   resources :order_auctions
   resources :invoiceshipments
-  resources :helloos
   resources :containers
-  resources :dummyusers
-  resources :dummyroles
   resources :invoices
   resources :shipments
   resources :shipmentstatuses
@@ -38,7 +32,6 @@ Rails.application.routes.draw do
   resources :customerstatuses
   resources :countries
   resources :customers
-  resources :hellos
   resources :users
   resources :auction_orders
 
