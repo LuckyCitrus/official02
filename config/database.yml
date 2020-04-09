@@ -20,10 +20,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: doadmin
-  password: i1a3td9sdps7fb6m
-  host: bottomstone-do-user-7236032-0.a.db.ondigitalocean.com
-  port: 25060
+  username: <%= Rails.application.credentials.dig(:digitalocean_db, :username) %>
+  password: <%= Rails.application.credentials.dig(:digitalocean_db, :password) %>
+  host: <%= Rails.application.credentials.dig(:digitalocean_db, :host) %>
+  port: <%= Rails.application.credentials.dig(:digitalocean_db, :port) %>
   sslmode: require
 
 development:
@@ -83,6 +83,10 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+#production:
+#  <<: *default
+#  database: official02_production
+
 production:
-  <<: *default
-  database: official02_production
+  url: <%= ENV['DATABASE_URL'] %>
+
