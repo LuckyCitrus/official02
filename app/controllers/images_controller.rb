@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_image, only: [:show, :destroy]
+  before_action :set_image, only: [:show, :edit, :destroy]
   # before_action :set_image
 
   def index
@@ -33,6 +33,7 @@ class ImagesController < ApplicationController
   end
 
   def update
+    @image = Image.find params[:id]
     respond_to do |format|
       if @image.update(image_params)
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
@@ -62,7 +63,7 @@ class ImagesController < ApplicationController
   end
 
   def image_params
-    params.require(:image).permit(:image, :description, :user_id, :order_id)
+    params.require(:image).permit(:id, :image, :description, :user_id, :order_id)
   end
 
 end
