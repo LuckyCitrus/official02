@@ -14,6 +14,7 @@
                             <% end %>
 
                             <p class="m-2"><b>Order # </b><%= link_to image.order.ordernum, image.order %></p>
+                            <p class="m-2"><b>To: </b><%= link_to image.order.customer.cus_fullname, image.order.customer %></p>
                             <p class="m-2"><b>Description:</b> <%= image.description %></p>
                             <hr>
 
