@@ -12,9 +12,9 @@
     </div>
     <% end %>
 
-    <div class="form-group"">
+    <div class="form-group">
         <%#= form.drag_and_drop_file_field :image, 'Drag and drop image here', hide_label: true  %>
-        <%= f.file_field :image, name: "image", value: "Choose a file" , class: "ui purple button" %>
+        <%= f.file_field :image %>
     </div>
 
     <div class=" field">
@@ -27,5 +27,4 @@
 
     <%= f.submit :Submit, class: 'btn btn-success' %>
     <% end %>
-</div>
 </div>
