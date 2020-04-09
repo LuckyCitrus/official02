@@ -110,7 +110,8 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.action_mailer.default_url_options = { host: 'mitsabfaro.com' }
+  config.action_mailer.default_url_options = { host: 'mitsabfaro.com', protocol: 'https' }
+  #config.action_mailer.default_url_options = { :host => 'smtp.sendgrid.net'} 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
 end
