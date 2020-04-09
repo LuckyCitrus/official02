@@ -1,8 +1,10 @@
 <div class="row row-fluid">
-    <div class="col-sm-12">
-        <div class="card">
+    <div class="col-sm-10">
+        <div style="display:none;" class="nav_up" id="nav_up">🔺</div>
+        <div style="display:none;" class="nav_down" id="nav_down">🔻</div>
+        <div class="card" id="content">
             <div class="card-header">
-                <h2>Images Gallery</h2>
+                <h2>Image Gallery</h2>
             </div>
             <div class="card-body">
                 <div class="card-columns">
@@ -27,7 +29,6 @@
                             <i class="fas fa-trash fa-lg m-2"></i>
                             <% end %>
                             <% end %>
-
                         </div>
                     </div>
                     <% end %>
@@ -35,7 +36,6 @@
             </div>
             <div class="card-footer">
                 <%= link_to 'New Image', new_image_path(@image), class: "btn btn-primary" %>
-
             </div>
         </div>
     </div>

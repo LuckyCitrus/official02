@@ -5,7 +5,8 @@ class ImagesController < ApplicationController
 
   def index
     # @images = Image.all
-    @images = Image.order(created_at: :desc).limit(15)
+    #@images = Image.order(created_at: :desc).limit(15)
+    @images = policy_scope(Image).order(created_at: :desc).limit(15)
   end
 
   def new
@@ -59,7 +60,7 @@ class ImagesController < ApplicationController
 
   def set_image
     @image = Image.find(params[:id])
-    authorize @image
+    #authorize @image
   end
 
   def image_params

@@ -4,10 +4,6 @@
         <%= f.text_field :departmentname, label: "Department Name", maxlength: 128, required: true %>
     </div>
 
-    <div class="field">
-        <%= f.collection_select :company_id, Company.order(:companyname), :id, :companyname, {include_blank: ""}, required: true %>
-    </div>
-
     <%= link_to_remove_association "Remove Department", f %>
 
 </div>
