@@ -14,6 +14,10 @@
                     <%= @payment.date.to_s(:long_date) %>
                 </p>
                 <p>
+                    <strong>Customer:</strong>
+                    <%= link_to @payment.customer.cus_fullname, @payment.customer %>
+                </p>
+                <p>
                     <strong>Amount:</strong>
                     <%= number_to_currency(@payment.amount) %>
                 </p>
@@ -26,14 +30,23 @@
                     <%= @payment.paymentmethod.paymenttype %>
                 </p>
                 <p>
-                    <strong>Customer:</strong>
-                    <%= link_to @payment.customer.cus_fullname, @payment.customer %>
-                </p>
-                <p>
                     <strong>Invoice #:</strong>
                     <%= link_to @payment.invoice.invoicenum, @payment.invoice %>
-                    (<%= @payment.invoice.invoicestatus.invoicestatus %>)
                 </p>
+
+                <% unless @payment.invoice.orders.empty? %>
+                <p>
+                    <strong>Orders:</strong>
+                    <ul>
+                        <% @payment.invoice.orders.each do |order| %>
+                        <li><strong>Order #: </strong>
+                            <%= link_to order.ordernum, order %>
+
+                            <% end %>
+                        </li>
+                    </ul>
+                </p>
+                <% end %>
 
             </div>
             <div class="card-footer">

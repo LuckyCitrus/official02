@@ -16,6 +16,7 @@ class Order < ApplicationRecord
   has_many :containers, through: :containerorders
   has_many :invoices, through: :orderinvoices
   has_many :auctions, through: :order_auctions
+  has_many :payments, through: :invoices
 
   #nested forms
   accepts_nested_attributes_for :cars, reject_if: :all_blank, allow_destroy: :true

@@ -47,7 +47,7 @@
                             <% @customer.cars.each do |car| %>
                             <ul>
                                 <li>VIN #: <%= link_to car.vinnumber, car %>
-                                (<%= car.try(:car_info) %>)</li>
+                                    (<%= car.try(:car_info) %>)</li>
                             </ul>
                             <% end %>
                             <% end %>
@@ -77,6 +77,20 @@
                     </ul>
                 </p>
                 <% end %>
+
+                <!--<% unless @customer.shipments.empty? %>
+                <p>
+                    <strong>Shipments:</strong>
+                    <ul>
+                        <% @customer.shipments.each do |shipment| %>
+                        <li><strong>Shipment #: </strong>
+                            <%= link_to shipment.shipmentnum, shipment %>
+                        
+                            <% end %>
+                        </li>
+                    </ul>
+                </p>
+                <% end %>-->
 
             </div>
             <div class="card-footer">

@@ -5,7 +5,8 @@ class Payment < ApplicationRecord
   belongs_to :paymentmethod
   belongs_to :customer
   belongs_to :invoice
-
+  belongs_to :order
+  
   #fields validation
   validates :paymentnum, presence: true, if: ->(invoice) {invoice.persisted?}, uniqueness: true, length: { maximum: 128 }#, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }
   validates :date, presence: true
