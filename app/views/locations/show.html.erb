@@ -12,6 +12,7 @@
                 </p>
 
                 <%# Nested Form Show %>
+                <% unless @location.warehouses.empty? %>
                 <p>
                     <strong>Warehouses:</strong>
                 </p>
@@ -20,9 +21,11 @@
                     <li><%= link_to @warehouse.warehousename, @warehouse %></li>
                     <% end %>
                 </ul>
+                <% end %>
                 <%# End of Nested Form Show %>
 
                 <%# Nested Form Show %>
+                <% unless @location.auctions.empty? %>
                 <p>
                     <strong>Auctions:</strong>
                 </p>
@@ -31,6 +34,7 @@
                     <li><%= link_to @auction.auctionname, @auction %></li>
                     <% end %>
                 </ul>
+                <% end %>
                 <%# End of Nested Form Show %>
             </div>
 
