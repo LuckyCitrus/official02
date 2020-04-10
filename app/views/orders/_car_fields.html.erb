@@ -1,33 +1,32 @@
 <%# Nested Form Partial %>
 <div class='nested-fields'>
 
-  <div class="field">
-    <%= f.text_field :vinnumber, label: "VIN Number", pattern: '^[a-zA-Z0-9]*$', help: "No special characters are allowed", minlength: 11, maxlength: 17, required: true %>
-  </div>
-  <!--VIN Number 1981 standard regex:'^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$-->
+    <div class="field">
+        <%= f.text_field :vinnumber, label: "VIN Number", pattern: '^[a-zA-Z0-9]*$', help: "No special characters are allowed", minlength: 11, maxlength: 17, required: true %>
+    </div>
+    <!--VIN Number 1981 standard regex:'^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$-->
 
-  <div class="field">
-    <%= f.number_field :year, pattern: '/(19|20)\d{2}/i', min: 1900, max: Date.today.year+1, required: true %>
-  </div>
+    <div class="field">
+        <%= f.number_field :year, pattern: '/(19|20)\d{2}/i', min: 1900, max: Date.today.year+1, required: true %>
+    </div>
 
-  <div class="field">
-    <%= f.text_field :make, required: true, pattern: '^[a-zA-Z0-9-]*$', help: "No special characters are allowed", maxlength: 128, required: true %>
-  </div>
+    <div class="field">
+        <%= f.text_field :make, required: true, pattern: '^[a-zA-Z0-9-]*$', help: "No special characters are allowed", maxlength: 128, required: true %>
+    </div>
 
-  <div class="field">
-    <%= f.text_field :model, required: true, pattern: '^[a-zA-Z0-9-]*$', help: "Only alphanumeric characters are allowed", maxlength: 128, required: true %>
-  </div>
+    <div class="field">
+        <%= f.text_field :model, required: true, pattern: '^[a-zA-Z0-9-]*$', help: "Only alphanumeric characters are allowed", maxlength: 128, required: true %>
+    </div>
 
-  <div class="field">
-    <%= f.collection_select :titlestatus_id, Titlestatus.order(:titlestatus), :id, :titlestatus, {include_blank: ""}, required: true %>
-  </div>
+    <div class="field">
+        <%= f.collection_select :titlestatus_id, Titlestatus.order(:titlestatus), :id, :titlestatus, {include_blank: ""}, required: true %>
+    </div>
 
-  <div class="field">
-    <%= f.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""} %>
-  </div>
+    <div class="field">
+        <%= f.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""} %>
+    </div>
 
-  <%= link_to_remove_association "Remove Car", f %>
+    <%= link_to_remove_association "Remove Car", f %>
 
 </div>
 <%# End of Nested Form Partial %>
-

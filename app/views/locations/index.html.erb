@@ -17,7 +17,7 @@
                         <td><%= link_to location.city, location %></td>
                         <!--<td><%= link_to 'Show', location %></td>-->
                         <td><%= link_to 'Edit', edit_location_path(location) %>
-                        <% if current_user.admin? %> / 
+                            <% if current_user.admin? %> /
                             <%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>
                     </tr>
@@ -25,7 +25,12 @@
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Location', new_location_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Location', new_location_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>
