@@ -25,6 +25,18 @@
                     <strong>Email:</strong>
                     <%= @customer.email %>
                 </p>
+                <p>
+                    <strong>Country:</strong>
+                    <%= link_to @customer.country.country_name, @customer.country %>
+                </p>
+                <p>
+                    <strong>Customer Status:</strong>
+                    <%= @customer.customerstatus.customerstatus %>
+                </p>
+                <p>
+                    <strong>Customer Type:</strong>
+                    <%= @customer.customertype.customertype %>
+                </p>
 
                 <% if @customer.user %>
                 <p>
