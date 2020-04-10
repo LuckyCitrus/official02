@@ -20,7 +20,7 @@ class Order < ApplicationRecord
 
   #nested forms
   accepts_nested_attributes_for :cars, reject_if: :all_blank, allow_destroy: :true
-  accepts_nested_attributes_for :invoices, reject_if: :all_blank, allow_destroy: :true
+  accepts_nested_attributes_for :orderinvoices, reject_if: :all_blank, allow_destroy: :true
 
   #fields validation
   validates :ordernum, presence: true, if: ->(order) {order.persisted?}, uniqueness: true, length: { maximum: 128 }#, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }

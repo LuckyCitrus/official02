@@ -57,15 +57,16 @@
     <%# End of Nested Form Form %>
 
     <%# Nested Form Form %>
+    <% unless @order.orderinvoices.empty? %>
     <h3>Invoices</h3>
     <div id='[child]s'>
-        <%= form.fields_for :invoices do |invoice| %>
-        <%= render 'invoice_fields', :f => invoice %>
+        <%= form.fields_for :orderinvoices do |orderinvoice| %>
+        <%= render 'orderinvoice_fields', :f => orderinvoice %>
         <% end %>
         <div class='links'>
-            <%= link_to_add_association 'Add Invoice', form, :invoices %>
+            <%= link_to_add_association 'Add Invoice', form, :orderinvoices %>
         </div>
-    </div><br><br>
+    </div><br><br><% end %>
     <%# End of Nested Form Form %>
 
     <div class="actions">

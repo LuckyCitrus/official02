@@ -47,7 +47,7 @@
                     <strong>Cars:</strong>
                     <ul>
                         <% for @car in @order.cars %>
-                        <li><strong>VIN Number :</strong>
+                        <li><strong>VIN Number:</strong>
                             <%= link_to @car.vinnumber, @car %>
                             (<%= @car.car_info %>)</li>
                         <% end %>
