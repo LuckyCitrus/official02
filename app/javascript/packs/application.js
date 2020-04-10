@@ -41,8 +41,8 @@ document.addEventListener("turbolinks:load", () => {
     $('f').submit()
 };*/
 
-
-$(function () {
+//$(function () {
+document.addEventListener("turbolinks:load", function () {
     var $elem = $('#content');
 
     $('#nav_up').fadeIn('slow');
@@ -76,3 +76,4 @@ $(function () {
         }
     );
 });
+

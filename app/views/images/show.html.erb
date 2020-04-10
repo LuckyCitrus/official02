@@ -19,8 +19,8 @@
                     <% if current_user.admin? %>
                     <%= link_to @image.user.email, @image.user %>
                     <% else %>
-                    <% @image.user.email%> 
-                    <% end %> - 
+                    <% @image.user.email%>
+                    <% end %> -
                     <span class="text-muted"><%= time_ago_in_words @image.created_at %> ago</span>
                 </p>
             </div>

@@ -10,6 +10,20 @@
                     <%= @country.country_name %>
                 </p>
 
+
+                <% unless @country.customers.empty? %>
+                <p>
+                    <strong>Customers:</strong>
+                    <ul>
+                        <% @country.customers.each do |customer| %>
+                        <li><strong>Customer: </strong>
+                            <%= link_to customer.try(:cus_fullname), customer %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </p>
+                <% end %>
+
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_country_path(@country), class: "btn btn-primary" %>

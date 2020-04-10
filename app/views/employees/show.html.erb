@@ -33,6 +33,8 @@
                     <strong>Hire Date:</strong>
                     <%= @employee.hiredate.to_s(:long_date) %>
                 </p>
+
+                <% if @employee.department %>
                 <p>
                     <strong>Department:</strong>
                     <%= link_to @employee.department.departmentname, @employee.department if @employee.department %>
@@ -45,7 +47,9 @@
                     <strong>Employee Status:</strong>
                     <%= @employee.employeestatus.employeestatus %>
                 </p>
+                <% end %>
 
+                <% if @employee.user %>
                 <p>
                     <strong>User:</strong>
                     <% if current_user.try(:admin?)  %>
@@ -54,6 +58,7 @@
                     <td><%= @employee.user.try(:email) %></td>
                     <%end%>
                 </p>
+                <% end %>
 
             </div>
             <div class="card-footer">

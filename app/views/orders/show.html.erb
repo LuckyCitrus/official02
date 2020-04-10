@@ -1,6 +1,10 @@
 <div class="row row-fluid">
     <div class="col-sm-5">
-        <div class="card">
+        <div class="nav">
+            <div style="display:none;" class="nav_up" id="nav_up">🔺</div>
+            <div style="display:none;" class="nav_down" id="nav_down">🔻</div>
+        </div>
+        <div class="card" id="content">
             <div class="card-header">
                 <h3>Order</h3>
             </div>
@@ -12,6 +16,10 @@
                 <p>
                     <strong>Order Date:</strong>
                     <%= @order.date.to_s(:long_date) %>
+                </p>
+                <p>
+                    <strong>Customer:</strong>
+                    <%= link_to @order.customer.try(:cus_fullname), @order.customer %>
                 </p>
                 <p>
                     <strong>Lotstock:</strong>
@@ -33,21 +41,21 @@
                     <strong>Order Status:</strong>
                     <%= @order.orderstatus.orderstatus %>
                 </p>
-                <p>
-                    <strong>Customer:</strong>
-                    <%= link_to @order.customer.try(:cus_fullname), @order.customer %>
-                </p>
+
+                <% unless @order.cars.empty? %>
                 <p>
                     <strong>Cars:</strong>
                     <ul>
                         <% for @car in @order.cars %>
-                        <li><strong>VIN Number :</strong>
+                        <li><strong>VIN Number:</strong>
                             <%= link_to @car.vinnumber, @car %>
                             (<%= @car.car_info %>)</li>
                         <% end %>
                     </ul>
                 </p>
+                <% end %>
 
+                <% unless @order.auctions.empty? %>
                 <p>
                     <strong>Auctions:</strong>
                     <ul>
@@ -57,17 +65,48 @@
                         <% end %>
                     </ul>
                 </p>
+                <% end %>
 
+                <% unless @order.invoices.empty? %>
                 <p>
                     <strong>Invoices:</strong>
                     <ul>
                         <% @order.invoices.each do |invoice| %>
                         <li><strong>Invoice #: </strong>
                             <%= link_to invoice.invoicenum, invoice %>
-                            (<%= invoice.invoicestatus.invoicestatus %>)</li>
-                        <% end %>
+                            <% unless invoice.payments.empty? %>
+
+                            <% invoice.payments.each do |payment| %>
+                            <ul>
+                                <li>Payment #: <%= link_to payment.paymentnum, payment %></li>
+                            </ul>
+                            <% end %>
+                            <% end %>
+                            <% end %>
+                        </li>
                     </ul>
                 </p>
+                <% end %>
+
+                <% unless @order.images.empty? %>
+                <strong>Images:</strong>
+                <div class="card-body">
+                    <div class="card-columns">
+                        <% @order.images.each do |image| %>
+                        <div class="card">
+                            <div class="card-body p-1">
+                                <%= link_to image_path(image.id) do %>
+                                <%= image_tag image.image, class: 'd-block w-100 img-fluid' if image.image.attached? %>
+                                <% end %>
+
+                                <p class="m-2"><%= image.description %></p>
+                            </div>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
+                <% end %>
+
 
             </div>
             <div class="card-footer">

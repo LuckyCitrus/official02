@@ -24,6 +24,18 @@
         <%= form.collection_select :company_id, Company.order(:companyname), :id, :companyname, {include_blank: ""}, required: true %>
     </div>
 
+    <%# Nested Form Form %>
+    <h3>Orders</h3>
+    <div id='[child]s'>
+        <%= form.fields_for :containerorders do |containerorder| %>
+        <%= render 'containerorder_fields', :f => containerorder %>
+        <% end %>
+        <div class='links'>
+            <%= link_to_add_association 'Add Order', form, :containerorders %>
+        </div>
+    </div><br><br>
+    <%# End of Nested Form Form %>
+
     <div class="actions">
         <%= form.submit :Submit, class: 'btn btn-success' %>
     </div>
