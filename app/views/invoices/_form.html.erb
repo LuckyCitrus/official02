@@ -102,12 +102,12 @@
         <th class="no_print">Actions</th>
         </thead>
     
-        <!-- 650 column beginning -->
+        <!-- First Row beginning -->
     
     <tbody>
       <tr class="item-row">
         <td><input class="form-control order_selected_id" value="Order #" /></td>
-        <td><input class="form-control item_desc" value="Description" /></td>
+        <td><textarea class="form-control item_desc">Items List</textarea></td>
         <td><input class="form-control cost" value="0.00" /></td>
         <td><input class="form-control qty" value="0" /></td>
         <td><input class="form-control price" value="0.00" /><span class="subtotal_currency"></span></td>
@@ -119,7 +119,7 @@
 
       
       <tr id="hiderow">
-        <td colspan="6"><a id="addrow" class="btn btn-success btn-sm" href="javascript:;" title="Add a row"><span class="ti-plus"></span>  Add a row</a></td>
+      <!--Add Row Button  <td colspan="6"><a id="addrow" class="btn btn-success btn-sm" href="javascript:;" title="Add a row"><span class="ti-plus"></span>  Add a row</a></td> -->
       </tr>
     </tbody>
     </table>
@@ -148,10 +148,9 @@
 
         <thead>
         <th class="item-name">Container No.</th>
-        <th class="description">Warehouse</th>
-        <th class="unit">Location</th>
+        <th class="description">Location</th>
+        <th class="">Warehouse</th>
         <th class="quantity">Via</th>
-        <th class="units">Price</th>
         <th class="no_print">Actions</th>
         </thead>
     
@@ -160,10 +159,9 @@
     <tbody>
       <tr class="item-row">
         <td><input class="form-control cointainer_num" value="Number #" /></td>
-        <td><input class="form-control warehouse" value="Warehouse Name" /></td>
-        <td><input class="form-control location" value="Address" /></td>
+        <td><input class="form-control location" value="Location Address" /></td>
+        <td><input class="form-control warehouse" value="Warehouse" /></td>
         <td><input class="form-control method" value="" /></td>
-        <td><input class="form-control shipping_price" value="0.00" /><span class="subtotal_currency"></span></td>
         <td class="delete_td"><a class="delete" href="javascript:;" title="Remove row"><span class="ti-close"></span></a></td>
       </tr>
     </tbody>
@@ -182,16 +180,14 @@
     <table class="table table-hover" id="totals">
       <tr>
         <th style="width:50%">Subtotal:</th>
-        <td><span id="subtotal">0.00</span><span class="subtotal_currency"></span></td>
+        <td><input class="form-control subtotal" value="0.00" /></td>
       </tr>
       <tr>
-        <th>Tax:</th>
-        <td><input id="9" class="form-control" value="0.00" /></td>
+        <th>Tax Rate:</th>
+        <td><input id="9" class="form-control" value="6.25" /></td>
       </tr>
-      <tr>
-        <th>Total:</th>
-        <td class="balance"><span class="due" id="invoice_total">0.00</span><span class="subtotal_currency"></span></td>
-        </tr>
+     
+
         </table>
     </div>
     </div>
@@ -202,7 +198,7 @@
 
         <adress>
         <div class="field row">
-            <%= form.number_field :amountdue, label: "Amount Due", value: number_with_precision(invoice.amountdue, precision: 2), min: 0, step: 0.01,required: true %>
+            <%= form.number_field :amountdue, :class => "total", label: "Total:", value: number_with_precision(invoice.amountdue, precision: 2), min: 0, step: 0.01,required: true %>
             </div>
         
         <div class="actions">
@@ -211,9 +207,7 @@
         </address>    
         
         </div><!-- End of Row -->
-        
-
-        
+           
         <div id="terms">
         <h5>Terms</h5>
         <textarea id="10">Payment terms: net 30. Interest accrued at 1.5% per month thereafter.</textarea>
