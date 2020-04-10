@@ -1,0 +1,1 @@
+web: bin/bundle exec puma -p ${PORT:-5000} -e $RAILS_ENV -C config/puma.rb
