@@ -7,11 +7,11 @@
             <div class="card-body">
                 <p>
                     <strong>Shipment #:</strong>
-                    <%= @invoiceshipment.shipment.shipmentnum %>
+                    <%= link_to @invoiceshipment.shipment.shipmentnum, @invoiceshipment.shipment %>
                 </p>
                 <p>
                     <strong>Invoice #:</strong>
-                    <%= @invoiceshipment.invoice.invoicenum %>
+                    <%= link_to @invoiceshipment.invoice.invoicenum, @invoiceshipment.invoice %>
                 </p>
 
             </div>

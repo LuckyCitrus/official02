@@ -6,7 +6,9 @@ class ContainersController < ApplicationController
   # GET /containers.json
   def index
     #@containers = Container.all
-    @pagy, @containers = pagy(Container.all)
+    #@pagy, @containers = pagy(Container.all)
+    @pagy, @containers = pagy(Container.includes(:shipment).order("shipments.date DESC"))
+
   end
 
   # GET /containers/1

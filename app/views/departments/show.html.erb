@@ -9,11 +9,13 @@
                     <strong>Department Name:</strong>
                     <%= @department.departmentname %>
                 </p>
+
                 <p>
                     <strong>Company:</strong>
                     <%= link_to @department.company.companyname, @department.company %>
                 </p>
 
+                <% unless @department.employees.empty? %>
                 <p>
                     <strong>Employees:</strong>
                     <ul>
@@ -22,6 +24,7 @@
                         <% end %>
                     </ul>
                 </p>
+                <% end %>
 
             </div>
             <div class="card-footer">

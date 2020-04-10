@@ -25,16 +25,28 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :warehouse_id, Warehouse.order(:warehousename), :id, :warehousename, {include_blank: ""}, required: true %>
+        <%= form.collection_select :warehouse_id, Warehouse.order(:warehousename).all, :id, :warehousename, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :shipmentmethod_id, Shipmentmethod.order(:shipmentmethod), :id, :shipmentmethod, {include_blank: ""}, required: true %>
+        <%= form.collection_select :shipmentmethod_id, Shipmentmethod.order(:shipmentmethod).all, :id, :shipmentmethod, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :shipmentstatus_id, Shipmentstatus.order(:shipmentstatus), :id, :shipmentstatus, {include_blank: ""}, required: true %>
+        <%= form.collection_select :shipmentstatus_id, Shipmentstatus.order(:shipmentstatus).all, :id, :shipmentstatus, {include_blank: ""}, required: true %>
     </div>
+
+    <%# Nested Form Form %>
+    <h3>Invoices</h3>
+    <div id='[child]s'>
+        <%= form.fields_for :invoiceshipments do |invoiceshipment| %>
+        <%= render 'invoiceshipment_fields', :f => invoiceshipment %>
+        <% end %>
+        <div class='links'>
+            <%= link_to_add_association 'Add Invoice', form, :invoiceshipments %>
+        </div>
+    </div><br><br>
+    <%# End of Nested Form Form %>
 
     <div class="actions">
         <%= form.submit :Submit, class: 'btn btn-success' %>

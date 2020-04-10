@@ -13,11 +13,11 @@
     <% end %>--><%= errors_for(@containerorder) %>
 
     <div class="field">
-        <%= form.collection_select :container_id, Container.order(:containernum), :id, :containernum, {include_blank: ""}, required: true %>
+        <%= form.collection_select :container_id, Container.order(:containernum).all, :id, :containernum, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
+        <%= form.collection_select :order_id, Order.order(:ordernum).all, :id, :ordernum, {include_blank: ""}, required: true %>
     </div>
 
     <div class="actions">
