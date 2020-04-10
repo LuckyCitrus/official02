@@ -13,6 +13,7 @@ class Shipment < ApplicationRecord
   has_many :locations, through: :warehouses
   has_many :invoices, through: :invoiceshipments
   has_many :companies, through: :containers
+  has_many :orders, through: :invoices
 
   #fields validation
   validates :shipmentnum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { maximum: 128 }
