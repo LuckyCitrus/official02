@@ -18,7 +18,7 @@ require 'date'
              move_down 5 #document margin
              text "#{i+1} of #{page_count}", size: 10, align: :center
         }
-    end
+    	end
 	end
 
 	def orders_table	

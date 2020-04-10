@@ -13,7 +13,20 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
-    @invoice = policy_scope(Invoice).find(params[:id])
+    #@invoice = policy_scope(Invoice).find(params[:id])
+
+    @invoice = Invoice.find(params[:id])
+		respond_to do |format|
+			format.html
+			format.pdf do
+				pdf = InvoicePdf.new(@invoice)
+				send_data pdf.render,
+				filename: "Invoice_##{@invoice.invoicenum}_#{@invoice.customer.try(:cus_fullname)}.pdf",
+				type: "application/pdf",
+				disposition: "inline"
+			end
+    end
+    
   end
 
   # GET /invoices/new

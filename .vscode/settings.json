@@ -1,5 +1,8 @@
 {
     "files.autoSave": "afterDelay",
     "editor.insertSpaces": false,
-    "explorer.autoReveal": false
+    "explorer.autoReveal": false,
+    "solargraph.formatting": true,
+    "ruby.format": "rufo",
+    "ruby.codeCompletion": "rcodetools"
 }
