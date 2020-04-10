@@ -6,8 +6,9 @@ class OrderAuctionsController < ApplicationController
   # GET /order_auctions.json
   def index
     #@order_auctions = OrderAuction.all
-    @pagy, @order_auctions = pagy(OrderAuction)
-  end
+    #@pagy, @order_auctions = pagy(OrderAuction)
+    @pagy, @order_auctions = pagy(OrderAuction.includes(:order).order("orders.date DESC"))
+end
 
   # GET /order_auctions/1
   # GET /order_auctions/1.json
