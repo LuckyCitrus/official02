@@ -1,0 +1,31 @@
+<%# Nested Form Partial %>
+<div class='nested-fields'>
+
+    <div class="field">
+        <%= f.date_select :invoicedate, label: "Invoice Date", data: { behavior: "flatpickr" }, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.date_select :duedate, label: "Due Date", data: { behavior: "flatpickr" }, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.collection_select :customer_id, Customer.all, :id, :cus_fullname, {include_blank: ""}, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.collection_select :employee_id, Employee.all, :id, :emp_fullname, {include_blank: ""}, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.collection_select :invoicestatus_id, Invoicestatus.order(:invoicestatus), :id, :invoicestatus, {include_blank: ""}, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.number_field :amountdue, label: "Amount Due", value: number_with_precision(:amountdue, precision: 2), min: 0, step: 0.01,required: true %>
+    </div>
+
+    <%= link_to_remove_association "Remove Invoice", f %>
+
+</div>
+<%# End of Nested Form Partial %>

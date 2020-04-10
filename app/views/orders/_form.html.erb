@@ -47,14 +47,26 @@
     <%# Nested Form Form %>
     <h3>Cars</h3>
     <div id='[child]s'>
-      <%= form.fields_for :cars do |car| %>
+        <%= form.fields_for :cars do |car| %>
         <%= render 'car_fields', :f => car %>
-      <% end %>
-      <div class='links'>
-        <%= link_to_add_association 'Add Car', form, :cars %>
-      </div>
+        <% end %>
+        <div class='links'>
+            <%= link_to_add_association 'Add Car', form, :cars %>
+        </div>
     </div><br><br>
-<%# End of Nested Form Form %>
+    <%# End of Nested Form Form %>
+
+    <%# Nested Form Form %>
+    <h3>Invoices</h3>
+    <div id='[child]s'>
+        <%= form.fields_for :invoices do |invoice| %>
+        <%= render 'invoice_fields', :f => invoice %>
+        <% end %>
+        <div class='links'>
+            <%= link_to_add_association 'Add Invoice', form, :invoices %>
+        </div>
+    </div><br><br>
+    <%# End of Nested Form Form %>
 
     <div class="actions">
         <%= form.submit :Submit, class: 'btn btn-success' %>
