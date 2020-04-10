@@ -13,11 +13,11 @@
     <% end %>--><%= errors_for(@invoiceshipment) %>
 
     <div class="field">
-        <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum), :id, :shipmentnum, {include_blank: ""}, required: true %>
+        <%= form.collection_select :shipment_id, Shipment.order(:shipmentnum).all, :id, :shipmentnum, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :invoice_id, Invoice.order(:invoicenum), :id, :invoicenum, {include_blank: ""}, required: true %>
+        <%= form.collection_select :invoice_id, Invoice.order(:invoicenum).all, :id, :invoicenum, {include_blank: ""}, required: true %>
     </div>
 
     <div class="actions">
