@@ -34,36 +34,41 @@
                     <%= number_to_currency(@invoice.amountdue) %>
                 </p>
 
+                <% unless @invoice.orders.empty? %>
                 <p>
                     <strong>Orders:</strong>
                     <ul>
                         <% @invoice.orders.each do |order| %>
                         <li><strong>Order #: </strong>
-                            <%= link_to order.ordernum, order %>
-                            (<%= order.orderstatus.orderstatus %>)</li>
+                            <%= link_to order.ordernum, order %></li>
                         <% end %>
                     </ul>
                 </p>
+                <% end %>
+
+                <% unless @invoice.shipments.empty? %>
                 <p>
                     <strong>Shipments:</strong>
                     <ul>
                         <% @invoice.shipments.each do |shipment| %>
                         <li><strong>Shipment #: </strong>
-                            <%= link_to shipment.shipmentnum, shipment %>
-                            (<%= shipment.shipmentstatus.shipmentstatus %>)</li>
+                            <%= link_to shipment.shipmentnum, shipment %></li>
                         <% end %>
                     </ul>
                 </p>
+                <% end %>
+
+                <% unless @invoice.payments.empty? %>
                 <p>
                     <strong>Payments:</strong>
                     <ul>
                         <% @invoice.payments.each do |payment| %>
                         <li><strong>Payment #: </strong>
-                            <%= link_to payment.paymentnum, payment %>
-                            (<%= payment.paymentstatus.paymentstatus %>)</li>
+                            <%= link_to payment.paymentnum, payment %></li>
                         <% end %>
                     </ul>
                 </p>
+                <% end %>
 
             </div>
             <div class="card-footer">
