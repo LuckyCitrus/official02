@@ -1,8 +1,6 @@
 $(window).on("load", function(){
 		
 
-			
-
 			bind1();
 
 });
@@ -46,10 +44,8 @@ $( document ).ready(function(){
 
 		total = total.toFixed(2);
 
-		//Updates the subtotal and total 
 		$('.total').val(total);
 		$('.subtotal').val(temp_subtotal);
-		
 				
 	});
 });
@@ -223,26 +219,18 @@ function update_price() {
 //Update total based on tax
 function update_tax() {
 
-	//var new_total = orders.total;
-
-	//var new_tax = $('#9').val();
-		
+			
 	window.new_total = Number(orders.total)+(Number(orders.total)*((Number($('#9').val()))/100));
 	new_total = new_total.toFixed(2);
-	//new_total = new_total.toFixed(2);
-
-	//Updates the subtotal and total 
-	//$('.total').val(new_total);
+	
 	
 	$('.total').val(new_total);
 	
 	update_total();
 
+	//Comments to verify values
 	console.log("New Total");
 	console.log(new_total);
-	//price = price.toFixed(2);
-	//isNaN(price) ? $('.price').val('NaN') : $('.price').val(price);
-
 
 }
 
@@ -265,10 +253,10 @@ function update_subtotal() {
 		if (!isNaN(price)) subtotal += Number(price);
 	});
 	*/
-
+	
 	$('.subtotal').val(subtotal);
 
-	//update_balance(); If add more columns
+	//update_balance();
 }
 
 function update_total() {
