@@ -32,14 +32,14 @@
         <nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-center sticky-top">
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav w-100 justify-content">
-                    <li class="nav-item active px-2"><%= link_to "Home", root_path, class: "nav-link" %></li>
+                    <li class="nav-item active px-2" id="main-nav"><%= link_to "Home", root_path, class: "nav-link" %></li>
                     <% if user_signed_in? %>
                     <% if current_user.try(:admin?) %>
-                    <li class="nav-item active px-2"><%= link_to "Users", users_path, class: "nav-link" %></li>
+                    <li class="nav-item active px-2" id="main-nav"><%= link_to "Users", users_path, class: "nav-link" %></li>
                     <% end %>
                     <% if current_user.try(:admin?) || current_user.try(:employee?) %>
                     <div class="dropdown">
-                        <button class="dropbtn">Employees</button>
+                        <button class="dropbtn" id="main-nav">Employees</button>
                         <div class="dropdown-content">
                             <li class="nav-item active px-2"><%= link_to "Employees", employees_path, class: "nav-link" %></li>
                             <li class="nav-item active px-2"><%= link_to "Employee Statuses", employeestatuses_path, class: "nav-link" %></li>
@@ -51,7 +51,7 @@
 
                     <% if current_user.try(:admin?) || current_user.try(:employee?) %>
                     <div class="dropdown">
-                        <button class="dropbtn">Customers</button>
+                        <button class="dropbtn" id="main-nav">Customers</button>
                         <div class="dropdown-content">
                             <li class="nav-item active px-2"><%= link_to "Customers", customers_path, class: "nav-link" %></li>
                             <li class="nav-item active px-2"><%= link_to "Customer Statuses", customerstatuses_path, class: "nav-link" %></li>
@@ -65,7 +65,7 @@
 
                     <% if current_user.try(:admin?) || current_user.try(:employee?) %>
                     <div class="dropdown">
-                        <button class="dropbtn">Cars</button>
+                        <button class="dropbtn" id="main-nav">Cars</button>
                         <div class="dropdown-content">
                             <li class="nav-item active px-2"><%= link_to "Cars", cars_path, class: "nav-link" %></li>
                             <li class="nav-item active px-2"><%= link_to "Title Statuses", titlestatuses_path, class: "nav-link" %></li>
@@ -79,7 +79,7 @@
 
                     <% if current_user.try(:admin?) || current_user.try(:employee?) %>
                     <div class="dropdown">
-                        <button class="dropbtn">Orders</button>
+                        <button class="dropbtn" id="main-nav">Orders</button>
                         <div class="dropdown-content">
                             <li class="nav-item active px-2"><%= link_to "Orders", orders_path, class: "nav-link" %></li>
                             <li class="nav-item active px-2"><%= link_to "Order Statuses", orderstatuses_path, class: "nav-link" %></li>
@@ -90,7 +90,7 @@
                     </div>
                     <% else %>
                     <div class="dropdown">
-                        <button class="dropbtn" id="order-btn">Orders</button>
+                        <button class="dropbtn" id="main-nav">Orders</button>
                         <div class="dropdown-content">
                             <li class="nav-item active px-2"><%= link_to "Orders", orders_path, class: "nav-link" %></li>
                             <li class="nav-item active px-2"><%= link_to "Cars", cars_path, class: "nav-link" %></li>
@@ -101,7 +101,7 @@
 
                     <% if current_user.try(:admin?) || current_user.try(:employee?) %>
                     <div class="dropdown">
-                        <button class="dropbtn">Invoices</button>
+                        <button class="dropbtn" id="main-nav">Invoices</button>
                         <div class="dropdown-content">
                             <li class="nav-item active px-2"><%= link_to "Invoices", invoices_path, class: "nav-link" %></li>
                             <li class="nav-item active px-2"><%= link_to "Invoice Statuses", invoicestatuses_path, class: "nav-link" %></li>
@@ -114,7 +114,7 @@
 
                     <% if current_user.try(:admin?) || current_user.try(:employee?) %>
                     <div class="dropdown">
-                        <button class="dropbtn">Payments</button>
+                        <button class="dropbtn" id="main-nav">Payments</button>
                         <div class="dropdown-content">
                             <li class="nav-item active px-2"><%= link_to "Payments", payments_path, class: "nav-link" %></li>
                             <li class="nav-item active px-2"><%= link_to "Payment Statuses", paymentstatuses_path, class: "nav-link" %></li>
@@ -127,7 +127,7 @@
 
                     <% if current_user.try(:admin?) || current_user.try(:employee?) %>
                     <div class="dropdown">
-                        <button class="dropbtn">Shipments</button>
+                        <button class="dropbtn" id="main-nav">Shipments</button>
                         <div class="dropdown-content">
                             <li class="nav-item active px-2"><%= link_to "Shipments", shipments_path, class: "nav-link" %></li>
                             <li class="nav-item active px-2"><%= link_to "Shipment Statuses", shipmentstatuses_path, class: "nav-link" %></li>
@@ -142,7 +142,7 @@
 
                     <% if current_user.try(:admin?) || current_user.try(:employee?) %>
                     <div class="dropdown">
-                        <button class="dropbtn">Reports</button>
+                        <button class="dropbtn" id="main-nav">Reports</button>
                         <div class="dropdown-content">
                             <li class="nav-item active px-2"><%= link_to "Active Orders", reports_active_orders_path, class: "nav-link" %></li>
                             <li class="nav-item active px-2"><%= link_to "Active Invoices", reports_active_invoices_path, class: "nav-link" %></li>
@@ -159,7 +159,7 @@
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
                     <div class="dropdown">
-                        <button class="dropbtn">Account</button>
+                        <button class="dropbtn" id="main-nav">Account</button>
                         <div class="dropdown-content">
                             <% if current_user.try(:admin?) %>
                             <li class="nav-item active px-2"><%= link_to "Profile", current_user, class: "nav-link px-2" %></li>
@@ -171,12 +171,12 @@
                     </div>
 
                     <% else %>
-                    <li class="nav-item active px-2"><%= link_to "Sign In", new_user_session_path, class: "nav-link" %></li>
-                    <li class="nav-item active px-2"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
+                    <li class="nav-item active px-2" id="main-nav"><%= link_to "Sign In", new_user_session_path, class: "nav-link" %></li>
+                    <li class="nav-item active px-2" id="main-nav"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
                 </ul>
             </div>
             <% end %>
-    </nav>
+        </nav>
     </div>
 
     <div class="content">
