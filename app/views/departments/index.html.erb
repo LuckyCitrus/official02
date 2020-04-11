@@ -19,7 +19,7 @@
                         <td><%= link_to department.company.companyname, department.company %></td>
                         <!--<td><%= link_to 'Show', department %></td>-->
                         <td><%= link_to 'Edit', edit_department_path(department) %>
-                        <% if current_user.admin? %> / 
+                            <% if current_user.admin? %> /
                             <%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>
                     </tr>
@@ -27,7 +27,12 @@
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Department', new_department_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Department', new_department_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1  %>
+                </div>
             </div>
         </div>
     </div>

@@ -6,7 +6,8 @@ class ImagesController < ApplicationController
   def index
     # @images = Image.all
     #@images = Image.order(created_at: :desc).limit(15)
-    @images = policy_scope(Image).order(created_at: :desc).limit(15)
+    #@images = policy_scope(Image).order(created_at: :desc).limit(15)
+    @pagy, @images = pagy(policy_scope(Image).order(created_at: :desc), items: 30)
   end
 
   def new

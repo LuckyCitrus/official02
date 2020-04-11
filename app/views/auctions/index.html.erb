@@ -21,16 +21,22 @@
                         <td><%= link_to auction.location.city, auction.location %></td>
                         <!--<td><%= link_to 'Show', auction %></td>-->
                         <td><%= link_to 'Edit', edit_auction_path(auction) %>
-                            <% if current_user.admin? %> / 
+                            <% if current_user.admin? %> /
                             <%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                            <% end %>
+                        <% end %>
                         <td></td>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
+
             <div class="card-footer">
-                <%= link_to 'New Auction', new_auction_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Auction', new_auction_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1  %>
+                </div>
             </div>
         </div>
     </div>

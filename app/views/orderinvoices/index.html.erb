@@ -7,6 +7,7 @@
             <table class="table table-hover table-bordered">
                 <thead class="thead-light">
                     <tr>
+                        <th>Customer</th>
                         <th>Order</th>
                         <th>Invoice</th>
                         <th colspan="3"></th>
@@ -15,6 +16,7 @@
                 <tbody>
                     <% @orderinvoices.each do |orderinvoice| %>
                     <tr>
+                        <td><%= link_to orderinvoice.order.customer.try(:cus_fullname), orderinvoice.order.customer %></td>
                         <td><%= link_to orderinvoice.order.ordernum, orderinvoice.order %></td>
                         <td><%= link_to orderinvoice.invoice.invoicenum, orderinvoice.invoice %></td>
                         <td><%= link_to 'Show', orderinvoice %> /

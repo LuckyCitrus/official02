@@ -33,7 +33,7 @@
                             <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>
                         <td> <%#= link_to "View PDF", invoice_path(@invoice, format: :pdf), class: "btn btn-primary" %>
-                            <%= link_to "View PDF", invoice_path(invoice, format: :pdf), class: "btn btn-primary" %>
+                            <%= link_to "View PDF", invoice_path(invoice, format: :pdf), class: "btn btn-xs btn-outline-primary py-0 in-line" %>
                         </td>
                     </tr>
                     <% end %>
