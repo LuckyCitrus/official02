@@ -4,7 +4,6 @@ class Order < ApplicationRecord
   has_many :invoices, through: :orderinvoices
 
   #Order Round
-  has_many :pictures
   belongs_to :customer
   has_many :order_auctions
   has_many :auctions, through: :order_auctions

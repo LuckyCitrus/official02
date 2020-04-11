@@ -14,6 +14,17 @@ class InvoicesController < ApplicationController
   # GET /invoices/1.json
   def show
     @invoice = policy_scope(Invoice).find(params[:id])
+
+    gon.customer_invoice = Invoice.all
+    gon.customer_orders = Order.all
+    gon.customer_cars= Car.all
+    gon.customer_containerorders= Containerorder.all
+    gon.customer_containers= Container.all
+    gon.customer_shipments= Shipment.all
+    gon.customer_warehouses= Warehouse.all
+    gon.customer_locations= Location.all
+    gon.customer_via= Shipmentmethod.all
+
   end
 
 
@@ -32,8 +43,6 @@ class InvoicesController < ApplicationController
     gon.customer_warehouses= Warehouse.all
     gon.customer_locations= Location.all
     gon.customer_via= Shipmentmethod.all
-
-
 
   end
 

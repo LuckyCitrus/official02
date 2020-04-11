@@ -12,6 +12,7 @@ require("channels")
 
 require('jquery')
 require("packs/main")
+require("packs/invoice")
 
 import "cocoon";
 

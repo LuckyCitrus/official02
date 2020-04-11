@@ -24,7 +24,7 @@
               <address>
           <p>
                 <strong>Invoice Number:</strong>
-                <%= @invoice.invoicenum %>
+                <%= @invoice.invoicenum  %>
             </p>
             <p>
                 <strong>Invoice Date:</strong>
@@ -43,8 +43,10 @@
           <address>
           <p>
                 <strong>Customer:</strong>
-                <%= link_to @invoice.customer.cus_fullname, @invoice.customer %>
+                <%= link_to @invoice.customer.cus_fullname, @invoice.customer  %>
+                
             </p>
+
             <p>
                 <strong>Employee:</strong>
                 <%= link_to @invoice.employee.emp_fullname, @invoice.employee %>
@@ -63,9 +65,11 @@
 
           <address>
 
-          <input class="form-control selected_id"  value=""/>
+          <p>
+          <strong >Customer ID:</strong>
+           <%= number_field_tag @invoice.customer, @invoice.customer.id , class: 'form-control cust_id' %> 
+          </p>
 
-          
           </address>
       
       </div><!-- /.form -->
@@ -84,7 +88,7 @@
       <th class="description">Description</th>
       <th class="unit">Unit Cost</th>
       <th class="quantity">Quantity</th>
-      <th class="units">Price</th>
+      <th class="units">Amount Due</th>
       <th class="no_print">Actions</th>
       </thead>
   
