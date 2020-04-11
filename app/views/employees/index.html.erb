@@ -36,17 +36,22 @@
                         <td><%= employee.user.try(:email) %></td>
                         <%end%>
                         <!--<td><%= link_to 'Show', employee %></td>-->
-                        <td><%= link_to 'Edit', edit_employee_path(employee) %> /
+                        <td><%= link_to 'Edit', edit_employee_path(employee) %>
+                        <% if current_user.admin? %> / 
                             <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Employee', new_employee_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Employee', new_employee_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<br>

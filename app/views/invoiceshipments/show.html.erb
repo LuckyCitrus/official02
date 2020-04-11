@@ -6,12 +6,12 @@
             </div>
             <div class="card-body">
                 <p>
-                    <strong>Shipment:</strong>
-                    <%= @invoiceshipment.shipment.shipmentnum %>
+                    <strong>Shipment #:</strong>
+                    <%= link_to @invoiceshipment.shipment.shipmentnum, @invoiceshipment.shipment %>
                 </p>
                 <p>
-                    <strong>Invoice:</strong>
-                    <%= @invoiceshipment.invoice.invoicenum %>
+                    <strong>Invoice #:</strong>
+                    <%= link_to @invoiceshipment.invoice.invoicenum, @invoiceshipment.invoice %>
                 </p>
 
             </div>

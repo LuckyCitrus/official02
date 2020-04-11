@@ -6,7 +6,8 @@ class PaymentsController < ApplicationController
   # GET /payments.json
   def index
     #@payments = Payment.all
-    @payments = policy_scope(Payment)
+    #@payments = policy_scope(Payment)
+    @pagy, @payments = pagy(policy_scope(Payment.order(date: :desc)))
   end
 
   # GET /payments/1
@@ -59,6 +60,7 @@ class PaymentsController < ApplicationController
   # DELETE /payments/1.json
   def destroy
     @payment.destroy
+    authorize @payment
     respond_to do |format|
       format.html { redirect_to payments_url, notice: 'Payment was successfully destroyed.' }
       format.json { head :no_content }

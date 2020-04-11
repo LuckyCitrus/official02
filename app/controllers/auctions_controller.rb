@@ -5,7 +5,7 @@ class AuctionsController < ApplicationController
   # GET /auctions
   # GET /auctions.json
   def index
-    @auctions = Auction.all
+    @auctions = Auction.order(:location_id)
   end
 
   # GET /auctions/1
@@ -70,6 +70,7 @@ class AuctionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def auction_params
-      params.require(:auction).permit(:auctionname, :address, :location_id)
+      params.require(:auction).permit(:auctionname, :address, :location_id,
+      containerorders_attributes: [:id, :container_id, :order_id, :_destroy])
     end
 end

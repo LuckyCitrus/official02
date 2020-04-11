@@ -11,13 +11,11 @@
                 <div class="field">
                     <%= f.email_field :email, autofocus: true, autocomplete: "email", minlength: 5, maxlength: 254, size: 24, required: true %>
                 </div>
-                <%= render "devise/shared/links" %>
-
-            </div>
-            <div class="card-footer">
-                <%= f.submit "Reset Password", class: "btn btn-primary" %>
-                <% end %>
-
+                <%= render "devise/shared/links" %><hr>
+                <div class="actions">
+                    <%= f.submit "Reset Password", class: "btn btn-primary" %>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>

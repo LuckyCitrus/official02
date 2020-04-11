@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
                 <p>
-                    <strong>Shipment Number:</strong>
+                    <strong>Shipment #:</strong>
                     <%= @shipment.shipmentnum %>
                 </p>
                 <p>
@@ -30,26 +30,40 @@
                     <%= @shipment.shipmentstatus.shipmentstatus %>
                 </p>
 
+                <% unless @shipment.orders.empty? %>
                 <p>
-                    <strong>Invoices:</strong>
+                    <strong>Orders:</strong>
                     <ul>
-                        <% @shipment.invoices.each do |invoice| %>
-                        <li><strong>Invoice Number: </strong>
-                            <%= link_to invoice.invoicenum, invoice %>
-                            (<%= invoice.invoicestatus.invoicestatus %>)</li>
-                        <% end %>
+                        <% @shipment.orders.each do |order| %>
+                        <li><strong>Order #: </strong>
+                            <%= link_to order.ordernum, order %>
+                            <% unless @shipment.invoices.empty? %>
+
+                            <% @shipment.invoices.each do |invoice| %>
+                            <ul>
+                                <li>Invoice #: <%= link_to invoice.invoicenum, invoice %></li>
+                            </ul>
+                            <% end %>
+                            <% end %>
+                            <% end %>
+                        </li>
                     </ul>
                 </p>
+                <% end %>
 
+
+                <% unless @shipment.containers.empty? %>
                 <p>
                     <strong>Containers:</strong>
                     <ul>
                         <% @shipment.containers.each do |container| %>
-                        <li><strong>Container Number: </strong>
-                            <%= link_to container.containernum, container %></li>
+                        <li><strong>Container #: </strong>
+                            <%= link_to container.containernum, container %>
+                        (<%= link_to container.company.companyname, container.company %>)</li>
                         <% end %>
                     </ul>
                 </p>
+                <% end %>
 
             </div>
             <div class="card-footer">

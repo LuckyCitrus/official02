@@ -18,8 +18,10 @@
                         <td><%= link_to warehouse.warehousename, warehouse %></td>
                         <td><%= link_to warehouse.location.city, warehouse.location %></td>
                         <!--<td><%= link_to 'Show', warehouse %></td>-->
-                        <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %> /
+                        <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %>
+                            <% if current_user.admin? %> / 
                             <%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %>
+                            <% end %>
                     </tr>
                     <% end %>
                 </tbody>

@@ -9,20 +9,22 @@
                     <strong>Department Name:</strong>
                     <%= @department.departmentname %>
                 </p>
+
                 <p>
                     <strong>Company:</strong>
                     <%= link_to @department.company.companyname, @department.company %>
                 </p>
 
+                <% unless @department.employees.empty? %>
                 <p>
                     <strong>Employees:</strong>
                     <ul>
                         <% @department.employees.each do |employee| %>
-                        <li><strong>Name: </strong>
-                            <%= link_to employee.try(:emp_fullname), employee %></li>
+                        <li><%= link_to employee.try(:emp_fullname), employee %></li>
                         <% end %>
                     </ul>
                 </p>
+                <% end %>
 
             </div>
             <div class="card-footer">

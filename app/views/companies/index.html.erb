@@ -16,8 +16,10 @@
                     <tr>
                         <td><%= link_to company.companyname, company %></td>
                         <!--<td><%= link_to 'Show', company %></td>-->
-                        <td><%= link_to 'Edit', edit_company_path(company) %> / 
-                        <%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_company_path(company) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>

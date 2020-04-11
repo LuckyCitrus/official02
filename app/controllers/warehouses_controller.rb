@@ -5,7 +5,7 @@ class WarehousesController < ApplicationController
   # GET /warehouses
   # GET /warehouses.json
   def index
-    @warehouses = Warehouse.all
+    @warehouses = Warehouse.order(:location_id)
   end
 
   # GET /warehouses/1

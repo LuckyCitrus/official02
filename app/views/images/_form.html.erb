@@ -1,0 +1,33 @@
+<div class="card-body">
+    <%= bootstrap_form_with(model: @image, local: true, layout: :vertical) do |f| %>
+    <% if image.errors.any? %>
+    <div class="alert alert-danger">
+        <p>The following errors prevent the image from being uploaded.</p>
+
+        <ul>
+            <% image.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <% if @image.new_record? %>
+    <div class="form-group">
+        <%#= form.drag_and_drop_file_field :image, 'Drag and drop image here', hide_label: true  %>
+        <%= f.file_field :image %>
+    </div>
+    <% end %>
+
+    <div class=" field">
+        <%= f.collection_select :order_id, Order.all, :id, :ordernum, {include_blank: ""}, required: true %>
+    </div>
+
+    <div class=" form-group">
+        <%= f.text_area :description, class: 'form-control' %>
+    </div>
+
+    <%= f.submit :Submit, class: 'btn btn-success' %>
+    <% end %>
+
+</div>

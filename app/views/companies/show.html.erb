@@ -9,31 +9,34 @@
                     <strong>Company Name:</strong>
                     <%= @company.companyname %>
                 </p>
+
+                <% unless  @company.departments.empty? %>
                 <p>
                     <strong>Departments:</strong>
                     <ul>
                 </p>
                 <% for @department in @company.departments %>
-                <li><%= @department.departmentname %></li>
+                <li><%= link_to @department.departmentname, @department %></li>
                 <% end %>
                 </ul>
                 </p>
+                <% end %>
 
+                <% unless  @company.employees.empty? %>
                 <p>
                     <strong>Employees:</strong>
                     <ul>
                         <% @company.employees.each do |employee| %>
-                        <li><strong>Name: </strong>
-                            <%= link_to employee.try(:emp_fullname), employee %></li>
+                        <li><%= link_to employee.try(:emp_fullname), employee %></li>
                         <% end %>
                     </ul>
                 </p>
-
+                <% end %>
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_company_path(@company), class: "btn btn-primary" %>
-                <%= link_to 'Back', companies_path, class: "btn btn-secondary" %> </div>
+                <%= link_to 'Back', companies_path, class: "btn btn-secondary" %>
+            </div>
         </div>
     </div>
-</div>
 </div>

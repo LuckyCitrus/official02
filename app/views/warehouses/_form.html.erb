@@ -17,7 +17,7 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :location_id, Location.order(:city), :id, :city, {include_blank: ""}, required: true %>
+        <%= form.collection_select :location_id, Location.order(:city).all, :id, :city, {include_blank: ""}, required: true %>
     </div>
 
     <div class="actions">

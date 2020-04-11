@@ -5,7 +5,9 @@ class ContainerordersController < ApplicationController
   # GET /containerorders
   # GET /containerorders.json
   def index
-    @containerorders = Containerorder.all
+    #@containerorders = Containerorder.all
+    #@pagy, @containerorders = pagy(Containerorder)
+    @pagy, @containerorders = pagy(Containerorder.includes(:order).order("orders.date DESC"))
   end
 
   # GET /containerorders/1
@@ -70,6 +72,7 @@ class ContainerordersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def containerorder_params
-      params.require(:containerorder).permit(:container_id, :order_id)
+      params.require(:containerorder).permit(:container_id, :order_id,
+      containerorders_attributes: [:id, :container_id, :order_id, :_destroy] )
     end
 end

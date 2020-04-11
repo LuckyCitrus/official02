@@ -7,7 +7,8 @@ class CarsController < ApplicationController
   # GET /cars.json
   def index
     #@cars = Car.all
-    @cars = policy_scope(Car)
+    #@cars = policy_scope(Car)
+    @pagy, @cars = pagy(policy_scope(Car.order(order_id: :desc)))
   end
 
   # GET /cars/1
@@ -60,6 +61,7 @@ class CarsController < ApplicationController
   # DELETE /cars/1.json
   def destroy
     @car.destroy
+    authorize @car
     respond_to do |format|
       format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
       format.json { head :no_content }

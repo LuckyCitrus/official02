@@ -4,21 +4,24 @@
 // that code so it'll be compiled.
 import 'bootstrap'
 import flatpickr from "flatpickr"
+import "cocoon";
 
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-
+require("chartkick")
+require("chart.js")
 require('jquery')
 require("packs/main")
 require("packs/invoice")
 
-import "cocoon";
-
 require("flatpickr/dist/flatpickr.css")
 require("flatpickr/dist/themes/airbnb.css");
 
+//Webpacker ActiveStorage- Kiet
+import ActiveStorageDragAndDrop from 'active_storage_drag_and_drop'
+ActiveStorageDragAndDrop.start();
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -39,3 +42,40 @@ document.addEventListener("turbolinks:load", () => {
 /*$('document').on 'click', '.submit-btn', () => {
     $('f').submit()
 };*/
+
+//$(function () {
+document.addEventListener("turbolinks:load", function () {
+    var $elem = $('#content');
+
+    $('#nav_up').fadeIn('slow');
+    $('#nav_down').fadeIn('slow');
+
+    $(window).bind('scrollstart', function () {
+        $('#nav_up,#nav_down').stop().animate({
+            'opacity': '0.4'
+        });
+    });
+
+    $(window).bind('scrollstop', function () {
+        $('#nav_up,#nav_down').stop().animate({
+            'opacity': '1'
+        });
+    });
+
+    $('#nav_down').click(
+        function (e) {
+            $('html, body').animate({
+                scrollTop: $elem.height()
+            }, 800);
+        }
+    );
+    
+    $('#nav_up').click(
+        function (e) {
+            $('html, body').animate({
+                scrollTop: '0px'
+            }, 800);
+        }
+    );
+});
+

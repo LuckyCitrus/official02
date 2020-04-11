@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
+
+  resources :images
+
   resources :containerorders
   resources :orderinvoices
   resources :order_auctions
   resources :invoiceshipments
-  resources :helloos
   resources :containers
-  resources :dummyusers
-  resources :dummyroles
   resources :invoices
   resources :shipments
   resources :shipmentstatuses
@@ -26,26 +26,33 @@ Rails.application.routes.draw do
   resources :auctions
   resources :locations
   resources :orders
-  resources :pictures
   resources :orderstatuses
   resources :customertypes
   resources :customerstatuses
   resources :countries
   resources :customers
-  resources :hellos
   resources :users
-
-
- 
+  resources :auction_orders
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
+
+  get 'dashboard/index'
   root 'dashboard#index'
   get 'users/index', to: 'users#index'
+  get 'reports/active_orders', to: 'reports#active_orders'
+  get 'reports/active_invoices', to: 'reports#active_invoices'
+  get 'reports/auction_orders', to: 'reports#auction_orders'
   get 'register', to: redirect('register/sign_up')
   get 'orderauctions', to: redirect('order_auctions')
 
-  
-  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'sign_up'}
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'register', sign_up: 'sign_up' }
+
+  namespace :charts do
+    get 'invoices_by_month'
+    get 'orders_by_month'
+    get 'shipments_by_month'
+    get 'total_payments'
+    get 'total_auction_orders'
+  end
 
 end

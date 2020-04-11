@@ -13,7 +13,7 @@
     <% end %>--><%= errors_for(@payment) %>
 
     <div class="field">
-        <%= form.text_field :paymentnum, label: "Payment Number", pattern: '^[a-zA-Z0-9-]*$', help: "Only alphanumeric characters are allowed", maxlength: 128, required: true %>
+        <%= form.text_field :paymentnum, label: "Payment Number", pattern: '^[a-zA-Z0-9-]*$', help: "Only numeric characters are allowed", maxlength: 128, disabled: false if @payment.persisted? %>
     </div>
 
     <div class="field">
@@ -21,7 +21,7 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :customer_id, Customer.all, :id, :cus_fullname, {include_blank: ""}, required: true %>
+        <%= form.collection_select :customer_id, Customer.order(:first_name).all, :id, :cus_fullname, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">

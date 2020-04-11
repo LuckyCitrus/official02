@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_204432) do
+ActiveRecord::Schema.define(version: 2020_04_08_219234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,12 +102,10 @@ ActiveRecord::Schema.define(version: 2020_04_04_204432) do
     t.bigint "country_id"
     t.bigint "customerstatus_id"
     t.bigint "customertype_id"
-    t.bigint "dummyuser_id"
     t.bigint "user_id"
     t.index ["country_id"], name: "index_customers_on_country_id"
     t.index ["customerstatus_id"], name: "index_customers_on_customerstatus_id"
     t.index ["customertype_id"], name: "index_customers_on_customertype_id"
-    t.index ["dummyuser_id"], name: "index_customers_on_dummyuser_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
@@ -131,21 +129,6 @@ ActiveRecord::Schema.define(version: 2020_04_04_204432) do
     t.index ["company_id"], name: "index_departments_on_company_id"
   end
 
-  create_table "dummyroles", force: :cascade do |t|
-    t.string "role"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "dummyusers", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
-    t.bigint "dummyrole_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["dummyrole_id"], name: "index_dummyusers_on_dummyrole_id"
-  end
-
   create_table "employees", force: :cascade do |t|
     t.string "empfname"
     t.string "emplname"
@@ -158,10 +141,8 @@ ActiveRecord::Schema.define(version: 2020_04_04_204432) do
     t.bigint "employeestatus_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "dummyuser_id"
     t.bigint "user_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
-    t.index ["dummyuser_id"], name: "index_employees_on_dummyuser_id"
     t.index ["employeestatus_id"], name: "index_employees_on_employeestatus_id"
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
@@ -170,6 +151,16 @@ ActiveRecord::Schema.define(version: 2020_04_04_204432) do
     t.string "employeestatus"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_images_on_order_id"
+    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -181,7 +172,7 @@ ActiveRecord::Schema.define(version: 2020_04_04_204432) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "invoicestatus_id"
     t.decimal "amountdue"
-    t.string "invoicenum"
+    t.integer "invoicenum", default: -> { "nextval('invoicenum_seq'::regclass)" }
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
     t.index ["employee_id"], name: "index_invoices_on_employee_id"
     t.index ["invoicestatus_id"], name: "index_invoices_on_invoicestatus_id"
@@ -242,7 +233,7 @@ ActiveRecord::Schema.define(version: 2020_04_04_204432) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
-    t.string "ordernum"
+    t.integer "ordernum", default: -> { "nextval('ordernum_seq'::regclass)" }
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["orderstatus_id"], name: "index_orders_on_orderstatus_id"
   end
@@ -268,7 +259,7 @@ ActiveRecord::Schema.define(version: 2020_04_04_204432) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
     t.bigint "invoice_id"
-    t.string "paymentnum"
+    t.integer "paymentnum", default: -> { "nextval('paymentnum_seq'::regclass)" }
     t.index ["customer_id"], name: "index_payments_on_customer_id"
     t.index ["invoice_id"], name: "index_payments_on_invoice_id"
     t.index ["paymentmethod_id"], name: "index_payments_on_paymentmethod_id"
@@ -359,14 +350,13 @@ ActiveRecord::Schema.define(version: 2020_04_04_204432) do
   add_foreign_key "customers", "countries"
   add_foreign_key "customers", "customerstatuses"
   add_foreign_key "customers", "customertypes"
-  add_foreign_key "customers", "dummyusers"
   add_foreign_key "customers", "users"
   add_foreign_key "departments", "companies"
-  add_foreign_key "dummyusers", "dummyroles"
   add_foreign_key "employees", "departments"
-  add_foreign_key "employees", "dummyusers"
   add_foreign_key "employees", "employeestatuses"
   add_foreign_key "employees", "users"
+  add_foreign_key "images", "orders"
+  add_foreign_key "images", "users"
   add_foreign_key "invoices", "customers"
   add_foreign_key "invoices", "employees"
   add_foreign_key "invoices", "invoicestatuses"
@@ -387,4 +377,57 @@ ActiveRecord::Schema.define(version: 2020_04_04_204432) do
   add_foreign_key "shipments", "shipmentstatuses"
   add_foreign_key "shipments", "warehouses"
   add_foreign_key "warehouses", "locations"
+
+  create_view "active_invoices", materialized: true, sql_definition: <<-SQL
+      SELECT DISTINCT (((cus.first_name)::text || ' '::text) || (cus.last_name)::text) AS name,
+      cus.email,
+      i.invoicenum,
+      i.invoicedate,
+      ist.invoicestatus
+     FROM ((((((customers cus
+       JOIN orders o ON ((cus.id = o.customer_id)))
+       JOIN orderstatuses os ON ((os.id = o.orderstatus_id)))
+       JOIN payments p ON ((cus.id = p.customer_id)))
+       JOIN paymentstatuses ps ON ((ps.id = p.paymentstatus_id)))
+       JOIN invoices i ON ((i.customer_id = cus.id)))
+       JOIN invoicestatuses ist ON ((ist.id = i.invoicestatus_id)))
+    WHERE (((ist.invoicestatus)::text <> 'Paid
+  '::text) AND ((ps.paymentstatus)::text <> 'Paid'::text) AND (i.invoicedate > (CURRENT_DATE - '1 mon'::interval)))
+    ORDER BY i.invoicedate;
+  SQL
+  create_view "auction_orders", materialized: true, sql_definition: <<-SQL
+      SELECT a.auctionname,
+      sum(o.quantity) AS total_orders
+     FROM ((auctions a
+       JOIN order_auctions oa ON ((a.id = oa.auction_id)))
+       JOIN orders o ON ((o.id = oa.order_id)))
+    WHERE (o.date > (CURRENT_DATE - '1 mon'::interval))
+    GROUP BY a.auctionname
+    ORDER BY (sum(o.quantity)) DESC;
+  SQL
+  create_view "active_orders", materialized: true, sql_definition: <<-SQL
+      SELECT (((cus.first_name)::text || ' '::text) || (cus.last_name)::text) AS name,
+      cus.email,
+      o.ordernum,
+      o.date,
+      os.orderstatus,
+      ps.paymentstatus,
+      ss.shipmentstatus,
+      con.containernum,
+      w.warehousename
+     FROM (((((((((customers cus
+       JOIN orders o ON ((cus.id = o.customer_id)))
+       JOIN orderstatuses os ON ((os.id = o.orderstatus_id)))
+       JOIN payments p ON ((cus.id = p.customer_id)))
+       JOIN paymentstatuses ps ON ((ps.id = p.paymentstatus_id)))
+       JOIN containerorders co ON ((o.id = co.order_id)))
+       JOIN containers con ON ((con.id = co.container_id)))
+       JOIN shipments s ON ((s.id = con.shipment_id)))
+       JOIN shipmentstatuses ss ON ((ss.id = s.shipmentstatus_id)))
+       JOIN warehouses w ON ((w.id = s.warehouse_id)))
+    WHERE (((os.orderstatus)::text <> 'Completed
+  '::text) AND ((ps.paymentstatus)::text = 'Complete
+  '::text) AND (o.date > (CURRENT_DATE - '1 mon'::interval)))
+    ORDER BY o.date;
+  SQL
 end

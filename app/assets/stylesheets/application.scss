@@ -12,9 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require active_storage_drag_and_drop
  */
 @import "bootstrap/scss/bootstrap";
 @import "rails_bootstrap_forms";
+
 @import "bootstrap";
 @import "invoices";
 
@@ -26,7 +28,7 @@ html, body {
 			sans-serif;
 }
 
- p, a, li, td {
+ p, a, li, td, .dropbtn {
 	font-family: 'Trebuchet MS', 'Roboto', Helvetica, sans-serif;
 	font-size: 14px;
  }
@@ -44,11 +46,11 @@ html, body {
 	position: relative;
 }
 
-.header-left {
+.header-left, .footer-left {
     float: left;
 }
 
-.header-right {
+.header-right, .footer-right {
     float: right;
     position:absolute;
     bottom: 0;
@@ -66,10 +68,10 @@ html, body {
 	z-index: 1;
 }
 
-.row-fluid, .card {
+.row-fluid/*, .card*/ {
 	display: flex;
 	justify-content: center;
-	margin: 1.5em;
+	margin: 2em;
 }
 
 nav.navbar {
@@ -81,21 +83,24 @@ nav.navbar {
 }
 
 .nav-link {
-  height: 50px;
-  line-height: 32px;
-  border-radius: .5px;
-  min-width: 80px;
-  text-align: center;
+	height: 50px;
+	line-height: 32px;
+	border-radius: .5px;
+	min-width: 80px;
+	text-align: center;
+	border-radius: 8px;
+}
+
+#main-nav {
+	//text-transform: uppercase;
+	//font-variant: small-caps;
+	font-size: 14px;
 }
 
 nav a:hover{ 
     transition: ease-in-out all .1s; 
     -moz-transition: ease-in-out all .1s;
-    -webkit-transition: ease-in-out all .1s;
-}
-
-#order-btn {
-	min-width: 100px;
+	-webkit-transition: ease-in-out all .1s;
 }
 
 .dropbtn {
@@ -117,14 +122,14 @@ nav a:hover{
 	display: none;
 	position: absolute;
 	background-color: #343A40;
-	opacity: .95;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	opacity: .94;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
 	z-index: 1;
 	width: 100%;
 }
 
 .dropdown-content a {
-	color: #ffffff;
+	color: #d7d7d7;
 	text-decoration: none;
 	display: block;
 	text-align:center;
@@ -132,17 +137,20 @@ nav a:hover{
 }
 
 .dropdown-content a:hover {
-	background-color: rgb(31, 33, 36);
+	background-color: #1c1d1f;
+  	border-radius: 8px;
 	color: #ffffff;
 }
 
 .dropdown:hover .dropdown-content {
 	display: block;
+	border-radius: 1px 1px 14px 14px;
 	color: #ffffff;
 }
 
 .dropdown:hover .dropbtn {
 	background-color: #000000;
+	border-radius: 8px 8px 1px 1px;
 	color: #ffffff;
 }
 
@@ -180,8 +188,15 @@ nav a:hover{
 .btn-primary:active,
 .btn-primary.active,
 .open>.dropdown-toggle.btn-primary {
-	color: #ffffff !important;
-	background-color: #0495c9 !important;
+  color: #ffffff !important;
+  //background-color: #0495c9 !important;
+  background-color: #007BFF !important;
+}
+
+.btn:hover {
+  filter: brightness(120%);
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
 }
 
 .btn-secondary,
@@ -190,13 +205,15 @@ nav a:hover{
 .btn-secondary:active,
 .btn-secondary.active,
 .open>.dropdown-toggle.btn-primary {
-	background-color: #6C757D !important;
+  color: #ffffff !important;
+  background-color: #6C757D !important;
 }
 
 form {
 	position: relative;
 	width: 100%;
 }
+
 label {
 	white-space: nowrap;
 }
@@ -208,6 +225,14 @@ label {
 	width: calc(100% - 60%);
 }*/
 
+.fas {
+	color: black;
+}
+
+label[for="image_image"] {
+	//display: none;
+	font-size: 14px;
+}
  /*flash*/
  .alert-error {
      background-color: #f2dede;
@@ -235,4 +260,43 @@ label {
      border-color: #d6e9c6;
      color: #468847;
      text-align: left;
+ }
+
+
+ .nav_up {
+ 	padding: 7px;
+	 background-color: rgb(255, 255, 255);
+ 	position: fixed;
+ 	width: 36px;
+ 	height: 36px;
+ 	bottom: 50px;
+	 right: 35px;
+	filter: grayscale(1);
+ 	white-space: nowrap;
+ 	cursor: pointer;
+ 	-moz-border-radius: 3px 3px 3px 3px;
+ 	-webkit-border-top-left-radius: 3px;
+ 	-webkit-border-top-right-radius: 3px;
+ 	-khtml-border-top-left-radius: 3px;
+ 	-khtml-border-top-right-radius: 3px;
+ 	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+ }
+
+ .nav_down {
+ 	padding: 7px;
+	 background-color: rgb(255, 255, 255);
+ 	position: fixed;
+ 	width: 36px;
+ 	height: 36px;
+ 	bottom: 24px;
+	 right: 35px;
+	filter: grayscale(1);
+ 	white-space: nowrap;
+ 	cursor: pointer;
+ 	-moz-border-radius: 3px 3px 3px 3px;
+ 	-webkit-border-top-left-radius: 3px;
+ 	-webkit-border-top-right-radius: 3px;
+ 	-khtml-border-top-left-radius: 3px;
+ 	-khtml-border-top-right-radius: 3px;
+ 	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
  }

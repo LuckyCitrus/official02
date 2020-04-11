@@ -6,7 +6,8 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     #@orders = Order.all
-    @orders = policy_scope(Order)
+    #@orders = policy_scope(Order)
+    @pagy, @orders = pagy(policy_scope(Order.order(date: :desc)))
   end
 
   # GET /orders/1
@@ -59,6 +60,7 @@ class OrdersController < ApplicationController
   # DELETE /orders/1.json
   def destroy
     @order.destroy
+    authorize @order
     respond_to do |format|
       format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
       format.json { head :no_content }
@@ -75,6 +77,7 @@ class OrdersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def order_params
       # params.require(:order).permit(:date, :lotstock, :quantity, :price, :total, :orderstatus_id, :picture_id)
-      params.require(:order).permit(:ordernum, :date, :customer_id, :lotstock, :quantity, :price, :total, :orderstatus_id, cars_attributes: [:id, :vinnumber, :year, :make, :model, :titlestatus_id, :keystatus_id ,:destroy_] )
+      params.require(:order).permit(:ordernum, :date, :customer_id, :lotstock, :quantity, :price, :total, :orderstatus_id, cars_attributes: [:id, :vinnumber, :year, :make, :model, :titlestatus_id, :keystatus_id ,:destroy_],
+      orderinvoices_attributes: [:id, :order_id, :invoice_id, :_destroy])
     end
 end

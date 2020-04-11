@@ -6,30 +6,29 @@
             </div>
             <div class="card-body">
                 <p>
-                    <strong>Container Number:</strong>
+                    <strong>Container #:</strong>
                     <%= @container.containernum %>
                 </p>
                 <p>
-                    <strong>Shipment Number:</strong>
-                    <%= link_to @container.shipment.shipmentnum, @container.shipment %>
-                    (<%= @container.shipment.shipmentstatus.shipmentstatus %>)</li>
+                    <strong>Shipment #:</strong>
+                    <%= link_to @container.shipment.shipmentnum, @container.shipment %></li>
                 </p>
                 <p>
                     <strong>Company:</strong>
                     <%= link_to @container.company.companyname, @container.company %>
                 </p>
 
-
+                <% unless @container.orders.empty? %>
                 <p>
                     <strong>Orders:</strong>
                     <ul>
                         <% @container.orders.each do |order| %>
                         <li><strong>Order Number: </strong>
-                            <%= link_to order.ordernum, order %>
-                            (<%= order.orderstatus.orderstatus %>)</li>
+                            <%= link_to order.ordernum, order %></li>
                         <% end %>
                     </ul>
                 </p>
+                <% end %>
 
 
             </div>

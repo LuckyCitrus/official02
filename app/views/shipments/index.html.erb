@@ -26,14 +26,21 @@
                         <td><%= shipment.shipmentmethod.shipmentmethod %></td>
                         <td><%= shipment.shipmentstatus.shipmentstatus %></td>
                         <!--<td><%= link_to 'Show', shipment %></td>-->
-                        <td><%= link_to 'Edit', edit_shipment_path(shipment) %> / 
-                        <%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_shipment_path(shipment) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Shipment', new_shipment_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Shipment', new_shipment_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>

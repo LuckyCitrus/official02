@@ -5,7 +5,9 @@ class InvoiceshipmentsController < ApplicationController
   # GET /invoiceshipments
   # GET /invoiceshipments.json
   def index
-    @invoiceshipments = Invoiceshipment.all
+    #@invoiceshipments = Invoiceshipment.all
+    #@pagy, @invoiceshipments = pagy(Invoiceshipment)
+    @pagy, @invoiceshipments = pagy(Invoiceshipment.includes(:invoice).order("invoices.invoicedate DESC"))
   end
 
   # GET /invoiceshipments/1

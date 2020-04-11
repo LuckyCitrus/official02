@@ -6,12 +6,12 @@
             </div>
             <div class="card-body">
                 <p>
-                    <strong>Container:</strong>
-                    <%= @containerorder.container.containernum %>
+                    <strong>Container #:</strong>
+                    <%= link_to @containerorder.container.containernum, @containerorder.container %>
                 </p>
                 <p>
-                    <strong>Order:</strong>
-                    <%= @containerorder.order.ordernum %>
+                    <strong>Order #:</strong>
+                    <%= link_to @containerorder.order.ordernum, @containerorder.order %>
                 </p>
 
             </div>

@@ -6,7 +6,8 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     #@customers = Customer.all
-    @customers = policy_scope(Customer)
+    #@customers = policy_scope(Customer)
+    @pagy, @customers = pagy(policy_scope(Customer.order(:first_name)))
   end
 
   # GET /customers/1
@@ -59,6 +60,7 @@ class CustomersController < ApplicationController
   # DELETE /customers/1.json
   def destroy
     @customer.destroy
+    authorize @customer
     respond_to do |format|
       format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
       format.json { head :no_content }
@@ -74,6 +76,6 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.require(:customer).permit(:first_name, :last_name, :address, :phone, :email, :user_id)
+      params.require(:customer).permit(:first_name, :last_name, :address, :phone, :email, :user_id, :country_id, :customerstatus_id, :customertype_id)
     end
 end

@@ -6,7 +6,8 @@ class ShipmentsController < ApplicationController
   # GET /shipments.json
   def index
     #@shipments = Shipment.all
-    @shipments = policy_scope(Shipment)
+    #@shipments = policy_scope(Shipment)
+    @pagy, @shipments = pagy(policy_scope(Shipment.order(date: :desc)))
   end
 
   # GET /shipments/1
@@ -59,6 +60,7 @@ class ShipmentsController < ApplicationController
   # DELETE /shipments/1.json
   def destroy
     @shipment.destroy
+    authorize @shipment
     respond_to do |format|
       format.html { redirect_to shipments_url, notice: 'Shipment was successfully destroyed.' }
       format.json { head :no_content }
@@ -75,6 +77,7 @@ class ShipmentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def shipment_params
       # params.require(:shipment).permit(:date, :quantity, :container, :warehouse_id, :shipmentmethod_id, :shipmentstatus_id)
-      params.require(:shipment).permit(:shipmentnum,:date, :quantity, :warehouse_id, :shipmentmethod_id, :shipmentstatus_id)
+      params.require(:shipment).permit(:shipmentnum,:date, :quantity, :warehouse_id, :shipmentmethod_id, :shipmentstatus_id,
+      invoiceshipments_attributes: [:id, :invoice_id, :shipment_id, :_destroy] )
     end
 end

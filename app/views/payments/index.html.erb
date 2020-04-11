@@ -28,14 +28,21 @@
                         <td><%= payment.paymentmethod.paymenttype %></td>
                         <td><%= link_to payment.invoice.invoicenum, payment.invoice%></td>
                         <!--<td><%= link_to 'Show', payment %></td>-->
-                        <td><%= link_to 'Edit', edit_payment_path(payment) %> / 
-                        <%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Edit', edit_payment_path(payment) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Payment', new_payment_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Payment', new_payment_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>

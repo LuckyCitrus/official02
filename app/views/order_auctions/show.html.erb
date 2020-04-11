@@ -6,12 +6,12 @@
             </div>
             <div class="card-body">
                 <p>
-                    <strong>Order:</strong>
-                    <%= @order_auction.order.ordernum %>
+                    <strong>Order #:</strong>
+                    <%= link_to @order_auction.order.ordernum, @order_auction.order%>
                 </p>
                 <p>
-                    <strong>Auction:</strong>
-                    <%= @order_auction.auction.auctionname %>
+                    <strong>Auction Name:</strong>
+                    <%= link_to @order_auction.auction.auctionname, @order_auction.auction %>
                 </p>
 
             </div>

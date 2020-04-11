@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :admin_only
 
   def index
-    @users = User.all
+    @users = User.order(role: :desc)
   end
 
   def show

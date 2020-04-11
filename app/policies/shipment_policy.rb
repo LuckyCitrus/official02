@@ -8,7 +8,7 @@ class ShipmentPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      if user.admin? || user.employee
+      if user.admin? || user.employee?
         scope.all
       else
         scope.joins(invoiceshipments: [invoice: :customer]).where(customers: { user_id: user.id })

@@ -17,15 +17,22 @@
                     <tr>
                         <td><%= link_to orderinvoice.order.ordernum, orderinvoice.order %></td>
                         <td><%= link_to orderinvoice.invoice.invoicenum, orderinvoice.invoice %></td>
-                        <!--<td><%= link_to 'Show', orderinvoice %></td>-->
-                        <td><%= link_to 'Edit', edit_orderinvoice_path(orderinvoice) %> / 
-                        <%= link_to 'Destroy', orderinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= link_to 'Show', orderinvoice %> / 
+                        <%= link_to 'Edit', edit_orderinvoice_path(orderinvoice) %>
+                        <% if current_user.admin? %> / 
+                            <%= link_to 'Destroy', orderinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <% end %>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
             <div class="card-footer">
-                <%= link_to 'New Order Invoice', new_orderinvoice_path, class: "btn btn-primary" %>
+                <div class="footer-left">
+                    <%= link_to 'New Order Invoice', new_orderinvoice_path, class: "btn btn-primary" %>
+                </div>
+                <div class="footer-right">
+                    <%== pagy_bootstrap_nav(@pagy) %>
+                </div>
             </div>
         </div>
     </div>

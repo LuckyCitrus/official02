@@ -32,7 +32,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    user.admin? || user.employee?
+    user.admin?
   end
 
   def scope

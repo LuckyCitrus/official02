@@ -21,12 +21,11 @@
                     <%= f.password_field :password_confirmation, label: "Confirm New Password", autocomplete: "new-password", minlength: 6, maxlength: 128, size: 24,required: true %>
                 </div>
 
-                <%= render "devise/shared/links" %>
-
-            </div>
-            <div class="card-footer">
-                <%= f.submit "Change Password", class: 'btn btn-primary' %>
-                <% end %>
+                <%= render "devise/shared/links" %><hr>
+                <div class="actions">
+                    <%= f.submit "Change Password", class: 'btn btn-primary' %>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>
