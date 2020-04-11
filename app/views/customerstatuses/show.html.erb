@@ -10,6 +10,18 @@
                     <%= @customerstatus.customerstatus %>
                 </p>
 
+                <% unless @customerstatus.customers.empty? %>
+                <p>
+                    <strong>Customers:</strong>
+                    <ul style="columns: 3 200px;">
+                        <% @customerstatus.customers.each do |customer| %>
+                        <li><%= link_to customer.try(:cus_fullname), customer %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </p>
+                <% end %>
+
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_customerstatus_path(@customerstatus), class: "btn btn-primary" %>

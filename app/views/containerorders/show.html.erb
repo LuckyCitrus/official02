@@ -10,8 +10,15 @@
                     <%= link_to @containerorder.container.containernum, @containerorder.container %>
                 </p>
                 <p>
+                    <strong>Company Name:</strong>
+                    <%= link_to @containerorder.container.company.companyname, @containerorder.container.company %>
+                </p>
+                <p>
                     <strong>Order #:</strong>
                     <%= link_to @containerorder.order.ordernum, @containerorder.order %>
+                </p>
+                <strong>Shipment #:</strong>
+                <%= link_to @containerorder.container.shipment.shipmentnum, @containerorder.container.shipment %>
                 </p>
 
             </div>

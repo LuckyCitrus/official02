@@ -10,6 +10,18 @@
                     <%= @employeestatus.employeestatus %>
                 </p>
 
+                <% unless @employeestatus.employees.empty? %>
+                <p>
+                    <strong>Employees:</strong>
+                    <ul style="columns: 3 200px;">
+                        <% @employeestatus.employees.each do |employee| %>
+                        <li><%= link_to employee.try(:emp_fullname), employee %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </p>
+                <% end %>
+
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit',  edit_employeestatus_path(@employeestatus), class: "btn btn-primary" %>

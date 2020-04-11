@@ -10,6 +10,18 @@
                     <%= @titlestatus.titlestatus %>
                 </p>
 
+                <% unless @titlestatus.cars.empty? %>
+                <p>
+                    <strong>Cars:</strong>
+                    <ul style="columns: 3 200px;">
+                        <% @titlestatus.cars.each do |car| %>
+                        <li><%= link_to car.try(:car_info), car %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </p>
+                <% end %>
+
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_titlestatus_path(@titlestatus), class: "btn btn-primary" %>

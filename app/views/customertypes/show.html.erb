@@ -10,6 +10,17 @@
                     <%= @customertype.customertype %>
                 </p>
 
+                <% unless @customertype.customers.empty? %>
+                <p>
+                    <strong>Customers:</strong>
+                    <ul style="columns: 3 200px;">
+                        <% @customertype.customers.each do |customer| %>
+                        <li><%= link_to customer.try(:cus_fullname), customer %>
+                            <% end %>
+                        </li>
+                    </ul>
+                </p>
+                <% end %>
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_customertype_path(@customertype), class: "btn btn-primary" %>

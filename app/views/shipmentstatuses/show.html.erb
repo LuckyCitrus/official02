@@ -10,6 +10,19 @@
                     <%= @shipmentstatus.shipmentstatus %>
                 </p>
 
+                <% unless @shipmentstatus.shipments.empty? %>
+                <p>
+                    <strong>Shipments:</strong>
+                    <ul style="columns: 3 200px;">
+                        <% @shipmentstatus.shipments.each do |shipment| %>
+                        <li><%= link_to shipment.shipmentnum, shipment %>
+                            (<%= shipment.warehouse.warehousename %>)
+                            <% end %>
+                        </li>
+                    </ul>
+                </p>
+                <% end %>
+
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_shipmentstatus_path(@shipmentstatus), class: "btn btn-primary" %>

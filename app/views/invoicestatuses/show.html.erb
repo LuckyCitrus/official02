@@ -10,6 +10,19 @@
                     <%= @invoicestatus.invoicestatus %>
                 </p>
 
+                <% unless @invoicestatus.invoices.empty? %>
+                <p>
+                    <strong>Invoices:</strong>
+                    <ul style="columns: 3 200px;">
+                        <% @invoicestatus.invoices.each do |invoice| %>
+                        <li><%= link_to invoice.invoicenum, invoice %>
+                        (<%= invoice.customer.try(:cus_fullname) %>)
+                            <% end %>
+                        </>
+                    </ul>
+                </p>
+                <% end %>
+
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_invoicestatus_path(@invoicestatus), class: "btn btn-primary" %>

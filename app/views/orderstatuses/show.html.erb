@@ -10,6 +10,19 @@
                     <%= @orderstatus.orderstatus %>
                 </p>
 
+                <% unless @orderstatus.orders.empty? %>
+                <p>
+                    <strong>Orders:</strong>
+                    <ul style="columns: 3 200px;">
+                        <% @orderstatus.orders.each do |order| %>
+                        <li><%= link_to order.ordernum, order %>
+                            (<%= order.customer.try(:cus_fullname) %>)
+                            <% end %>
+                            </>
+                    </ul>
+                </p>
+                <% end %>
+
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_orderstatus_path(@orderstatus), class: "btn btn-primary" %>

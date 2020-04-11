@@ -23,7 +23,7 @@
                     <strong>Orders:</strong>
                     <ul>
                         <% @container.orders.each do |order| %>
-                        <li><strong>Order Number: </strong>
+                        <li><strong>Order #: </strong>
                             <%= link_to order.ordernum, order %></li>
                         <% end %>
                     </ul>

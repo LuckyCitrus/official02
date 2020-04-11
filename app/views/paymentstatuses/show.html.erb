@@ -10,6 +10,19 @@
                     <%= @paymentstatus.paymentstatus %>
                 </p>
 
+                <% unless @paymentstatus.payments.empty? %>
+                <p>
+                    <strong>Payments:</strong>
+                    <ul style="columns: 3 200px;">
+                        <% @paymentstatus.payments.each do |payment| %>
+                        <li><%= link_to payment.paymentnum, payment %>
+                            (<%= payment.customer.try(:cus_fullname) %>)
+                            <% end %>
+                            </>
+                    </ul>
+                </p>
+                <% end %>
+
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_paymentstatus_path(@paymentstatus), class: "btn btn-primary" %>
