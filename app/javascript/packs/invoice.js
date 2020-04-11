@@ -4,6 +4,8 @@ $(window).on("load", function(){
 		window.form_field_value = $(".cust_id").val();
 		console.log(form_field_value);
 		
+		$('.selected_id').val(form_field_value);
+		
 		
 		//Declare Order Contents Table
 		order_info();
@@ -16,6 +18,7 @@ $(window).on("load", function(){
 		location_info();
 		via_info();
 		
+
 		/*
 		//Set Totals 
 		set_price(); 
@@ -23,6 +26,7 @@ $(window).on("load", function(){
 		set_subtotal();
 		set_total();
 		*/
+		
 		
 		//Set Order Contents Table
 		set_table_info();
