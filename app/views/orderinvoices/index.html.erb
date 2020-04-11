@@ -17,9 +17,9 @@
                     <tr>
                         <td><%= link_to orderinvoice.order.ordernum, orderinvoice.order %></td>
                         <td><%= link_to orderinvoice.invoice.invoicenum, orderinvoice.invoice %></td>
-                        <td><%= link_to 'Show', orderinvoice %> / 
-                        <%= link_to 'Edit', edit_orderinvoice_path(orderinvoice) %>
-                        <% if current_user.admin? %> / 
+                        <td><%= link_to 'Show', orderinvoice %> /
+                            <%= link_to 'Edit', edit_orderinvoice_path(orderinvoice) %>
+                            <% if current_user.admin? %> /
                             <%= link_to 'Destroy', orderinvoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>
                     </tr>

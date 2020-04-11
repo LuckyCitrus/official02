@@ -1,0 +1,28 @@
+<div class="row row-fluid">
+    <div class="col-sm-3">
+        <div class="card card-default">
+            <div class="card-header">
+                <h2>Monthly Orders Per Auctions</h2>
+            </div><br>
+            <table class="table table-hover table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th></th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @customer_overviews.each do |customer_overview| %>
+                    <tr>
+                        <td><%= customer_overview.auctionname %></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
