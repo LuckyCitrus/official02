@@ -45,8 +45,4 @@ class ReportsController < ApplicationController
 		end
 	end
 
-	def customer_overviews
-	    @pagy, @customer_overviews = pagy(CustomerOverview.order(date: :desc))
-	end
-
 end

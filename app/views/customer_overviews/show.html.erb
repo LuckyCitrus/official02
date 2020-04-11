@@ -1,0 +1,75 @@
+<div class="row row-fluid">
+    <div class="col-sm-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Customer</h3>
+            </div>
+            <div class="card-body">
+                <p>
+                    <strong>Customer Name:</strong>
+                    <%= @customer_overview.name %>
+                </p>
+
+                <p>
+                    <strong>Car:</strong>
+                    <%= @customer_overview.car %>
+                </p>
+
+                <p>
+                    <strong>VIN Number:</strong>
+                    <%= @customer_overview.vinnumber %>
+                </p>
+
+                <p>
+                    <strong>Date:</strong>
+                    <%= @customer_overview.date %>
+                </p>
+
+                <p>
+                    <strong>Order #:</strong>
+                    <%= @customer_overview.ordernum %>
+                </p>
+
+                <p>
+                    <strong>Order Status:</strong>
+                    <%= @customer_overview.orderstatus %>
+                </p>
+
+                <p>
+                    <strong>Invoice #:</strong>
+                    <%= @customer_overview.invoicenum %>
+                </p>
+
+                <p>
+                    <strong>Invoice Status:</strong>
+                    <%= @customer_overview.invoicestatus %>
+                </p>
+
+                <p>
+                    <strong>Payment #:</strong>
+                    <%= @customer_overview.paymentnum %>
+                </p>
+
+                <p>
+                    <strong>Payment Status:</strong>
+                    <%= @customer_overview.paymentstatus %>
+                </p>
+
+                <p>
+                    <strong>Shipment #:</strong>
+                    <%= @customer_overview.shipmentnum %>
+                </p>
+
+                <p>
+                    <strong>Shipment Status:</strong>
+                    <%= @customer_overview.shipmentstatus %>
+                </p>
+
+            </div>
+            <div class="card-footer">
+                <%= link_to 'Back', customer_overviews_path, class: "btn btn-secondary" %>
+            </div>
+
+        </div>
+    </div>
+</div>

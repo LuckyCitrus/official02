@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :users
   resources :auction_orders
+  resources :customer_overviews
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
   get 'reports/active_orders', to: 'reports#active_orders'
   get 'reports/active_invoices', to: 'reports#active_invoices'
   get 'reports/auction_orders', to: 'reports#auction_orders'
-  get 'reports/customer_overviews', to: 'reports#customer_overviews'
+  get 'customer_overviews/index', to: 'customer_overviews#index'
   #get 'reports/invoices', to: 'reports#invoices'
   get 'register', to: redirect('register/sign_up')
   get 'orderauctions', to: redirect('order_auctions')

@@ -239,9 +239,3 @@ File.open("#{Rails.root}/db/data/orderinvoices.csv") do |orderinvoices|
   end
 end
 
-File.open("#{Rails.root}/db/data/shipmentinvoices.csv") do |invoiceshipments|
-  invoiceshipments.read.each_line do |invoiceshipment|
-    shipment_id, invoice_id = invoiceshipment.chomp.split(",")
-    Invoiceshipment.create!(:shipment_id=>shipment_id, :invoice_id=>invoice_id)
-  end
-end

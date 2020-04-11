@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   has_one :employee, dependent: :destroy
   has_one :customer, dependent: :destroy
-
   #Active Storage
   has_many :images
 

@@ -14,7 +14,6 @@ class InvoicesController < ApplicationController
   # GET /invoices/1.json
   def show
     #@invoice = policy_scope(Invoice).find(params[:id])
-
     @invoice = Invoice.find(params[:id])
 		respond_to do |format|
 			format.html

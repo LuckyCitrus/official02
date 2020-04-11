@@ -3,13 +3,13 @@
         <div class="card card-default">
             <div class="card-header">
                 <h2>Customer Overview</h2>
-            </div><br>
-            <table class="table table-hover table-bordered table-responsive">
+            </div>
+            <table class="table table-hover table-bordered table responsive">
                 <thead class="thead-light">
                     <tr>
                         <% unless current_user.customer %>
-                        <% end %>
                         <th>Customer</th>
+                        <% end %>
                         <th>Car</th>
                         <th>VIN Number</th>
                         <th>Date</th>
@@ -21,7 +21,7 @@
                         <th>Payment Status</th>
                         <th>Shipment</th>
                         <th>Shipment Status</th>
-                        <th colspan="10"></th>
+                        <th colspan="11"></th>
                     </tr>
                 </thead>
                 <tbody>
