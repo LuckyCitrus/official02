@@ -1,27 +1,52 @@
 <div class="row row-fluid">
-    <div class="col-sm-3">
+    <div class="col-xs-12">
         <div class="card card-default">
             <div class="card-header">
                 <h2>Customer Overview</h2>
             </div><br>
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered table-responsive">
                 <thead class="thead-light">
                     <tr>
                         <% unless current_user.customer %>
-                        <th>Customer</th>
                         <% end %>
-                        <th colspan="3"></th>
+                        <th>Customer</th>
+                        <th>Car</th>
+                        <th>VIN Number</th>
+                        <th>Date</th>
+                        <th>Order</th>
+                        <th>Order Status</th>
+                        <th>Invoice</th>
+                        <th>Invoice Status</th>
+                        <th>Payment</th>
+                        <th>Payment Status</th>
+                        <th>Shipment</th>
+                        <th>Shipment Status</th>
+                        <th colspan="10"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <% @customer_overviews.each do |customer_overview| %>
                     <tr>
-                        <td><%= customer_overview.customer %></td>
+                        <% unless current_user.customer %>
+                        <td><%= customer_overview.name %></td>
+                        <% end %>
+                        <td><%= customer_overview.car %></td>
+                        <td><%= customer_overview.vinnumber %></td>
+                        <td><%= customer_overview.date %></td>
+                        <td><%= customer_overview.ordernum %></td>
+                        <td><%= customer_overview.orderstatus %></td>
+                        <td><%= customer_overview.invoicenum %></td>
+                        <td><%= customer_overview.invoicestatus %></td>
+                        <td><%= customer_overview.paymentnum %></td>
+                        <td><%= customer_overview.paymentstatus %></td>
+                        <td><%= customer_overview.shipmentnum %></td>
+                        <td><%= customer_overview.shipmentstatus %></td>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
-            <div class="card-footer">
+            <div class="modal-footer">
+                <%== pagy_bootstrap_nav(@pagy) %>
             </div>
         </div>
     </div>

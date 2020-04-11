@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :authenticate_user!, :employee_only
+  before_action :authenticate_user!
 
 	def active_orders
 		@active_orders = ActiveOrder.all
@@ -44,5 +44,9 @@ class ReportsController < ApplicationController
 			end
 		end
 	end
-	
+
+	def customer_overviews
+	    @pagy, @customer_overviews = pagy(CustomerOverview.order(date: :desc))
+	end
+
 end

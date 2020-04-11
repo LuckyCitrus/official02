@@ -47,7 +47,7 @@ html, body {
   float: left;
 }
 
- .header-right, .footer-right {
+ .header-right, .footer-right, #right {
    float: right;
    position:absolute;
    bottom: 0;
@@ -227,6 +227,11 @@ label[for="image_image"] {
 	//display: none;
 	font-size: 14px;
 }
+
+.modal-footer {
+	background-color: #F7F7F7;
+}
+
  /*flash*/
  .alert-error {
      background-color: #f2dede;
