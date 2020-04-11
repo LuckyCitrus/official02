@@ -46,7 +46,7 @@
                 </tbody>
             </table>
             <div class="modal-footer">
-                <%== pagy_bootstrap_nav(@pagy) %>
+                <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1  %>
             </div>
         </div>
     </div>

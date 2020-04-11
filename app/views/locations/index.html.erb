@@ -29,7 +29,7 @@
                     <%= link_to 'New Location', new_location_path, class: "btn btn-primary" %>
                 </div>
                 <div class="footer-right">
-                    <%== pagy_bootstrap_nav(@pagy) %>
+                    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1  %>
                 </div>
             </div>
         </div>

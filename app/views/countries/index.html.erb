@@ -17,7 +17,7 @@
                         <td><%= link_to country.country_name, country %></td>
                         <!--<td><%= link_to 'Show', country %></td>-->
                         <td><%= link_to 'Edit', edit_country_path(country) %>
-                        <% if current_user.admin? %> / 
+                            <% if current_user.admin? %> /
                             <%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>
                     </tr>
@@ -29,7 +29,7 @@
                     <%= link_to 'New Country', new_country_path, class: "btn btn-primary" %>
                 </div>
                 <div class="footer-right">
-                    <%== pagy_bootstrap_nav(@pagy) %>
+                    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1  %>
                 </div>
             </div>
         </div>

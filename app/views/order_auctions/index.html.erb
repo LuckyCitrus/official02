@@ -17,11 +17,11 @@
                     <tr>
                         <td><%= link_to order_auction.order.ordernum, order_auction.order %></td>
                         <td><%= link_to order_auction.auction.auctionname, order_auction.auction %></td>
-                        <td><%= link_to 'Show', order_auction %> / 
-                        <%= link_to 'Edit', edit_order_auction_path(order_auction) %>
-                        <% if current_user.admin? %> / 
+                        <td><%= link_to 'Show', order_auction %> /
+                            <%= link_to 'Edit', edit_order_auction_path(order_auction) %>
+                            <% if current_user.admin? %> /
                             <%= link_to 'Destroy', order_auction, method: :delete, data: { confirm: 'Are you sure?' } %></>
-                        <% end %>
+                            <% end %>
                     </tr>
                     <% end %>
                 </tbody>
@@ -31,7 +31,7 @@
                     <%= link_to 'New Order Auction', new_order_auction_path, class: "btn btn-primary" %>
                 </div>
                 <div class="footer-right">
-                    <%== pagy_bootstrap_nav(@pagy) %>
+                    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1  %>
                 </div>
             </div>
         </div>

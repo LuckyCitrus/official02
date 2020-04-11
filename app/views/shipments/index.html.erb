@@ -27,7 +27,7 @@
                         <td><%= shipment.shipmentstatus.shipmentstatus %></td>
                         <!--<td><%= link_to 'Show', shipment %></td>-->
                         <td><%= link_to 'Edit', edit_shipment_path(shipment) %>
-                        <% if current_user.admin? %> / 
+                            <% if current_user.admin? %> /
                             <%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>
                     </tr>
@@ -39,7 +39,7 @@
                     <%= link_to 'New Shipment', new_shipment_path, class: "btn btn-primary" %>
                 </div>
                 <div class="footer-right">
-                    <%== pagy_bootstrap_nav(@pagy) %>
+                    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1  %>
                 </div>
             </div>
         </div>
