@@ -20,6 +20,7 @@ class Order < ApplicationRecord
 
   #nested forms
   accepts_nested_attributes_for :cars, reject_if: :all_blank, allow_destroy: :true
+  accepts_nested_attributes_for :auctions, reject_if: :all_blank, allow_destroy: :true
   accepts_nested_attributes_for :orderinvoices, reject_if: :all_blank, allow_destroy: :true
 
   #fields validation
