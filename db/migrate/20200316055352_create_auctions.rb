@@ -3,7 +3,7 @@ class CreateAuctions < ActiveRecord::Migration[6.0]
     create_table :auctions do |t|
       t.string :auctionname
       t.string :address
-      t.references :location, null: true, foreign_key: true
+      t.references :location, null: false, foreign_key: true
 
       t.timestamps
     end
