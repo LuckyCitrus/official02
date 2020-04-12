@@ -7,16 +7,16 @@
             <table class="table table-hover table-bordered">
                 <thead class="thead-light">
                     <tr>
-                        <th>Shipment</th>
-                        <th>Invoice</th>
+                      <th>Invoice</th>
+                      <th>Shipment</th>
                         <th colspan="3"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <% @invoiceshipments.each do |invoiceshipment| %>
                     <tr>
-                        <td><%= link_to invoiceshipment.shipment.shipmentnum, invoiceshipment.shipment %></td>
-                        <td><%= link_to invoiceshipment.invoice.invoicenum, invoiceshipment.invoice %></td>
+                      <td><%= link_to invoiceshipment.invoice.invoicenum, invoiceshipment.invoice %></td>
+                      <td><%= link_to invoiceshipment.shipment.shipmentnum, invoiceshipment.shipment %></td>
                         <td><%= link_to 'Show', invoiceshipment %> /
                             <%= link_to 'Edit', edit_invoiceshipment_path(invoiceshipment) %>
                             <% if current_user.admin? %> /

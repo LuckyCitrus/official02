@@ -73,6 +73,7 @@
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_invoice_path(@invoice), class: "btn btn-primary" %>
+                <%= link_to 'Show Shipments', invoiceshipments_path, class: "btn btn-primary", :target => "_blank" %>
                 <%= link_to 'Back', controller: "invoices" %>
             </div>
         </div>
