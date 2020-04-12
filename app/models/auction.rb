@@ -1,7 +1,7 @@
 class Auction < ApplicationRecord
 
   #dependencies
-  belongs_to :location
+  belongs_to :location, optional: true
 
   #normalized for
   has_many :order_auctions
