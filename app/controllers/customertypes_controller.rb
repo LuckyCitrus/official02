@@ -5,7 +5,7 @@ class CustomertypesController < ApplicationController
   # GET /customertypes
   # GET /customertypes.json
   def index
-    @customertypes = Customertype.all
+    @customertypes = Customertype.all.order(created_at: :desc)
   end
 
   # GET /customertypes/1
