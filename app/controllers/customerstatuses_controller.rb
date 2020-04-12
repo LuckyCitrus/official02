@@ -5,7 +5,7 @@ class CustomerstatusesController < ApplicationController
   # GET /customerstatuses
   # GET /customerstatuses.json
   def index
-    @customerstatuses = Customerstatus.all
+    @customerstatuses = Customerstatus.all.order(created_at: :desc)
   end
 
   # GET /customerstatuses/1
