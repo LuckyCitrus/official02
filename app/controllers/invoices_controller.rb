@@ -7,7 +7,7 @@ class InvoicesController < ApplicationController
   def index
     #@invoices = Invoice.all
     #@invoices = policy_scope(Invoice)
-    @pagy, @invoices = pagy(policy_scope(Invoice.order(invoicedate: :desc)))
+    @pagy, @invoices = pagy(policy_scope(Invoice.order(created_at: :desc)))
   end
 
   # GET /invoices/1
