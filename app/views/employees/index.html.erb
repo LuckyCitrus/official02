@@ -36,16 +36,10 @@
                         <td><%= employee.user.try(:email) %></td>
                         <%end%>
                         <!--<td><%= link_to 'Show', employee %></td>-->
-                        <td><%= link_to 'Edit', edit_employee_path(employee) %>
-<<<<<<< HEAD
+                        <td><%= link_to 'Edit', edit_employee_path(employee) if employee.user_id == current_user %>
                             <!--<% if current_user.admin? %> /
                             <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>-->
-=======
-                            <% if current_user.admin? %>
-<!--                            <%#= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-                        <% end %>
->>>>>>> e35a98478916fb85042d02fad13eafc0ad81afbd
                     </tr>
                     <% end %>
                 </tbody>
