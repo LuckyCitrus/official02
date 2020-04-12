@@ -19,18 +19,22 @@
                 </p>
 
                 <p>
-                    <strong>Orders:</strong>
-                    <ul>
-                        <% @auction.orders.each do |order| %>
-                        <li><strong>Order #: </strong>
-                            <%= link_to order.ordernum, order %></li>
-                        <% end %>
-                    </ul>
+                    <strong>Orders History:</strong>
                 </p>
+
+                <ul>
+                  <% @auction.orders.each do |order| %>
+                    <li><strong>Order #: </strong>
+                      <%= link_to order.ordernum, order %></li>
+                  <% end %>
+                </ul>
+
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_auction_path(@auction), class: "btn btn-primary" %>
-                <%= link_to 'Back', :back, class: "btn btn-secondary" %> </div>
+                <%= link_to 'Back', controller: "auctions" %>
+            </div>
+
         </div>
     </div>
 </div>
