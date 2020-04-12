@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     #@locations = Location.all
-    @pagy, @locations = pagy(Location.all)
+    @pagy, @locations = pagy(Location.all.order(created_at: :desc))
   end
 
   # GET /locations/1
@@ -57,7 +57,6 @@ class LocationsController < ApplicationController
   # DELETE /locations/1.json
   def destroy
     @location.destroy
-    authorize @location
     respond_to do |format|
       format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
       format.json { head :no_content }

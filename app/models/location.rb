@@ -1,7 +1,7 @@
 class Location < ApplicationRecord
 
   #normalized for
-  has_many :auctions, inverse_of: :location
+  has_many :auctions
   has_many :warehouses
 
   #nested forms
