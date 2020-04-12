@@ -35,9 +35,9 @@
                         <%end%>
                         <!--<td><%= link_to 'Show', customer %></td>-->
                         <td><%= link_to 'Edit', edit_customer_path(customer) if policy(@customer).edit? %>
-                            <% if current_user.admin? %> /
+                        <!--<% if current_user.admin? %> /
                             <%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                        <% end %>
+                        <% end %>-->
                     </tr>
                     <% end %>
                 </tbody>

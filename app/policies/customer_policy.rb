@@ -4,6 +4,11 @@ class CustomerPolicy < ApplicationPolicy
   def initialize(user, customer)
     @user = user
     @customer = customer
+  
+  def destroy?
+    false
+  end
+
   end
 
   class Scope < Scope

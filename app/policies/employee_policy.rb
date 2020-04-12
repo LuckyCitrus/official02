@@ -4,6 +4,11 @@ class EmployeePolicy < ApplicationPolicy
   def initialize(user, employee)
     @user = user
     @employee = employee
+
+  def destroy?
+ false
+  end
+
   end
 
   class Scope < Scope

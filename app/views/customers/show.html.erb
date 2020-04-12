@@ -68,7 +68,6 @@
                 </p>
                 <% end %>
 
-
                 <% unless @customer.invoices.empty? %>
                 <p>
                     <strong>Invoices:</strong>
@@ -107,7 +106,7 @@
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-primary" %>
-                <%= link_to 'Back', customers_path, class: "btn btn-secondary" %> </div>
+                <%= link_to 'Back', :back, class: "btn btn-secondary" %> </div>
         </div>
     </div>
 </div>
