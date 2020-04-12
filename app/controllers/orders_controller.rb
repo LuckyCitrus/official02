@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   def index
     #@orders = Order.all
     #@orders = policy_scope(Order)
-    @pagy, @orders = pagy(policy_scope(Order.order(date: :desc)))
+    @pagy, @orders = pagy(policy_scope(Order.where("id > 0").order(created_at: :desc)))
   end
 
   # GET /orders/1

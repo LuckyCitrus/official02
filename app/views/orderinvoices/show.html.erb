@@ -6,6 +6,10 @@
             </div>
             <div class="card-body">
                 <p>
+                    <strong>Customer:</strong>
+                    <%= link_to @orderinvoice.order.customer.try(:cus_fullname), @orderinvoice.order.customer %>
+                </p>
+                <p>
                     <strong>Order #:</strong>
                     <%= link_to @orderinvoice.order.ordernum, @orderinvoice.order %>
                 </p>

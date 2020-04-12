@@ -8,7 +8,7 @@ class InvoiceshipmentsController < ApplicationController
     #@invoiceshipments = Invoiceshipment.all
     #@pagy, @invoiceshipments = pagy(Invoiceshipment)
     # @pagy, @invoiceshipments = pagy(Invoiceshipment.includes(:invoice).order("invoices.created_at DESC"))
-    @pagy, @invoiceshipments = pagy(Invoiceshipment.all.order(created_at: :desc))
+    @pagy, @invoiceshipments = pagy(Invoiceshipment.where("id > 0").order(created_at: :desc))
   end
 
   # GET /invoiceshipments/1

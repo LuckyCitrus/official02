@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :images
-
   resources :containerorders
   resources :orderinvoices
   resources :order_auctions

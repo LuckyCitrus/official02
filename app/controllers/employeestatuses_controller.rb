@@ -5,7 +5,7 @@ class EmployeestatusesController < ApplicationController
   # GET /employeestatuses
   # GET /employeestatuses.json
   def index
-    @employeestatuses = Employeestatus.all.order(created_at: :desc)
+    @employeestatuses = Employeestatus.where("id > 0").order(created_at: :desc)
   end
 
   # GET /employeestatuses/1

@@ -9,8 +9,7 @@ class ContainerordersController < ApplicationController
     #@containerorders = Containerorder.all
     #@pagy, @containerorders = pagy(Containerorder)
     # @pagy, @containerorders = pagy(Containerorder.includes(:order).order("orders.date DESC"))
-    @pagy, @containerorders = pagy(Containerorder.includes(:container).order("containers.created_at DESC"))
-    # @pagy, @containerorders = pagy(Containerorder.includes(:order).order(created_at: :desc))
+    @pagy, @containerorders = pagy(Containerorder.includes(:container).where("containerorders.id > 0").order("containers.created_at DESC"))
     # @pagy, @containerorders = pagy(Containerorder.includes(:order).order(@containerorder.orders.created_at DESC))
   end
 
