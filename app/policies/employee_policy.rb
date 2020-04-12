@@ -6,7 +6,7 @@ class EmployeePolicy < ApplicationPolicy
     @employee = employee
 
   def destroy?
- false
+    false
   end
 
   end

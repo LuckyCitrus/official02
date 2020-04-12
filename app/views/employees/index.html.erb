@@ -37,9 +37,15 @@
                         <%end%>
                         <!--<td><%= link_to 'Show', employee %></td>-->
                         <td><%= link_to 'Edit', edit_employee_path(employee) %>
+<<<<<<< HEAD
                             <!--<% if current_user.admin? %> /
                             <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>-->
+=======
+                            <% if current_user.admin? %>
+<!--                            <%#= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+                        <% end %>
+>>>>>>> e35a98478916fb85042d02fad13eafc0ad81afbd
                     </tr>
                     <% end %>
                 </tbody>
