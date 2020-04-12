@@ -5,7 +5,7 @@ class Container < ApplicationRecord
   belongs_to :shipment
 
   #delete cascading
-  has_many :containerorders, dependent: :destroy
+  has_many :containerorders, dependent: :destroy, inverse_of: :container
 
   #associative relations
   has_many :orders, through: :containerorders

@@ -21,20 +21,25 @@
                 <% unless @container.orders.empty? %>
                 <p>
                     <strong>Orders:</strong>
-                    <ul>
-                        <% @container.orders.each do |order| %>
-                        <li><strong>Order #: </strong>
-                            <%= link_to order.ordernum, order %></li>
-                        <% end %>
-                    </ul>
                 </p>
+
+                <ul>
+                  <% @container.orders.each do |order| %>
+                    <li><strong>Order #: </strong>
+                      <%= link_to order.ordernum, order %></li>
+                  <% end %>
+                </ul>
+
                 <% end %>
 
 
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_container_path(@container), class: "btn btn-primary" %>
-                <%= link_to 'Back', :back, class: "btn btn-secondary" %> </div>
+                <%#= link_to 'Show Orders', controller: "containerorders" %>
+                <%= link_to 'Show Orders', containerorders_path, class: "btn btn-primary" %>
+                <%= link_to 'Back', controller: "containers" %>
+            </div>
         </div>
     </div>
 </div>

@@ -25,15 +25,15 @@
     </div>
 
     <%# Nested Form Form %>
-    <h3>Orders</h3>
-    <div id='[child]s'>
-        <%= form.fields_for :containerorders do |containerorder| %>
-        <%= render 'containerorder_fields', :f => containerorder %>
-        <% end %>
-        <div class='links'>
-            <%= link_to_add_association 'Add Order', form, :containerorders %>
-        </div>
-    </div><br><br>
+<!--    <h3>Container Orders</h3>-->
+<!--    <div id='containerorders'>-->
+        <%#= form.fields_for :containerorders do |containerorder| %>
+        <%#= render 'containerorder_fields', :f => containerorder %>
+        <%# end %>
+<!--        <div class='links'>-->
+            <%#= link_to_add_association 'Add ContainerOrder', form, :containerorders %>
+<!--        </div>-->
+<!--    </div><br><br>-->
     <%# End of Nested Form Form %>
 
     <div class="actions">

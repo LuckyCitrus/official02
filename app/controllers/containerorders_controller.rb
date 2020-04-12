@@ -5,10 +5,13 @@ class ContainerordersController < ApplicationController
   # GET /containerorders
   # GET /containerorders.json
   def index
+    # @containerorder = Containerorder.find(params[:id])
     #@containerorders = Containerorder.all
     #@pagy, @containerorders = pagy(Containerorder)
     # @pagy, @containerorders = pagy(Containerorder.includes(:order).order("orders.date DESC"))
-    @pagy, @containerorders = pagy(Containerorder.includes(:order).order(created_at: :desc))
+    @pagy, @containerorders = pagy(Containerorder.includes(:container).order("containers.created_at DESC"))
+    # @pagy, @containerorders = pagy(Containerorder.includes(:order).order(created_at: :desc))
+    # @pagy, @containerorders = pagy(Containerorder.includes(:order).order(@containerorder.orders.created_at DESC))
   end
 
   # GET /containerorders/1
