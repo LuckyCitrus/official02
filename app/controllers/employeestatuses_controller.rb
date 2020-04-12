@@ -5,7 +5,7 @@ class EmployeestatusesController < ApplicationController
   # GET /employeestatuses
   # GET /employeestatuses.json
   def index
-    @employeestatuses = Employeestatus.all
+    @employeestatuses = Employeestatus.all.order(created_at: :desc)
   end
 
   # GET /employeestatuses/1
