@@ -8,6 +8,5 @@ class Department < ApplicationRecord
 
   #fields validation
   validates :departmentname, presence: true, length: { maximum: 128 }
-  validates :company_id, presence: true
-
+  # validates :company_id, presence: true
 end

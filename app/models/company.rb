@@ -1,7 +1,7 @@
 class Company < ApplicationRecord
 
   #normalized for
-  has_many :departments
+  has_many :departments, inverse_of: :company, dependent: :destroy
 
   #associative relation
   has_many :employees, through: :departments

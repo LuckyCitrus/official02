@@ -13,30 +13,35 @@
                 <% unless  @company.departments.empty? %>
                 <p>
                     <strong>Departments:</strong>
-                    <ul>
                 </p>
-                <% for @department in @company.departments %>
-                <li><%= link_to @department.departmentname, @department %></li>
-                <% end %>
+
+                <ul>
+                    <% for @department in @company.departments %>
+                    <li><%= link_to @department.departmentname, @department %></li>
+                    <% end %>
                 </ul>
-                </p>
+
                 <% end %>
 
                 <% unless  @company.employees.empty? %>
                 <p>
                     <strong>Employees:</strong>
-                    <ul>
-                        <% @company.employees.each do |employee| %>
-                        <li><%= link_to employee.try(:emp_fullname), employee %></li>
-                        <% end %>
-                    </ul>
                 </p>
-                <% end %>
+
+                <ul>
+                  <% @company.employees.each do |employee| %>
+                    <li><%= link_to employee.try(:emp_fullname), employee %></li>
+                  <% end %>
+                </ul>
+
+            <% end %>
             </div>
+
             <div class="card-footer">
                 <%= link_to 'Edit', edit_company_path(@company), class: "btn btn-primary" %>
-                <%= link_to 'Back', :back, class: "btn btn-secondary" %>
+              <%= link_to 'Back', controller: "companies" %>
             </div>
+
         </div>
     </div>
 </div>
