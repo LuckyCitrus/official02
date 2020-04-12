@@ -5,7 +5,7 @@ class InvoicestatusesController < ApplicationController
   # GET /invoicestatuses
   # GET /invoicestatuses.json
   def index
-    @invoicestatuses = Invoicestatus.all
+    @invoicestatuses = Invoicestatus.all.order(created_at: :desc)
   end
 
   # GET /invoicestatuses/1

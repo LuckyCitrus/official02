@@ -18,7 +18,7 @@
                         <li><%= link_to invoice.invoicenum, invoice %>
                         (<%= invoice.customer.try(:cus_fullname) %>)
                             <% end %>
-                        </>
+                        </li>
                     </ul>
                 </p>
                 <% end %>
@@ -26,7 +26,8 @@
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_invoicestatus_path(@invoicestatus), class: "btn btn-primary" %>
-                <%= link_to 'Back', :back, class: "btn btn-secondary" %> </div>
+                <%= link_to 'Back', controller: "invoicestatuses" %>
+            </div>
         </div>
     </div>
 </div>
