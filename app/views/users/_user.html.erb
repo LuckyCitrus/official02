@@ -3,8 +3,12 @@
  </td>
  <td>
      <%= bootstrap_form_with(model: user, local: true, layout: :vertical) do |form| %>
-     <%= form.select(:role, User.roles.keys.map {|role| [role.titleize,role]}, hide_label: true, class: "btn btn-secondary btn-lg dropdown-toggle") %>
+     <% unless user == current_user %>
+     <%= form.select(:role, User.roles.keys.map {|role| [role.titleize,role]}, hide_label: true, class: "btn btn-secondary btn-lg dropdown-toggle" )%>
      <%= form.submit 'Change Role', class: "btn btn-sm btn-outline-primary py-0 in-line" %>
+     <% else %>
+    <p style="font-size: 16px; padding-left: 16px;"><%= user.role.titleize %><p>
+     <% end %>
      <% end %>
  </td>
  <td>

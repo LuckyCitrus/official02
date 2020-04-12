@@ -77,3 +77,11 @@ document.addEventListener("turbolinks:load", function () {
     );
 });
 
+/*document.addEventListener("turbolinks:load", function () {
+    const links = $('.navbar ul li a');
+    $.each(links, function (index, link) {
+        if (link.href == document.URL) {
+            $(this).addClass('active');
+        }
+    });
+});*/
