@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :employee_only
 
 	def active_orders
 		@active_orders = ActiveOrder.all
