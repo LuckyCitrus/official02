@@ -37,8 +37,8 @@
                         <%end%>
                         <!--<td><%= link_to 'Show', employee %></td>-->
                         <td><%= link_to 'Edit', edit_employee_path(employee) %>
-                            <% if current_user.admin? %> /
-                            <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            <% if current_user.admin? %>
+<!--                            <%#= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
                         <% end %>
                     </tr>
                     <% end %>
