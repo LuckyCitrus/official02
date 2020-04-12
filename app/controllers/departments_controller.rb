@@ -6,7 +6,7 @@ class DepartmentsController < ApplicationController
   # GET /departments.json
   def index
     #@departments = Department.all
-    @pagy, @departments = pagy(Department.includes(:company).order("companies.companyname"))
+    @pagy, @departments = pagy(Department.includes(:company).order('departments.created_at DESC'))
   end
 
   # GET /departments/1

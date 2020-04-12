@@ -16,20 +16,23 @@
                 </p>
 
                 <% unless @department.employees.empty? %>
-                <p>
-                    <strong>Employees:</strong>
-                    <ul>
-                        <% @department.employees.each do |employee| %>
-                        <li><%= link_to employee.try(:emp_fullname), employee %></li>
-                        <% end %>
-                    </ul>
-                </p>
-                <% end %>
 
+                <p>
+                  <strong>Employees:</strong>
+                </p>
+
+                <ul>
+                  <% @department.employees.each do |employee| %>
+                    <li><%= link_to employee.try(:emp_fullname), employee %></li>
+                  <% end %>
+                </ul>
+
+                <% end %>
             </div>
+
             <div class="card-footer">
                 <%= link_to 'Edit', edit_department_path(@department), class: "btn btn-primary" %>
-                <%= link_to 'Back', :back, class: "btn btn-secondary" %>
+                <%= link_to 'Back', controller: "departments" %>
             </div>
 
         </div>
