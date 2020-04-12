@@ -7,7 +7,8 @@ class ContainerordersController < ApplicationController
   def index
     #@containerorders = Containerorder.all
     #@pagy, @containerorders = pagy(Containerorder)
-    @pagy, @containerorders = pagy(Containerorder.includes(:order).order("orders.date DESC"))
+    # @pagy, @containerorders = pagy(Containerorder.includes(:order).order("orders.date DESC"))
+    @pagy, @containerorders = pagy(Containerorder.includes(:order).order(created_at: :desc))
   end
 
   # GET /containerorders/1

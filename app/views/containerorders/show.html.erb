@@ -17,14 +17,19 @@
                     <strong>Order #:</strong>
                     <%= link_to @containerorder.order.ordernum, @containerorder.order %>
                 </p>
-                <strong>Shipment #:</strong>
-                <%= link_to @containerorder.container.shipment.shipmentnum, @containerorder.container.shipment %>
+                <p>
+                  <strong>Shipment #:</strong>
+                  <%= link_to @containerorder.container.shipment.shipmentnum, @containerorder.container.shipment %>
                 </p>
 
+
             </div>
+
             <div class="card-footer">
                 <%= link_to 'Edit', edit_containerorder_path(@containerorder), class: "btn btn-primary" %>
-                <%= link_to 'Back', :back, class: "btn btn-secondary" %> </div>
+                <%= link_to 'Back', controller: "containerorders" %>
+            </div>
+
         </div>
     </div>
 </div>

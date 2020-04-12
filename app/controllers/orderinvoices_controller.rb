@@ -7,7 +7,8 @@ class OrderinvoicesController < ApplicationController
   def index
     #@orderinvoices = Orderinvoice.all
     #@pagy, @orderinvoices = pagy(Orderinvoice)
-    @pagy, @orderinvoices = pagy(Orderinvoice.includes(:order).order("orders.date DESC"))
+    # @pagy, @orderinvoices = pagy(Orderinvoice.includes(:order).order("orders.created_at DESC"))
+    @pagy, @orderinvoices = pagy(Orderinvoice.includes(:order).order(orderinvoices: :desc))
   end
 
   # GET /orderinvoices/1
