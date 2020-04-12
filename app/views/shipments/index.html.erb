@@ -26,7 +26,7 @@
                         <td><%= shipment.shipmentmethod.shipmentmethod %></td>
                         <td><%= shipment.shipmentstatus.shipmentstatus %></td>
                         <!--<td><%= link_to 'Show', shipment %></td>-->
-                        <td><%= link_to 'Edit', edit_shipment_path(shipment) %>
+                        <td><%= link_to 'Edit', edit_shipment_path(shipment) if policy(@shipemnt).edit? %>
                             <% if current_user.admin? %> /
                             <%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>
@@ -36,7 +36,7 @@
             </table>
             <div class="card-footer">
                 <div class="footer-left">
-                    <%= link_to 'New Shipment', new_shipment_path, class: "btn btn-primary" %>
+                    <%= link_to 'New Shipment', new_shipment_path, class: "btn btn-primary" if policy(@shipment).new? %>
                 </div>
                 <div class="footer-right">
                     <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1  %>

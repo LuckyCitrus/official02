@@ -41,7 +41,7 @@
             </table>
             <div class="card-footer">
                 <div class="footer-left">
-                    <%= link_to 'New Invoice', new_invoice_path, class: "btn btn-primary" %>
+                    <%= link_to 'New Invoice', new_invoice_path, class: "btn btn-primary" if policy(@invoice).new? %>
                 </div>
                 <div class="footer-right">
                     <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1  %>
