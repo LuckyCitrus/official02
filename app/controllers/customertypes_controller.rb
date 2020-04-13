@@ -5,7 +5,7 @@ class CustomertypesController < ApplicationController
   # GET /customertypes
   # GET /customertypes.json
   def index
-    @customertypes = Customertype.where("id > 0").order(created_at: :desc)
+    @customertypes = Customertype.where("customertypes.id > 0").order(created_at: :desc)
   end
 
   # GET /customertypes/1

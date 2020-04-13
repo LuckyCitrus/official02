@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
     # @images = Image.all
     #@images = Image.order(created_at: :desc).limit(15)
     #@images = policy_scope(Image).order(created_at: :desc).limit(15)
-    @pagy, @images = pagy(policy_scope(Image).where("id > 0").order(created_at: :desc), items: 18)
+    @pagy, @images = pagy(policy_scope(Image).where("images.id > 0").order(created_at: :desc), items: 18)
   end
 
   def new

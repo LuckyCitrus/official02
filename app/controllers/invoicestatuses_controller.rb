@@ -5,7 +5,7 @@ class InvoicestatusesController < ApplicationController
   # GET /invoicestatuses
   # GET /invoicestatuses.json
   def index
-    @invoicestatuses = Invoicestatus.where("id > 0").order(created_at: :desc)
+    @invoicestatuses = Invoicestatus.where("invoicestatuses.id > 0").order(created_at: :desc)
   end
 
   # GET /invoicestatuses/1

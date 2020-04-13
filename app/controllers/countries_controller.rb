@@ -6,7 +6,7 @@ class CountriesController < ApplicationController
   # GET /countries.json
   def index
     #@countries = Country.all
-    @pagy, @countries = pagy(Country.where("id > 0").order(created_at: :desc))
+    @pagy, @countries = pagy(Country.where("countries.id > 0").order(created_at: :desc))
   end
 
   # GET /countries/1

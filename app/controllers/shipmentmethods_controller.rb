@@ -5,7 +5,7 @@ class ShipmentmethodsController < ApplicationController
   # GET /shipmentmethods
   # GET /shipmentmethods.json
   def index
-    @shipmentmethods = Shipmentmethod.where("id > 0")
+    @shipmentmethods = Shipmentmethod.where("shipmentmethods.id > 0")
   end
 
   # GET /shipmentmethods/1

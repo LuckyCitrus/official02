@@ -5,7 +5,7 @@ class TitlestatusesController < ApplicationController
   # GET /titlestatuses
   # GET /titlestatuses.json
   def index
-    @titlestatuses = Titlestatus.where("id > 0").order(created_at: :desc)
+    @titlestatuses = Titlestatus.where("titlestatuses.id > 0").order(created_at: :desc)
   end
 
   # GET /titlestatuses/1

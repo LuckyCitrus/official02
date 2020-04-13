@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @pagy, @companies = pagy(Company.where("id > 0").order(created_at: :desc))
+    @pagy, @companies = pagy(Company.where("companies.id > 0").order(created_at: :desc))
   end
 
   # GET /companies/1
