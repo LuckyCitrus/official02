@@ -5,7 +5,7 @@ class PaymentmethodsController < ApplicationController
   # GET /paymentmethods
   # GET /paymentmethods.json
   def index
-    @paymentmethods = Paymentmethod.where("payments.id > 0").order(created_at: :desc)
+    @paymentmethods = Paymentmethod.where('id > 0').order(created_at: :desc)
   end
 
   # GET /paymentmethods/1
