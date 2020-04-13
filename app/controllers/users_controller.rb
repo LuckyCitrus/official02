@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :admin_only
 
   def index
-    @pagy, @users = pagy(User.where("users.id > 0").order(role: :desc))
+    @pagy, @users = pagy(User.where("users.id > 1").order(role: :desc))
   end
 
   def show

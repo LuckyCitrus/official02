@@ -7,7 +7,7 @@ class OrderAuctionsController < ApplicationController
   def index
     #@order_auctions = OrderAuction.all
     #@pagy, @order_auctions = pagy(OrderAuction)
-    @pagy, @order_auctions = pagy(OrderAuction.includes(:order).where("order_auctions.id > 0").order('order_auctions.created_at DESC'))
+    @pagy, @order_auctions = pagy(OrderAuction.includes(:order).where("order_auctions.id > 1").order('order_auctions.created_at DESC'))
 end
 
   # GET /order_auctions/1

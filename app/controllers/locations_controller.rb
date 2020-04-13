@@ -6,7 +6,7 @@ class LocationsController < ApplicationController
   # GET /locations.json
   def index
     #@locations = Location.all
-    @pagy, @locations = pagy(Location.where("locations.id > 0").order(created_at: :desc))
+    @pagy, @locations = pagy(Location.where("locations.id > 1").order(created_at: :desc))
   end
 
   # GET /locations/1

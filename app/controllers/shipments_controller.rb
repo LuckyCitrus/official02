@@ -7,7 +7,7 @@ class ShipmentsController < ApplicationController
   def index
     #@shipments = Shipment.all
     #@shipments = policy_scope(Shipment)
-    @pagy, @shipments = pagy(policy_scope(Shipment.where("shipments.id > 0").order(date: :desc)))
+    @pagy, @shipments = pagy(policy_scope(Shipment.where("shipments.id > 1").order(date: :desc)))
   end
 
   # GET /shipments/1

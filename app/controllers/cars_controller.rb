@@ -8,7 +8,7 @@ class CarsController < ApplicationController
   def index
     #@cars = Car.all
     #@cars = policy_scope(Car)
-    @pagy, @cars = pagy(policy_scope(Car.where("cars.id > 0").order(created_at: :desc)))
+    @pagy, @cars = pagy(policy_scope(Car.where("cars.id > 1").order(created_at: :desc)))
   end
 
   # GET /cars/1

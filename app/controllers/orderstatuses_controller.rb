@@ -5,7 +5,7 @@ class OrderstatusesController < ApplicationController
   # GET /orderstatuses
   # GET /orderstatuses.json
   def index
-    @orderstatuses = Orderstatus.where("orderstatuses.id > 0").order(created_at: :desc)
+    @orderstatuses = Orderstatus.where("orderstatuses.id > 1").order(created_at: :desc)
   end
 
   # GET /orderstatuses/1

@@ -5,7 +5,7 @@ class KeystatusesController < ApplicationController
   # GET /keystatuses
   # GET /keystatuses.json
   def index
-    @keystatuses = Keystatus.where("keystatuses.id > 0").order(created_at: :desc)
+    @keystatuses = Keystatus.where("keystatuses.id > 1").order(created_at: :desc)
   end
 
   # GET /keystatuses/1

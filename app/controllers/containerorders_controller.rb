@@ -7,9 +7,8 @@ class ContainerordersController < ApplicationController
   def index
     # @containerorder = Containerorder.find(params[:id])
     #@containerorders = Containerorder.all
-    #@pagy, @containerorders = pagy(Containerorder)
     # @pagy, @containerorders = pagy(Containerorder.includes(:order).order("orders.date DESC"))
-    @pagy, @containerorders = pagy(Containerorder.includes(:container).where("containerorders.id > 0").order("containers.created_at DESC"))
+    @pagy, @containerorders = pagy(Containerorder.includes(:container).where("containerorders.id > 1").order("containers.created_at DESC"))
     # @pagy, @containerorders = pagy(Containerorder.includes(:order).order(@containerorder.orders.created_at DESC))
   end
 

@@ -8,7 +8,7 @@ class OrderinvoicesController < ApplicationController
     #@orderinvoices = Orderinvoice.all
     #@pagy, @orderinvoices = pagy(Orderinvoice)
     # @pagy, @orderinvoices = pagy(Orderinvoice.includes(:order).order("orders.created_at DESC"))
-    @pagy, @orderinvoices = pagy(Orderinvoice.includes(:order).where("orderinvoices.id > 0").order(orderinvoices: :desc))
+    @pagy, @orderinvoices = pagy(Orderinvoice.includes(:order).where("orderinvoices.id > 1").order(orderinvoices: :desc))
   end
 
   # GET /orderinvoices/1

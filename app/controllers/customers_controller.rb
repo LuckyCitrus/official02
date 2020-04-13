@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
   def index
     #@customers = Customer.all
     #@customers = policy_scope(Customer)
-    @pagy, @customers = pagy(policy_scope(Customer.where("customers.id > 0").order(created_at: :desc)))
+    @pagy, @customers = pagy(policy_scope(Customer.where("customers.id > 1").order(created_at: :desc)))
   end
 
   # GET /customers/1
