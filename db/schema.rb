@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_071257) do
+ActiveRecord::Schema.define(version: 2020_04_13_085555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
     t.integer "year"
     t.string "make"
     t.string "model"
-    t.bigint "titlestatus_id", null: false
-    t.bigint "keystatus_id", null: false
+    t.bigint "titlestatus_id", default: 0, null: false
+    t.bigint "keystatus_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "order_id"
+    t.bigint "order_id", default: 0
     t.index ["keystatus_id"], name: "index_cars_on_keystatus_id"
     t.index ["order_id"], name: "index_cars_on_order_id"
     t.index ["titlestatus_id"], name: "index_cars_on_titlestatus_id"
@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
   end
 
   create_table "containerorders", force: :cascade do |t|
-    t.bigint "container_id", null: false
-    t.bigint "order_id", null: false
+    t.bigint "container_id", default: 0, null: false
+    t.bigint "order_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["container_id"], name: "index_containerorders_on_container_id"
@@ -76,10 +76,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
   end
 
   create_table "containers", force: :cascade do |t|
-    t.bigint "company_id", null: false
+    t.bigint "company_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "shipment_id"
+    t.bigint "shipment_id", default: 0
     t.string "containernum"
     t.index ["company_id"], name: "index_containers_on_company_id"
     t.index ["shipment_id"], name: "index_containers_on_shipment_id"
@@ -99,10 +99,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "country_id"
-    t.bigint "customerstatus_id"
-    t.bigint "customertype_id"
-    t.bigint "user_id"
+    t.bigint "country_id", default: 0
+    t.bigint "customerstatus_id", default: 0
+    t.bigint "customertype_id", default: 0
+    t.bigint "user_id", default: 0
     t.bigint "dummyuser_id"
     t.index ["country_id"], name: "index_customers_on_country_id"
     t.index ["customerstatus_id"], name: "index_customers_on_customerstatus_id"
@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "order_id"
+    t.bigint "order_id", default: 0
     t.index ["order_id"], name: "index_images_on_order_id"
     t.index ["user_id"], name: "index_images_on_user_id"
   end
@@ -185,11 +185,11 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
   create_table "invoices", force: :cascade do |t|
     t.date "invoicedate"
     t.date "duedate"
-    t.bigint "customer_id", null: false
-    t.bigint "employee_id", null: false
+    t.bigint "customer_id", default: 0, null: false
+    t.bigint "employee_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "invoicestatus_id"
+    t.bigint "invoicestatus_id", default: 0
     t.decimal "amountdue"
     t.integer "invoicenum", default: -> { "nextval('invoicenum_seq'::regclass)" }
     t.index ["customer_id"], name: "index_invoices_on_customer_id"
@@ -198,8 +198,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
   end
 
   create_table "invoiceshipments", force: :cascade do |t|
-    t.bigint "shipment_id", null: false
-    t.bigint "invoice_id", null: false
+    t.bigint "shipment_id", default: 0, null: false
+    t.bigint "invoice_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["invoice_id"], name: "index_invoiceshipments_on_invoice_id"
@@ -225,8 +225,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
   end
 
   create_table "order_auctions", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "auction_id", null: false
+    t.bigint "order_id", default: 0, null: false
+    t.bigint "auction_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["auction_id"], name: "index_order_auctions_on_auction_id"
@@ -234,8 +234,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
   end
 
   create_table "orderinvoices", force: :cascade do |t|
-    t.bigint "order_id", null: false
-    t.bigint "invoice_id", null: false
+    t.bigint "order_id", default: 0, null: false
+    t.bigint "invoice_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["invoice_id"], name: "index_orderinvoices_on_invoice_id"
@@ -248,10 +248,10 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
     t.integer "quantity"
     t.decimal "price"
     t.decimal "total"
-    t.bigint "orderstatus_id", null: false
+    t.bigint "orderstatus_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "customer_id"
+    t.bigint "customer_id", default: 0
     t.integer "ordernum", default: -> { "nextval('ordernum_seq'::regclass)" }
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["orderstatus_id"], name: "index_orders_on_orderstatus_id"
@@ -272,8 +272,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
   create_table "payments", force: :cascade do |t|
     t.date "date"
     t.decimal "amount"
-    t.bigint "paymentstatus_id", null: false
-    t.bigint "paymentmethod_id", null: false
+    t.bigint "paymentstatus_id", default: 0, null: false
+    t.bigint "paymentmethod_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
@@ -306,9 +306,9 @@ ActiveRecord::Schema.define(version: 2020_04_13_071257) do
   create_table "shipments", force: :cascade do |t|
     t.date "date"
     t.integer "quantity"
-    t.bigint "warehouse_id", null: false
-    t.bigint "shipmentmethod_id", null: false
-    t.bigint "shipmentstatus_id", null: false
+    t.bigint "warehouse_id", default: 0, null: false
+    t.bigint "shipmentmethod_id", default: 0, null: false
+    t.bigint "shipmentstatus_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "shipmentnum"
