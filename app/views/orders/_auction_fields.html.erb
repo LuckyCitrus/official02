@@ -10,7 +10,7 @@
     </div>
 
     <div class="field">
-        <%= f.collection_select :location_id, Location.order(:city).all, :id, :city, {include_blank: ""},  required: true %>
+        <%= f.collection_select :location_id, Location.where("id > 0").order(created_at: :desc), :id, :city, {include_blank: ""},  required: true %>
     </div>
 
     <%= link_to_remove_association "Remove Auction", f %>

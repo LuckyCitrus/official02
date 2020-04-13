@@ -21,7 +21,7 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :customer_id, Customer.order(:first_name).all, :id, :cus_fullname, {include_blank: ""}, required: true %>
+        <%= form.collection_select :customer_id, Customer.where("id > 0").order(created_at: :desc), :id, :cus_fullname, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
@@ -29,15 +29,15 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :paymentstatus_id, Paymentstatus.order(:paymentstatus), :id, :paymentstatus, {include_blank: ""}, required: true %>
+        <%= form.collection_select :paymentstatus_id, Paymentstatus.where("id > 0").order(created_at: :desc), :id, :paymentstatus, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :paymentmethod_id, Paymentmethod.order(:paymenttype), :id, :paymenttype, {include_blank: "" }, required: true %>
+        <%= form.collection_select :paymentmethod_id, Paymentmethod.where("id > 0").order(created_at: :desc), :id, :paymenttype, {include_blank: "" }, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :invoice_id, Invoice.order(:invoicenum), :id, :invoicenum, {include_blank: ""}, required: true%>
+        <%= form.collection_select :invoice_id, Invoice.where("id > 0").order(created_at: :desc), :id, :invoicenum, {include_blank: ""}, required: true%>
     </div>
 
     <div class="actions">

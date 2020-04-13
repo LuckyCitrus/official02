@@ -17,7 +17,7 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :company_id, Company.order(:companyname).all, :id, :companyname, {include_blank: ""}, required: true %>
+        <%= form.collection_select :company_id, Company.where("id > 0").order(created_at: :desc), :id, :companyname, {include_blank: ""}, required: true %>
     </div>
 
     <div class="actions">

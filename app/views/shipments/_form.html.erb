@@ -25,15 +25,15 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :warehouse_id, Warehouse.order(:warehousename).all, :id, :warehousename, {include_blank: ""}, required: true %>
+        <%= form.collection_select :warehouse_id, Warehouse.where("id > 0").order(created_at: :desc), :id, :warehousename, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :shipmentmethod_id, Shipmentmethod.order(:shipmentmethod).all, :id, :shipmentmethod, {include_blank: ""}, required: true %>
+        <%= form.collection_select :shipmentmethod_id, Shipmentmethod.where("id > 0").order(created_at: :desc), :id, :shipmentmethod, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :shipmentstatus_id, Shipmentstatus.order(:shipmentstatus).all, :id, :shipmentstatus, {include_blank: ""}, required: true %>
+        <%= form.collection_select :shipmentstatus_id, Shipmentstatus.where("id > 0").order(created_at: :desc), :id, :shipmentstatus, {include_blank: ""}, required: true %>
     </div>
 
     <%# Nested Form Form %>

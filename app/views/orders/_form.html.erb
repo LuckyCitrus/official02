@@ -25,7 +25,7 @@
             </div>
 
             <div class="field">
-                <%= form.collection_select :customer_id, Customer.order(:first_name).all, :id, :cus_fullname, {include_blank: ""}, required: true %>
+                <%= form.collection_select :customer_id, Customer.where("id > 0").order(created_at: :desc), :id, :cus_fullname, {include_blank: ""}, required: true %>
             </div>
 
             <div class="field">
@@ -45,7 +45,7 @@
             </div>
 
             <div class="field">
-                <%= form.collection_select :orderstatus_id, Orderstatus.order(:orderstatus), :id, :orderstatus, {include_blank: ""}, required: true %>
+                <%= form.collection_select :orderstatus_id, Orderstatus.where("id > 0").order(created_at: :desc), :id, :orderstatus, {include_blank: ""}, required: true %>
             </div>
 
             <%# Nested Form Form %>

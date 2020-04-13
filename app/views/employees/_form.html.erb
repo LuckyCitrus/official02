@@ -42,15 +42,15 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :department_id, Department.order(:departmentname).all, :id, :departmentname, {include_blank: ""} %>
+        <%= form.collection_select :department_id, Department.where("id > 0").order(created_at: :desc), :id, :departmentname, {include_blank: ""} %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :employeestatus_id, Employeestatus.order(:employeestatus).all, :id, :employeestatus, {include_blank: ""}, required: true %>
+        <%= form.collection_select :employeestatus_id, Employeestatus.where("id > 0").order(created_at: :desc), :id, :employeestatus, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :user_id, User.order(:email), :id, :email, {include_blank: ""}, disabled: !current_user.admin? %>
+        <%= form.collection_select :user_id, User.order(:role), :id, :email, {include_blank: ""}, disabled: !current_user.admin? %>
     </div>
 
     <div class="actions">
