@@ -18,6 +18,7 @@ $(window).on("load", function(){
 		location_info();
 		via_info();
 		
+	
 
 		/*
 		//Set Totals 
@@ -94,21 +95,13 @@ function update_id() {
 
 function order_info() {
 
+	//window.orders=[];
 
 	window.orders = gon.customer_orders.filter(function(e) {
 
-		//console.log(e.customer_id);
-
-			return e.customer_id == form_field_value;
-		
-		})[0];
-
-/*
-	window.orders = gon.customer_orders.filter(function(e) {
-
-		//console.log(e.customer_id);
-
-		if( orders == undefined)
+		while(e)
+		{
+			if( e == undefined )
 		{
 		
 				return e.customer_id == undefined;
@@ -118,11 +111,12 @@ function order_info() {
 			return e.customer_id == form_field_value;
 		
 		}
+	}
 		
 		})[0];
 
-*/
 
+console.log("Array Orders");
 console.log(orders);
 
 }
@@ -136,19 +130,11 @@ function car_info() {
 
 
 window.cars = gon.customer_cars.filter(function(e) {
-
-		return e.order_id == orders.id;
-
-
-})[0];
-
-/*
-window.cars = gon.customer_cars.filter(function(e) {
-
-	//return e.order_id == orders.id;
-	//console.log(e.order_id );
 	
-	if( cars == undefined)
+	//console.log("e");
+	//console.log(e);
+
+	if( orders == undefined)
 	{
 	
 			return e.order_id == undefined;
@@ -160,8 +146,6 @@ window.cars = gon.customer_cars.filter(function(e) {
 	}
 
 })[0];
-*/
-
 
 console.log(cars);
 
@@ -173,8 +157,16 @@ function container_info() {
 
 window.containerorders = gon.customer_containerorders.filter(function(e) {
 
-return e.order_id == orders.id;
+	if( orders == undefined)
+	{
+	
+			return e.order_id == undefined;
+	}
+	else{
 
+		return e.order_id == orders.id;
+	
+	}
 
 })[0];
 
@@ -195,7 +187,7 @@ window.containers = gon.customer_containers.filter(function(e) {
 	
 })[0];
 
-//console.log(containers);
+console.log(containers);
 
 }
 
@@ -364,12 +356,8 @@ $('.total').val(new_total);
 */
 
 
-
-
 //Selects specific item from array and place it in table
 function set_table_info() {
-
-
 
 
 if (orders == undefined || orders == null) {
@@ -380,9 +368,6 @@ if (orders == undefined || orders == null) {
 	else {
 	
 	var order_id = orders.ordernum;
-
-	console.log(order_id);
-
 	$('.order_selected_id').val(order_id);
 
 	}
@@ -425,25 +410,42 @@ console.log(table_cars);
 $('.item_desc').val(table_cars.join("\n"));
 
 
-
 //Updates order qty
-var order_quantity = orders.quantity; 
-
-$('.qty').val(order_quantity);
-
-
-var order_cost = orders.price; 
-
-$('.cost').val(order_cost);
-
-
-var order_price = orders.total; 
-
-$('.price').val(order_price);
+if (orders == undefined|| orders == null) {
+	$('.qty').val("0");
+	} else {
+	
+		var order_quantity = orders.quantity; 
+		$('.qty').val(order_quantity);
+	}
+	
 
 
-$('.subtotal').val(order_price);
+	if (orders == undefined|| orders == null) {
+		$('.cost').val("0.00");
+		} else {
+		
+			var order_cost = orders.price; 
+			$('.cost').val(order_cost);
+		}
+		
 
+		if (orders == undefined|| orders == null) {
+			$('.price').val("0.00");
+			} else {
+			
+				var order_price = orders.total; 
+				$('.price').val(order_price);
+
+			}
+
+
+			if (orders == undefined|| orders == null) {
+				$('.subtotal').val("0.00");
+				} else {
+				
+					$('.subtotal').val(order_price);
+				}
 
 }
 

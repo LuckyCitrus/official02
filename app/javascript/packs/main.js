@@ -5,6 +5,7 @@ $(window).on("load", function(){
 
 });
 
+
 //Tables updates order contents
 $( document ).ready(function(){
 	$(document).on("change", ".cust-id", function(e){
@@ -17,8 +18,6 @@ $( document ).ready(function(){
 				
 	});
 });
-
-
 
 //Tables updates shipping contents
 $( document ).ready(function(){
@@ -38,11 +37,24 @@ $( document ).ready(function(){
 $( document ).ready(function(){
 	$(document).on("change", ".cust-id", function(e){
 
-		var temp_subtotal = orders.total;
-		
-		var total = Number(orders.total)+(Number(orders.total)*((Number($('#9').val()))/100));
 
-		total = total.toFixed(2);
+		if (orders == null){
+			var temp_subtotal = "0.00";
+		}else{
+			var temp_subtotal = orders.total;
+		}
+		
+		//var temp_subtotal = orders.total;
+		
+		if (orders == null){
+			var total = 0.00;
+		}else{
+			var total = Number(orders.total)+(Number(orders.total)*((Number($('#9').val()))/100));
+			total = total.toFixed(2);
+		}
+		
+		//var total = Number(orders.total)+(Number(orders.total)*((Number($('#9').val()))/100));
+		//total = total.toFixed(2);
 
 		$('.total').val(total);
 		$('.subtotal').val(temp_subtotal);
@@ -67,23 +79,44 @@ function update_id() {
 function update_order_info() {
 	
 	window.orders = gon.customer_orders.filter(function(e) {
-		return e.customer_id == form_field_value;
+
+
+		if( e == undefined )
+		{
+		
+				return e.customer_id == undefined;
+		}
+		else{
+		
+			return e.customer_id == form_field_value;
+		
+		}
+		
 	})[0];
 
+	console.log("Array Orders");
+	console.log(orders);
+
 }
+
 
 function update_car_info() {
 	
 	window.cars = gon.customer_cars.filter(function(e) {
 		
-		//var und_cars={model:"No Cars in Order", vinnumber:"NA", year:"NA"}; 
-		//console.log(e.order_id);
-		//console.log(orders.id);
-
-		return e.order_id == orders.id;
-			
+		if( orders == undefined)
+		{
+		
+				return e.order_id == undefined;
+		}
+		else{
+	
+			return e.order_id == orders.id;
+		
+		}
+	
 	})[0];
-
+	
 	console.log(cars);
 
 }
@@ -92,9 +125,17 @@ function update_container_info() {
 	
 	window.containerorders = gon.customer_containerorders.filter(function(e) {
 
-		return e.order_id == orders.id;
+		if( orders == undefined)
+		{
 		
-
+				return e.order_id == undefined;
+		}
+		else{
+	
+			return e.order_id == orders.id;
+		
+		}
+	
 	})[0];
 
 
@@ -253,8 +294,15 @@ function update_subtotal() {
 		if (!isNaN(price)) subtotal += Number(price);
 	});
 	*/
+
+	if (orders == undefined|| orders == null) {
+		$('.subtotal').val("0.00");
+		} else {
+		
+			$('.subtotal').val(subtotal);
+		}
 	
-	$('.subtotal').val(subtotal);
+	//$('.subtotal').val(subtotal);
 
 	//update_balance();
 }
@@ -268,11 +316,19 @@ function update_total() {
 //Selects specific item from array and place it in table
 function update_table_info() {
 	
-	var order_id = orders.ordernum;
 
-	console.log(order_id);
+	if (orders == undefined || orders == null) {
+
+		$('.order_selected_id').val("NA");
+		
+		} 
+		else {
+		
+		var order_id = orders.ordernum;
 	
-	$('.order_selected_id').val(order_id);
+		$('.order_selected_id').val(order_id);
+	
+		}
 
 
 	//Arrays for cars 
@@ -313,20 +369,33 @@ function update_table_info() {
 
 
 
-	//Updates order qty
-	var order_quantity = orders.quantity; 
+//Updates order qty
+if (orders == undefined|| orders == null) {
+	$('.qty').val("0");
+	} else {
+	
+		var order_quantity = orders.quantity; 
+		$('.qty').val(order_quantity);
+	}
+	
 
-	$('.qty').val(order_quantity);
+if (orders == undefined|| orders == null) {
+	$('.cost').val("0.00");
+	} else {
+	
+		var order_cost = orders.price; 
+		$('.cost').val(order_cost);
+	}
+	
 
+if (orders == undefined|| orders == null) {
+	$('.price').val("0.00");
+	} else {
+	
+		var order_price = orders.total; 
+		$('.price').val(order_price);
 
-	var order_cost = orders.price; 
-
-	$('.cost').val(order_cost);
-
-
-	var order_price = orders.total; 
-
-	$('.price').val(order_price);
+	}
 
 }
 
@@ -345,8 +414,6 @@ function update_shipping_table() {
 
 		$('.cointainer_num').val(container_num);
 	}
-
-
 
 	//Updating warehouse name
 	if (warehouses == undefined || warehouses == null) {
@@ -386,7 +453,6 @@ function update_shipping_table() {
 		$('.method').val(via_method);
 	}
 
-	
 }
 
 
