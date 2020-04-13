@@ -122,8 +122,6 @@ def invoice_summary
 		else
     	[order.ordernum, "" , order.quantity, number_to_currency(order.price), number_to_currency(order.total)]
     end
-  else
-    ["", "", "", "", ""]
 	end
 end
 

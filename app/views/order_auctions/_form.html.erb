@@ -17,7 +17,7 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :auction_id, Auction.where("id > 0").order(created_at: :desc), :id, :auctionname, {include_blank: ""}, required: true %>
+        <%= form.collection_select :auction_id, Auction.where("id > 1").order(created_at: :desc), :id, :auctionname, {include_blank: ""}, required: true %>
     </div>
 
     <div class="actions">

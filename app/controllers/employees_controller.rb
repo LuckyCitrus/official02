@@ -6,7 +6,7 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     #@employees = Employee.all
-    @pagy, @employees = pagy(Employee.where("employees.id > 1").order(created_at: :desc))
+    @pagy, @employees = pagy(Employee.where("employees.id > 0").order(created_at: :desc))
   end
 
   # GET /employees/1

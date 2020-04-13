@@ -33,7 +33,7 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :invoicestatus_id, Invoicestatus.where("id > 0").order(created_at: :desc), :id, :invoicestatus, {include_blank: ""}, required: true %>
+        <%= form.collection_select :invoicestatus_id, Invoicestatus.where("id > 1").order(created_at: :desc), :id, :invoicestatus, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">

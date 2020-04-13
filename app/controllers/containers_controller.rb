@@ -8,7 +8,7 @@ class ContainersController < ApplicationController
     #@containers = Container.all
     #@pagy, @containers = pagy(Container.all)
     # @pagy, @containers = pagy(Container.includes(:shipment).order("shipments.date DESC"))
-    @pagy, @containers = pagy(Container.where("containers.id > 1").order(created_at: :desc))
+    @pagy, @containers = pagy(Container.where("containers.id > 0").order(created_at: :desc))
 
   end
 

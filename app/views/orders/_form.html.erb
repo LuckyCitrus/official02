@@ -45,7 +45,7 @@
             </div>
 
             <div class="field">
-                <%= form.collection_select :orderstatus_id, Orderstatus.where("id > 0").order(created_at: :desc), :id, :orderstatus, {include_blank: ""}, required: true %>
+                <%= form.collection_select :orderstatus_id, Orderstatus.where("id > 1").order(created_at: :desc), :id, :orderstatus, {include_blank: ""}, required: true %>
             </div>
 
             <%# Nested Form Form %>

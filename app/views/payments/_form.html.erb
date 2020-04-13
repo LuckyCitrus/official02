@@ -29,11 +29,11 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :paymentstatus_id, Paymentstatus.where("id > 0").order(created_at: :desc), :id, :paymentstatus, {include_blank: ""}, required: true %>
+        <%= form.collection_select :paymentstatus_id, Paymentstatus.where("id > 1").order(created_at: :desc), :id, :paymentstatus, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :paymentmethod_id, Paymentmethod.where("id > 0").order(created_at: :desc), :id, :paymenttype, {include_blank: "" }, required: true %>
+        <%= form.collection_select :paymentmethod_id, Paymentmethod.where("id > 1").order(created_at: :desc), :id, :paymenttype, {include_blank: "" }, required: true %>
     </div>
 
     <div class="field">

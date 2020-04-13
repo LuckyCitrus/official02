@@ -30,15 +30,15 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :titlestatus_id, Titlestatus.order(:titlestatus), :id, :titlestatus, {include_blank: ""}, required: true %>
+        <%= form.collection_select :titlestatus_id, Titlestatus.where("id > 1").order(:titlestatus), :id, :titlestatus, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :keystatus_id, Keystatus.order(:keystatus), :id, :keystatus, {include_blank: ""} %>
+        <%= form.collection_select :keystatus_id, Keystatus.where("id > 1").order(:keystatus), :id, :keystatus, {include_blank: ""} %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :order_id, Order.order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
+        <%= form.collection_select :order_id, Order.where("id > 0").order(:ordernum), :id, :ordernum, {include_blank: ""}, required: true %>
     </div>
 
     <div class="actions">
