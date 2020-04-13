@@ -11,11 +11,11 @@
     </div>
 
     <div class="field">
-        <%= f.text_field :make, required: true, pattern: '^[a-zA-Z0-9-]*$', help: "No special characters are allowed", maxlength: 128, required: true %>
+        <%= f.text_field :make, required: true, maxlength: 128, required: true %>
     </div>
 
     <div class="field">
-        <%= f.text_field :model, required: true, pattern: '^[a-zA-Z0-9-]*$', help: "Only alphanumeric characters are allowed", maxlength: 128, required: true %>
+        <%= f.text_field :model, required: true, maxlength: 128, required: true %>
     </div>
 
     <div class="field">
