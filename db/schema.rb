@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_222056) do
+ActiveRecord::Schema.define(version: 2020_04_13_071257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_04_12_222056) do
   create_table "auctions", force: :cascade do |t|
     t.string "auctionname"
     t.string "address"
-    t.bigint "location_id"
+    t.bigint "location_id", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["location_id"], name: "index_auctions_on_location_id"
@@ -154,11 +154,11 @@ ActiveRecord::Schema.define(version: 2020_04_12_222056) do
     t.string "phone"
     t.string "title"
     t.date "hiredate"
-    t.bigint "department_id", null: false
-    t.bigint "employeestatus_id", null: false
+    t.bigint "department_id", default: 0, null: false
+    t.bigint "employeestatus_id", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
+    t.bigint "user_id", default: 0
     t.bigint "dummyuser_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
     t.index ["dummyuser_id"], name: "index_employees_on_dummyuser_id"
@@ -349,7 +349,7 @@ ActiveRecord::Schema.define(version: 2020_04_12_222056) do
 
   create_table "warehouses", force: :cascade do |t|
     t.string "warehousename"
-    t.bigint "location_id"
+    t.bigint "location_id", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["location_id"], name: "index_warehouses_on_location_id"
