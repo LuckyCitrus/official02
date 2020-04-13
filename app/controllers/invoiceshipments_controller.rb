@@ -7,7 +7,7 @@ class InvoiceshipmentsController < ApplicationController
   def index
     #@invoiceshipments = Invoiceshipment.all
     #@pagy, @invoiceshipments = pagy(Invoiceshipment)
-    # @pagy, @invoiceshipments = pagy(Invoiceshipment.includes(:invoice).order("invoices.created_at DESC"))
+    #@pagy, @invoiceshipments = pagy(Invoiceshipment.includes(:invoice).order("invoices.created_at DESC"))
     @pagy, @invoiceshipments = pagy(Invoiceshipment.where("invoiceshipments.id > 0").order(created_at: :desc))
   end
 

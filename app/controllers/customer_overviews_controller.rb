@@ -3,7 +3,7 @@ class CustomerOverviewsController < ApplicationController
 
 	def index
 		#@customer_overviews = CustomerOverview.all
-		@pagy, @customer_overviews = pagy(policy_scope(CustomerOverview.order(created_at: :desc)))
+		@pagy, @customer_overviews = pagy(policy_scope(CustomerOverview.where("name IS NOT null").order(date: :desc)))
 	end
 		
    private

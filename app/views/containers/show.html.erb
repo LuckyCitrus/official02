@@ -24,10 +24,10 @@
                 </p>
 
                 <ul>
-                  <% @container.orders.each do |order| %>
+                    <% @container.orders.each do |order| %>
                     <li><strong>Order #: </strong>
-                      <%= link_to order.ordernum, order %></li>
-                  <% end %>
+                        <%= link_to order.ordernum, order %></li>
+                    <% end %>
                 </ul>
 
                 <% end %>
@@ -36,8 +36,8 @@
             </div>
             <div class="card-footer">
                 <%= link_to 'Edit', edit_container_path(@container), class: "btn btn-primary" %>
-                <%= link_to 'Show Orders', containerorders_path, class: "btn btn-primary", :target => "_blank" %>
-                <%= link_to 'Back', controller: "containers" %>
+                <%= link_to 'Show Containers', containers_path, class: "btn btn-secondary" %>
+                <%= link_to 'Show Orders', containerorders_path, class: "btn btn-outline-primary", :target => "_blank" %>
             </div>
         </div>
     </div>

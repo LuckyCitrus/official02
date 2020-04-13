@@ -22,10 +22,19 @@
                     <%= link_to @user.role.titleize, customers_path if @user.role == 'customer' %>
                     <%= @user.role.titleize if @user.role == 'admin' %>
                 </p>
-
+                <p>
+                    <strong>Date Created: </strong>
+                    <%= @user.created_at.strftime("%A, %B %e, %Y %l:%M %p") %>
+                </p>
+                <% if @user.confirmed_at %>
+                <p>
+                    <strong>Date Confirmed: </strong>
+                    <%= @user.confirmed_at.strftime("%A, %B %e, %Y %l:%M %p") %>
+                </p>
+                <% end %>
             </div>
             <div class="card-footer">
-                <%= link_to 'Back', :back, class: "btn btn-secondary" %>
+                <%= link_to 'Show Users', users_path, class: "btn btn-secondary" %>
             </div>
         </div>
     </div>

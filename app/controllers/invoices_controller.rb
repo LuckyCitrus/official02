@@ -15,10 +15,13 @@ class InvoicesController < ApplicationController
   def show
     #@invoice = policy_scope(Invoice).find(params[:id])
     @invoice = Invoice.find(params[:id])
+    @orders = @invoice.orders
+    #@cars = Car.where(order_id: @orders.ids)
+
 		respond_to do |format|
 			format.html
 			format.pdf do
-				pdf = InvoicePdf.new(@invoice)
+				pdf = InvoicePdf.new(@invoice, @orders, @cars)
 				send_data pdf.render,
 				filename: "Invoice_##{@invoice.invoicenum}_#{@invoice.customer.try(:cus_fullname)}.pdf",
 				type: "application/pdf",

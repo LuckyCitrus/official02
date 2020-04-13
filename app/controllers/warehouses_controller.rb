@@ -6,7 +6,7 @@ class WarehousesController < ApplicationController
   # GET /warehouses.json
   def index
     #@warehouses = Warehouse.order(:location_id)
-    @pagy, @warehouses = pagy(Warehouse.where("warehouses.id > 0").order(created_at: :desc))
+    @pagy, @warehouses = pagy(Warehouse.where("warehouses.id > 1").order(created_at: :desc))
 end
 
   # GET /warehouses/1
