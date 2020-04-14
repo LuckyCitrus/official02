@@ -40,6 +40,10 @@
         <%= form.collection_select :invoice_id, Invoice.where("id > 0").order(created_at: :desc), :id, :invoice_info, {include_blank: ""}, required: true%>
     </div>
 
+    <!--<div class="field">
+        <%= form.grouped_collection_select :invoice_id, Customer.order(:first_name), :invoices, :cus_fullname, :id, :invoice_info, include_blank: true %>
+    </div>-->
+
     <div class="actions">
         <%= form.submit :Submit, class: 'btn btn-success' %>
     </div>
