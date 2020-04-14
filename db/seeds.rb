@@ -201,8 +201,8 @@ end
 
 File.open("#{Rails.root}/db/data/cars.csv") do |cars|
   cars.read.each_line do |car|
-    vinnumber, year, make, model, titlestatus_id, keystatus_id, order_id = car.chomp.split(",")
-    Car.create!(:vinnumber=>vinnumber, :year=>year, :make=>make, :model=>model,:titlestatus_id=>titlestatus_id, :keystatus_id=>keystatus_id, :order_id=>order_id)
+    vinnumber, year, make, model, titlestatus_id, keystatus_id, order_id, auction_id = car.chomp.split(",")
+    Car.create!(:vinnumber=>vinnumber, :year=>year, :make=>make, :model=>model,:titlestatus_id=>titlestatus_id, :keystatus_id=>keystatus_id, :order_id=>order_id, :auction_id=>auction_id )
   end
 end
 
