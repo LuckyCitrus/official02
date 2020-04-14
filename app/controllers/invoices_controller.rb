@@ -16,7 +16,7 @@ class InvoicesController < ApplicationController
   def show
     @invoice = policy_scope(Invoice).find(params[:id])
     @orders = @invoice.orders
-    @car = Car.joins(:order).where(order_id: :id)
+    @car = Car.all
 
 		respond_to do |format|
 			format.html

@@ -63,9 +63,8 @@
                 <% if @order.car %>
                 <p>
                     <strong>Car:</strong>
-                    <strong>VIN Number:</strong>
-                    <%= link_to @car.vinnumber, @car %>
-                    (<%= @car.car_info %>)
+                    <%= link_to @order.car.vinnumber, @order.car %>
+                    (<%= @order.car.car_info %>)
                 </p>
                 <% end %>
 

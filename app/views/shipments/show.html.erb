@@ -30,21 +30,13 @@
                     <%= @shipment.shipmentstatus.shipmentstatus %>
                 </p>
 
-                <% unless @shipment.orders.empty? %>
+                <% unless @shipment.invoices.empty? %>
                 <p>
-                    <strong>Orders:</strong>
+                    <strong>Invoices:</strong>
                     <ul>
-                        <% @shipment.orders.each do |order| %>
-                        <li><strong>Order #: </strong>
-                            <%= link_to order.ordernum, order %>
-                            <% unless @shipment.invoices.empty? %>
-
-                            <% @shipment.invoices.each do |invoice| %>
-                            <ul>
-                                <li>Invoice #: <%= link_to invoice.invoicenum, invoice %></li>
-                            </ul>
-                            <% end %>
-                            <% end %>
+                        <% @shipment.invoices.each do |invoice| %>
+                        <li><strong>Invoice #: </strong>
+                            <%= link_to invoice.invoicenum, invoice  %>
                             <% end %>
                         </li>
                     </ul>

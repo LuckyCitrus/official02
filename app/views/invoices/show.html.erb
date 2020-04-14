@@ -1,7 +1,9 @@
 <div class="card border-primary mb-3" style="max-width: 160rem;">
   <div class="card-header">
 
+    <% if @invoice.orders %>
     <%= link_to "View PDF", invoice_path(@invoice, format: :pdf), class: "btn btn-outline-primary" %>
+    <% end %>
   </div>
   <div class="card-body">
 

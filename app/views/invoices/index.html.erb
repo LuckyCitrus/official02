@@ -14,7 +14,8 @@
                         <th>Employee</th>
                         <th>Invoice Status</th>
                         <th>Amount Due</th>
-                        <th colspan="7"></th>
+                        <th>Shipment Number</th>
+                        <th colspan="8"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,15 +28,16 @@
                         <td><%= link_to invoice.employee.try(:emp_fullname), invoice.employee %></td>
                         <td><%= invoice.invoicestatus.invoicestatus %></td>
                         <td><%= number_to_currency(invoice.amountdue) %></td>
+                        <td><%= link_to invoice.shipment.shipmentnum, invoice.shipment %></td>
                         <!--<td><%= link_to 'Show', invoice %></td>-->
                         <td><%= link_to 'Edit', edit_invoice_path(invoice) if policy(@invoice).edit? %>
                             <% if current_user.admin? %> /
                             <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>
                         <%# unless invoice.orders.empty? %>
-<!--                        <td>-->
-                            <%#= link_to "View PDF", invoice_path(invoice, format: :pdf), class: "btn btn-xs btn-outline-primary py-0 in-line" %>
-<!--                        </td>-->
+                        <!--                        <td>-->
+                        <%#= link_to "View PDF", invoice_path(invoice, format: :pdf), class: "btn btn-xs btn-outline-primary py-0 in-line" %>
+                        <!--                        </td>-->
                         <%# end %>
                     </tr>
                     <% end %>
