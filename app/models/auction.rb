@@ -4,13 +4,13 @@ class Auction < ApplicationRecord
   belongs_to :location, optional: true
 
   #normalized for
-  has_many :order_auctions
+  has_many :orders
 
   #associative relations
-  has_many :orders, through: :order_auctions
+  #has_many :orders, through: :order_auctions
 
   #nested forms
-  accepts_nested_attributes_for :order_auctions, reject_if: :all_blank, allow_destroy: :true
+  #accepts_nested_attributes_for :order_auctions, reject_if: :all_blank, allow_destroy: :true
 
   #fields validation
   validates :auctionname, presence: true, length: { maximum: 128 }

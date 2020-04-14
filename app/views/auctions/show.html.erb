@@ -23,10 +23,11 @@
                 </p>
 
                 <ul>
-                  <% @auction.orders.each do |order| %>
+                    <% @auction.orders.each do |order| %>
                     <li><strong>Order #: </strong>
-                      <%= link_to order.ordernum, order %></li>
-                  <% end %>
+                        <%= link_to order.ordernum, order %>
+                        (<%= link_to order.customer.try(:cus_fullname), order.customer %>)</li>
+                    <% end %>
                 </ul>
 
             </div>

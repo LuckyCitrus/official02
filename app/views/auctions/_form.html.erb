@@ -24,19 +24,7 @@
         <%= form.collection_select :location_id, Location.where("id > 1").order(created_at: :desc), :id, :city, {include_blank: ""},  required: true %>
     </div>
 
-    <%# Nested Form Form %>
-    <% unless @auction.order_auctions.empty? %>
-    <h3>Orders</h3>
-    <div id='[child]s'>
-        <%= form.fields_for :order_auctions do |order_auction| %>
-        <%= render 'order_auction_fields', :f => order_auction %>
-        <% end %>
-        <div class='links'>
-            <%= link_to_add_association 'Add Order', form, :order_auctions %>
-        </div>
-    </div><br><br><% end %>
-    <%# End of Nested Form Form %>
-
+ 
     <div class="actions">
         <%= form.submit  :Submit, class: 'btn btn-success' %>
     </div>
