@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_212853) do
+ActiveRecord::Schema.define(version: 2020_04_14_213153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -385,5 +385,21 @@ ActiveRecord::Schema.define(version: 2020_04_14_212853) do
        JOIN warehouses w ON ((w.id = s.warehouse_id)))
     WHERE (((os.orderstatus)::text !~~ '%Completed%'::text) AND ((ps.paymentstatus)::text ~~ '%Complete%'::text) AND (o.date > (CURRENT_DATE - '1 mon'::interval)))
     ORDER BY o.date;
+  SQL
+  create_view "active_invoices", materialized: true, sql_definition: <<-SQL
+      SELECT DISTINCT (((cus.first_name)::text || ' '::text) || (cus.last_name)::text) AS name,
+      cus.email,
+      i.invoicenum,
+      i.invoicedate,
+      ist.invoicestatus
+     FROM ((((((customers cus
+       JOIN orders o ON ((cus.id = o.customer_id)))
+       JOIN orderstatuses os ON ((os.id = o.orderstatus_id)))
+       JOIN payments p ON ((cus.id = p.customer_id)))
+       JOIN paymentstatuses ps ON ((ps.id = p.paymentstatus_id)))
+       JOIN invoices i ON ((i.customer_id = cus.id)))
+       JOIN invoicestatuses ist ON ((ist.id = i.invoicestatus_id)))
+    WHERE (((ist.invoicestatus)::text !~~ '%Paid%'::text) AND ((ps.paymentstatus)::text !~~ '%Paid%'::text) AND (i.invoicedate > (CURRENT_DATE - '1 mon'::interval)))
+    ORDER BY i.invoicedate;
   SQL
 end
