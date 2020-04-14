@@ -54,7 +54,7 @@ end
 	move_down @lineheight_y
 	text_box "#{@invoice.customer.address}", :at => [@address_x,  cursor]
   move_down @lineheight_y
-	text_box "Houston, TX 70000", :at => [@address_x,  cursor]
+	text_box "Houston, TX 70001", :at => [@address_x,  cursor]
 	
 	move_cursor_to @last_measured_y
 
