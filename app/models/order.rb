@@ -17,7 +17,6 @@ class Order < ApplicationRecord
   validates :ordernum, presence: true, if: ->(order) {order.persisted?}, uniqueness: true, length: { maximum: 128 }#, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }
   validates :date, presence: true
   validates :customer_id, presence: true
-  validates :auction_id, presence: true
   validates :lotstock, presence: true, numericality: { greater_than_or_equal_to: 0}
   validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0}
