@@ -32,4 +32,8 @@ class Invoice < ApplicationRecord
     end
   end
 
+  def invoice_info
+    "#{invoicenum} (#{customer.first_name} #{customer.last_name})"
+  end
+
 end
