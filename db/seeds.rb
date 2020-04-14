@@ -194,8 +194,8 @@ end
 
 File.open("#{Rails.root}/db/data/orders.csv") do |orders|
   orders.read.each_line do |order|
-    date, lotstock, quantity, price, total, orderstatus_id, customer_id, ordernum, invoice_id, container_id, auction_id = order.chomp.split(",")
-    Order.create!(:date=>date, :lotstock=>lotstock, :quantity=>quantity, :price=>price, :total=>total, :orderstatus_id=>orderstatus_id, :customer_id=>customer_id, :ordernum=>ordernum, :invoice_id=>invoice_id, :container_id=>container_id, :auction_id=>auction_id)
+    date, lotstock, quantity, price, total, orderstatus_id, customer_id, ordernum, invoice_id, container_id = order.chomp.split(",")
+    Order.create!(:date=>date, :lotstock=>lotstock, :quantity=>quantity, :price=>price, :total=>total, :orderstatus_id=>orderstatus_id, :customer_id=>customer_id, :ordernum=>ordernum, :invoice_id=>invoice_id, :container_id=>container_id)
   end
 end
 
