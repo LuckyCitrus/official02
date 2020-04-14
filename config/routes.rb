@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :images
-  resources :invoiceshipments
   resources :containers
   resources :invoices
   resources :shipments
