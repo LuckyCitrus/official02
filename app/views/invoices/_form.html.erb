@@ -20,7 +20,7 @@
    
         <div class="row">
         <div class="col-xs-12">
-            <h3 class="page-header">INVOICE</h3>
+            <h3 style="margin-left: 1.5em;" class="page-header">INVOICE</h3>
             </div><!-- /.col -->
         
         </div>
@@ -28,19 +28,19 @@
         
         
         <div class="row invoice-info">
-        <div class="col-xs-4 invoice-col">
+        <div class="col-xs-4 invoice-col2">
         
            
             <address>
-            <div class="field">
+            <div class="field" style="margin-left: 1.5em; padding-top: 30px;">
                 <%= form.text_field :invoicenum, label: "Invoice Number", pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, required: true %>
             </div>
             
-            <div class="field">
+            <div class="field" style="margin-left: 1.5em; padding-top: 30px;">
                 <%= form.text_field :invoicedate, label: "Invoice Date",required: true, data: { behavior: "flatpickr" }, required: true %>
             </div>
             
-            <div class="field ">
+            <div class="field" style="margin-left: 1.5em; padding-top: 25px;">
                 <%= form.text_field :duedate, label: "Due Date",required: true, data: { behavior: "flatpickr" }, required: true %>
             </div>
             </address>        
@@ -72,9 +72,10 @@
             <form class="form-horizontal">
 
             <address>
-
-            <input class="form-control selected_id"  value=""/>
-
+                    
+            <p style="padding-top: 35px;">
+            <input class="form-group selected_id" value=""/>
+            </p>
         
             </address>
         
@@ -103,7 +104,7 @@
     <tbody>
       <tr class="item-row">
         <td><input class="form-control order_selected_id" value="Order #" /></td>
-        <td><textarea class="form-control item_desc">Items List</textarea></td>
+        <td><textarea  rows="3" class="form-control item_desc">Items List</textarea></td>
         <td><input class="form-control cost" value="0.00" /></td>
         <td><input class="form-control qty" value="0" /></td>
         <td><input class="form-control price" value="0.00" /><span class="subtotal_currency"></span></td>
