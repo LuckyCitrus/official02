@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_093235) do
+ActiveRecord::Schema.define(version: 2020_04_14_211825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -337,21 +337,31 @@ ActiveRecord::Schema.define(version: 2020_04_14_093235) do
   add_foreign_key "shipments", "warehouses"
   add_foreign_key "warehouses", "locations"
 
-  create_view "active_invoices", materialized: true, sql_definition: <<-SQL
+  create_view "customer_overviews", sql_definition: <<-SQL
       SELECT DISTINCT (((cus.first_name)::text || ' '::text) || (cus.last_name)::text) AS name,
-      cus.email,
+      o.date,
+      c.vinnumber,
+      ((((c.year || ' '::text) || (c.make)::text) || ' '::text) || (c.model)::text) AS car,
+      o.ordernum,
+      os.orderstatus,
       i.invoicenum,
-      i.invoicedate,
-      ist.invoicestatus
-     FROM ((((((customers cus
+      ist.invoicestatus,
+      p.paymentnum,
+      ps.paymentstatus,
+      s.shipmentnum,
+      ss.shipmentstatus,
+      cus.user_id
+     FROM ((((((((((customers cus
        JOIN orders o ON ((cus.id = o.customer_id)))
-       JOIN orderstatuses os ON ((os.id = o.orderstatus_id)))
-       JOIN payments p ON ((cus.id = p.customer_id)))
-       JOIN paymentstatuses ps ON ((ps.id = p.paymentstatus_id)))
-       JOIN invoices i ON ((i.customer_id = cus.id)))
-       JOIN invoicestatuses ist ON ((ist.id = i.invoicestatus_id)))
-    WHERE (((ist.invoicestatus)::text <> 'Paid
-  '::text) AND ((ps.paymentstatus)::text <> 'Paid'::text) AND (i.invoicedate > (CURRENT_DATE - '1 mon'::interval)))
-    ORDER BY i.invoicedate;
+       JOIN orderstatuses os ON ((o.orderstatus_id = os.id)))
+       JOIN cars c ON ((o.id = c.order_id)))
+       JOIN invoices i ON ((o.invoice_id = i.id)))
+       JOIN invoicestatuses ist ON ((i.invoicestatus_id = ist.id)))
+       JOIN payments p ON ((i.id = p.invoice_id)))
+       JOIN paymentstatuses ps ON ((p.paymentstatus_id = ps.id)))
+       JOIN shipments s ON ((i.shipment_id = s.id)))
+       JOIN shipmentstatuses ss ON ((s.shipmentstatus_id = ss.id)))
+       FULL JOIN users u ON ((cus.user_id = u.id)))
+    ORDER BY o.date DESC;
   SQL
 end
