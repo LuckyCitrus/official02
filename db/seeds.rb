@@ -3,7 +3,6 @@ require "csv"
 Auction.destroy_all
 Car.destroy_all
 Company.destroy_all
-Containerorder.destroy_all
 Container.destroy_all
 Country.destroy_all
 Customer.destroy_all
@@ -13,12 +12,9 @@ Department.destroy_all
 Employee.destroy_all
 Employeestatus.destroy_all
 Invoice.destroy_all
-Invoiceshipment.destroy_all
 Invoicestatus.destroy_all
 Keystatus.destroy_all
 Location.destroy_all
-OrderAuction.destroy_all
-Orderinvoice.destroy_all
 Order.destroy_all
 Orderstatus.destroy_all
 Paymentmethod.destroy_all
@@ -169,15 +165,15 @@ end
 
 File.open("#{Rails.root}/db/data/orders.csv") do |orders|
   orders.read.each_line do |order|
-    date, lotstock, quantity, price, total, orderstatus_id, customer_id, ordernum = order.chomp.split(",")
-    Order.create!(:date=>date, :lotstock=>lotstock, :quantity=>quantity, :price=>price, :total=>total, :orderstatus_id=>orderstatus_id, :customer_id=>customer_id, :ordernum=>ordernum)
+    date, lotstock, quantity, price, total, orderstatus_id, customer_id, ordernum, invoice_id, container_id, auction_id = order.chomp.split(",")
+    Order.create!(:date=>date, :lotstock=>lotstock, :quantity=>quantity, :price=>price, :total=>total, :orderstatus_id=>orderstatus_id, :customer_id=>customer_id, :ordernum=>ordernum, :invoice_id=>invoice_id, :container_id=>container_id, :auction_id=>auction_id)
   end
 end
 
 File.open("#{Rails.root}/db/data/invoices.csv") do |invoices|
   invoices.read.each_line do |invoice|
-    invoicedate, duedate, customer_id, employee_id, invoicestatus_id, amountdue, invoicenum = invoice.chomp.split(",")
-    Invoice.create!(:invoicedate=>invoicedate, :duedate=>duedate, :customer_id=>customer_id, :employee_id=>employee_id, :invoicestatus_id=>invoicestatus_id, :amountdue=>amountdue, :invoicenum=>invoicenum)
+    invoicedate, duedate, customer_id, employee_id, invoicestatus_id, amountdue, invoicenum, shipment_id = invoice.chomp.split(",")
+    Invoice.create!(:invoicedate=>invoicedate, :duedate=>duedate, :customer_id=>customer_id, :employee_id=>employee_id, :invoicestatus_id=>invoicestatus_id, :amountdue=>amountdue, :invoicenum=>invoicenum, :shipment_id=>shipment_id)
   end
 end
 
@@ -210,32 +206,4 @@ File.open("#{Rails.root}/db/data/cars.csv") do |cars|
 end
 
 #===================================================================================
-
-File.open("#{Rails.root}/db/data/containerorders.csv") do |containerorders|
-  containerorders.read.each_line do |containerorder|
-    container_id, order_id = containerorder.chomp.split(",")
-    Containerorder.create!(:container_id=>container_id, :order_id=>order_id)
-  end
-end
-
-File.open("#{Rails.root}/db/data/invoiceshipments.csv") do |invoiceshipments|
-  invoiceshipments.read.each_line do |invoiceshipment|
-    invoice_id, shipment_id = invoiceshipment.chomp.split(",")
-    Invoiceshipment.create!(:invoice_id=>invoice_id, :shipment_id=>shipment_id)
-  end
-end
-
-File.open("#{Rails.root}/db/data/orderauctions.csv") do |order_auctions|
-  order_auctions.read.each_line do |order_auction|
-    order_id, auction_id = order_auction.chomp.split(",")
-    OrderAuction.create!(:order_id=>order_id, :auction_id=>auction_id)
-  end
-end
-
-File.open("#{Rails.root}/db/data/orderinvoices.csv") do |orderinvoices|
-  orderinvoices.read.each_line do |orderinvoice|
-    order_id, invoice_id = orderinvoice.chomp.split(",")
-    Orderinvoice.create!(:order_id=>order_id, :invoice_id=>invoice_id)
-  end
-end
 
