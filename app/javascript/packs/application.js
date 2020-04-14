@@ -13,6 +13,8 @@ require("channels")
 require("chartkick")
 require("chart.js")
 require('jquery')
+require("packs/main")
+require("packs/invoice")
 
 require("flatpickr/dist/flatpickr.css")
 require("flatpickr/dist/themes/airbnb.css");
