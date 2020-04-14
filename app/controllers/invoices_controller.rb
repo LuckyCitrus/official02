@@ -19,7 +19,7 @@ class InvoicesController < ApplicationController
     gon.customer_invoice = Invoice.all
     gon.customer_orders = Order.all
     gon.customer_cars= Car.all
-    gon.customer_containerorders= Containerorder.all
+    # gon.customer_containerorders= Containerorder.all
     gon.customer_containers= Container.all
     gon.customer_shipments= Shipment.all
     gon.customer_warehouses= Warehouse.all
@@ -31,14 +31,14 @@ class InvoicesController < ApplicationController
 
   # GET /invoices/new
   def new
-    
+
     @invoice = Invoice.new
     authorize @invoice
 
     gon.customer_invoice = Invoice.all
     gon.customer_orders = Order.all
     gon.customer_cars= Car.all
-    gon.customer_containerorders= Containerorder.all
+    # gon.customer_containerorders= Containerorder.all
     gon.customer_containers= Container.all
     gon.customer_shipments= Shipment.all
     gon.customer_warehouses= Warehouse.all
@@ -55,7 +55,7 @@ class InvoicesController < ApplicationController
     gon.customer_invoice = Invoice.all
     gon.customer_orders = Order.all
     gon.customer_cars= Car.all
-    gon.customer_containerorders= Containerorder.all
+    # gon.customer_containerorders= Containerorder.all
     gon.customer_containers= Container.all
     gon.customer_shipments= Shipment.all
     gon.customer_warehouses= Warehouse.all
@@ -116,6 +116,6 @@ class InvoicesController < ApplicationController
     def invoice_params
       # params.require(:invoice).permit(:invoicedate, :duedate, :customer_id, :employee_id, :order_id, :payment_id, :car_id, :shipment_id, :auction_id)
       params.require(:invoice).permit(:invoicedate, :duedate, :customer_id, :employee_id, :invoicestatus_id, :amountdue, :invoicenum)
-      
+
     end
 end

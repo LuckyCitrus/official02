@@ -60,28 +60,28 @@
             </div><br><br>
             <%# End of Nested Form Form %>
 
-            <h3>Auctions</h3>
-            <div id='[child]s'>
-                <%= form.fields_for :order_auctions do |order_auction| %>
-                <%= render 'order_auction_fields', :f => order_auction %>
-                <% end %>
-                <div class='links'>
-                    <%= link_to_add_association 'Add Auction', form, :order_auctions %>
-                </div>
-            </div><br><br>
+<!--            <h3>Auctions</h3>-->
+<!--            <div id='[child]s'>-->
+                <%#= form.fields_for :order_auctions do |order_auction| %>
+                <%#= render 'order_auction_fields', :f => order_auction %>
+                <%# end %>
+<!--                <div class='links'>-->
+                    <%#= link_to_add_association 'Add Auction', form, :order_auctions %>
+<!--                </div>-->
+<!--            </div><br><br>-->
             <%# End of Nested Form Form %>
 
             <%# Nested Form Form %>
-            <% unless @order.orderinvoices.empty? %>
-            <h3>Invoices</h3>
-            <div id='[child]s'>
-                <%= form.fields_for :orderinvoices do |orderinvoice| %>
-                <%= render 'orderinvoice_fields', :f => orderinvoice %>
-                <% end %>
-                <div class='links'>
-                    <%= link_to_add_association 'Add Invoice', form, :orderinvoices %>
-                </div>
-            </div><br><br><% end %>
+            <%# unless @order.orderinvoices.empty? %>
+<!--            <h3>Invoices</h3>-->
+<!--            <div id='[child]s'>-->
+                <%#= form.fields_for :orderinvoices do |orderinvoice| %>
+                <%#= render 'orderinvoice_fields', :f => orderinvoice %>
+                <%# end %>
+<!--                <div class='links'>-->
+                    <%#= link_to_add_association 'Add Invoice', form, :orderinvoices %>
+<!--                </div>-->
+<!--            </div><br><br><%# end %>-->
             <%# End of Nested Form Form %>
 
             <div class="actions">

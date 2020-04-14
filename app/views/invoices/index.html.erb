@@ -32,11 +32,11 @@
                             <% if current_user.admin? %> /
                             <%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         <% end %>
-                        <% unless invoice.orders.empty? %>
-                        <td>
-                            <%= link_to "View PDF", invoice_path(invoice, format: :pdf), class: "btn btn-xs btn-outline-primary py-0 in-line" %>
-                        </td>
-                        <% end %>
+                        <%# unless invoice.orders.empty? %>
+<!--                        <td>-->
+                            <%#= link_to "View PDF", invoice_path(invoice, format: :pdf), class: "btn btn-xs btn-outline-primary py-0 in-line" %>
+<!--                        </td>-->
+                        <%# end %>
                     </tr>
                     <% end %>
                 </tbody>

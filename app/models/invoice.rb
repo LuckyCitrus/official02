@@ -7,12 +7,6 @@ class Invoice < ApplicationRecord
 
   #delete cascading
   has_many :payments, dependent: :delete_all
-  has_many :orderinvoices, dependent: :delete_all
-  has_many :invoiceshipments, dependent: :delete_all
-
-  #associative relation
-  has_many :shipments, through: :invoiceshipments
-  has_many :orders, through: :orderinvoices
 
   #field validation
   validates :invoicenum, presence: true, if: ->(invoice) {invoice.persisted?}, uniqueness: true, length: { maximum: 128 }#, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }
