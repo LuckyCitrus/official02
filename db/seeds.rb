@@ -163,10 +163,10 @@ File.open("#{Rails.root}/db/data/warehouses.csv") do |warehouses|
   end
 end
 
-File.open("#{Rails.root}/db/data/orders.csv") do |orders|
-  orders.read.each_line do |order|
-    date, lotstock, quantity, price, total, orderstatus_id, customer_id, ordernum, invoice_id, container_id, auction_id = order.chomp.split(",")
-    Order.create!(:date=>date, :lotstock=>lotstock, :quantity=>quantity, :price=>price, :total=>total, :orderstatus_id=>orderstatus_id, :customer_id=>customer_id, :ordernum=>ordernum, :invoice_id=>invoice_id, :container_id=>container_id, :auction_id=>auction_id)
+File.open("#{Rails.root}/db/data/shipments.csv") do |shipments|
+  shipments.read.each_line do |shipment|
+    date, quantity, warehouse_id, shipmentmethod_id, shipmentstatus_id, shipmentnum = shipment.chomp.split(",")
+    Shipment.create!(:date=>date, :quantity=>quantity, :warehouse_id=>warehouse_id, :shipmentmethod_id=>shipmentmethod_id, :shipmentstatus_id=>shipmentstatus_id, :shipmentnum=>shipmentnum)
   end
 end
 
@@ -184,17 +184,18 @@ File.open("#{Rails.root}/db/data/payments.csv") do |payments|
   end
 end
 
-File.open("#{Rails.root}/db/data/shipments.csv") do |shipments|
-  shipments.read.each_line do |shipment|
-    date, quantity, warehouse_id, shipmentmethod_id, shipmentstatus_id, shipmentnum = shipment.chomp.split(",")
-    Shipment.create!(:date=>date, :quantity=>quantity, :warehouse_id=>warehouse_id, :shipmentmethod_id=>shipmentmethod_id, :shipmentstatus_id=>shipmentstatus_id, :shipmentnum=>shipmentnum)
-  end
-end
 
 File.open("#{Rails.root}/db/data/containers.csv") do |containers|
   containers.read.each_line do |container|
     company_id, shipment_id, containernum = container.chomp.split(",")
     Container.create!(:company_id=>company_id, :shipment_id=>shipment_id, :containernum=>containernum)
+  end
+end
+
+File.open("#{Rails.root}/db/data/orders.csv") do |orders|
+  orders.read.each_line do |order|
+    date, lotstock, quantity, price, total, orderstatus_id, customer_id, ordernum, invoice_id, container_id, auction_id = order.chomp.split(",")
+    Order.create!(:date=>date, :lotstock=>lotstock, :quantity=>quantity, :price=>price, :total=>total, :orderstatus_id=>orderstatus_id, :customer_id=>customer_id, :ordernum=>ordernum, :invoice_id=>invoice_id, :container_id=>container_id, :auction_id=>auction_id)
   end
 end
 
