@@ -10,12 +10,15 @@
                         <th>Order Number</th>
                         <th>Order Date</th>
                         <th>Customer</th>
+                        <th>Auction</th>
                         <th>Lotstock</th>
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Total</th>
                         <th>Order Status</th>
-                        <th colspan="8"></th>
+                        <th>Invoice Number</th>
+                        <th>Container Number</th>
+                        <th colspan="12"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,11 +27,14 @@
                         <td><%= link_to order.ordernum, order %></td>
                         <td><%= order.date.to_s(:short_date) %></td>
                         <td><%= link_to order.customer.try(:cus_fullname), order.customer %></td>
+                        <td><%= link_to order.auction.auctionname, order.auction %></td>
                         <td><%= order.lotstock %></td>
                         <td><%= order.quantity %></td>
                         <td><%= number_to_currency(order.price) %></td>
                         <td><%= number_to_currency(order.total) %></td>
                         <td><%= order.orderstatus.orderstatus %></td>
+                        <td><%= link_to order.invoice.invoicenum, order.invoice %></td>
+                        <td><%= link_to order.container.containernum, order.container %></td>
                         <!--<td><%= link_to 'Show', order %></td>-->
                         <td><%= link_to 'Edit', edit_order_path(order) if policy(@order).edit? %>
                             <% if current_user.admin? %> /

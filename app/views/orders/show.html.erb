@@ -22,6 +22,10 @@
                     <%= link_to @order.customer.try(:cus_fullname), @order.customer %>
                 </p>
                 <p>
+                    <strong>Auction:</strong>
+                    <%= link_to @order.auction.auctionname, @order.auction %>
+                </p>
+                <p>
                     <strong>Lotstock:</strong>
                     <%= @order.lotstock %>
                 </p>
@@ -41,51 +45,61 @@
                     <strong>Order Status:</strong>
                     <%= @order.orderstatus.orderstatus %>
                 </p>
-
-                <% unless @order.cars.empty? %>
+                
+                <% if @order.invoice %>
                 <p>
-                    <strong>Cars:</strong>
-                    <ul>
-                        <% for @car in @order.cars %>
-                        <li><strong>VIN Number:</strong>
-                            <%= link_to @car.vinnumber, @car %>
-                            (<%= @car.car_info %>)</li>
-                        <% end %>
-                    </ul>
+                    <strong>Invoice #:</strong>
+                    <%= link_to @order.invoice.invoicenum, @order.invoice %>
+                </p>
+                <% end %>
+                
+                <% if @order.container %>
+                <p>
+                    <strong>Container #:</strong>
+                    <%= link_to @order.container.containernum, @order.container %>
+                </p>
+                <% end %>
+
+                <% if @order.car %>
+                <p>
+                    <strong>Car:</strong>
+                    <strong>VIN Number:</strong>
+                    <%= link_to @car.vinnumber, @car %>
+                    (<%= @car.car_info %>)
                 </p>
                 <% end %>
 
                 <%# unless @order.auctions.empty? %>
-<!--                <p>-->
-<!--                    <strong>Auctions:</strong>-->
-<!--                    <ul>-->
-                        <%# @order.auctions.each do |auction| %>
-<!--                        <li><strong>Auction Name: </strong>-->
-<!--                            <%#= link_to auction.auctionname, auction %></li>-->
-                        <%# end %>
-<!--                    </ul>-->
-<!--                </p>-->
+                <!--                <p>-->
+                <!--                    <strong>Auctions:</strong>-->
+                <!--                    <ul>-->
+                <%# @order.auctions.each do |auction| %>
+                <!--                        <li><strong>Auction Name: </strong>-->
+                <!--                            <%#= link_to auction.auctionname, auction %></li>-->
+                <%# end %>
+                <!--                    </ul>-->
+                <!--                </p>-->
                 <%# end %>
 
                 <%# unless @order.invoices.empty? %>
-<!--                <p>-->
-<!--                    <strong>Invoices:</strong>-->
-<!--                    <ul>-->
-                        <%# @order.invoices.each do |invoice| %>
-<!--                        <li><strong>Invoice #: </strong>-->
-                            <%#= link_to invoice.invoicenum, invoice %>
-                            <%# unless invoice.payments.empty? %>
+                <!--                <p>-->
+                <!--                    <strong>Invoices:</strong>-->
+                <!--                    <ul>-->
+                <%# @order.invoices.each do |invoice| %>
+                <!--                        <li><strong>Invoice #: </strong>-->
+                <%#= link_to invoice.invoicenum, invoice %>
+                <%# unless invoice.payments.empty? %>
 
-                            <%# invoice.payments.each do |payment| %>
-<!--                            <ul>-->
-<!--                                <li>Payment #: <%#= link_to payment.paymentnum, payment %></li>-->
-<!--                            </ul>-->
-                            <%# end %>
-                            <%# end %>
-                            <%# end %>
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </p>-->
+                <%# invoice.payments.each do |payment| %>
+                <!--                            <ul>-->
+                <!--                                <li>Payment #: <%#= link_to payment.paymentnum, payment %></li>-->
+                <!--                            </ul>-->
+                <%# end %>
+                <%# end %>
+                <%# end %>
+                <!--                        </li>-->
+                <!--                    </ul>-->
+                <!--                </p>-->
                 <%# end %>
 
                 <% unless @order.images.empty? %>

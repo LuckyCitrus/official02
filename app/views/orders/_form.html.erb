@@ -29,6 +29,10 @@
             </div>
 
             <div class="field">
+                <%= form.collection_select :auction_id, Auction.where("id > 1").order(created_at: :desc), :id, :auctionname, {include_blank: ""}, required: true %>
+            </div>
+
+            <div class="field">
                 <%= form.number_field :lotstock, label: "Lot Stock", min: 0, required: true %>
             </div>
 
@@ -48,8 +52,16 @@
                 <%= form.collection_select :orderstatus_id, Orderstatus.where("id > 1").order(created_at: :desc), :id, :orderstatus, {include_blank: ""}, required: true %>
             </div>
 
+            <div class="field">
+                <%= form.collection_select :invoice_id, Invoice.where("id > 0").order(created_at: :desc), :id, :invoice_info, {include_blank: ""} %>
+            </div>
+
+            <div class="field">
+                <%= form.collection_select :container_id, Container.where("id > 1").order(created_at: :desc), :id, :containernum, {include_blank: ""} %>
+            </div>
+
             <%# Nested Form Form %>
-            <h3>Cars</h3>
+            <!--<h3>Cars</h3>
             <div id='[child]s'>
                 <%= form.fields_for :cars do |car| %>
                 <%= render 'car_fields', :f => car %>
@@ -58,31 +70,18 @@
                     <%= link_to_add_association 'Add Car', form, :cars %>
                 </div>
             </div><br><br>
-            <%# End of Nested Form Form %>
+            <%# End of Nested Form Form %>-->
 
 
-<!--            <h3>Auctions</h3>-->
-<!--            <div id='[child]s'>-->
-                <%#= form.fields_for :order_auctions do |order_auction| %>
-                <%#= render 'order_auction_fields', :f => order_auction %>
-                <%# end %>
-<!--                <div class='links'>-->
-                    <%#= link_to_add_association 'Add Auction', form, :order_auctions %>
-<!--                </div>-->
-<!--            </div><br><br>-->
-            <%# End of Nested Form Form %>
-
-            <%# Nested Form Form %>
-            <%# unless @order.orderinvoices.empty? %>
-<!--            <h3>Invoices</h3>-->
-<!--            <div id='[child]s'>-->
-                <%#= form.fields_for :orderinvoices do |orderinvoice| %>
-                <%#= render 'orderinvoice_fields', :f => orderinvoice %>
-                <%# end %>
-<!--                <div class='links'>-->
-                    <%#= link_to_add_association 'Add Invoice', form, :orderinvoices %>
-<!--                </div>-->
-<!--            </div><br><br><%# end %>-->
+            <!--            <h3>Auctions</h3>-->
+            <!--            <div id='[child]s'>-->
+            <%#= form.fields_for :order_auctions do |order_auction| %>
+            <%#= render 'order_auction_fields', :f => order_auction %>
+            <%# end %>
+            <!--                <div class='links'>-->
+            <%#= link_to_add_association 'Add Auction', form, :order_auctions %>
+            <!--                </div>-->
+            <!--            </div><br><br>-->
             <%# End of Nested Form Form %>
 
             <div class="actions">
