@@ -6,14 +6,11 @@ class Customer < ApplicationRecord
   belongs_to :customertype
   belongs_to :user, optional: true
 
-  #normalized for
-  has_many :invoices
-
   #delete cascading
   has_many :orders, dependent: :destroy
   has_many :payments, dependent: :destroy
-  has_many :cars, through: :orders
-  has_many :invoices
+  has_many :invoices, dependent: :destroy
+
   has_many :shipments, through: :invoices
 
   #fields validation

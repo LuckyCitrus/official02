@@ -4,9 +4,11 @@ class Invoice < ApplicationRecord
   belongs_to :customer
   belongs_to :employee
   belongs_to :invoicestatus
+  belongs_to :shipment
 
   #delete cascading
-  has_many :payments, dependent: :delete_all
+  has_many :payments, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   #field validation
   validates :invoicenum, presence: true, if: ->(invoice) {invoice.persisted?}, uniqueness: true, length: { maximum: 128 }#, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }

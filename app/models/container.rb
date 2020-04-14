@@ -5,13 +5,7 @@ class Container < ApplicationRecord
   belongs_to :shipment
 
   #delete cascading
-  has_many :containerorders, dependent: :destroy, inverse_of: :container
-
-  #associative relations
-  has_many :orders, through: :containerorders
-  
-  #nested forms
-  accepts_nested_attributes_for :containerorders, reject_if: :all_blank, allow_destroy: :true
+  has_many :orders, dependent: :destroy
 
   #fields validation
   #validates :containernum, presence: true, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }, length: { maximum: 128 }

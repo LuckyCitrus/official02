@@ -6,7 +6,7 @@ class Employee < ApplicationRecord
   belongs_to :user, optional: true
 
   #normalized for
-  has_many :invoices
+  has_many :invoices, dependent: :destroy
 
   #field validation
   validates :empfname, presence: true, format: { with: /\A[a-z ][a-z- ]*[a-z-' ]\z/i }, length: { maximum: 128 }
