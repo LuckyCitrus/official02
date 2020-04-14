@@ -33,7 +33,7 @@
            
             <address>
             <div class="field" style="margin-left: 1.5em; padding-top: 30px;">
-                <%= form.text_field :invoicenum, label: "Invoice Number", pattern: '^[a-zA-Z0-9-]*$', minlength: 2, maxlength: 30, required: true %>
+                <%= form.text_field :invoicenum, label: "Invoice Number", pattern: '^[a-zA-Z0-9-]*$', maxlength: 128, disabled: true %>
             </div>
             
             <div class="field" style="margin-left: 1.5em; padding-top: 30px;">
@@ -61,7 +61,7 @@
             </div>
         
             <div class="field">
-                <%= form.collection_select :invoicestatus_id, Invoicestatus.order(:invoicestatus), :id, :invoicestatus, {include_blank: ""}, required: true %>
+                <%= form.collection_select :invoicestatus_id, Invoicestatus.where("id > 1").order(:invoicestatus), :id, :invoicestatus, {include_blank: ""}, required: true %>
             </div>
             </address>
 

@@ -19,6 +19,7 @@ class InvoicesController < ApplicationController
     @orders = @invoice.orders
     #@cars = Car.where(order_id: @orders.ids)
 
+
 		respond_to do |format|
 			format.html
 			format.pdf do
