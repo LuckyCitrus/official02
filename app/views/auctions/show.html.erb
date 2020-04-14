@@ -18,17 +18,17 @@
                     <%= link_to @auction.location.city, @auction.location %>
                 </p>
 
+                <% if @auction.cars %>
                 <p>
-                    <strong>Orders History:</strong>
+                    <strong>Cars:</strong>
                 </p>
-
                 <ul>
-                    <% @auction.orders.each do |order| %>
-                    <li><strong>Order #: </strong>
-                        <%= link_to order.ordernum, order %>
-                        (<%= link_to order.customer.try(:cus_fullname), order.customer %>)</li>
+                    <% @auction.cars.each do |car| %>
+                    <li><strong>VIN #: </strong>
+                        <%= link_to car.vinnumber, car %>
                     <% end %>
                 </ul>
+            <% end %>
 
             </div>
             <div class="card-footer">

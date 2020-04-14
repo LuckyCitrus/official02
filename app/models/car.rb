@@ -11,6 +11,7 @@ class Car < ApplicationRecord
   validates :year, presence: true, inclusion: { in: 1900..Date.today.year+1 }, format: { with: /(19|20)\d{2}/i }
   validates :make, presence: true, length: { maximum: 128 }
   validates :model, presence: true,  length: { maximum: 128 }
+  #validates :auction_id, presence: true
   validates :titlestatus_id, presence: true
   validates :order_id, presence: true#, unless: :order.blank?
 

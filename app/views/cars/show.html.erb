@@ -29,10 +29,12 @@
                     <strong>Key Status:</strong>
                     <%= @car.keystatus.keystatus %>
                 </p>
+                <% if @car.auction %>
                 <p>
                     <strong>Auction:</strong>
                     <%= link_to @car.auction.auctionname, @car.auction %>
                 </p>
+                <% end %>
                 <p>
                     <strong>Order #:</strong>
                     <%= link_to @car.order.ordernum, @car.order %>

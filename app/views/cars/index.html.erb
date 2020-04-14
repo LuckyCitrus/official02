@@ -27,7 +27,7 @@
                         <td><%= car.model %></td>
                         <td><%= car.titlestatus.titlestatus %></td>
                         <td><%= car.keystatus.keystatus %></td>
-                        <td><%= link_to car.auction.auctionname, order.auction %></td>
+                        <td><%= link_to car.auction.try(:auctionname), car.auction if car.auction%></td>
                         <td><%= link_to car.order.ordernum, car.order %></td>
                         <!--<td><%= link_to 'Show', car %></td>-->
                         <td><%= link_to 'Edit', edit_car_path(car) %>
