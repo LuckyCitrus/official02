@@ -1,28 +1,13 @@
 <div class="card border-primary mb-3" style="max-width: 160rem;">
+
   <div class="card-header">
         <%= link_to 'Back', invoices_path, class: "btn btn-secondary" %>
-    </div>
+  </div>
+
   <div class="card-body">
-    
+
     <%= render 'form', invoice: @invoice %>
 
   </div>
-</div>
-
-<%#
-<div class="row row-fluid">
-    <div class="col-sm-5">
-        <div class="card card-default">
-            <div class="card-header">
-                <h1>New Invoice</h1>
-            </div>
-
-            <%= render 'form', invoice: @invoice %>
-
-            <div class="card-footer">
-                
-            </div>
-        </div>
-    </div>
 </div>
 
