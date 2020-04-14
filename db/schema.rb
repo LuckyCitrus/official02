@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_211825) do
+ActiveRecord::Schema.define(version: 2020_04_14_212853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -337,7 +337,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_211825) do
   add_foreign_key "shipments", "warehouses"
   add_foreign_key "warehouses", "locations"
 
-  create_view "customer_overviews", sql_definition: <<-SQL
+  create_view "customer_overviews", materialized: true, sql_definition: <<-SQL
       SELECT DISTINCT (((cus.first_name)::text || ' '::text) || (cus.last_name)::text) AS name,
       o.date,
       c.vinnumber,
@@ -363,5 +363,27 @@ ActiveRecord::Schema.define(version: 2020_04_14_211825) do
        JOIN shipmentstatuses ss ON ((s.shipmentstatus_id = ss.id)))
        FULL JOIN users u ON ((cus.user_id = u.id)))
     ORDER BY o.date DESC;
+  SQL
+  create_view "active_orders", materialized: true, sql_definition: <<-SQL
+      SELECT (((cus.first_name)::text || ' '::text) || (cus.last_name)::text) AS name,
+      cus.email,
+      o.ordernum,
+      o.date,
+      os.orderstatus,
+      ps.paymentstatus,
+      ss.shipmentstatus,
+      con.containernum,
+      w.warehousename
+     FROM ((((((((customers cus
+       JOIN orders o ON ((cus.id = o.customer_id)))
+       JOIN orderstatuses os ON ((os.id = o.orderstatus_id)))
+       JOIN payments p ON ((cus.id = p.customer_id)))
+       JOIN paymentstatuses ps ON ((ps.id = p.paymentstatus_id)))
+       JOIN containers con ON ((con.id = o.container_id)))
+       JOIN shipments s ON ((s.id = con.shipment_id)))
+       JOIN shipmentstatuses ss ON ((ss.id = s.shipmentstatus_id)))
+       JOIN warehouses w ON ((w.id = s.warehouse_id)))
+    WHERE (((os.orderstatus)::text !~~ '%Completed%'::text) AND ((ps.paymentstatus)::text ~~ '%Complete%'::text) AND (o.date > (CURRENT_DATE - '1 mon'::interval)))
+    ORDER BY o.date;
   SQL
 end
