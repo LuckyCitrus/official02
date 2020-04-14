@@ -17,7 +17,7 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :order_id, Order.where("id > 0").order(created_at: :desc), :id, :ordernum, {include_blank: ""}, required: true %>
+        <%= form.collection_select :order_id, Order.where("id > 0").order(created_at: :desc), :id, :order_info, {include_blank: ""}, required: true %>
     </div>
 
     <div class="actions">

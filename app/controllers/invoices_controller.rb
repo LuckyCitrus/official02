@@ -14,9 +14,11 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    #@invoice = policy_scope(Invoice).find(params[:id])
     @invoice = policy_scope(Invoice).find(params[:id])
     @orders = @invoice.orders
-    #@cars = Car.where(order_id: @orders.id)
+    #@cars = Car.where(order_id: @orders.ids)
+
 
 		respond_to do |format|
 			format.html
@@ -41,10 +43,8 @@ class InvoicesController < ApplicationController
 
   end
 
-
   # GET /invoices/new
   def new
-    
     @invoice = Invoice.new
     authorize @invoice
 
@@ -62,7 +62,6 @@ class InvoicesController < ApplicationController
 
   # GET /invoices/1/edit
   def edit
-
     @invoice = policy_scope(Invoice).find(params[:id])
 
     gon.customer_invoice = Invoice.all
