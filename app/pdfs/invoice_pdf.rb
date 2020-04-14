@@ -1,11 +1,11 @@
 class InvoicePdf < Prawn::Document
   include ActionView::Helpers::NumberHelper
   
-	def initialize(invoice, orders, cars)
+	def initialize(invoice, orders, car)
 		super(page_layout: :portrait)
 		@invoice = invoice
 		@orders = orders
-		@cars = cars
+		@car = car
 
 		font "Helvetica"
 		font_size 11
@@ -114,10 +114,8 @@ def invoice_summary
     [["Item", "Description", "Quantity", "Price", "Total"]] + 
 		if @invoice.orders
 			@invoice.orders.map do |order|
-				if order.cars
-    			order.cars.each do |car|
-  				[car.try(:vinnumber), car.try(:car_info), order.quantity, number_to_currency(order.price), number_to_currency(order.total)]
-      		end
+				if order.car
+  				[order.car.try(:vinnumber), order.car.try(:car_info), order.quantity, number_to_currency(order.price), number_to_currency(order.total)]
 			end
 		else
     	[order.ordernum, "" , order.quantity, number_to_currency(order.price), number_to_currency(order.total)]
