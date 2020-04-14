@@ -4,7 +4,7 @@ class Auction < ApplicationRecord
   belongs_to :location, optional: true
 
   #normalized for
-  has_many :orders
+  has_many :cars
 
   #associative relations
   #has_many :orders, through: :order_auctions

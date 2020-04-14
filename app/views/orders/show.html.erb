@@ -22,10 +22,6 @@
                     <%= link_to @order.customer.try(:cus_fullname), @order.customer %>
                 </p>
                 <p>
-                    <strong>Auction:</strong>
-                    <%= link_to @order.auction.auctionname, @order.auction %>
-                </p>
-                <p>
                     <strong>Lotstock:</strong>
                     <%= @order.lotstock %>
                 </p>

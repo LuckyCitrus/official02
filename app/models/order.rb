@@ -5,7 +5,6 @@ class Order < ApplicationRecord
   belongs_to :customer
   belongs_to :container
   belongs_to :invoice
-  belongs_to :auction
 
   #delete cascading
   has_one :car, dependent: :destroy

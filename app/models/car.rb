@@ -4,6 +4,7 @@ class Car < ApplicationRecord
   belongs_to :titlestatus
   belongs_to :keystatus
   belongs_to :order
+  belongs_to :auction
 
   #fields validation
   validates :vinnumber, presence: true, length: { minimum: 11, maximum: 17 }

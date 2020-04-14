@@ -29,10 +29,6 @@
             </div>
 
             <div class="field">
-                <%= form.collection_select :auction_id, Auction.where("id > 1").order(created_at: :desc), :id, :auctionname, {include_blank: ""}, required: true %>
-            </div>
-
-            <div class="field">
                 <%= form.number_field :lotstock, label: "Lot Stock", min: 0, required: true %>
             </div>
 

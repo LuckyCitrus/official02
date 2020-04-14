@@ -30,6 +30,10 @@
                     <%= @car.keystatus.keystatus %>
                 </p>
                 <p>
+                    <strong>Auction:</strong>
+                    <%= link_to @car.auction.auctionname, @car.auction %>
+                </p>
+                <p>
                     <strong>Order #:</strong>
                     <%= link_to @car.order.ordernum, @car.order %>
                 </p>
@@ -42,7 +46,7 @@
             <div class="card-footer">
                 <%= link_to 'Edit', edit_car_path(@car), class: "btn btn-primary" %>
                 <%= link_to 'Show Cars', cars_path, class: "btn btn-secondary" %>
-             </div>
+            </div>
         </div>
     </div>
 </div>
