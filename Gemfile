@@ -9,12 +9,15 @@ gem 'pagy'
 gem 'prawn-table'
 gem 'prawn'
 gem "scenic"
+
 gem "bootstrap_form", "~> 4.0"
 gem 'flatpickr'
 gem 'pundit'
 gem 'devise'
 gem 'seed_dump'
 gem 'yaml_db'
+
+gem 'gon'
 
 # Gems for Nested Form
 gem 'jquery-rails'
@@ -24,6 +27,8 @@ gem 'cocoon'
 gem 'active_storage_drag_and_drop'
 gem 'active_storage_validations'
 gem "aws-sdk-s3", require: false
+
+gem 'simple_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'

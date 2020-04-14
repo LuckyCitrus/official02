@@ -2,12 +2,13 @@ class InvoicesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_invoice, only: [:show, :edit, :update, :destroy]
 
+
   # GET /invoices
   # GET /invoices.json
   def index
     #@invoices = Invoice.all
     #@invoices = policy_scope(Invoice)
-    @pagy, @invoices = pagy(policy_scope(Invoice.where("invoices.id > 0").order(created_at: :desc)))
+    @pagy, @invoices = pagy(policy_scope(Invoice.order(invoicedate: :desc)))
   end
 
   # GET /invoices/1
@@ -28,17 +29,50 @@ class InvoicesController < ApplicationController
 				disposition: "inline"
 			end
     end
-    
+
+    gon.customer_invoice = Invoice.all
+    gon.customer_orders = Order.all
+    gon.customer_cars= Car.all
+    gon.customer_containerorders= Containerorder.all
+    gon.customer_containers= Container.all
+    gon.customer_shipments= Shipment.all
+    gon.customer_warehouses= Warehouse.all
+    gon.customer_locations= Location.all
+    gon.customer_via= Shipmentmethod.all
+
   end
 
   # GET /invoices/new
   def new
     @invoice = Invoice.new
     authorize @invoice
+
+    gon.customer_invoice = Invoice.all
+    gon.customer_orders = Order.all
+    gon.customer_cars= Car.all
+    gon.customer_containerorders= Containerorder.all
+    gon.customer_containers= Container.all
+    gon.customer_shipments= Shipment.all
+    gon.customer_warehouses= Warehouse.all
+    gon.customer_locations= Location.all
+    gon.customer_via= Shipmentmethod.all
+
   end
 
   # GET /invoices/1/edit
   def edit
+    @invoice = policy_scope(Invoice).find(params[:id])
+
+    gon.customer_invoice = Invoice.all
+    gon.customer_orders = Order.all
+    gon.customer_cars= Car.all
+    gon.customer_containerorders= Containerorder.all
+    gon.customer_containers= Container.all
+    gon.customer_shipments= Shipment.all
+    gon.customer_warehouses= Warehouse.all
+    gon.customer_locations= Location.all
+    gon.customer_via= Shipmentmethod.all
+
   end
 
   # POST /invoices
@@ -93,5 +127,6 @@ class InvoicesController < ApplicationController
     def invoice_params
       # params.require(:invoice).permit(:invoicedate, :duedate, :customer_id, :employee_id, :order_id, :payment_id, :car_id, :shipment_id, :auction_id)
       params.require(:invoice).permit(:invoicedate, :duedate, :customer_id, :employee_id, :invoicestatus_id, :amountdue, :invoicenum)
+      
     end
 end
