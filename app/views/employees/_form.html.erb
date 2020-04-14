@@ -18,7 +18,7 @@
     </div>
 
     <div class="field">
-        <%= form.text_field :emplname,label: "Last Name", pattern: "^[a-zA-Z-']*$", help: "Only alphabetical characters are allowed", maxlength: 128, required: true %>
+        <%= form.text_field :emplname, label: "Last Name", pattern: "^[a-zA-Z-']*$", help: "Only alphabetical characters are allowed", maxlength: 128, required: true %>
     </div>
 
     <div class="field">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="field">
-        <%= form.email_field :email, maxlength: 254, required: true %>
+        <%= form.email_field :email, label: "Preferred Email", maxlength: 254, required: true %>
     </div>
 
     <div class="field">
@@ -50,7 +50,7 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :user_id, User.where("id > 0").order(:role), :id, :email, {include_blank: ""}, disabled: !current_user.admin? %>
+        <%= form.collection_select :user_id, User.where("id > 0").order(created_at: :desc), :id, :email, {include_blank: ""}, disabled: !current_user.admin? %>
     </div>
 
     <div class="actions">

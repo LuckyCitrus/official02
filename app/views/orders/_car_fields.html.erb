@@ -2,7 +2,7 @@
 <div class='nested-fields'>
 
     <div class="field">
-        <%= f.text_field :vinnumber, label: "VIN Number", pattern: '^[a-zA-Z0-9]*$', help: "No special characters are allowed", minlength: 11, maxlength: 17, required: true %>
+        <%= f.text_field :vinnumber, label: "VIN Number", pattern: '^[a-zA-Z0-9]*$', help: "Only alphanumeric characters are allowed", minlength: 11, maxlength: 17, required: true %>
     </div>
     <!--VIN Number 1981 standard regex:'^[A-HJ-NPR-Z\\d]{8}[\\dX][A-HJ-NPR-Z\\d]{2}\\d{6}$-->
 

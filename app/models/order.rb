@@ -24,4 +24,8 @@ class Order < ApplicationRecord
   validates :total, presence: true, numericality: { greater_than_or_equal_to: :price}
   validates :orderstatus, presence: true
 
+  def order_info
+    "#{ordernum} (#{customer.first_name} #{customer.last_name})"
+  end
+
 end

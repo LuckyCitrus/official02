@@ -22,7 +22,7 @@
                     <%= @customer.phone %>
                 </p>
                 <p>
-                    <strong>Email:</strong>
+                    <strong>Preferred Email:</strong>
                     <%= @customer.email %>
                 </p>
                 <p>
@@ -40,7 +40,7 @@
 
                 <% if @customer.user %>
                 <p>
-                    <strong>User:</strong>
+                    <strong>Registered Accout:</strong>
                     <% if current_user.try(:admin?)  %>
                     <td><%= link_to @customer.user.try(:email), @customer.user if @customer.user %></td>
                     <% else %>
