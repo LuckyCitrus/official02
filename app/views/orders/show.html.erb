@@ -41,14 +41,14 @@
                     <strong>Order Status:</strong>
                     <%= @order.orderstatus.orderstatus %>
                 </p>
-                
+
                 <% if @order.invoice %>
                 <p>
                     <strong>Invoice #:</strong>
                     <%= link_to @order.invoice.invoicenum, @order.invoice %>
                 </p>
                 <% end %>
-                
+
                 <% if @order.container %>
                 <p>
                     <strong>Container #:</strong>
@@ -97,7 +97,7 @@
 
             </div>
             <div class="card-footer">
-                <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" %>
+                <%= link_to 'Edit', edit_order_path(@order), class: "btn btn-primary" if policy(@order).edit? %>
                 <%= link_to 'Show Orders', orders_path, class: "btn btn-secondary" %> </div>
         </div>
     </div>

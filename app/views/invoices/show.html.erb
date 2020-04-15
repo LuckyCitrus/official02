@@ -68,7 +68,7 @@
               </div>
               <div class="card-footer">
                   <%= link_to 'Edit', edit_invoice_path(@invoice), class: "btn btn-primary" %>
-                  <%= link_to 'Back', :back, class: "btn btn-secondary" %>
+                  <%= link_to 'Show Invoices', invoices_path, class: "btn btn-secondary" if policy(@invoice).edit? %>
                   <%= link_to "View PDF", invoice_path(@invoice, format: :pdf), class: "btn btn-outline-primary" %>
 
               </div>

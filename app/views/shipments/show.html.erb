@@ -51,7 +51,7 @@
                         <% @shipment.containers.each do |container| %>
                         <li><strong>Container #: </strong>
                             <%= link_to container.containernum, container %>
-                        (<%= link_to container.company.companyname, container.company %>)</li>
+                            (<%= link_to container.company.companyname, container.company %>)</li>
                         <% end %>
                     </ul>
                 </p>
@@ -59,7 +59,7 @@
 
             </div>
             <div class="card-footer">
-                <%= link_to 'Edit', edit_shipment_path(@shipment), class: "btn btn-primary" %>
+                <%= link_to 'Edit', edit_shipment_path(@shipment), class: "btn btn-primary" if policy(@shipment).edit? %>
                 <%= link_to 'Show Shipments', shipments_path, class: "btn btn-secondary" %>
             </div>
 

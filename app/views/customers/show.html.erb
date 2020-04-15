@@ -57,12 +57,12 @@
                         <li><strong>Order #: </strong>
                             <%= link_to order.ordernum, order %>
                             <% if order.car %>
-                        <p><strong>VIN #: </strong>
-                            <%= link_to order.car.vinnumber, order.car %>
-                            (<%= order.car.car_info %>)</p>
+                            <p><strong>VIN #: </strong>
+                                <%= link_to order.car.vinnumber, order.car %>
+                                (<%= order.car.car_info %>)</p>
                             <% end %>
                             <% end %>
-                        
+
                     </ul>
                 </p>
                 <% end %>
@@ -104,7 +104,7 @@
 
             </div>
             <div class="card-footer">
-                <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-primary" %>
+                <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-primary" if policy(@customer).edit? %>
                 <%= link_to 'Show Customers', customers_path, class: "btn btn-secondary" %>
             </div>
         </div>
