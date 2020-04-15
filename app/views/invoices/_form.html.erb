@@ -58,15 +58,15 @@
     <%# End of Nested Form %>
 
     <%# Nested Form %>
-    <h3>Payments</h3>
-    <div id='[child]s'>
-        <%= form.fields_for :payments do |payment| %>
-        <%= render 'payment_fields', :f => payment %>
-        <% end %>
-        <div class='links'>
-            <%= link_to_add_association 'Add Payment', form, :payments %>
-        </div>
-    </div><br><br>
+    <!--<h3>Payments</h3>
+    <div id='[child]s'>-->
+        <%#= form.fields_for :payments do |payment| %>
+        <%#= render 'payment_fields', :f => payment %>
+        <%# end %>
+        <!--<div class='links'>-->
+            <%#= link_to_add_association 'Add Payment', form, :payments %>
+        <!--</div>
+    </div><br><br>-->
     <%# End of Nested Form %>
 
     <div class="actions">
