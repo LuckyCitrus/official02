@@ -3,8 +3,8 @@ class Order < ApplicationRecord
   #dependencies
   belongs_to :orderstatus
   belongs_to :customer
-  belongs_to :container
-  belongs_to :invoice
+  belongs_to :container, optional: true
+  belongs_to :invoice, optional: true
 
   #delete cascading
   has_one :car, dependent: :destroy

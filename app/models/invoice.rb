@@ -4,7 +4,7 @@ class Invoice < ApplicationRecord
   belongs_to :customer
   belongs_to :employee
   belongs_to :invoicestatus
-  belongs_to :shipment
+  belongs_to :shipment, optional: true
 
   #delete cascading
   has_many :payments, dependent: :destroy
@@ -12,6 +12,7 @@ class Invoice < ApplicationRecord
 
   #nested forms
   accepts_nested_attributes_for :orders, reject_if: :all_blank, allow_destroy: :true
+  accepts_nested_attributes_for :payments, reject_if: :all_blank, allow_destroy: :true
 
   #field validation
   validates :invoicenum, presence: true, if: ->(invoice) {invoice.persisted?}, uniqueness: true, length: { maximum: 128 }#, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }
