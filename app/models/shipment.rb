@@ -22,4 +22,9 @@ class Shipment < ApplicationRecord
   validates :shipmentmethod_id, presence: true
   validates :shipmentstatus_id, presence: true
 
+  def shipment_info
+    "#{shipmentnum} (#{date})"
+  end
+
+
 end

@@ -41,7 +41,7 @@
 
     <% if invoice.persisted? %>
     <div class="field">
-        <%= form.collection_select :shipment_id, Shipment.where("id > 0").order(created_at: :desc), :id, :shipmentnum, {include_blank: ""}%>
+        <%= form.collection_select :shipment_id, Shipment.where("id > 0").order(created_at: :desc), :id, :shipment_info, {include_blank: ""}%>
     </div>
     <% end %>
 
@@ -58,15 +58,15 @@
     <%# End of Nested Form %>
 
     <%# Nested Form %>
-    <h3>Payments</h3>
-    <div id='[child]s'>
-        <%= form.fields_for :payments do |payment| %>
-        <%= render 'payment_fields', :f => payment %>
-        <% end %>
-        <div class='links'>
-            <%= link_to_add_association 'Add Payment', form, :payments %>
-        </div>
-    </div><br><br>
+    <!--<h3>Payments</h3>
+    <div id='[child]s'>-->
+        <%#= form.fields_for :payments do |payment| %>
+        <%#= render 'payment_fields', :f => payment %>
+        <%# end %>
+        <!--<div class='links'>-->
+            <%#= link_to_add_association 'Add Payment', form, :payments %>
+        <!--</div>
+    </div><br><br>-->
     <%# End of Nested Form %>
 
     <div class="actions">

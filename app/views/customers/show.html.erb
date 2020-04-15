@@ -56,14 +56,13 @@
                         <% @customer.orders.each do |order| %>
                         <li><strong>Order #: </strong>
                             <%= link_to order.ordernum, order %>
-                            <% @customer.cars.each do |car| %>
-                            <ul>
-                                <li>VIN #: <%= link_to car.vinnumber, car %>
-                                    (<%= car.try(:car_info) %>)</li>
-                            </ul>
+                            <% if order.car %>
+                            <p><strong>VIN #: </strong>
+                                <%= link_to order.car.vinnumber, order.car %>
+                                (<%= order.car.car_info %>)</p>
                             <% end %>
                             <% end %>
-                        </li>
+
                     </ul>
                 </p>
                 <% end %>
@@ -105,7 +104,7 @@
 
             </div>
             <div class="card-footer">
-                <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-primary" %>
+                <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-primary" if policy(@customer).edit? %>
                 <%= link_to 'Show Customers', customers_path, class: "btn btn-secondary" %>
             </div>
         </div>
