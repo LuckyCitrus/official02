@@ -24,11 +24,11 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :customer_id, Customer.order(:first_name).all, :id, :cus_fullname, {include_blank: ""}, required: true %>
+        <%= form.collection_select :customer_id, Customer.order(created_at: :desc).all, :id, :cus_fullname, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :employee_id, Employee.order(:empfname).all, :id, :emp_fullname, {include_blank: ""}, required: true %>
+        <%= form.collection_select :employee_id, Employee.order(created_at: :desc).all, :id, :emp_fullname, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
