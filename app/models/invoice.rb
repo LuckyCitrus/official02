@@ -10,6 +10,9 @@ class Invoice < ApplicationRecord
   has_many :payments, dependent: :destroy
   has_many :orders, dependent: :destroy
 
+  #nested forms
+  accepts_nested_attributes_for :orders, reject_if: :all_blank, allow_destroy: :true
+
   #field validation
   validates :invoicenum, presence: true, if: ->(invoice) {invoice.persisted?}, uniqueness: true, length: { maximum: 128 }#, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }
   validates :invoicedate, presence: true

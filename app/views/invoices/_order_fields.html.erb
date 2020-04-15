@@ -1,0 +1,43 @@
+<%# Nested Form Partial %>
+<div class='nested-fields'>
+
+    <div class="field">
+        <%= f.text_field :date, label: "Order Date", data: { behavior: "flatpickr" }, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.collection_select :customer_id, Customer.where("id > 0").order(created_at: :desc), :id, :cus_fullname, {include_blank: ""}, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.number_field :lotstock, label: "Lot Stock", min: 0, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.number_field :quantity, min: 1, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.number_field :price, min: 0, step: 0.01, placeholder: "$", required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.number_field :total, min: :price, step: 0.01, placeholder: "$",  required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.collection_select :orderstatus_id, Orderstatus.where("id > 1").order(created_at: :desc), :id, :orderstatus, {include_blank: ""}, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.collection_select :invoice_id, Invoice.where("id > 0").order(created_at: :desc), :id, :invoice_info, {include_blank: ""} %>
+    </div>
+
+    <div class="field">
+        <%= f.collection_select :container_id, Container.where("id > 1").order(created_at: :desc), :id, :containernum, {include_blank: ""} %>
+    </div>
+
+    <%= link_to_remove_association "Remove Order", f %>
+
+</div>
+<%# End of Nested Form Partial %>
