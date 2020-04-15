@@ -1,4 +1,3 @@
-create MATERIALIZED VIEW active_invoices AS
 select distinct first_name || ' ' || last_name as name, email, i.invoicenum, i.invoicedate, invoicestatus
 FROM customers cus JOIN orders o on cus.id = o.customer_id
 JOIN orderstatuses os on os.id = o.orderstatus_id

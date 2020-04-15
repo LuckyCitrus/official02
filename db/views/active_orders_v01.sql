@@ -1,4 +1,3 @@
-create MATERIALIZED VIEW active_orders AS
 SELECT first_name || ' ' || last_name as name, email, ordernum, o.date, orderstatus, paymentstatus, shipmentstatus, containernum, warehousename
 FROM customers cus JOIN orders o on cus.id = o.customer_id
 JOIN orderstatuses os on os.id = o.orderstatus_id

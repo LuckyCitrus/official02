@@ -1,4 +1,3 @@
-create MATERIALIZED VIEW customer_overviews AS
 SELECT distinct first_name || ' ' || last_name as name, o.date, vinnumber, c.year || ' ' || make || ' ' || model as car, ordernum, orderstatus, invoicenum, invoicestatus, paymentnum, paymentstatus, shipmentnum, shipmentstatus, cus.user_id
 FROM customers cus JOIN orders o on cus.id = o.customer_id
 JOIN orderstatuses os on o.orderstatus_id = os.id
