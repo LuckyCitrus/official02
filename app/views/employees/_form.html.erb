@@ -49,9 +49,12 @@
         <%= form.collection_select :employeestatus_id, Employeestatus.where("id > 1").order(created_at: :desc), :id, :employeestatus, {include_blank: ""}, required: true %>
     </div>
 
+    <% if current_user.admin? %>
     <div class="field">
-        <%= form.collection_select :user_id, User.where("id > 0").order(created_at: :desc), :id, :email, {include_blank: ""}, disabled: !current_user.admin? %>
+        <%#= form.collection_select :user_id, User.where("id > 0").order(created_at: :desc), :id, :email, {include_blank: ""}, disabled: !current_user.admin? %>
+        <%= form.collection_select :user_id, User.where("id > 0").order(created_at: :desc), :id, :email, {include_blank: ""} %>
     </div>
+    <% end %>
 
     <div class="actions">
         <%= form.submit :Submit, class: 'btn btn-success' %>

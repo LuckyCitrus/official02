@@ -11,7 +11,8 @@ class ShipmentPolicy < ApplicationPolicy
       if user.admin? || user.employee?
         scope.all
       else
-        scope.joins(invoiceshipments: [invoice: :customer]).where(customers: { user_id: user.id })
+        #scope.joins(invoiceshipments: [invoice: :customer]).where(customers: { user_id: user.id })
+        scope.joins([invoices: :customer]).where(customers: { user_id: user.id })
       end
     end
   end

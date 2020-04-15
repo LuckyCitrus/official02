@@ -5,14 +5,6 @@ class EmployeePolicy < ApplicationPolicy
     @user = user
     @employee = employee
 
-  def update?
-    false
-  end
-
-  def edit?
-    false
-  end
-
   def destroy?
     false
   end
