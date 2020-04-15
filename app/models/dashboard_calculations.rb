@@ -16,7 +16,9 @@ class DashboardCalculations
     end
 
     def self.total_auction_orders
-        Order.joins(order_auctions: :auction).where(["orders.id = order_auctions.order_id AND orders.date > CURRENT_DATE - INTERVAL '1 month'"]).group("auctions.auctionname").order("SUM(orders.quantity) DESC").sum(:quantity)
+        #Order.joins(order_auctions: :auction).where(["orders.id = order_auctions.order_id AND orders.date > CURRENT_DATE - INTERVAL '1 month'"]).group("auctions.auctionname").order("SUM(orders.quantity) DESC").sum(:quantity)
+        
+        Order.joins(car: :auction).where(["auctions.id = cars.auction_id AND orders.id = cars.order_id AND orders.date > CURRENT_DATE - INTERVAL '1 month'"]).group("auctions.auctionname").order("SUM(orders.quantity) DESC").sum(:quantity)
     end
 
 end

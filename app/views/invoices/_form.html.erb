@@ -24,11 +24,11 @@
     </div>
 
     <div class="field">
-        <%= form.collection_select :customer_id, Customer.order(:first_name).all, :id, :cus_fullname, {include_blank: ""}, required: true %>
+        <%= form.collection_select :customer_id, Customer.order(created_at: :desc).all, :id, :cus_fullname, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
-        <%= form.collection_select :employee_id, Employee.order(:empfname).all, :id, :emp_fullname, {include_blank: ""}, required: true %>
+        <%= form.collection_select :employee_id, Employee.order(created_at: :desc).all, :id, :emp_fullname, {include_blank: ""}, required: true %>
     </div>
 
     <div class="field">
@@ -39,9 +39,11 @@
         <%= form.number_field :amountdue, label: "Amount Due", value: number_with_precision(invoice.amountdue, precision: 2), min: 0, step: 0.01, placeholder: "$", required: true %>
     </div>
 
+    <% if invoice.persisted? %>
     <div class="field">
         <%= form.collection_select :shipment_id, Shipment.where("id > 0").order(created_at: :desc), :id, :shipmentnum, {include_blank: ""}%>
     </div>
+    <% end %>
 
     <%# Nested Form %>
     <h3>Orders</h3>
@@ -51,6 +53,18 @@
         <% end %>
         <div class='links'>
             <%= link_to_add_association 'Add Order', form, :orders %>
+        </div>
+    </div><br><br>
+    <%# End of Nested Form %>
+
+    <%# Nested Form %>
+    <h3>Payments</h3>
+    <div id='[child]s'>
+        <%= form.fields_for :payments do |payment| %>
+        <%= render 'payment_fields', :f => payment %>
+        <% end %>
+        <div class='links'>
+            <%= link_to_add_association 'Add Payment', form, :payments %>
         </div>
     </div><br><br>
     <%# End of Nested Form %>

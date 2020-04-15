@@ -1,0 +1,25 @@
+<%# Nested Form Partial %>
+<div class='nested-fields'>
+
+    <div class="field">
+        <%= f.date_field :date, label: "Payment Date", required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.collection_select :customer_id, Customer.where("id > 0").order(created_at: :desc), :id, :cus_fullname, {include_blank: ""}, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.number_field :amount, min: 0, step: 0.01, placeholder: "$",required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.collection_select :paymentstatus_id, Paymentstatus.where("id > 1").order(created_at: :desc), :id, :paymentstatus, {include_blank: ""}, required: true %>
+    </div>
+
+    <div class="field">
+        <%= f.collection_select :paymentmethod_id, Paymentmethod.where("id > 1").order(created_at: :desc), :id, :paymenttype, {include_blank: "" }, required: true %>
+    </div>
+
+</div>
+<%# End of Nested Form Partial %>

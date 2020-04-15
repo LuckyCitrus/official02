@@ -3,15 +3,15 @@ class Order < ApplicationRecord
   #dependencies
   belongs_to :orderstatus
   belongs_to :customer
-  belongs_to :container
-  belongs_to :invoice
+  belongs_to :container, optional: true
+  belongs_to :invoice, optional: true
 
   #delete cascading
   has_one :car, dependent: :destroy
   has_many :images, dependent: :destroy
 
   #nested forms
-  #accepts_nested_attributes_for :cars, reject_if: :all_blank, allow_destroy: :true
+  #accepts_nested_attributes_for :car, reject_if: :all_blank, allow_destroy: :true
 
   #fields validation
   validates :ordernum, presence: true, if: ->(order) {order.persisted?}, uniqueness: true, length: { maximum: 128 }#, format: { with: /\A[a-z\d][a-z\d-]*[a-z\d-]\z/i }

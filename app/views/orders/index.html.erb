@@ -31,8 +31,8 @@
                         <td><%= number_to_currency(order.price) %></td>
                         <td><%= number_to_currency(order.total) %></td>
                         <td><%= order.orderstatus.orderstatus %></td>
-                        <td><%= link_to order.invoice.invoicenum, order.invoice %></td>
-                        <td><%= link_to order.container.containernum, order.container %></td>
+                        <td><%= link_to order.invoice.invoicenum, order.invoice if order.invoice %></td>
+                        <td><%= link_to order.container.containernum, order.container if order.container %></td>
                         <!--<td><%= link_to 'Show', order %></td>-->
                         <td><%= link_to 'Edit', edit_order_path(order) if policy(@order).edit? %>
                             <% if current_user.admin? %> /

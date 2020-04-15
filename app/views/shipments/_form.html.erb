@@ -36,18 +36,6 @@
         <%= form.collection_select :shipmentstatus_id, Shipmentstatus.where("id > 1").order(created_at: :desc), :id, :shipmentstatus, {include_blank: ""}, required: true %>
     </div>
 
-    <%# Nested Form Form %>
-    <h3>Invoices</h3>
-    <div id='[child]s'>
-        <%= form.fields_for :invoiceshipments do |invoiceshipment| %>
-        <%= render 'invoiceshipment_fields', :f => invoiceshipment %>
-        <% end %>
-        <div class='links'>
-            <%= link_to_add_association 'Add Invoice', form, :invoiceshipments %>
-        </div>
-    </div><br><br>
-    <%# End of Nested Form Form %>
-
     <div class="actions">
         <%= form.submit :Submit, class: 'btn btn-success' %>
     </div>
